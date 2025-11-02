@@ -1,4 +1,3 @@
-
 // src/app/admin/prompts/page.tsx
 'use client';
 
@@ -18,16 +17,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Loader2, Wand2, Sparkles, Copy, Check, FileText } from 'lucide-react';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Label } from '@/components/ui/label';
 
-const availablePages = [
-  'Página de Inicio',
-  'Página de Contacto',
-  'Página de Servicios',
-  'Página Sobre Nosotros',
-  'Página de Preguntas Frecuentes',
-];
+import { navGroups } from '@/lib/navigation';
+import { adminNavItems } from '@/lib/navigation-admin';
+
+// Extraer todas las rutas de navegación para usarlas en el selector
+const mainPages = navGroups.flatMap(group => group.items.map(item => item.label));
+const adminPages = adminNavItems.flatMap(item => 'href' in item ? item.label : item.items.map(subItem => subItem.label));
+
+// Eliminar duplicados y ordenar
+const availablePages = [...new Set([...mainPages, ...adminPages])].sort();
 
 const promptGeneratorSchema = z.object({
   pageName: z.string().min(1, 'Debes seleccionar una página.'),
