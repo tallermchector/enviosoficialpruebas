@@ -11,6 +11,7 @@ import {
   Settings,
   BookImage,
   Bike,
+  FileText,
 } from "lucide-react";
 
 export interface AdminNavItem {
@@ -86,9 +87,9 @@ export const adminNavItems: (AdminNavItem | AdminNavGroup)[] = [
     bgColor: "bg-orange-50",
   },
   {
-    label: "Publicaciones",
+    label: "Contenido e IA",
     icon: BookImage,
-    description: "Gestiona el contenido visual y social de la marca.",
+    description: "Gestiona el contenido social y las herramientas de IA.",
     items: [
        {
         href: "/admin/add-post",
@@ -100,11 +101,19 @@ export const adminNavItems: (AdminNavItem | AdminNavGroup)[] = [
       },
       {
         href: "/admin/crea-imagenes",
-        label: "Prompts IMG",
+        label: "Prompts de Imagen",
         icon: Wand2,
         description: "Crea prompts para generar imágenes de marca.",
         color: "text-teal-500",
         bgColor: "bg-teal-50",
+      },
+       {
+        href: "/admin/prompts",
+        label: "Generador de Prompts",
+        icon: FileText,
+        description: "Genera prompts para replicar páginas.",
+        color: "text-rose-500",
+        bgColor: "bg-rose-50",
       },
     ],
   }
