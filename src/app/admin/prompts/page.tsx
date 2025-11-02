@@ -70,7 +70,15 @@ function SubmitButton({ isPending, text = 'Generar' }: { isPending: boolean, tex
   );
 }
 
-function PromptResult({ prompt }: { prompt?: string }) {
+function PromptResult({ 
+  prompt,
+  pageName,
+  componentName
+}: { 
+  prompt?: string;
+  pageName?: string;
+  componentName?: string;
+}) {
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
 
@@ -85,16 +93,20 @@ function PromptResult({ prompt }: { prompt?: string }) {
 
   const handleDownload = () => {
     if (prompt) {
+      const formattedPageName = pageName?.toLowerCase().replace(/\s+/g, '-') || 'pagina';
+      const formattedComponentName = componentName?.toLowerCase().replace(/\s+/g, '-') || '';
+      const filename = `prompt_${formattedPageName}${formattedComponentName ? `_${formattedComponentName}` : ''}.txt`;
+
       const blob = new Blob([prompt], { type: 'text/plain;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'prompt.txt';
+      link.download = filename;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
-      toast({ title: 'Descargado', description: 'El prompt se ha guardado como prompt.txt.' });
+      toast({ title: 'Descargado', description: `El prompt se ha guardado como ${filename}.` });
     }
   };
 
@@ -141,6 +153,7 @@ function PagePromptGenerator() {
   const [state, formAction] = useActionState(generatePagePromptAction, initialPageState);
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
+  const [lastSubmittedPage, setLastSubmittedPage] = useState<string | undefined>();
 
   const form = useForm<PagePromptFormValues>({
     resolver: zodResolver(pagePromptSchema),
@@ -154,6 +167,7 @@ function PagePromptGenerator() {
   const handleFormSubmit = form.handleSubmit((data) => {
     const formData = new FormData();
     formData.append('pageName', data.pageName);
+    setLastSubmittedPage(data.pageName);
     startTransition(() => formAction(formData));
   });
 
@@ -181,7 +195,7 @@ function PagePromptGenerator() {
             </CardContent>
             <CardFooter className="flex flex-col">
                 <SubmitButton isPending={isPending} text="Generar Prompt de Página" />
-                <PromptResult prompt={state.prompt} />
+                <PromptResult prompt={state.prompt} pageName={lastSubmittedPage} />
             </CardFooter>
         </form>
     </Form>
@@ -191,7 +205,7 @@ function PagePromptGenerator() {
 function ComponentPromptGenerator() {
   const [state, formAction] = useActionState(generateComponentPromptAction, initialComponentState);
   const [isPending, startTransition] = useTransition();
-  const [selectedPage, setSelectedPage] = useState<string>('');
+  const [lastSubmittedData, setLastSubmittedData] = useState<{pageName?: string; componentName?: string}>({});
   const { toast } = useToast();
 
   const form = useForm<ComponentPromptFormValues>({
@@ -207,9 +221,11 @@ function ComponentPromptGenerator() {
     const formData = new FormData();
     formData.append('pageName', data.pageName);
     formData.append('componentName', data.componentName);
+    setLastSubmittedData(data);
     startTransition(() => formAction(formData));
   });
 
+  const selectedPage = form.watch('pageName');
   const availableComponents = pageComponentMap[selectedPage] || [];
 
   return (
@@ -219,7 +235,7 @@ function ComponentPromptGenerator() {
                 <FormField control={form.control} name="pageName" render={({ field }) => (
                     <FormItem>
                         <FormLabel>Página</FormLabel>
-                        <Select onValueChange={(value) => { field.onChange(value); setSelectedPage(value); form.resetField('componentName'); }} defaultValue={field.value}>
+                        <Select onValueChange={(value) => { field.onChange(value); form.resetField('componentName'); }} defaultValue={field.value}>
                             <FormControl><SelectTrigger><SelectValue placeholder="Selecciona una página..." /></SelectTrigger></FormControl>
                             <SelectContent>
                                 {Object.keys(pageComponentMap).map(page => <SelectItem key={page} value={page}>{page}</SelectItem>)}
@@ -243,7 +259,11 @@ function ComponentPromptGenerator() {
             </CardContent>
             <CardFooter className="flex flex-col">
                 <SubmitButton isPending={isPending} text="Generar Prompt de Componente" />
-                <PromptResult prompt={state.prompt} />
+                <PromptResult 
+                    prompt={state.prompt} 
+                    pageName={lastSubmittedData.pageName}
+                    componentName={lastSubmittedData.componentName}
+                />
             </CardFooter>
         </form>
     </Form>
