@@ -208,22 +208,15 @@ export function Footer() {
                   transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
                 >
                   <motion.div whileHover={href ? { x: 6, scale: 1.02 } : {}} className="group">
-                    {href ? (
-                      <a
-                        href={href}
-                        className="flex items-start space-x-3 text-sm py-2 px-3 rounded-lg hover:bg-primary-foreground/5 transition-all duration-300"
-                      >
-                        <Icon className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
-                        <span className="text-primary-foreground/80 group-hover:text-primary-foreground transition-colors duration-200">
-                          {text}
-                        </span>
-                      </a>
-                    ) : (
-                      <div className="flex items-start space-x-3 text-sm py-2 px-3">
-                        <Icon className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
-                        <span className="text-primary-foreground/80">{text}</span>
-                      </div>
-                    )}
+                    <a
+                      href={href || undefined}
+                      className="flex items-start space-x-3 text-sm py-2 px-3 rounded-lg hover:bg-primary-foreground/5 transition-all duration-300"
+                    >
+                      <Icon className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                      <span className={cn("text-primary-foreground/80 transition-colors duration-200", href && "group-hover:text-primary-foreground")}>
+                        {text}
+                      </span>
+                    </a>
                   </motion.div>
                 </motion.li>
               ))}
