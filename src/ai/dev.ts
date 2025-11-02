@@ -1,6 +1,8 @@
+'use server';
 import { config } from 'dotenv';
 config();
 
 import '@/ai/flows/summarize-testimonials.ts';
 import '@/ai/flows/generate-image-prompt.ts';
 import '@/ai/flows/generate-page-prompt.ts';
+import '@/ai/flows/generate-component-prompt.ts';
