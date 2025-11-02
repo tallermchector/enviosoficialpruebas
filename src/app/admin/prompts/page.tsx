@@ -1,3 +1,4 @@
+
 // src/app/admin/prompts/page.tsx
 'use client';
 
@@ -18,6 +19,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Loader2, Wand2, Sparkles, Copy, Check, FileText } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Label } from '@/components/ui/label';
 
 const availablePages = [
   'Página de Inicio',
