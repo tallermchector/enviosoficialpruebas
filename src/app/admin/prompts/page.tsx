@@ -17,7 +17,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGr
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Loader2, Wand2, Copy, Check, FileText, Component } from 'lucide-react';
+import { Loader2, Wand2, Copy, Check, FileText, Component, Download } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 
 import { navGroups } from '@/lib/navigation';
@@ -83,6 +83,21 @@ function PromptResult({ prompt }: { prompt?: string }) {
     }
   };
 
+  const handleDownload = () => {
+    if (prompt) {
+      const blob = new Blob([prompt], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'prompt.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      toast({ title: 'Descargado', description: 'El prompt se ha guardado como prompt.txt.' });
+    }
+  };
+
   if (!prompt) return null;
 
   return (
@@ -95,15 +110,28 @@ function PromptResult({ prompt }: { prompt?: string }) {
           value={prompt}
           className="w-full h-96 font-mono text-sm bg-muted"
         />
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-2 right-2 h-8 w-8 text-muted-foreground hover:bg-background"
-          onClick={handleCopy}
-          type="button"
-        >
-          {copied ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
-        </Button>
+        <div className="absolute top-2 right-2 flex gap-1">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 text-muted-foreground hover:bg-background"
+            onClick={handleDownload}
+            type="button"
+            title="Descargar prompt"
+          >
+            <Download className="h-4 w-4" />
+          </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 text-muted-foreground hover:bg-background"
+            onClick={handleCopy}
+            type="button"
+            title="Copiar prompt"
+          >
+            {copied ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+          </Button>
+        </div>
       </div>
     </div>
   );
