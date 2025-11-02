@@ -13,7 +13,7 @@ import { AdminHeader } from "@/components/layout/AdminHeader";
 import { Footer } from "@/components/homenew/footer";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup, SelectLabel } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Loader2, Wand2, Sparkles, Copy, Check, FileText } from 'lucide-react';
@@ -22,12 +22,36 @@ import { Label } from '@/components/ui/label';
 import { navGroups } from '@/lib/navigation';
 import { adminNavItems } from '@/lib/navigation-admin';
 
-// Extraer todas las rutas de navegación para usarlas en el selector
-const mainPages = navGroups.flatMap(group => group.items.map(item => item.label));
-const adminPages = adminNavItems.flatMap(item => 'href' in item ? item.label : item.items.map(subItem => subItem.label));
+// Helper para procesar la navegación principal
+const mainSitePages = navGroups.map(group => ({
+  label: group.label,
+  pages: group.items.map(item => ({ value: item.label, label: item.label }))
+}));
 
-// Eliminar duplicados y ordenar
-const availablePages = [...new Set([...mainPages, ...adminPages])].sort();
+// Helper para procesar la navegación de admin
+const adminSitePages = adminNavItems.map(item => {
+  if ('items' in item) { // Es un AdminNavGroup
+    return {
+      label: `Admin: ${item.label}`,
+      pages: item.items.map(subItem => ({ value: subItem.label, label: subItem.label }))
+    };
+  }
+  // Es un AdminNavItem suelto
+  return {
+    label: 'Admin',
+    pages: [{ value: item.label, label: item.label }]
+  };
+}).reduce((acc, group) => {
+    // Agrupar items sueltos bajo una sola etiqueta "Admin"
+    const existingGroup = acc.find(g => g.label === group.label);
+    if (existingGroup) {
+        existingGroup.pages.push(...group.pages);
+    } else {
+        acc.push(group);
+    }
+    return acc;
+}, [] as { label: string; pages: { value: string; label: string }[] }[]);
+
 
 const promptGeneratorSchema = z.object({
   pageName: z.string().min(1, 'Debes seleccionar una página.'),
@@ -117,9 +141,28 @@ export default function PromptsPage() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          {availablePages.map(page => (
-                            <SelectItem key={page} value={page}>{page}</SelectItem>
-                          ))}
+                          <SelectGroup>
+                            <SelectLabel>Páginas Principales</SelectLabel>
+                            {mainSitePages.map(group => (
+                                <SelectGroup key={group.label}>
+                                    <SelectLabel className="pl-4 text-xs font-semibold text-muted-foreground">{group.label}</SelectLabel>
+                                     {group.pages.map(page => (
+                                        <SelectItem key={page.value} value={page.value}>{page.label}</SelectItem>
+                                    ))}
+                                </SelectGroup>
+                            ))}
+                          </SelectGroup>
+                          <SelectGroup>
+                            <SelectLabel>Páginas de Administración</SelectLabel>
+                             {adminSitePages.map(group => (
+                                <SelectGroup key={group.label}>
+                                    <SelectLabel className="pl-4 text-xs font-semibold text-muted-foreground">{group.label}</SelectLabel>
+                                    {group.pages.map(page => (
+                                        <SelectItem key={page.value} value={page.value}>{page.label}</SelectItem>
+                                    ))}
+                                </SelectGroup>
+                            ))}
+                          </SelectGroup>
                         </SelectContent>
                       </Select>
                       <FormMessage />
