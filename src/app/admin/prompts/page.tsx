@@ -30,6 +30,14 @@ const mainPage = [{
     pages: [{ value: "Página de Inicio", label: "Página de Inicio" }]
 }];
 
+// Helper para páginas sueltas
+const additionalPages = [{
+    label: "Páginas Adicionales",
+    pages: [
+        { value: "Contacto", label: "Contacto" },
+        { value: "Generar Orden", label: "Generar Orden" },
+    ]
+}];
 
 // Helper para procesar la navegación principal
 const mainSitePages = navGroups.map(group => ({
@@ -38,24 +46,28 @@ const mainSitePages = navGroups.map(group => ({
 }));
 
 // Helper para procesar la navegación de admin
-const adminSitePages = adminNavItems.flatMap(item => 
-    'href' in item 
-    ? [{ label: item.label, value: item.label }] 
-    : item.items.map(subItem => ({ label: subItem.label, value: subItem.label }))
-).reduce((acc, page) => {
-    // Para simplificar, agruparemos todas las páginas de admin bajo una sola categoría.
-    const adminGroupLabel = "Admin";
-    let group = acc.find(g => g.label === adminGroupLabel);
-    if (!group) {
-        group = { label: adminGroupLabel, pages: [] };
-        acc.push(group);
+const adminSitePages = adminNavItems.reduce((acc, item) => {
+    if ('items' in item) { // It's a group
+        acc.push({
+            label: `Admin: ${item.label}`,
+            pages: item.items.map(subItem => ({ value: subItem.label, label: subItem.label }))
+        });
+    } else { // It's a single item
+        const generalAdminGroup = acc.find(g => g.label === "Admin: General");
+        if (generalAdminGroup) {
+            generalAdminGroup.pages.push({ value: item.label, label: item.label });
+        } else {
+            acc.push({
+                label: "Admin: General",
+                pages: [{ value: item.label, label: item.label }]
+            });
+        }
     }
-    group.pages.push(page);
     return acc;
-}, [] as { label: string; pages: { value: string; label: string }[] }[]);
+}, [] as { label: string; pages: { value: string; label: string }[] });
 
 
-const allPagesForSelection = [...mainPage, ...mainSitePages, ...adminSitePages];
+const allPagesForSelection = [...mainPage, ...mainSitePages, ...additionalPages, ...adminSitePages];
 
 // --- Page Prompt Form ---
 const pagePromptSchema = z.object({ pageName: z.string().min(1, 'Debes seleccionar una página.') });
