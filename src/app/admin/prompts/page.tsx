@@ -31,19 +31,22 @@ const mainSitePages = navGroups.map(group => ({
 }));
 
 // Helper para procesar la navegación de admin
-const adminSitePages = adminNavItems.flatMap(item => 'href' in item ? { label: 'Admin', pages: [{ value: item.label, label: item.label }] } : {
-      label: `Admin: ${item.label}`,
-      pages: item.items.map(subItem => ({ value: subItem.label, label: subItem.label }))
-    }
-).reduce((acc, group) => {
-    const existingGroup = acc.find(g => g.label === group.label);
-    if (existingGroup) {
-        existingGroup.pages.push(...group.pages);
-    } else {
+const adminSitePages = adminNavItems.flatMap(item => 
+    'href' in item 
+    ? [{ label: item.label, value: item.label }] 
+    : item.items.map(subItem => ({ label: subItem.label, value: subItem.label }))
+).reduce((acc, page) => {
+    // Para simplificar, agruparemos todas las páginas de admin bajo una sola categoría.
+    const adminGroupLabel = "Admin";
+    let group = acc.find(g => g.label === adminGroupLabel);
+    if (!group) {
+        group = { label: adminGroup-label, pages: [] };
         acc.push(group);
     }
+    group.pages.push(page);
     return acc;
 }, [] as { label: string; pages: { value: string; label: string }[] }[]);
+
 
 const allPagesForSelection = [...mainSitePages, ...adminSitePages];
 
@@ -167,6 +170,22 @@ function PagePromptGenerator() {
   const handleFormSubmit = form.handleSubmit((data) => {
     const formData = new FormData();
     formData.append('pageName', data.pageName);
+    
+    // Find components for the selected page
+    const pageComponents = pageComponentMap[data.pageName] || [];
+    const componentsWithPaths = pageComponents.map(compName => {
+        // This is a simplified lookup. A more robust solution might be needed
+        // if component paths are not consistently structured.
+        const pageKeyForPath = data.pageName.toLowerCase().replace(/\s+/g, '-');
+        const componentKeyForPath = compName.toLowerCase().replace(/\s+/g, '-');
+        return {
+            name: compName,
+            path: `src/components/${pageKeyForPath}/${componentKeyForPath}.tsx` // Educated guess
+        };
+    });
+
+    formData.append('components', JSON.stringify(componentsWithPaths));
+
     setLastSubmittedPage(data.pageName);
     startTransition(() => formAction(formData));
   });

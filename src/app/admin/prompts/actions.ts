@@ -8,6 +8,7 @@ import { generateComponentPrompt } from '@/ai/flows/generate-component-prompt';
 // Schema for Page Prompt Generation
 const generatePagePromptSchema = z.object({
   pageName: z.string().min(1, 'El nombre de la página es requerido.'),
+  components: z.string().min(1, 'La lista de componentes es requerida.'), // JSON string
 });
 
 export interface GeneratePagePromptState {
@@ -21,6 +22,7 @@ export async function generatePagePromptAction(
 ): Promise<GeneratePagePromptState> {
   const validatedFields = generatePagePromptSchema.safeParse({
     pageName: formData.get('pageName'),
+    components: formData.get('components'),
   });
 
   if (!validatedFields.success) {
@@ -30,7 +32,11 @@ export async function generatePagePromptAction(
   }
 
   try {
-    const result = await generatePagePrompt({ pageName: validatedFields.data.pageName });
+    const components = JSON.parse(validatedFields.data.components);
+    const result = await generatePagePrompt({ 
+      pageName: validatedFields.data.pageName,
+      components: components
+    });
     return { prompt: result.prompt };
   } catch (e: unknown) {
     console.error("Error generating page prompt:", e);

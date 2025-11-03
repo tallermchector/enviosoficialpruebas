@@ -8,8 +8,8 @@ interface RotatingCardProps {
 }
 
 export default function RotatingCard({
-  frontImageSrc = "/hero/delante.png",
-  backImageSrc = "/hero/detras.png",
+  frontImageSrc = "/hero/delante.webp",
+  backImageSrc = "/hero/detras.webp",
   className,
 }: RotatingCardProps) {
   return (
