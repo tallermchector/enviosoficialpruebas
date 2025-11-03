@@ -1,4 +1,5 @@
 
+
 // src/app/admin/prompts/page.tsx
 'use client';
 
@@ -25,6 +26,13 @@ import { navGroups } from '@/lib/navigation';
 import { adminNavItems } from '@/lib/navigation-admin';
 import { pageComponentMap } from '@/lib/page-components';
 
+// Helper para la página principal
+const mainPage = [{
+    label: "Principal",
+    pages: [{ value: "Página de Inicio", label: "Página de Inicio" }]
+}];
+
+
 // Helper para procesar la navegación principal
 const mainSitePages = navGroups.map(group => ({
   label: group.label,
@@ -49,7 +57,7 @@ const adminSitePages = adminNavItems.flatMap(item =>
 }, [] as { label: string; pages: { value: string; label: string }[] }[]);
 
 
-const allPagesForSelection = [...mainSitePages, ...adminSitePages];
+const allPagesForSelection = [...mainPage, ...mainSitePages, ...adminSitePages];
 
 // --- Page Prompt Form ---
 const pagePromptSchema = z.object({ pageName: z.string().min(1, 'Debes seleccionar una página.') });
