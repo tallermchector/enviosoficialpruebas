@@ -13,6 +13,7 @@ import { z } from 'genkit';
 const GenerateComponentPromptInputSchema = z.object({
   pageName: z.string().describe("El nombre de la página a la que pertenece el componente (ej: 'Página de Inicio')."),
   componentName: z.string().describe("El nombre del componente que se desea reconstruir (ej: 'Header', 'Hero Section')."),
+  componentPath: z.string().describe("La ruta original del archivo del componente."),
 });
 export type GenerateComponentPromptInput = z.infer<typeof GenerateComponentPromptInputSchema>;
 
@@ -40,7 +41,7 @@ const promptTemplate = ai.definePrompt({
     - Stack Tecnológico: Next.js con App Router, React, TypeScript, Tailwind CSS, Framer Motion y componentes de ShadCN UI.
 
     **Instrucciones para la generación del PROMPT:**
-    1.  **Rol y Objetivo Claros:** Comienza el prompt definiendo el rol de la IA (experto desarrollador Frontend) y el objetivo (generar el componente '{{componentName}}').
+    1.  **Rol y Objetivo Claros:** Comienza el prompt definiendo el rol de la IA (experto desarrollador Frontend) y el objetivo (generar el código del componente '{{componentName}}').
     2.  **No especificar ubicación:** NO indiques en qué ruta o archivo debe crearse el componente. Solo enfócate en la descripción del componente mismo.
     3.  **Descripción Detallada:** Proporciona una descripción exhaustiva del componente. Debes ser muy específico en los siguientes puntos:
         *   **Diseño y Estructura Visual:** Describe el layout (grid, flexbox), las columnas, el espaciado, las sombras, los bordes, los colores exactos de la paleta a usar (primario, secundario, etc.), y la tipografía (fuentes, tamaños, pesos).
@@ -50,22 +51,16 @@ const promptTemplate = ai.definePrompt({
         *   **Imágenes y Recursos:** Si el componente usa imágenes, especifica la **ruta relativa exacta** desde la carpeta \`public/\`. Por ejemplo: \`src="/bannerenvios.webp"\` o \`src="/hero/delante.webp"\`.
         *   **Responsive Design:** Explica cómo debe adaptarse el diseño a diferentes tamaños de pantalla (móvil, tablet, escritorio).
 
-    **Ejemplo Conceptual (si te pidieran el prompt para un 'Footer'):**
-    *   **Prompt que generarías:**
-        "**Rol:** Eres un experto desarrollador Frontend... **Objetivo:** Generar el componente 'Footer'...
-        **Descripción Detallada:**
-        - **Diseño:** Un grid de 4 columnas en escritorio que se apila a 1 columna en móvil. Fondo de color azul primario.
-        - **Columna 1:** Debe mostrar el logo de la empresa usando la imagen en \`/LogoEnviosDosRuedas.webp\`, un párrafo descriptivo y los íconos de redes sociales.
-        - **Columna 2 y 3:** Listas de enlaces de navegación...
-        - **Columna 4:** Información de contacto...
-        - **Sección Inferior:** Un área con el copyright y enlaces a 'Política de Privacidad' y 'Términos y Condiciones'.
-        - **Funcionalidad:** Incluye un botón flotante 'Volver Arriba' que aparece en la esquina inferior derecha al hacer scroll hacia abajo y que, al hacer clic, desplaza la página suavemente hacia el inicio."
-
-    Ahora, genera el prompt específico y detallado para la siguiente solicitud:
+    **Referencia del Componente Original:**
     - **Página:** {{pageName}}
     - **Componente:** {{componentName}}
+    - **Ubicación Original del Código:** \`{{componentPath}}\`
+    - **Instrucción para ti (no para la IA final):** Basa tu descripción detallada en el código y la funcionalidad presentes en el archivo original, pero traduciendo los conceptos y textos al español.
+
+    Ahora, genera el prompt específico y detallado para la IA de desarrollo.
   `,
 });
+
 
 const generateComponentPromptFlow = ai.defineFlow(
   {

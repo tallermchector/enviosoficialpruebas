@@ -1,4 +1,4 @@
-// src/app/admin/prompts/actions.ts
+{// src/app/admin/prompts/actions.ts
 'use server';
 
 import { z } from 'zod';
@@ -51,6 +51,7 @@ export async function generatePagePromptAction(
 const generateComponentPromptSchema = z.object({
   pageName: z.string().min(1, 'El nombre de la página es requerido.'),
   componentName: z.string().min(1, 'El nombre del componente es requerido.'),
+  componentPath: z.string().min(1, 'La ruta del componente es requerida.'),
 });
 
 export interface GenerateComponentPromptState {
@@ -65,6 +66,7 @@ export async function generateComponentPromptAction(
     const validatedFields = generateComponentPromptSchema.safeParse({
         pageName: formData.get('pageName'),
         componentName: formData.get('componentName'),
+        componentPath: formData.get('componentPath'),
     });
 
     if (!validatedFields.success) {
@@ -76,7 +78,8 @@ export async function generateComponentPromptAction(
     try {
         const result = await generateComponentPrompt({ 
             pageName: validatedFields.data.pageName,
-            componentName: validatedFields.data.componentName 
+            componentName: validatedFields.data.componentName,
+            componentPath: validatedFields.data.componentPath,
         });
         return { prompt: result.prompt };
     } catch (e: unknown) {

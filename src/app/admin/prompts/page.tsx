@@ -190,7 +190,6 @@ function PagePromptGenerator() {
     const formData = new FormData();
     formData.append('pageName', data.pageName);
     
-    // Find components for the selected page from our map
     const pageComponents = pageComponentMap[data.pageName] || [];
     formData.append('components', JSON.stringify(pageComponents));
 
@@ -210,7 +209,7 @@ function PagePromptGenerator() {
                         <SelectContent>
                             {allPagesForSelection.map(group => (
                                 <SelectGroup key={group.label}>
-                                    <SelectLabel className="pl-4 text-xs font-semibold text-muted-foreground">{group.label}</SelectLabel>
+                                    <SelectLabel>{group.label}</SelectLabel>
                                     {group.pages.map(page => <SelectItem key={page.value} value={page.value}>{page.label}</SelectItem>)}
                                 </SelectGroup>
                             ))}
@@ -246,14 +245,18 @@ function ComponentPromptGenerator() {
 
   const handleFormSubmit = form.handleSubmit((data) => {
     const formData = new FormData();
+    const selectedComponentData = pageComponentMap[data.pageName]?.find(c => c.name === data.componentName);
+    
     formData.append('pageName', data.pageName);
     formData.append('componentName', data.componentName);
+    formData.append('componentPath', selectedComponentData?.path || '');
+
     setLastSubmittedData(data);
     startTransition(() => formAction(formData));
   });
 
   const selectedPage = form.watch('pageName');
-  const availableComponents = pageComponentMap[selectedPage]?.map(c => c.name) || [];
+  const availableComponents = pageComponentMap[selectedPage] || [];
 
   return (
     <Form {...form}>
@@ -277,7 +280,7 @@ function ComponentPromptGenerator() {
                         <Select onValueChange={field.onChange} defaultValue={field.value} disabled={!selectedPage}>
                             <FormControl><SelectTrigger><SelectValue placeholder="Selecciona un componente..." /></SelectTrigger></FormControl>
                             <SelectContent>
-                                {availableComponents.map(componentName => <SelectItem key={componentName} value={componentName}>{componentName}</SelectItem>)}
+                                {availableComponents.map(component => <SelectItem key={component.name} value={component.name}>{component.name}</SelectItem>)}
                             </SelectContent>
                         </Select>
                         <FormMessage />
