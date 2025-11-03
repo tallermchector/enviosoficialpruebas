@@ -1,4 +1,4 @@
-{// src/app/admin/prompts/actions.ts
+// src/app/admin/prompts/actions.ts
 'use server';
 
 import { z } from 'zod';
