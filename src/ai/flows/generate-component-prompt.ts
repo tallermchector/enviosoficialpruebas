@@ -55,8 +55,12 @@ const promptTemplate = ai.definePrompt({
     **Referencia del Componente Original:**
     - **Página:** {{pageName}}
     - **Componente:** {{componentName}}
-    - **Ubicación Original del Código:** \`{{componentPath}}\`
-    - **Instrucción para ti (no para la IA final):** Basa tu descripción detallada en el código y la funcionalidad presentes en el archivo original, pero traduciendo los conceptos y textos al español.
+    - **Ubicación Actual del Código:** \`{{componentPath}}\`
+    - **Instrucción para ti (no para la IA final):** Basa tu descripción detallada en el código y la funcionalidad presentes en el archivo original, traduciendo los conceptos y textos al español.
+
+    **Dependencias de Componentes:**
+    - **Instrucción para ti (no para la IA final):** Inspecciona el código en \`{{componentPath}}\`. Si este componente importa y utiliza otros componentes personalizados del proyecto (por ejemplo, un componente 'Card' o 'Button' personalizado), debes listarlos aquí e indicar también su ubicación actual.
+    - **Ejemplo:** "Este componente utiliza el componente 'MiBotonPersonalizado', cuyo código se encuentra en \`src/components/ui/mi-boton.tsx\`."
 
     Ahora, genera el prompt específico y detallado para la IA de desarrollo.
   `,
