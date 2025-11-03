@@ -52,7 +52,7 @@ const promptTemplate = ai.definePrompt({
         -   Indica el uso obligatorio de: Next.js con App Router, React, TypeScript, Tailwind CSS, y componentes de ShadCN UI.
 
     3.  **Plan de Reestructuración Detallado:**
-        -   Instruye a la IA para que cree un nuevo directorio para los componentes de esta página, por ejemplo: \`src/components/nombre-de-la-pagina/\`. El nombre debe estar en español y ser coherente.
+        -   Instruye a la IA para que cree un nuevo directorio para los componentes de esta página. El nombre debe estar en español y ser coherente con el nombre de la página (ej: \`src/components/principal/\` para la 'Página de Inicio').
         -   Proporciona una lista de los componentes actuales y su ubicación original.
         -   Pide a la IA que, para cada componente, proponga un **nuevo nombre de archivo en español** dentro del nuevo directorio.
         -   **Crucial:** La IA debe tomar el código existente de cada componente, pero debe **refactorizarlo y traducirlo**, cambiando nombres de variables, funciones y props al español para mantener consistencia. No debe simplemente copiar y pegar.
@@ -61,7 +61,7 @@ const promptTemplate = ai.definePrompt({
         {{#each components}}
         - **Componente Original:** {{name}}
           - **Ubicación Actual:** \`{{path}}\`
-          - **Instrucción:** Proponer un nuevo nombre de archivo en español (ej: \`mi-componente.tsx\`) y refactorizar su código interno al español.
+          - **Instrucción:** Proponer un nuevo nombre de archivo en español (ej: \`hero-principal.tsx\`) y refactorizar su código interno al español.
         {{/each}}
 
     4.  **Consideraciones de Backend (Supabase):**

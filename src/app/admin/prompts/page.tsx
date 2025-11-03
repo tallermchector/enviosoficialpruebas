@@ -1,5 +1,3 @@
-
-
 // src/app/admin/prompts/page.tsx
 'use client';
 
@@ -106,8 +104,8 @@ function PromptResult({
   const handleDownload = () => {
     if (prompt) {
       const formattedPageName = pageName?.toLowerCase().replace(/\s+/g, '-') || 'pagina';
-      const formattedComponentName = componentName?.toLowerCase().replace(/\s+/g, '-') || '';
-      const filename = `prompt_${formattedPageName}${formattedComponentName ? `_${formattedComponentName}` : ''}.txt`;
+      const formattedComponentName = componentName ? `_${componentName.toLowerCase().replace(/\s+/g, '-')}` : '';
+      const filename = `prompt_${formattedPageName}${formattedComponentName}.txt`;
 
       const blob = new Blob([prompt], { type: 'text/plain;charset=utf-8' });
       const url = URL.createObjectURL(blob);
@@ -180,20 +178,9 @@ function PagePromptGenerator() {
     const formData = new FormData();
     formData.append('pageName', data.pageName);
     
-    // Find components for the selected page
+    // Find components for the selected page from our map
     const pageComponents = pageComponentMap[data.pageName] || [];
-    const componentsWithPaths = pageComponents.map(compName => {
-        // This is a simplified lookup. A more robust solution might be needed
-        // if component paths are not consistently structured.
-        const pageKeyForPath = data.pageName.toLowerCase().replace(/\s+/g, '-');
-        const componentKeyForPath = compName.toLowerCase().replace(/\s+/g, '-');
-        return {
-            name: compName,
-            path: `src/components/${pageKeyForPath}/${componentKeyForPath}.tsx` // Educated guess
-        };
-    });
-
-    formData.append('components', JSON.stringify(componentsWithPaths));
+    formData.append('components', JSON.stringify(pageComponents));
 
     setLastSubmittedPage(data.pageName);
     startTransition(() => formAction(formData));
@@ -254,7 +241,7 @@ function ComponentPromptGenerator() {
   });
 
   const selectedPage = form.watch('pageName');
-  const availableComponents = pageComponentMap[selectedPage] || [];
+  const availableComponents = pageComponentMap[selectedPage]?.map(c => c.name) || [];
 
   return (
     <Form {...form}>
@@ -278,7 +265,7 @@ function ComponentPromptGenerator() {
                         <Select onValueChange={field.onChange} defaultValue={field.value} disabled={!selectedPage}>
                             <FormControl><SelectTrigger><SelectValue placeholder="Selecciona un componente..." /></SelectTrigger></FormControl>
                             <SelectContent>
-                                {availableComponents.map(component => <SelectItem key={component} value={component}>{component}</SelectItem>)}
+                                {availableComponents.map(componentName => <SelectItem key={componentName} value={componentName}>{componentName}</SelectItem>)}
                             </SelectContent>
                         </Select>
                         <FormMessage />
