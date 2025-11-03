@@ -1,3 +1,4 @@
+
 // src/app/admin/prompts/page.tsx
 'use client';
 
@@ -40,7 +41,7 @@ const adminSitePages = adminNavItems.flatMap(item =>
     const adminGroupLabel = "Admin";
     let group = acc.find(g => g.label === adminGroupLabel);
     if (!group) {
-        group = { label: adminGroup-label, pages: [] };
+        group = { label: adminGroupLabel, pages: [] };
         acc.push(group);
     }
     group.pages.push(page);
