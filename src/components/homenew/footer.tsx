@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useEffect } from "react"
@@ -59,10 +58,9 @@ export function Footer() {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
           <motion.div
-            className="md:col-span-2 lg:col-span-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -101,8 +99,7 @@ export function Footer() {
             </motion.div>
 
             <p className="text-sm mb-6 leading-relaxed text-primary-foreground/80 font-sans">
-              Tu solución confiable para mensajería y delivery en Mar del Plata y alrededores. Ofrecemos servicios
-              rápidos, seguros y económicos.
+              Tu solución confiable para mensajería y delivery en Mar del Plata. Servicios rápidos, seguros y económicos.
             </p>
 
             <div className="flex space-x-2">
@@ -138,16 +135,9 @@ export function Footer() {
               transition={{ delay: 0.2 + groupIndex * 0.1, duration: 0.6 }}
             >
               <div className="relative mb-6">
-                <h4 className="font-display text-lg font-bold text-primary-foreground mb-2">{group.label}</h4>
-                <motion.div
-                  className="h-0.5 w-12 bg-gradient-to-r from-secondary to-secondary/50 rounded-full"
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + groupIndex * 0.1, duration: 0.5 }}
-                />
+                <h4 className="font-display text-lg font-bold text-primary-foreground pl-4 border-l-4 border-secondary">{group.label}</h4>
               </div>
-              <ul className="space-y-3 font-sans">
+              <ul className="space-y-3 font-sans pl-4">
                 {group.items.map((item, itemIndex) => {
                   const Icon = item.icon;
                   return (
@@ -161,10 +151,10 @@ export function Footer() {
                       <motion.div whileHover={{ x: 6, scale: 1.02 }} className="group">
                         <Link
                           href={item.href}
-                          className="flex items-center gap-3 text-primary-foreground/80 hover:text-primary-foreground transition-all duration-300 py-2 px-3 rounded-lg hover:bg-primary-foreground/5"
+                          className="flex items-center gap-3 text-primary-foreground/80 hover:text-secondary transition-all duration-300 py-1"
                         >
                           {Icon && (
-                            <Icon className="w-4 h-4 text-secondary group-hover:scale-110 transition-transform duration-200" />
+                            <Icon className="w-4 h-4 text-secondary/80 group-hover:text-secondary transition-colors duration-200" />
                           )}
                           <span className="text-sm font-medium">{item.label}</span>
                         </Link>
@@ -178,23 +168,15 @@ export function Footer() {
 
           {/* Contact Info */}
           <motion.div
-            className="lg:pl-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             <div className="relative mb-6">
-              <h4 className="font-display text-lg font-bold text-primary-foreground mb-2">Contacto Rápido</h4>
-              <motion.div
-                className="h-0.5 w-12 bg-gradient-to-r from-secondary to-secondary/50 rounded-full"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-              />
+              <h4 className="font-display text-lg font-bold text-primary-foreground pl-4 border-l-4 border-secondary">Contacto Rápido</h4>
             </div>
-            <ul className="space-y-4 font-sans">
+            <ul className="space-y-4 font-sans pl-4">
               {[
                 { Icon: MapPin, text: "Mar del Plata, Argentina" },
                 { Icon: Phone, text: "223-660-2699", href: "tel:2236602699" },
@@ -210,7 +192,7 @@ export function Footer() {
                   <motion.div whileHover={href ? { x: 6, scale: 1.02 } : {}} className="group">
                     <a
                       href={href || undefined}
-                      className="flex items-start space-x-3 text-sm py-2 px-3 rounded-lg hover:bg-primary-foreground/5 transition-all duration-300"
+                      className="flex items-start space-x-3 text-sm"
                     >
                       <Icon className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
                       <span className={cn("text-primary-foreground/80 transition-colors duration-200", href && "group-hover:text-primary-foreground")}>
@@ -226,19 +208,15 @@ export function Footer() {
 
         {/* Bottom Section */}
         <motion.div
-          className="border-t border-primary-foreground/10 mt-12 pt-8 text-center"
+          className="border-t border-primary-foreground/10 mt-12 pt-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.7, duration: 0.6 }}
         >
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 font-sans">
-            <div className="flex items-center gap-4">
-              {currentYear !== null && (
-                <p className="text-sm text-primary-foreground/70">
-                  &copy; {currentYear} Envios DosRuedas. Todos los derechos reservados.
-                </p>
-              )}
+            <div className="text-sm text-primary-foreground/70">
+                &copy; {currentYear} Envios DosRuedas. Todos los derechos reservados.
             </div>
             <div className="flex items-center gap-6 text-sm">
               <Link
