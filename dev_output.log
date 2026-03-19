@@ -1,7 +1,4 @@
-
-> nextn@0.1.0 dev
-> next dev --turbopack
-
+$ next dev --turbopack
 ⚠ `eslint` configuration in next.config.mjs is no longer supported. See more info here: https://nextjs.org/docs/app/api-reference/cli/next#next-lint-options
 ⚠ Invalid next.config.mjs options detected:
 ⚠     Unrecognized key(s) in object: 'eslint'
@@ -12,6 +9,9 @@
 
 ✓ Starting...
 ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-✓ Ready in 778ms
- GET /prototypes 200 in 992ms (compile: 402ms, render: 590ms)
-[?25h
+✓ Ready in 1216ms
+○ Compiling / ...
+ GET / 200 in 7.7s (compile: 7.2s, render: 475ms)
+ GET / 200 in 123ms (compile: 8ms, render: 115ms)
+ GET / 200 in 119ms (compile: 5ms, render: 114ms)
+ GET / 200 in 389ms (compile: 109ms, render: 280ms)
