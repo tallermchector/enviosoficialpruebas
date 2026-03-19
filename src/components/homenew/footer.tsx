@@ -1,269 +1,97 @@
-"use client"
+'use client';
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Phone, Mail, MapPin, Facebook, Instagram, ChevronUp } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import { navGroups } from "@/lib/navigation"
-import { cn } from "@/lib/utils"
+import React from 'react';
+import { Truck, Share2, Settings, MapPin, Phone, Mail, Instagram, Facebook, Twitter } from 'lucide-react';
+import Link from 'next/link';
 
-export function Footer() {
-  const [isVisible, setIsVisible] = useState(false)
+export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-    }
-    window.addEventListener("scroll", toggleVisibility)
-    return () => window.removeEventListener("scroll", toggleVisibility)
-  }, [])
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  }
-  
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "5492236602699"
-    const message = "Hola, me gustaría obtener información sobre sus servicios de envío."
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
-  }
-
-  const socialLinks = [
-    { label: "Facebook", Icon: Facebook, href: "https://facebook.com/enviosdosruedas" },
-    { label: "Instagram", Icon: Instagram, href: "https://instagram.com/enviosdosruedas" },
-    { label: "WhatsApp", Icon: null, onClick: handleWhatsAppClick, href: "#" },
-  ]
-
   return (
-    <motion.footer
-      className="bg-gradient-to-br from-primary via-primary to-primary/95 text-primary-foreground/90 border-t border-secondary/20 relative overflow-hidden"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
+    <footer className="pt-32 pb-16 px-4 border-t border-white/5 bg-[#050810] relative overflow-hidden">
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {/* Company Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-          >
-            <motion.div whileHover={{ scale: 1.02 }} className="mb-6">
-              <Link href="/" className="flex items-center space-x-3 group">
-                <div className="relative">
-                  <motion.div
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-secondary/30 to-secondary/10 blur-sm"
-                    animate={{
-                      scale: [1, 1.1, 1],
-                      opacity: [0.5, 0.8, 0.5],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Number.POSITIVE_INFINITY,
-                      ease: "easeInOut",
-                    }}
-                  />
-                  <Image
-                    src="/LogoEnviosDosRuedas.webp"
-                    alt="Envios DosRuedas Logo"
-                    width={44}
-                    height={44}
-                    className="rounded-full relative z-10 ring-2 ring-secondary/20 group-hover:ring-secondary/40 transition-all duration-300"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-secondary group-hover:text-yellow-300 transition-colors duration-300 font-display">
-                    Envios DosRuedas
-                  </h3>
-                  <p className="text-xs text-primary-foreground/70 -mt-0.5 font-sans">Tu Solución Confiable</p>
-                </div>
-              </Link>
-            </motion.div>
-
-            <p className="text-sm mb-6 leading-relaxed text-primary-foreground/80 font-sans">
-              Tu solución confiable para mensajería y delivery en Mar del Plata. Servicios rápidos, seguros y económicos.
-            </p>
-
-            <div className="flex space-x-2">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={social.onClick}
-                  whileHover={{ scale: 1.15, rotate: 5, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
-                  className="p-3 rounded-full bg-primary-foreground/10 text-primary-foreground/80 hover:bg-secondary/20 hover:text-secondary border border-primary-foreground/10 hover:border-secondary/30 transition-all duration-300 backdrop-blur-sm"
-                  aria-label={`${social.label} de Envios DosRuedas`}
-                >
-                  {social.Icon ? <social.Icon className="w-5 h-5" /> : <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp" width={20} height={20} className="w-5 h-5" />}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Navigation Menus */}
-          {navGroups.slice(0, 2).map((group, groupIndex) => (
-            <motion.div
-              key={group.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 + groupIndex * 0.1, duration: 0.6 }}
-            >
-              <div className="relative mb-6">
-                <h4 className="font-display text-lg font-bold text-primary-foreground pl-4 border-l-4 border-secondary">{group.label}</h4>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+          <div className="col-span-1 lg:col-span-1">
+            <Link href="/" className="flex items-center gap-2 mb-10 group">
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center transition-transform group-hover:rotate-12">
+                <Truck size={22} className="text-white" />
               </div>
-              <ul className="space-y-3 font-sans pl-4">
-                {group.items.map((item, itemIndex) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.li
-                      key={item.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.4 + groupIndex * 0.1 + itemIndex * 0.05, duration: 0.4 }}
-                    >
-                      <motion.div whileHover={{ x: 6, scale: 1.02 }} className="group">
-                        <Link
-                          href={item.href}
-                          className="flex items-center gap-3 text-primary-foreground/80 hover:text-secondary transition-all duration-300 py-1"
-                        >
-                          {Icon && (
-                            <Icon className="w-4 h-4 text-secondary/80 group-hover:text-secondary transition-colors duration-200" />
-                          )}
-                          <span className="text-sm font-medium">{item.label}</span>
-                        </Link>
-                      </motion.div>
-                    </motion.li>
-                  )
-                })}
-              </ul>
-            </motion.div>
-          ))}
-
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <div className="relative mb-6">
-              <h4 className="font-display text-lg font-bold text-primary-foreground pl-4 border-l-4 border-secondary">Contacto Rápido</h4>
-            </div>
-            <ul className="space-y-4 font-sans pl-4">
-              {[
-                { Icon: MapPin, text: "Mar del Plata, Argentina" },
-                { Icon: Phone, text: "223-660-2699", href: "tel:2236602699" },
-                { Icon: Mail, text: "matiascejas@enviosdosruedas.com", href: "mailto:matiascejas@enviosdosruedas.com" },
-              ].map(({ Icon, text, href }, index) => (
-                <motion.li
-                  key={text}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                >
-                  <motion.div whileHover={href ? { x: 6, scale: 1.02 } : {}} className="group">
-                    <a
-                      href={href || undefined}
-                      className="flex items-start space-x-3 text-sm"
-                    >
-                      <Icon className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform duration-200" />
-                      <span className={cn("text-primary-foreground/80 transition-colors duration-200", href && "group-hover:text-primary-foreground")}>
-                        {text}
-                      </span>
-                    </a>
-                  </motion.div>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-
-        {/* Bottom Section */}
-        <motion.div
-          className="border-t border-primary-foreground/10 mt-12 pt-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-        >
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 font-sans">
-            <div className="text-sm text-primary-foreground/70">
-                &copy; {currentYear} Envios DosRuedas. Todos los derechos reservados.
-            </div>
-            <div className="flex items-center gap-6 text-sm">
-              <Link
-                href="/politica-de-privacidad"
-                className="text-primary-foreground/70 hover:text-secondary transition-colors duration-200"
-              >
-                Privacidad
-              </Link>
-              <Link
-                href="/terminos-y-condiciones"
-                className="text-primary-foreground/70 hover:text-secondary transition-colors duration-200"
-              >
-                Términos
-              </Link>
+              <span className="font-[family-name:var(--font-orbitron)] font-black text-2xl tracking-tighter text-white uppercase italic">
+                DOS<span className="text-primary">RUEDAS</span>
+              </span>
+            </Link>
+            <p className="text-gray-500 text-sm mb-10 leading-relaxed font-[family-name:var(--font-roboto)]">
+              Liderando la logística de última milla en Mar del Plata. Rapidez, seguridad y compromiso en cada entrega desde 2018.
+            </p>
+            <div className="flex gap-4">
+              <a href="https://instagram.com/enviosdosruedas" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all text-white group/social">
+                <Instagram size={20} className="group-hover/social:scale-110 transition-transform" />
+              </a>
+              <a href="https://facebook.com/enviosdosruedas" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all text-white group/social">
+                <Facebook size={20} className="group-hover/social:scale-110 transition-transform" />
+              </a>
+              <a href="#" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all text-white group/social">
+                <Twitter size={20} className="group-hover/social:scale-110 transition-transform" />
+              </a>
             </div>
           </div>
-        </motion.div>
-      </div>
 
-      {/* Scroll to Top Button */}
-      <AnimatePresence>
-        {isVisible && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.8 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.8 }}
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-6 right-6 z-50"
-          >
-            <Button
-              onClick={scrollToTop}
-              className="p-3 rounded-full bg-gradient-to-r from-secondary to-secondary/90 text-secondary-foreground shadow-2xl hover:shadow-secondary/25 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-primary border border-secondary/20"
-              aria-label="Volver arriba"
-              size="icon"
-            >
-              <motion.div
-                animate={{ y: [0, -2, 0] }}
-                transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-              >
-                <ChevronUp className="w-6 h-6" />
-              </motion.div>
-            </Button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.footer>
-  )
-}
+          <div>
+            <h4 className="font-[family-name:var(--font-orbitron)] font-bold mb-8 tracking-widest text-xs uppercase text-white opacity-50">EMPRESA</h4>
+            <ul className="space-y-5 text-gray-500 text-sm font-[family-name:var(--font-roboto)]">
+              <li><Link href="/sobre-nosotros" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Sobre Nosotros</Link></li>
+              <li><Link href="/trabaja-con-nosotros" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Trabaja con Nosotros</Link></li>
+              <li><Link href="/tarifas" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Nuestras Tarifas</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-[family-name:var(--font-orbitron)] font-bold mb-8 tracking-widest text-xs uppercase text-white opacity-50">SERVICIOS</h4>
+            <ul className="space-y-5 text-gray-500 text-sm font-[family-name:var(--font-roboto)]">
+              <li><Link href="/servicios/envios-express" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Envíos Express</Link></li>
+              <li><Link href="/servicios/envios-low-cost" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Envíos Low Cost</Link></li>
+              <li><Link href="/servicios/enviosflex" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Mercado Libre Flex</Link></li>
+              <li><Link href="/servicios/moto-fija" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Mensajería Fija</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-[family-name:var(--font-orbitron)] font-bold mb-8 tracking-widest text-xs uppercase text-white opacity-50">CONTACTO</h4>
+            <ul className="space-y-6 text-gray-500 text-sm font-[family-name:var(--font-roboto)]">
+              <li className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                  <MapPin size={18} className="text-secondary" />
+                </div>
+                <span className="leading-relaxed">11 de Septiembre, <br /> Mar del Plata, Argentina</span>
+              </li>
+              <li className="flex items-center gap-4">
+                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                  <Phone size={18} className="text-primary" />
+                </div>
+                <a href="tel:+5492236602699" className="hover:text-white transition-colors">+54 9 223 660-2699</a>
+              </li>
+              <li className="flex items-center gap-4">
+                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                  <Mail size={18} className="text-primary" />
+                </div>
+                <a href="mailto:hola@enviosdosruedas.com" className="hover:text-white transition-colors">hola@enviosdosruedas.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-6">
+          <p className="text-[10px] text-gray-600 uppercase tracking-[0.3em] font-bold">
+            © {currentYear} ENVIOS DOSRUEDAS. LOGÍSTICA URBANA DE ALTA PRECISIÓN.
+          </p>
+          <div className="flex gap-8 text-[10px] text-gray-600 uppercase tracking-widest font-bold">
+            <Link href="/terminos" className="hover:text-white transition-colors">Términos</Link>
+            <Link href="/privacidad" className="hover:text-white transition-colors">Privacidad</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};

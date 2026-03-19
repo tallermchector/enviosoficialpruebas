@@ -1,13 +1,13 @@
-"use client"
+'use client';
 
-import { Button } from "@/components/ui/button"
-import { TrendingUp, Users, Package, Sparkles, ArrowUpRight, CheckCircle } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ShoppingBag, TrendingUp, Zap, ArrowRight, CheckCircle, Package, Users } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { cn } from "@/lib/utils";
 
-export function EmprendedoresHome() {
+export const EmprendedoresHome = () => {
   const solutions = [
     {
       icon: TrendingUp,
@@ -15,10 +15,8 @@ export function EmprendedoresHome() {
       description: "Tarifas preferenciales y servicios adaptados para hacer crecer tu negocio online",
       features: ["Tarifas LowCost", "Facturación mensual", "Soporte dedicado", "Reportes detallados"],
       link: "/servicios/plan-emprendedores",
-      // --- CORRECCIÓN: Ruta actualizada a .webp ---
       image: "/cards/card1.webp",
       badge: "Emprendedores",
-      imageHint: "growing business",
     },
     {
       icon: Package,
@@ -26,10 +24,8 @@ export function EmprendedoresHome() {
       description: "Integración perfecta con MercadoLibre para potenciar tus ventas",
       features: ["Entregas el mismo día", "Mejora tu reputación", "Tarifas LowCost", "API integrada"],
       link: "/servicios/enviosflex",
-      // --- CORRECCIÓN: Ruta actualizada a .webp ---
       image: "/cards/card2.webp",
       badge: "MercadoLibre",
-      imageHint: "ecommerce delivery",
     },
     {
       icon: Users,
@@ -37,245 +33,122 @@ export function EmprendedoresHome() {
       description: "Repartidor dedicado exclusivamente para tu empresa",
       features: ["Repartidor exclusivo", "Horarios personalizados", "Rutas optimizadas", "Seguimiento GPS"],
       link: "/servicios/moto-fija",
-      // --- CORRECCIÓN: Ruta actualizada a .webp ---
       image: "/cards/card3.webp",
       badge: "Dedicado",
-      imageHint: "dedicated courier",
     },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
-        duration: 0.8,
-      },
-    },
-  }
+  ];
 
   return (
-    <section className="relative py-20 md:py-28 bg-gradient-to-br from-slate-50 via-blue-50/50 to-slate-100 overflow-hidden font-sans">
-      {/* Background decorations */}
-      <div className="absolute inset-0">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/10 rounded-full"
-            animate={{
-              x: [0, 100, 0],
-              y: [0, -100, 0],
-              opacity: [0.1, 0.3, 0.1],
-            }}
-            transition={{
-              duration: 12 + i * 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: i * 2,
-            }}
-            style={{
-              left: `${15 + i * 15}%`,
-              top: `${20 + (i % 3) * 25}%`,
-            }}
-          />
-        ))}
+    <section className="relative py-32 px-4 overflow-hidden bg-[#050810]">
+      {/* Background Effects */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[150px]" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          className="text-center mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-20">
           <motion.div
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 backdrop-blur-sm mb-6"
-            whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.15)" }}
-          >
-            <Sparkles className="w-5 h-5 text-primary" />
-            <span className="text-sm font-semibold text-primary">Especial para Emprendedores</span>
-            <TrendingUp className="w-5 h-5 text-secondary" />
-          </motion.div>
-
-          <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground mb-6"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-            style={{
-              background: "linear-gradient(90deg, #1e40af, #fbbf24, #1e40af)",
-              backgroundSize: "200% 200%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Soluciones Especiales para <span className="text-secondary">Emprendedores</span>
-          </motion.h2>
-
-          <motion.p
-            className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xs font-bold tracking-widest mb-6 uppercase"
           >
-            Diseñamos servicios específicos para ayudar a crecer tu negocio online. Desde{" "}
-            <span className="text-primary font-semibold">tarifas preferenciales</span> hasta{" "}
-            <span className="text-secondary font-semibold">integración con plataformas</span> de venta.
+            <Zap size={14} className="animate-pulse" /> SOLUCIONES PARA EMPRENDEDORES
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-[family-name:var(--font-orbitron)] text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white"
+          >
+            IMPULSA TU <span className="text-primary">NEGOCIO</span> <br />
+            CON LOGÍSTICA <span className="text-secondary">ELITE</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="font-[family-name:var(--font-roboto)] text-gray-400 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            Diseñamos servicios específicos para ayudar a crecer tu negocio online. Desde
+            tarifas preferenciales hasta integración con plataformas de venta líderes.
           </motion.p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-6xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {solutions.map((solution, index) => {
-            const IconComponent = solution.icon
-            return (
-              <motion.div key={index} variants={itemVariants} className="h-full">
-                <Link href={solution.link} className="block w-full group">
-                  <motion.div
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={cn(
-                      "relative overflow-hidden rounded-2xl h-[420px]", // 1. Contenedor principal es RELATIVE
-                      "border border-zinc-200/50 shadow-lg",
-                      "transition-all duration-300",
-                      "hover:shadow-2xl hover:border-zinc-300/50",
-                    )}
-                  >
-                    
-                    {/* 2. Imagen de fondo (Capa Base) */}
-                    <Image
-                      src={solution.image} // <- Ruta .webp actualizada
-                      alt={solution.title}
-                      fill
-                      priority={index < 3} // Carga prioritaria para las primeras imágenes visibles
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105 z-0" // <- z-0
-                      data-ai-hint={solution.imageHint}
-                    />
-                    
-                    {/* 3. Gradiente para legibilidad (Capa Media) */}
-                    <div
-                      className={cn(
-                        "absolute inset-0 z-10", // <- z-10
-                        "bg-gradient-to-t from-black/70 via-black/30 to-transparent"
-                      )} 
-                    />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {solutions.map((solution, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="group relative h-[450px] rounded-3xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-500 shadow-2xl"
+            >
+              <Image
+                src={solution.image}
+                alt={solution.title}
+                fill
+                className="object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-[#050810]/40 to-transparent" />
 
-                    {/* 4. Contenido de texto (Capa Superior) */}
-                    <div className="relative z-20 flex flex-col h-full p-6 text-white"> 
-                    
-                      {/* Badge e Ícono */}
-                      <div className="flex justify-between items-start">
-                        <span
-                          className={cn(
-                            "px-3 py-1.5 rounded-lg text-xs font-semibold",
-                            "bg-black/30 backdrop-blur-md",
-                            "shadow-lg border border-white/20",
-                          )}
-                        >
-                          {solution.badge}
-                        </span>
-                        <motion.div
-                          className={`w-12 h-12 bg-black/30 backdrop-blur-md rounded-xl flex items-center justify-center shadow-lg border border-white/20`}
-                          whileHover={{ rotate: 15, scale: 1.1 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                        >
-                          <IconComponent className="w-6 h-6 text-white" />
-                        </motion.div>
-                      </div>
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="flex justify-between items-start mb-auto">
+                  <span className="px-3 py-1 rounded-lg bg-black/50 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-widest">
+                    {solution.badge}
+                  </span>
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white">
+                    <solution.icon size={24} />
+                  </div>
+                </div>
 
-                      {/* Texto principal */}
-                      <div className="mt-auto">
-                        <h3 className="text-xl font-bold leading-tight font-display mb-2">{solution.title}</h3>
-                        <p className="text-sm text-zinc-300 line-clamp-2 leading-relaxed mb-4">{solution.description}</p>
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                          {solution.features.slice(0, 4).map((feature, featureIndex) => (
-                            <motion.div
-                              key={featureIndex}
-                              className="flex items-center text-xs"
-                              initial={{ opacity: 0, x: -10 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ delay: 0.1 * featureIndex, duration: 0.3 }}
-                            >
-                              <CheckCircle className="w-3 h-3 text-green-400 mr-2 flex-shrink-0" />
-                              <span className="truncate">{feature}</span>
-                            </motion.div>
-                          ))}
-                        </div>
-                        {/* Botón de flecha */}
-                        <div
-                          className={cn(
-                            "p-2.5 rounded-full absolute bottom-6 right-6",
-                            "bg-white/10 backdrop-blur-md",
-                            "group-hover:bg-white/20 transition-colors duration-300",
-                          )}
-                        >
-                          <ArrowUpRight className="w-5 h-5 text-white group-hover:-rotate-12 transition-transform duration-300" />
-                        </div>
-                      </div>
+                <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-white mb-3 uppercase tracking-tight group-hover:text-primary transition-colors">
+                  {solution.title}
+                </h3>
+                <p className="text-gray-400 text-sm mb-6 line-clamp-2 font-[family-name:var(--font-roboto)]">
+                  {solution.description}
+                </p>
+
+                <div className="space-y-2 mb-8">
+                  {solution.features.map((feature, fIdx) => (
+                    <div key={fIdx} className="flex items-center gap-2 text-xs text-white/70">
+                      <CheckCircle size={14} className="text-primary shrink-0" />
+                      <span>{feature}</span>
                     </div>
-                  </motion.div>
-                </Link>
-              </motion.div>
-            )
-          })}
-        </motion.div>
+                  ))}
+                </div>
 
-        {/* Bottom CTA */}
+                <Link
+                  href={solution.link}
+                  className="w-full py-4 rounded-xl bg-white/5 border border-white/10 text-white font-[family-name:var(--font-orbitron)] font-bold text-sm text-center flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-white transition-all"
+                >
+                  VER DETALLES <ArrowRight size={16} />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
         <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.8 }}
+          className="mt-20 text-center"
         >
-          <p className="text-lg text-gray-600 mb-6">¿Necesitas una solución personalizada para tu negocio?</p>
-          <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              asChild
-              size="lg"
-              className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 text-white font-bold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
-            >
-              <Link href="/contacto" className="flex items-center gap-3">
-                Hablemos de tu proyecto
-                <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}>
-                  <ArrowUpRight className="w-5 h-5" />
-                </motion.div>
-              </Link>
-            </Button>
-          </motion.div>
+          <p className="text-gray-400 text-lg mb-8">¿Necesitas una solución personalizada para tu empresa?</p>
+          <Link
+            href="/contacto"
+            className="px-10 py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-[family-name:var(--font-orbitron)] font-bold rounded-xl transition-all inline-flex items-center gap-3 group"
+          >
+            HABLEMOS DE TU PROYECTO
+            <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
+          </Link>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};

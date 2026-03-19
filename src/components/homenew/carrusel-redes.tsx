@@ -1,10 +1,43 @@
-"use client"
+'use client';
 
-import { motion } from "framer-motion"
-import { Facebook, Instagram, Users, Heart, Share2 } from "lucide-react"
-import Image from "next/image"
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Instagram, Facebook, Twitter, ExternalLink, Phone, Heart } from 'lucide-react';
 
-export function CarruselRedes() {
+const socialNetworks = [
+  {
+    name: "Instagram",
+    icon: Instagram,
+    href: "https://instagram.com/enviosdosruedas",
+    color: "hsl(45, 93%, 47%)",
+    description: "Novedades diarias",
+  },
+  {
+    name: "Facebook",
+    icon: Facebook,
+    href: "https://facebook.com/enviosdosruedas",
+    color: "hsl(221.2, 83.2%, 53.3%)",
+    description: "Comunidad activa",
+  },
+  {
+    name: "WhatsApp",
+    icon: Phone,
+    isWhatsApp: true,
+    color: "#25D366",
+    description: "Atención inmediata",
+  },
+];
+
+const feedItems = [
+  { id: 1, type: 'ig', image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=400' },
+  { id: 2, type: 'tw', image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=400' },
+  { id: 3, type: 'ig', image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=400' },
+  { id: 4, type: 'fb', image: 'https://images.unsplash.com/photo-1549463591-24c1882bd396?auto=format&fit=crop&q=80&w=400' },
+  { id: 5, type: 'ig', image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=400' },
+  { id: 6, type: 'tw', image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=400' },
+];
+
+export const CarruselRedes = () => {
   const handleWhatsAppClick = () => {
     const phoneNumber = "5492236602699"
     const message = "Hola, me gustaría obtener información sobre sus servicios de envío."
@@ -12,209 +45,81 @@ export function CarruselRedes() {
     window.open(whatsappUrl, "_blank")
   }
 
-  const socialNetworks = [
-    {
-      name: "Facebook",
-      icon: Facebook,
-      href: "https://facebook.com/enviosdosruedas",
-      color: "from-blue-600 to-blue-700",
-      bgColor: "bg-blue-50",
-      hoverColor: "hover:bg-blue-100",
-      description: "Síguenos en Facebook",
-    },
-    {
-      name: "Instagram",
-      icon: Instagram,
-      href: "https://instagram.com/enviosdosruedas",
-      color: "from-pink-500 via-purple-500 to-orange-500",
-      bgColor: "bg-pink-50",
-      hoverColor: "hover:bg-pink-100",
-      description: "Síguenos en Instagram",
-    },
-    {
-      name: "WhatsApp",
-      icon: null,
-      onClick: handleWhatsAppClick,
-      href: "#",
-      color: "from-green-500 to-green-600",
-      bgColor: "bg-green-50",
-      hoverColor: "hover:bg-green-100",
-      description: "Chateá con nosotros",
-    },
-  ]
-
-  // Duplicamos las redes sociales para el efecto de loop infinito
-  const duplicatedNetworks = [...socialNetworks, ...socialNetworks, ...socialNetworks, ...socialNetworks]
-
   return (
-    <section className="relative py-16 md:py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 overflow-hidden font-sans">
-      {/* Background decorations */}
-      <div className="absolute inset-0">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/10 rounded-full"
-            animate={{
-              x: [0, 100, 0],
-              y: [0, -100, 0],
-              opacity: [0.1, 0.3, 0.1],
-            }}
-            transition={{
-              duration: 15 + i * 2,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
-              delay: i * 2,
-            }}
-            style={{
-              left: `${10 + i * 12}%`,
-              top: `${20 + (i % 3) * 30}%`,
-            }}
-          />
-        ))}
-      </div>
+    <section className="py-32 px-4 bg-[#050810] overflow-hidden relative">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-primary/5 blur-[120px] pointer-events-none" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <motion.div
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 backdrop-blur-sm mb-6"
-            whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.15)" }}
-          >
-            <Users className="w-5 h-5 text-primary" />
-            <span className="text-sm font-semibold text-primary">Conectá con Nosotros</span>
-            <Heart className="w-5 h-5 text-secondary" />
-          </motion.div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-yellow-500 text-[10px] font-bold tracking-widest mb-6 uppercase">
+              <Heart size={12} className="fill-yellow-500" /> CONECTA CON NOSOTROS
+            </div>
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter">
+              SIGUE NUESTRO <span className="text-secondary">MOVIMIENTO</span>
+            </h2>
+            <p className="text-gray-500 text-lg mt-4 font-[family-name:var(--font-roboto)] max-w-xl">
+              Únete a nuestra comunidad digital y mantente al día con las últimas noticias de logística en Mar del Plata.
+            </p>
+          </div>
 
-          <motion.h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground mb-4"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-            style={{
-              background: "linear-gradient(90deg, #1e40af, #fbbf24, #1e40af)",
-              backgroundSize: "200% 200%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Seguinos en Nuestras <span className="text-secondary">Redes Sociales</span>
-          </motion.h2>
-
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-sans">
-            Mantente al día con nuestras novedades, promociones y consejos de envío. ¡Únete a nuestra comunidad!
-          </p>
-        </motion.div>
-
-        {/* Carousel Container */}
-        <div className="relative">
-          {/* Gradient overlays for smooth edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-10 pointer-events-none" />
-
-          {/* Carousel */}
-          <div className="overflow-hidden py-8">
-            <motion.div
-              className="flex gap-8"
-              animate={{
-                x: [0, -1200], // Ajustamos según el ancho de los elementos
-              }}
-              transition={{
-                duration: 20,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "linear",
-              }}
-              whileHover={{
-                animationPlayState: "paused",
-              }}
-              style={{
-                width: `${duplicatedNetworks.length * 300}px`, // 300px por cada elemento
-              }}
-            >
-              {duplicatedNetworks.map((network, index) => {
-                const IconComponent = network.icon;
-                return (
-                <motion.div
-                  key={`${network.name}-${index}`}
-                  className="flex-shrink-0 w-72 group cursor-pointer"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={network.onClick || (() => window.open(network.href, "_blank"))}
+          <div className="flex gap-4">
+            {socialNetworks.map((net, idx) => (
+              <button
+                key={idx}
+                onClick={net.isWhatsApp ? handleWhatsAppClick : () => window.open(net.href, "_blank")}
+                className="group flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all text-white"
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
+                  style={{ backgroundColor: `${net.color}15`, color: net.color }}
                 >
-                  <div
-                    className={`${network.bgColor} ${network.hoverColor} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 h-64 flex flex-col items-center justify-center text-center group-hover:border-primary/30`}
-                  >
-                    {/* Icon with gradient background */}
-                    <motion.div
-                      className={`w-20 h-20 bg-gradient-to-r ${network.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6, ease: "easeInOut" }}
-                    >
-                      {IconComponent ? <IconComponent className="w-10 h-10 text-white" /> : <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp" width={40} height={40} />}
-                    </motion.div>
-
-                    {/* Network name */}
-                    <h3 className="text-2xl font-bold font-heading text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
-                      {network.name}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-gray-600 text-sm leading-relaxed font-sans">{network.description}</p>
-
-                    {/* Hover indicator */}
-                    <motion.div
-                      className="mt-4 flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      initial={{ x: -10 }}
-                      whileHover={{ x: 0 }}
-                    >
-                      <Share2 className="w-4 h-4" />
-                      <span className="text-sm font-medium">Conectar</span>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              )})}
-            </motion.div>
+                  <net.icon size={24} />
+                </div>
+                <div className="text-left hidden lg:block">
+                  <div className="text-sm font-bold font-[family-name:var(--font-orbitron)] tracking-tight uppercase">{net.name}</div>
+                  <div className="text-[10px] text-gray-500 uppercase tracking-widest">{net.description}</div>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Bottom text */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          <p className="text-gray-600 font-sans">
-            ¿Tenés alguna consulta? <span className="text-primary font-semibold">¡Escribinos por WhatsApp!</span>
-          </p>
-        </motion.div>
-      </div>
+        <div className="relative group/carousel">
+          <div className="flex gap-6 w-fit overflow-hidden py-10">
+            <motion.div
+              className="flex gap-6"
+              animate={{ x: [0, -1000] }}
+              transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+              whileHover={{ animationPlayState: 'paused' }}
+            >
+              {[...feedItems, ...feedItems, ...feedItems].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="w-72 h-72 shrink-0 rounded-3xl overflow-hidden relative group border border-white/10 shadow-2xl transition-all hover:border-primary/50"
+                >
+                  <img src={item.image} alt="Social feed" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-[#050810]/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-6 p-8">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white">
+                      {item.type === 'ig' && <Instagram size={32} />}
+                      {item.type === 'tw' && <Twitter size={32} />}
+                      {item.type === 'fb' && <Facebook size={32} />}
+                    </div>
+                    <div className="text-center">
+                      <div className="text-white font-[family-name:var(--font-orbitron)] font-bold uppercase tracking-tight mb-2">VER POST</div>
+                      <ExternalLink size={20} className="text-secondary mx-auto" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
 
-      {/* Custom CSS for the carousel animation */}
-      <style jsx>{`
-        @media (max-width: 768px) {
-          .flex-shrink-0 {
-            width: 240px;
-          }
-        }
-        @media (max-width: 480px) {
-          .flex-shrink-0 {
-            width: 200px;
-          }
-        }
-      `}</style>
+          {/* Side Gradients */}
+          <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-[#050810] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-[#050810] to-transparent z-10 pointer-events-none" />
+        </div>
+      </div>
     </section>
-  )
-}
+  );
+};
