@@ -13,10 +13,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
-import { Menu, X, Home, Calculator as CalculatorIcon, Mail, ChevronDown } from "lucide-react"
+import { Menu, Home, Calculator as CalculatorIcon, Mail, ChevronDown, Phone, Truck } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
-import { navGroups, type NavGroup } from "@/lib/navigation"
+import { motion, AnimatePresence } from "framer-motion"
+import { navGroups } from "@/lib/navigation"
 import {
   Accordion,
   AccordionContent,
@@ -52,7 +52,6 @@ const NavLink = ({
   href,
   children,
   isActive,
-  scrolled,
 }: {
   href: string
   children: React.ReactNode
@@ -63,10 +62,10 @@ const NavLink = ({
     <Link
       href={href}
       className={cn(
-        "flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200",
+        "flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
         isActive
-          ? "bg-gradient-to-r from-secondary/20 to-secondary/10 text-secondary"
-          : "text-primary-foreground hover:text-secondary hover:bg-primary-foreground/10",
+          ? "bg-primary/20 text-blue-400 border border-primary/30"
+          : "text-white/70 hover:text-white hover:bg-white/10",
       )}
     >
       {children}
@@ -98,43 +97,34 @@ export function OptimizedHeader() {
   return (
     <motion.header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-primary/95 backdrop-blur-sm shadow-md border-b border-primary-foreground/10"
-          : "bg-transparent",
+          ? "bg-[#050810]/80 backdrop-blur-md py-4 border-b border-white/10"
+          : "bg-transparent py-6",
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 200, damping: 25 }}
     >
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <motion.div whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }} transition={{ duration: 0.4 }}>
-            <Image
-              src="/LogoEnviosDosRuedas.webp"
-              alt="Logo Envíos Dos Ruedas"
-              width={50}
-              height={50}
-              priority
-              className="h-12 w-12 md:h-14 md:w-14"
-            />
-          </motion.div>
-          <span
-            className={cn(
-              "hidden text-lg font-bold sm:inline-block transition-colors duration-300",
-              "text-primary-foreground",
-            )}
+        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+          <motion.div
+            whileHover={{ rotate: 12, scale: 1.1 }}
+            className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center transition-transform"
           >
-            Envíos Dos Ruedas
+            <Truck className="text-white" size={24} />
+          </motion.div>
+          <span className="font-[family-name:var(--font-orbitron)] font-black text-xl tracking-tighter text-white uppercase italic hidden sm:inline-block">
+            DOS<span className="text-primary">RUEDAS</span>
           </span>
         </Link>
 
-        {/* Desktop Navigation (lg) */}
+        {/* Desktop Navigation */}
         <nav className="hidden items-center space-x-2 lg:flex">
           <NavLink href="/" isActive={isActive("/")} scrolled={scrolled}>
-            <Home className="mr-2 h-4 w-4" />
-            Inicio
+            <Home className="h-4 w-4" />
+            <span>Inicio</span>
           </NavLink>
 
           {navGroups.map((group) => {
@@ -145,10 +135,10 @@ export function OptimizedHeader() {
                 <DropdownMenuTrigger asChild>
                   <motion.div
                     className={cn(
-                      "flex cursor-pointer items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-200",
+                      "flex cursor-pointer items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
                       groupIsActive
-                        ? "bg-gradient-to-r from-secondary/20 to-secondary/10 text-secondary"
-                        : "text-primary-foreground hover:text-secondary hover:bg-primary-foreground/10",
+                        ? "bg-primary/20 text-blue-400 border border-primary/30"
+                        : "text-white/70 hover:text-white hover:bg-white/10",
                     )}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -158,16 +148,16 @@ export function OptimizedHeader() {
                     <ChevronDown className="h-4 w-4" />
                   </motion.div>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="mt-2 w-56 bg-popover/80 backdrop-blur-lg border-primary-foreground/10 text-popover-foreground">
+                <DropdownMenuContent className="mt-2 w-56 bg-[#0a0d16]/95 backdrop-blur-xl border-white/10 text-white shadow-2xl">
                   {group.items.map((item) => {
                     const ItemIcon = item.icon
                     return (
-                      <DropdownMenuItem key={item.href} asChild>
+                      <DropdownMenuItem key={item.href} asChild className="focus:bg-primary/20 focus:text-blue-400 cursor-pointer">
                         <Link
                           href={item.href}
                           className={cn(
                             "flex items-center space-x-3 py-2.5",
-                            isActive(item.href) ? "text-secondary font-semibold" : "",
+                            isActive(item.href) ? "text-primary font-semibold" : "text-white/70",
                           )}
                         >
                           {ItemIcon && <ItemIcon className="h-4 w-4" />}
@@ -182,161 +172,157 @@ export function OptimizedHeader() {
           })}
 
           <NavLink href="/contacto" isActive={isActive("/contacto")} scrolled={scrolled}>
-            <Mail className="mr-2 h-4 w-4" />
-            Contacto
+            <Mail className="h-4 w-4" />
+            <span>Contacto</span>
           </NavLink>
+
+          <div className="w-px h-6 bg-white/10 mx-2" />
 
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button
               asChild
-              className="ml-4 bg-gradient-to-r from-secondary to-secondary/90 font-semibold text-secondary-foreground shadow-lg"
+              className="bg-secondary hover:bg-secondary/90 text-black font-[family-name:var(--font-orbitron)] font-bold px-6"
             >
               <Link href="/cotizar/express">
                 <CalculatorIcon className="mr-2 h-4 w-4" />
-                Cotizar Envío
+                COTIZAR
               </Link>
             </Button>
           </motion.div>
         </nav>
 
-        {/* Mobile Navigation (Sheet) */}
-        <div className="lg:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu
-                  className={cn(
-                    "h-6 w-6 transition-colors duration-300",
-                    "text-primary-foreground",
-                  )}
-                />
-                <span className="sr-only">Abrir menú</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-primary text-primary-foreground pt-10">
-              <SheetHeader className="mb-6 flex flex-row items-center space-x-2">
-                <Image
-                  src="/LogoEnviosDosRuedas.webp"
-                  alt="Logo Envíos Dos Ruedas"
-                  width={40}
-                  height={40}
-                />
-                <SheetTitle className="text-secondary">
-                  Envíos Dos Ruedas
-                </SheetTitle>
-              </SheetHeader>
+        {/* Right side mobile trigger */}
+        <div className="flex items-center gap-4">
+           <a href="tel:+5492236602699" className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white text-[10px] font-bold tracking-widest hover:bg-white/10 transition-all uppercase">
+            <Phone size={14} className="text-secondary" /> +54 223 660-2699
+          </a>
 
-              <motion.div
-                className="flex h-full flex-col"
-                variants={mobileNavVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                {/* Enlace de Inicio */}
-                <motion.div variants={mobileNavItemVariants}>
-                  <SheetClose asChild>
-                    <Link
-                      href="/"
-                      className={cn(
-                        "flex items-center space-x-4 py-4 px-4 rounded-xl transition-all duration-300 w-full text-left group",
-                        isActive("/")
-                          ? "bg-gradient-to-r from-secondary/20 to-secondary/10 text-secondary font-semibold shadow-lg"
-                          : "text-primary-foreground hover:text-secondary hover:bg-primary-foreground/5",
-                      )}
-                    >
-                      <Home className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
-                      <span className="font-medium text-base">Inicio</span>
-                    </Link>
-                  </SheetClose>
-                </motion.div>
+          <div className="lg:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Abrir menú</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] bg-[#050810] text-white border-white/10 pt-10">
+                <SheetHeader className="mb-8 flex flex-row items-center space-x-3">
+                   <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                    <Truck className="text-white" size={20} />
+                  </div>
+                  <SheetTitle className="text-white font-[family-name:var(--font-orbitron)] font-black italic text-xl">
+                    DOS<span className="text-primary">RUEDAS</span>
+                  </SheetTitle>
+                </SheetHeader>
 
-                {/* Grupos de Navegación (Acordeón) */}
-                <Accordion type="multiple" className="w-full">
-                  {navGroups.map((group) => {
-                    const GroupIcon = group.icon
-                    const groupIsActive = isGroupActive(group.basePath)
-
-                    return (
-                      <motion.div variants={mobileNavItemVariants} key={group.label}>
-                        <AccordionItem value={group.label} className="border-b-0">
-                          <AccordionTrigger
-                            className={cn(
-                              "py-4 px-4 rounded-xl transition-all duration-300 w-full justify-between group",
-                              groupIsActive
-                                ? "text-secondary font-semibold [&[data-state=open]]:bg-gradient-to-r [&[data-state=open]]:from-secondary/20 [&[data-state=open]]:to-secondary/10"
-                                : "text-primary-foreground hover:text-secondary hover:bg-primary-foreground/5",
-                              "hover:no-underline",
-                            )}
-                          >
-                            <div className="flex items-center space-x-4">
-                              <GroupIcon className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
-                              <span className="font-medium text-base">{group.label}</span>
-                            </div>
-                          </AccordionTrigger>
-                          <AccordionContent className="pt-2 pb-0">
-                            <div className="flex flex-col space-y-1 pl-8">
-                              {group.items.map((item) => {
-                                const ItemIcon = item.icon
-                                return (
-                                  <SheetClose asChild key={item.href}>
-                                    <Link
-                                      href={item.href}
-                                      className={cn(
-                                        "flex items-center space-x-3 py-3 px-4 rounded-lg transition-all duration-300 w-full text-left",
-                                        isActive(item.href)
-                                          ? "bg-secondary/10 text-secondary font-medium"
-                                          : "text-primary-foreground/80 hover:text-secondary hover:bg-primary-foreground/5",
-                                      )}
-                                    >
-                                      {ItemIcon && <ItemIcon className="w-4 h-4" />}
-                                      <span className="text-sm">{item.label}</span>
-                                    </Link>
-                                  </SheetClose>
-                                )
-                              })}
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-                      </motion.div>
-                    )
-                  })}
-                </Accordion>
-
-                {/* Enlace de Contacto */}
-                <motion.div variants={mobileNavItemVariants} className="mt-2">
-                  <SheetClose asChild>
-                    <Link
-                      href="/contacto"
-                      className={cn(
-                        "flex items-center space-x-4 py-4 px-4 rounded-xl transition-all duration-300 w-full text-left group",
-                        isActive("/contacto")
-                          ? "bg-gradient-to-r from-secondary/20 to-secondary/10 text-secondary font-semibold shadow-lg"
-                          : "text-primary-foreground hover:text-secondary hover:bg-primary-foreground/5",
-                      )}
-                    >
-                      <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
-                      <span className="font-medium text-base">Contacto</span>
-                    </Link>
-                  </SheetClose>
-                </motion.div>
-
-                {/* Botón de Cotizar */}
-                <motion.div variants={mobileNavItemVariants} className="mt-auto pt-6 pb-10">
-                  <SheetClose asChild>
-                    <Link href="/cotizar/express" className="block w-full">
-                      <Button
-                        size="lg"
-                        className="w-full bg-gradient-to-r from-secondary to-secondary/90 hover:from-secondary/90 hover:to-secondary/80 text-secondary-foreground shadow-lg font-semibold rounded-xl"
+                <motion.div
+                  className="flex h-full flex-col"
+                  variants={mobileNavVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  <motion.div variants={mobileNavItemVariants}>
+                    <SheetClose asChild>
+                      <Link
+                        href="/"
+                        className={cn(
+                          "flex items-center space-x-4 py-4 px-4 rounded-xl transition-all duration-300 w-full group",
+                          isActive("/")
+                            ? "bg-primary/20 text-blue-400 border border-primary/30 shadow-lg"
+                            : "text-white/70 hover:text-white hover:bg-white/5",
+                        )}
                       >
-                        <CalculatorIcon className="w-5 h-5 mr-3" />
-                        Cotizar Envío
-                      </Button>
-                    </Link>
-                  </SheetClose>
+                        <Home className="w-5 h-5" />
+                        <span className="font-medium text-base">Inicio</span>
+                      </Link>
+                    </SheetClose>
+                  </motion.div>
+
+                  <Accordion type="multiple" className="w-full">
+                    {navGroups.map((group) => {
+                      const GroupIcon = group.icon
+                      const groupIsActive = isGroupActive(group.basePath)
+
+                      return (
+                        <motion.div variants={mobileNavItemVariants} key={group.label}>
+                          <AccordionItem value={group.label} className="border-b-0">
+                            <AccordionTrigger
+                              className={cn(
+                                "py-4 px-4 rounded-xl transition-all duration-300 w-full justify-between group",
+                                groupIsActive
+                                  ? "text-primary font-semibold [&[data-state=open]]:bg-primary/10"
+                                  : "text-white/70 hover:text-white hover:bg-white/5",
+                                "hover:no-underline",
+                              )}
+                            >
+                              <div className="flex items-center space-x-4">
+                                <GroupIcon className="w-5 h-5" />
+                                <span className="font-medium text-base">{group.label}</span>
+                              </div>
+                            </AccordionTrigger>
+                            <AccordionContent className="pt-2 pb-0">
+                              <div className="flex flex-col space-y-1 pl-8">
+                                {group.items.map((item) => {
+                                  const ItemIcon = item.icon
+                                  return (
+                                    <SheetClose asChild key={item.href}>
+                                      <Link
+                                        href={item.href}
+                                        className={cn(
+                                          "flex items-center space-x-3 py-3 px-4 rounded-lg transition-all duration-300 w-full text-left",
+                                          isActive(item.href)
+                                            ? "bg-primary/20 text-blue-400 font-medium"
+                                            : "text-white/60 hover:text-white hover:bg-white/5",
+                                        )}
+                                      >
+                                        {ItemIcon && <ItemIcon className="w-4 h-4" />}
+                                        <span className="text-sm">{item.label}</span>
+                                      </Link>
+                                    </SheetClose>
+                                  )
+                                })}
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        </motion.div>
+                      )
+                    })}
+                  </Accordion>
+
+                  <motion.div variants={mobileNavItemVariants} className="mt-2">
+                    <SheetClose asChild>
+                      <Link
+                        href="/contacto"
+                        className={cn(
+                          "flex items-center space-x-4 py-4 px-4 rounded-xl transition-all duration-300 w-full group",
+                          isActive("/contacto")
+                            ? "bg-primary/20 text-blue-400 border border-primary/30 shadow-lg"
+                            : "text-white/70 hover:text-white hover:bg-white/5",
+                        )}
+                      >
+                        <Mail className="w-5 h-5" />
+                        <span className="font-medium text-base">Contacto</span>
+                      </Link>
+                    </SheetClose>
+                  </motion.div>
+
+                  <motion.div variants={mobileNavItemVariants} className="mt-auto pt-6 pb-10">
+                    <SheetClose asChild>
+                      <Link href="/cotizar/express" className="block w-full">
+                        <Button
+                          size="lg"
+                          className="w-full bg-secondary hover:bg-secondary/90 text-black font-[family-name:var(--font-orbitron)] font-bold rounded-xl"
+                        >
+                          <CalculatorIcon className="w-5 h-5 mr-3" />
+                          COTIZAR ENVÍO
+                        </Button>
+                      </Link>
+                    </SheetClose>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </motion.header>

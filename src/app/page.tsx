@@ -10,7 +10,7 @@ import { Footer } from "@/components/homenew/footer"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#050810] text-white selection:bg-blue-500/30">
       <OptimizedHeader />
       <HeroAnimado />
       <VisionSection />

@@ -1,221 +1,80 @@
+'use client';
 
-"use client"
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Package, Truck, Clock, ShieldCheck, ChevronRight } from 'lucide-react';
 
-import { useEffect, useRef, useState } from "react"
-import Link from "next/link"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Parallax, Pagination, EffectFade, Autoplay, Navigation } from "swiper/modules"
-import type { Swiper as SwiperType } from "swiper"
-import { TrendingUp, Package, Users, CheckCircle, ArrowLeft, ArrowRight } from "lucide-react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-
-// Import Swiper styles
-import "swiper/css"
-import "swiper/css/parallax"
-import "swiper/css/pagination"
-import "swiper/css/effect-fade"
-import "swiper/css/navigation"
-
-const slides = [
+const services = [
   {
-    id: 1,
-    icon: TrendingUp,
-    title: "Plan Emprendedores",
-    subtitle: "Emprendedores",
-    description: "Tarifas preferenciales y servicios adaptados para hacer crecer tu negocio online",
-    features: ["Tarifas LowCost", "Facturación mensual", "Soporte dedicado", "Reportes detallados"],
-    gradient: "from-blue-600 to-blue-800",
-    glowColor: "bg-blue-500/20",
-    link: "/servicios/plan-emprendedores",
+    title: "ENTREGA EXPRESS",
+    desc: "Menos de 60 minutos para tus pedidos más críticos.",
+    icon: <Clock />,
+    color: "hsl(221.2, 83.2%, 53.3%)"
   },
   {
-    id: 2,
-    icon: Package,
-    title: "Envíos Flex MercadoLibre",
-    subtitle: "MercadoLibre",
-    description: "Integración perfecta con MercadoLibre para potenciar tus ventas",
-    features: ["Entregas el mismo día", "Mejora tu reputación", "Tarifas LowCost", "API integrada"],
-    gradient: "from-yellow-500 to-orange-600",
-    glowColor: "bg-yellow-500/20",
-    link: "/servicios/enviosflex",
+    title: "MULTIENTREGAS",
+    desc: "Optimiza rutas y ahorra hasta un 30% en logística diaria.",
+    icon: <Truck />,
+    color: "hsl(45, 93%, 47%)"
   },
   {
-    id: 3,
-    icon: Users,
-    title: "Moto Fija para Negocios",
-    subtitle: "Dedicado",
-    description: "Repartidor dedicado exclusivamente para tu empresa",
-    features: ["Repartidor exclusivo", "Horarios personalizados", "Rutas optimizadas", "Seguimiento GPS"],
-    gradient: "from-green-500 to-teal-600",
-    glowColor: "bg-green-500/20",
-    link: "/servicios/moto-fija",
+    title: "ALMACENAJE",
+    desc: "Guardamos tus productos en puntos estratégicos de la ciudad.",
+    icon: <Package />,
+    color: "hsl(221.2, 83.2%, 53.3%)"
   },
-]
+  {
+    title: "SEGURO TOTAL",
+    desc: "Cada paquete viaja protegido contra todo riesgo.",
+    icon: <ShieldCheck />,
+    color: "hsl(45, 93%, 47%)"
+  }
+];
 
 export default function SliderServicios() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [progress, setProgress] = useState(0)
-  const swiperRef = useRef<SwiperType>()
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) return 0
-        return prev + 1
-      })
-    }, 50) 
-    return () => clearInterval(interval)
-  }, [activeIndex])
-
-  const handleSlideChange = (swiper: SwiperType) => {
-    setActiveIndex(swiper.activeIndex)
-    setProgress(0)
-  }
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    },
-  };
-
   return (
-    <div className="relative h-screen w-full overflow-hidden font-sans">
-      <Swiper
-        modules={[Parallax, Pagination, EffectFade, Autoplay, Navigation]}
-        parallax={true}
-        effect="fade"
-        fadeEffect={{ crossFade: true }}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        speed={1200}
-        onSwiper={(swiper) => { swiperRef.current = swiper }}
-        onSlideChange={handleSlideChange}
-        className="h-full w-full"
-        loop={true}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
-      >
-        {slides.map((slide) => {
-          const IconComponent = slide.icon
-          return (
-            <SwiperSlide key={slide.id} className="relative">
-              <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient}`} data-swiper-parallax="-300" />
-              <div className="absolute inset-0 opacity-10" data-swiper-parallax="-200">
-                <div className={`absolute top-1/4 left-1/4 w-96 h-96 ${slide.glowColor} rounded-full blur-3xl animate-pulse`} />
-                <div className={`absolute bottom-1/4 right-1/4 w-64 h-64 ${slide.glowColor} rounded-full blur-3xl animate-pulse delay-1000`} />
-              </div>
+    <section className="py-24 px-4 bg-[#0a0d16]">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex justify-between items-end mb-16">
+          <div>
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl font-black text-white mb-4 uppercase italic">
+              SOLUCIONES A <span className="text-[hsl(221.2,83.2%,53.3%)]">MEDIDA</span>
+            </h2>
+            <p className="text-gray-400 font-[family-name:var(--font-roboto)]">Potencia cada área de tu negocio con herramientas diseñadas para crecer.</p>
+          </div>
+        </div>
 
-              <div className="relative z-10 flex items-center justify-center h-full px-8">
-                <motion.div 
-                  className="text-center max-w-4xl"
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                >
-                  <motion.div className="mb-6 flex justify-center" variants={itemVariants}>
-                    <div className="p-4 rounded-full bg-white/10 backdrop-blur-sm ring-2 ring-white/20">
-                      <IconComponent className="w-12 h-12 text-white" />
-                    </div>
-                  </motion.div>
-
-                  <motion.div className="mb-4" variants={itemVariants}>
-                    <span className="text-white/70 text-lg font-medium tracking-wider uppercase font-display">{slide.subtitle}</span>
-                  </motion.div>
-
-                  <motion.h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight font-display" variants={itemVariants}>
-                    {slide.title}
-                  </motion.h1>
-
-                  <motion.p className="text-lg md:text-xl text-white/80 font-normal leading-relaxed max-w-2xl mx-auto mb-10" variants={itemVariants}>
-                    {slide.description}
-                  </motion.p>
-                  
-                  <motion.div className="flex flex-wrap items-center justify-center gap-4 max-w-lg mx-auto mb-10" variants={itemVariants}>
-                    {slide.features.map((feature, featureIndex) => (
-                      <motion.div 
-                        key={featureIndex} 
-                        className="flex items-center bg-white/10 backdrop-blur-sm rounded-lg px-4 py-2"
-                        initial={{ opacity: 0, y: 10}}
-                        animate={{ opacity: 1, y: 0}}
-                        transition={{ delay: 0.3 + featureIndex * 0.1}}
-                      >
-                         <CheckCircle className="w-4 h-4 text-green-300 mr-2" />
-                         <span className="text-white/90 text-sm font-medium">{feature}</span>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                  
-                  <motion.div variants={itemVariants}>
-                    <Button asChild size="lg" variant="secondary" className="font-bold shadow-lg transform hover:scale-105 transition-transform">
-                      <Link href={slide.link}>Ver más detalles</Link>
-                    </Button>
-                  </motion.div>
-
-                </motion.div>
-              </div>
-            </SwiperSlide>
-          )
-        })}
-      </Swiper>
-
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex items-center space-x-4">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => { swiperRef.current?.slideToLoop(index); setProgress(0) }}
-              className={`relative group transition-all duration-300 ${index === activeIndex ? "scale-110" : "scale-100 hover:scale-105"}`}
-              aria-label={`Ir a la diapositiva ${index + 1}`}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service, idx) => (
+            <motion.div
+              key={idx}
+              className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all cursor-pointer relative overflow-hidden"
+              whileHover={{ y: -8 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
             >
-              <div className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${index === activeIndex ? "border-white bg-white" : "border-white/40 bg-transparent hover:border-white/60"}`} />
-              {index === activeIndex && (
-                <div className="absolute inset-0 -m-2">
-                  <svg className="w-7 h-7 transform -rotate-90" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" fill="none" />
-                    <circle
-                      cx="12" cy="12" r="10" stroke="white" strokeWidth="1.5" fill="none"
-                      strokeDasharray={`${2 * Math.PI * 10}`}
-                      strokeDashoffset={`${2 * Math.PI * 10 * (1 - progress / 100)}`}
-                      className="transition-all duration-75 ease-linear"
-                    />
-                  </svg>
-                </div>
-              )}
-            </button>
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-white transition-transform group-hover:scale-110"
+                style={{ backgroundColor: `${service.color}15`, color: service.color }}
+              >
+                {React.cloneElement(service.icon, { size: 28 })}
+              </div>
+              <h3 className="font-[family-name:var(--font-orbitron)] text-xl font-bold text-white mb-4 uppercase">{service.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed mb-6 font-[family-name:var(--font-roboto)]">
+                {service.desc}
+              </p>
+              <div className="flex items-center gap-2 text-blue-400 text-sm font-bold opacity-0 group-hover:opacity-100 transition-all group-hover:gap-3">
+                DETALLES <ChevronRight size={16} />
+              </div>
+
+              {/* Animated Background Line */}
+              <div className="absolute bottom-0 left-0 w-0 h-1 transition-all duration-500 group-hover:w-full" style={{ backgroundColor: service.color }} />
+            </motion.div>
           ))}
         </div>
       </div>
-
-      <div className="swiper-button-prev absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 z-20 group cursor-pointer">
-        <div className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:border-white/40 hover:bg-white/10 backdrop-blur-sm">
-          <ArrowLeft className="w-6 h-6 text-white/80 group-hover:text-white transition-colors" />
-        </div>
-      </div>
-      <div className="swiper-button-next absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 z-20 group cursor-pointer">
-        <div className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:border-white/40 hover:bg-white/10 backdrop-blur-sm">
-          <ArrowRight className="w-6 h-6 text-white/80 group-hover:text-white transition-colors" />
-        </div>
-      </div>
-    </div>
-  )
+    </section>
+  );
 }
