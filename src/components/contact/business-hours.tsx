@@ -1,4 +1,5 @@
-// src/components/contact/business-hours.tsx
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Calendar } from "lucide-react"
 import { motion } from "framer-motion";
@@ -32,7 +33,7 @@ export function BusinessHours() {
             <p className="text-base sm:text-lg text-muted-foreground font-sans">Estamos disponibles para atenderte en los siguientes horarios.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 justify-center items-center">
             {/* Schedule Card */}
             <motion.div
               custom={0}
@@ -40,8 +41,9 @@ export function BusinessHours() {
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={cardVariants}
+              className="md:col-span-2 max-w-2xl mx-auto w-full"
             >
-              <Card className="hover:shadow-lg transition-shadow duration-300 h-full border-border">
+              <Card className="hover:shadow-lg transition-shadow duration-300 h-full border-border/50 bg-card/50 backdrop-blur-sm">
                 <CardHeader className="pb-3 sm:pb-4">
                   <CardTitle className="flex items-center text-lg sm:text-xl text-primary font-display">
                     <Calendar className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
@@ -62,17 +64,6 @@ export function BusinessHours() {
                   </div>
                 </CardContent>
               </Card>
-            </motion.div>
-
-            {/* Emergency Contact */}
-            <motion.div
-              custom={1}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={cardVariants}
-            >
-             
             </motion.div>
           </div>
         </div>

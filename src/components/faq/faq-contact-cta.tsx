@@ -7,21 +7,22 @@ export function FaqContactCta() {
   return (
     <section className="py-16 px-4 bg-background">
       <div className="container mx-auto max-w-4xl">
-        <Card className="bg-gradient-to-r from-primary to-primary/90 text-primary-foreground">
-          <CardContent className="p-8 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 font-display">¿No encontraste lo que buscabas?</h2>
-            <p className="text-lg mb-8 text-primary-foreground/80">
+        <Card className="bg-gradient-to-br from-primary via-blue-800 to-slate-900 text-primary-foreground border-none shadow-2xl overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+          <CardContent className="p-10 md:p-14 text-center relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">¿No encontraste lo que buscabas?</h2>
+            <p className="text-xl mb-10 text-primary-foreground/80 font-sans max-w-2xl mx-auto">
               Nuestro equipo está listo para ayudarte con cualquier consulta específica sobre nuestros servicios.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-green-500 hover:bg-green-600 text-white">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button asChild size="lg" className="bg-[#25D366] hover:bg-[#25D366]/90 text-white font-sans h-14 px-8 text-lg rounded-full">
                 <a
                   href="https://wa.me/5492236602699?text=Hola, tengo una consulta que no encontré en las FAQ"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <MessageCircle className="w-5 h-5 mr-2" />
+                  <MessageCircle className="w-6 h-6 mr-2" />
                   WhatsApp
                 </a>
               </Button>
@@ -30,23 +31,11 @@ export function FaqContactCta() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary"
-              >
-                <a href="tel:+542236602699">
-                  <Phone className="w-5 h-5 mr-2" />
-                  223-660-2699
-                </a>
-              </Button>
-
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-primary"
+                className="border-white/30 text-white hover:bg-white hover:text-primary font-sans h-14 px-8 text-lg rounded-full backdrop-blur-sm"
               >
                 <Link href="/contacto">
-                  <Mail className="w-5 h-5 mr-2" />
-                  Contacto
+                  <Mail className="w-6 h-6 mr-2" />
+                  Contacto Directo
                 </Link>
               </Button>
             </div>

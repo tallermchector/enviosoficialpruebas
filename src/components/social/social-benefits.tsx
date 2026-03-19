@@ -6,46 +6,46 @@ export function SocialBenefits() {
     {
       icon: Gift,
       title: "Ofertas Exclusivas",
-      description: "Accede a descuentos y promociones especiales solo para nuestros seguidores en redes sociales.",
+      description: "Accede a descuentos y promociones especiales solo para nuestros seguidores.",
     },
     {
       icon: Bell,
-      title: "Actualizaciones Inmediatas",
-      description: "Sé el primero en conocer nuevos servicios, cambios de horarios y noticias importantes.",
+      title: "Actualizaciones",
+      description: "Sé el primero en conocer nuevos servicios y cambios de horarios importantes.",
     },
     {
       icon: Users,
       title: "Comunidad Activa",
-      description: "Únete a nuestra comunidad de clientes y comparte experiencias con otros usuarios.",
+      description: "Únete a nuestra comunidad de clientes y comparte tus experiencias con nosotros.",
     },
     {
       icon: Zap,
-      title: "Soporte Rápido",
-      description: "Obtén respuestas rápidas a tus consultas a través de nuestras redes sociales.",
+      title: "Soporte Ágil",
+      description: "Obtén respuestas rápidas a tus consultas a través de mensajes directos.",
     },
   ]
 
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-20 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Beneficios de Seguirnos</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Descubre todas las ventajas de formar parte de nuestra comunidad en redes sociales
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-display uppercase">Beneficios de Formar Parte</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-sans">
+            Descubre por qué cientos de marplatenses ya nos siguen en nuestras redes.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon
             return (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="w-8 h-8 text-yellow-600" />
+              <Card key={index} className="text-center hover:shadow-xl transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm group">
+                <CardContent className="p-8">
+                  <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <IconComponent className="w-8 h-8 text-secondary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-xl font-bold text-foreground mb-4 font-display">{benefit.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed font-sans">{benefit.description}</p>
                 </CardContent>
               </Card>
             )

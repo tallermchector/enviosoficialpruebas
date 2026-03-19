@@ -1,8 +1,8 @@
-
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Facebook, Instagram } from "lucide-react"
 import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 export function SocialConnect() {
   const socialNetworks = [
@@ -10,70 +10,67 @@ export function SocialConnect() {
       name: "Facebook",
       icon: Facebook,
       handle: "@enviosdosruedas",
-      description: "Síguenos para ofertas exclusivas y actualizaciones diarias.",
-      color: "bg-blue-600 hover:bg-blue-700",
+      description: "Síguenos para ofertas exclusivas y actualizaciones diarias de nuestros servicios en Mar del Plata.",
+      color: "bg-[#1877F2]",
       url: "https://facebook.com/enviosdosruedas",
-      followers: "2.5K+", // Example
+      followers: "2.5K+",
     },
     {
       name: "Instagram",
       icon: Instagram,
       handle: "@enviosdosruedas",
-      description: "Fotos de nuestros servicios y promociones especiales.",
-      color: "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600",
+      description: "Mira nuestro día a día, fotos de entregas y promociones especiales diseñadas para ti.",
+      color: "bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF]",
       url: "https://instagram.com/enviosdosruedas",
-      followers: "3.2K+", // Example
+      followers: "3.2K+",
     },
     {
       name: "WhatsApp",
       icon: null,
       handle: "+54 9 223 660-2699",
-      description: "Contacto directo para consultas y pedidos.",
-      color: "bg-green-500 hover:bg-green-600",
-      url: "https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20tengo%20una%20consulta.",
-      followers: "Directo",
+      description: "Canal de atención directa y personalizada para cotizaciones y pedidos inmediatos.",
+      color: "bg-[#25D366]",
+      url: "https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web.",
+      followers: "Atención 24/7",
     },
   ]
 
   return (
-    <section className="py-16 px-4 bg-gray-50 font-sans">
+    <section className="py-16 px-4 bg-accent/30 font-sans">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-4 font-display">¡Conéctate con nosotros!</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Sigue nuestras redes sociales para acceder a promociones exclusivas, actualizaciones y más.
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 font-display uppercase tracking-tight">¡Sigue el Movimiento!</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-sans leading-relaxed">
+            Nuestra comunidad crece cada día. Únete para acceder a beneficios exclusivos y estar al tanto de todo.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {socialNetworks.map((network) => {
             const IconComponent = network.icon
             return (
-              <Card key={network.name} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col">
-                <CardContent className="p-6 flex flex-col flex-grow">
-                  <div className="flex items-center mb-4">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${network.color} flex-shrink-0`}>
-                      {IconComponent ? (
-                        <IconComponent className="w-6 h-6 text-white" />
-                      ) : (
-                        <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp" width={24} height={24} className="w-6 h-6" />
-                      )}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-800 font-display">{network.name}</h3>
-                      <p className="text-sm text-gray-500">{network.followers} {network.name !== "WhatsApp" && network.name !== "Email" ? "seguidores" : ""}</p>
-                    </div>
+              <Card key={network.name} className="group hover:shadow-2xl transition-all duration-500 border-border/50 bg-background/80 backdrop-blur-sm overflow-hidden rounded-3xl">
+                <CardContent className="p-10 flex flex-col h-full items-center text-center">
+                  <div className={cn("w-20 h-20 rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-12 transition-transform duration-500 shadow-lg", network.color)}>
+                    {IconComponent ? (
+                      <IconComponent className="w-10 h-10 text-white" />
+                    ) : (
+                      <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp" width={40} height={40} className="w-10 h-10" />
+                    )}
                   </div>
 
-                  <p className="text-gray-600 mb-4 leading-relaxed flex-grow">{network.description}</p>
-
-                  <div className="mt-auto">
-                    <Button asChild size="sm" className={`w-full text-white ${network.color} border-0`}>
-                      <a href={network.url} target="_blank" rel="noopener noreferrer">
-                        {network.name === "WhatsApp" ? "Chatear Ahora" : network.name === "Email" ? "Enviar Email" : `Seguir en ${network.name}`}
-                      </a>
-                    </Button>
+                  <h3 className="text-2xl font-bold text-foreground font-display mb-2">{network.name}</h3>
+                  <div className="px-3 py-1 bg-primary/10 text-primary text-sm font-bold rounded-full mb-6 font-sans">
+                    {network.followers}
                   </div>
+
+                  <p className="text-muted-foreground mb-8 leading-relaxed font-sans text-lg flex-grow">{network.description}</p>
+
+                  <Button asChild size="lg" className={cn("w-full text-white font-bold h-14 rounded-2xl text-lg shadow-md hover:shadow-xl transition-all", network.color)}>
+                    <a href={network.url} target="_blank" rel="noopener noreferrer">
+                      {network.name === "WhatsApp" ? "Chatear Ahora" : `Ir a ${network.name}`}
+                    </a>
+                  </Button>
                 </CardContent>
               </Card>
             )
