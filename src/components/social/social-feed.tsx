@@ -1,5 +1,3 @@
-
-// src/components/social/social-feed.tsx
 'use client';
 
 import type { SocialPost } from "@/types/social-post";
@@ -7,6 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Facebook, Instagram, MessageSquare, MessageCircle as MessageIcon, Share2, ExternalLink, ThumbsUp } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface SocialFeedProps {
   posts: SocialPost[];
@@ -19,9 +18,9 @@ const platformIcons = {
 };
 
 const platformColors = {
-  facebook: "bg-blue-600 hover:bg-blue-700",
-  instagram: "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600",
-  whatsapp: "bg-green-500 hover:bg-green-600",
+  facebook: "bg-[#1877F2]",
+  instagram: "bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF]",
+  whatsapp: "bg-[#25D366]",
 };
 
 const PlatformIcon = ({ platform }: { platform: SocialPost['platform'] }) => {
@@ -32,94 +31,100 @@ const PlatformIcon = ({ platform }: { platform: SocialPost['platform'] }) => {
 export function SocialFeed({ posts }: SocialFeedProps) {
   if (!posts || posts.length === 0) {
     return (
-      <section className="py-16 px-4 bg-gray-100">
+      <section className="py-20 px-4 bg-accent/20">
         <div className="container mx-auto text-center">
-          <p className="text-lg text-gray-600">No hay publicaciones recientes para mostrar.</p>
+          <p className="text-xl text-muted-foreground font-sans">Mantente atento a nuestras próximas publicaciones.</p>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="py-16 px-4 bg-gray-100">
+    <section className="py-20 px-4 bg-accent/20">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Mantente Conectado</h2>
-          <p className="text-lg text-gray-600">
-            Nuestras últimas actualizaciones y novedades de nuestras redes.
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 font-display uppercase tracking-tight">Publicaciones Recientes</h2>
+          <p className="text-xl text-muted-foreground font-sans max-w-2xl mx-auto">
+            Lo que está pasando ahora mismo en nuestras redes sociales oficiales.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <Card key={post.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col bg-white rounded-lg">
-              <CardHeader className="flex flex-row items-center space-x-3 p-4 border-b">
+            <Card key={post.id} className="overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col bg-background/80 backdrop-blur-sm rounded-3xl border-border/50">
+              <CardHeader className="flex flex-row items-center space-x-4 p-6 border-b border-border/50">
                 {post.user.avatarUrl ? (
-                  <Image
-                    src={post.user.avatarUrl}
-                    alt={post.user.name}
-                    width={40}
-                    height={40}
-                    className="rounded-full"
-                  />
+                  <div className="relative">
+                    <Image
+                      src={post.user.avatarUrl}
+                      alt={post.user.name}
+                      width={48}
+                      height={48}
+                      className="rounded-full border-2 border-primary/20"
+                    />
+                    <div className={cn("absolute -bottom-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-white border-2 border-background shadow-sm", platformColors[post.platform])}>
+                      <PlatformIcon platform={post.platform} />
+                    </div>
+                  </div>
                 ) : (
-                  <div className={`w-10 h-10 rounded-full ${platformColors[post.platform]} flex items-center justify-center text-white`}>
+                  <div className={cn("w-12 h-12 rounded-full flex items-center justify-center text-white shadow-md", platformColors[post.platform])}>
                     <PlatformIcon platform={post.platform} />
                   </div>
                 )}
                 <div>
-                  <a href={post.user.profileUrl || post.postUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    <CardTitle className="text-base font-semibold text-gray-800">{post.user.name}</CardTitle>
+                  <a href={post.user.profileUrl || post.postUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                    <CardTitle className="text-lg font-bold font-display">{post.user.name}</CardTitle>
                   </a>
-                  <p className="text-xs text-gray-500">
-                    {new Date(post.timestamp).toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' })} en <span className="capitalize">{post.platform}</span>
+                  <p className="text-xs text-muted-foreground font-sans uppercase tracking-wider">
+                    {new Date(post.timestamp).toLocaleDateString('es-AR', { month: 'short', day: 'numeric' })} • {post.platform}
                   </p>
                 </div>
               </CardHeader>
 
-              <CardContent className="p-4 flex-grow">
+              <CardContent className="p-0 flex-grow">
                 {post.imageUrl && post.platform !== 'whatsapp' && (
-                  <a href={post.postUrl} target="_blank" rel="noopener noreferrer" className="block mb-3 rounded-md overflow-hidden">
+                  <a href={post.postUrl} target="_blank" rel="noopener noreferrer" className="block overflow-hidden relative group">
                     <Image
                       src={post.imageUrl}
-                      alt={`Post de ${post.user.name} en ${post.platform}`}
-                      width={400}
-                      height={300}
-                      className="w-full h-auto object-cover aspect-video"
-                      data-ai-hint={post.imageHint || 'social media image'}
+                      alt={`Post de ${post.user.name}`}
+                      width={600}
+                      height={400}
+                      className="w-full h-auto object-cover aspect-square group-hover:scale-105 transition-transform duration-700"
                     />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
                   </a>
                 )}
                 
-                <p className="text-gray-700 leading-relaxed mb-3 text-sm whitespace-pre-line line-clamp-4">
-                  {post.content}
-                </p>
+                <div className="p-6">
+                  <p className="text-muted-foreground leading-relaxed text-base font-sans line-clamp-4">
+                    {post.content}
+                  </p>
+                </div>
 
                 {post.platform === 'whatsapp' && (
-                   <Button asChild className={`w-full mt-4 ${platformColors[post.platform]}`}>
-                     <a href={post.postUrl} target="_blank" rel="noopener noreferrer">
-                       <MessageSquare className="mr-2 h-4 w-4" /> Chatear en WhatsApp
-                     </a>
-                   </Button>
+                   <div className="px-6 pb-6">
+                    <Button asChild className={cn("w-full h-12 text-white font-bold rounded-xl", platformColors[post.platform])}>
+                      <a href={post.postUrl} target="_blank" rel="noopener noreferrer">
+                        <MessageSquare className="mr-2 h-5 w-5" /> Iniciar Chat Web
+                      </a>
+                    </Button>
+                   </div>
                 )}
               </CardContent>
 
               {post.platform !== 'whatsapp' && (
-                <CardFooter className="p-4 border-t flex items-center justify-between">
-                  <div className="flex items-center space-x-3 text-gray-500 text-xs">
+                <CardFooter className="p-6 border-t border-border/50 flex items-center justify-between bg-accent/5">
+                  <div className="flex items-center space-x-4 text-muted-foreground font-sans font-bold text-sm">
                     {post.likes !== undefined && (
-                      <span className="flex items-center"><ThumbsUp className="w-3.5 h-3.5 mr-1" /> {post.likes}</span>
+                      <span className="flex items-center hover:text-primary transition-colors cursor-pointer"><ThumbsUp className="w-4 h-4 mr-1.5" /> {post.likes}</span>
                     )}
                     {post.comments !== undefined && (
-                      <span className="flex items-center"><MessageIcon className="w-3.5 h-3.5 mr-1" /> {post.comments}</span>
-                    )}
-                     {post.shares !== undefined && (
-                      <span className="flex items-center"><Share2 className="w-3.5 h-3.5 mr-1" /> {post.shares}</span>
+                      <span className="flex items-center hover:text-primary transition-colors cursor-pointer"><MessageIcon className="w-4 h-4 mr-1.5" /> {post.comments}</span>
                     )}
                   </div>
-                  <Button variant="ghost" size="sm" asChild className="text-xs text-blue-600 hover:text-blue-700">
+                  <Button variant="ghost" size="sm" asChild className="text-primary font-bold hover:bg-primary/10 rounded-full">
                     <a href={post.postUrl} target="_blank" rel="noopener noreferrer">
-                      Ver Post <ExternalLink className="ml-1 w-3 h-3" />
+                      Ver Original <ExternalLink className="ml-1.5 w-4 h-4" />
                     </a>
                   </Button>
                 </CardFooter>
@@ -128,9 +133,9 @@ export function SocialFeed({ posts }: SocialFeedProps) {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-            Ver Más en Nuestras Redes <span className="ml-2">→</span>
+        <div className="text-center mt-16">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-14 px-10 text-lg rounded-full shadow-xl hover:shadow-primary/20 transition-all">
+            Seguir todas nuestras cuentas <span className="ml-2 font-sans">→</span>
           </Button>
         </div>
       </div>

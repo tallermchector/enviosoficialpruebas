@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 
 interface FaqItemProps {
   question: string
@@ -14,25 +15,32 @@ export function FaqItem({ question, answer, defaultOpen = false }: FaqItemProps)
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
   return (
-    <Card className="mb-4 shadow-sm hover:shadow-md transition-shadow duration-200">
+    <Card className={cn(
+      "overflow-hidden transition-all duration-300 border-border/50",
+      isOpen ? "shadow-lg bg-background/80" : "shadow-sm bg-background/50 hover:bg-background/80"
+    )}>
       <CardContent className="p-0">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+          className="w-full text-left p-6 flex items-center justify-between transition-colors duration-200"
           aria-expanded={isOpen}
         >
-          <h3 className="text-lg font-semibold text-gray-800 pr-4 font-display">{question}</h3>
-          {isOpen ? (
-            <ChevronUp className="w-5 h-5 text-blue-600 flex-shrink-0" />
-          ) : (
-            <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
-          )}
+          <h3 className={cn(
+            "text-lg font-bold font-display pr-4",
+            isOpen ? "text-primary" : "text-foreground"
+          )}>{question}</h3>
+          <div className={cn(
+            "w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300",
+            isOpen ? "bg-primary text-primary-foreground rotate-180" : "bg-accent text-muted-foreground"
+          )}>
+            <ChevronDown className="w-5 h-5 flex-shrink-0" />
+          </div>
         </button>
 
         {isOpen && (
-          <div className="px-6 pb-6">
-            <div className="pt-2 border-t border-gray-100">
-              <p className="text-gray-600 leading-relaxed font-sans">{answer}</p>
+          <div className="px-6 pb-6 animate-in fade-in slide-in-from-top-2 duration-300">
+            <div className="pt-4 border-t border-border/50">
+              <p className="text-muted-foreground leading-relaxed font-sans text-lg">{answer}</p>
             </div>
           </div>
         )}

@@ -1,4 +1,3 @@
-
 'use client';
 
 import { HeroSection } from "@/components/ui/HeroSection";
@@ -7,6 +6,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { BusinessHours } from "@/components/contact/business-hours";
 import { ContactMap } from "@/components/contact/contact-map";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -32,7 +32,7 @@ export function ContactPageClient() {
       >
         <HeroSection
           title={
-            <span className="text-yellow-400">Contacta con Nosotros</span>
+            <span className="text-secondary font-display">Contacta con Nosotros</span>
           }
           description={
             <>
@@ -68,12 +68,12 @@ export function ContactPageClient() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
         variants={sectionVariants}
-        className="py-12 md:py-16 px-4 bg-gray-50 dark:bg-gray-900"
+        className="py-12 md:py-16 px-4 bg-accent"
       >
         <div className="container mx-auto">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-3 sm:mb-4">¿Tienes alguna consulta?</h2>
-            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto">Completa el formulario y te responderemos a la brevedad.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4 font-display">¿Tienes alguna consulta?</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto font-sans">Completa el formulario y te responderemos a la brevedad.</p>
           </div>
           <ContactForm />
         </div>
