@@ -15,7 +15,7 @@ import {
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { Menu, Home, Calculator as CalculatorIcon, Mail, ChevronDown, Phone, Truck } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, type Variants } from "framer-motion"
 import { navGroups } from "@/lib/navigation"
 import {
   Accordion,
@@ -24,7 +24,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-const mobileNavVariants = {
+const mobileNavVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -34,14 +34,14 @@ const mobileNavVariants = {
   },
 }
 
-const mobileNavItemVariants = {
+const mobileNavItemVariants: Variants = {
   hidden: { opacity: 0, x: -30, scale: 0.95 },
   visible: {
     opacity: 1,
     x: 0,
     scale: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 300,
       damping: 24,
     },

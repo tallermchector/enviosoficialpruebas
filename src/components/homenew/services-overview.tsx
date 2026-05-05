@@ -65,7 +65,7 @@ export const ServicesOverview = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rotate-45 translate-x-16 -translate-y-16 group-hover:bg-primary/5 transition-colors" />
               
               <div className={`w-16 h-16 rounded-2xl ${service.iconBg} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative`}>
-                {React.cloneElement(service.icon as React.ReactElement, { size: 32 })}
+                {React.cloneElement(service.icon as React.ReactElement<any>, { size: 32 })}
               </div>
 
               <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{service.title}</h3>

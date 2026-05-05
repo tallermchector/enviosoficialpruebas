@@ -331,7 +331,7 @@ export function EnhancedHero() {
         style={{ y, opacity }}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as any }}
       >
         {/* Logo Section */}
         <motion.div
@@ -426,7 +426,7 @@ export function EnhancedHero() {
           className="mb-6 space-y-2"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
         >
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-blue-400/20 border border-white/20 backdrop-blur-sm mb-4"
@@ -460,7 +460,7 @@ export function EnhancedHero() {
           className="max-w-3xl text-lg md:text-xl text-gray-200 leading-relaxed mb-10 font-light"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
         >
           Somos tu solución confiable en servicios de mensajería y delivery en Mar del Plata. Ofrecemos soluciones{" "}
           <span className="text-yellow-400 font-medium">rápidas</span>,
@@ -473,7 +473,7 @@ export function EnhancedHero() {
           className="flex flex-col sm:flex-row gap-4 mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ delay: 1, duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
         >
           <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
             <Button

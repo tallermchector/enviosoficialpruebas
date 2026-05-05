@@ -10,13 +10,13 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import { adminNavItems, type AdminNavGroup } from "@/lib/navigation-admin"
 import { LogoutButton } from "@/components/admin/LogoutButton"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const mobileNavVariants = {
+const mobileNavVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -26,14 +26,14 @@ const mobileNavVariants = {
   },
 }
 
-const mobileNavItemVariants = {
+const mobileNavItemVariants: Variants = {
   hidden: { opacity: 0, x: -30, scale: 0.95 },
   visible: {
     opacity: 1,
     x: 0,
     scale: 1,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 300,
       damping: 24,
     },
