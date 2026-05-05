@@ -69,8 +69,8 @@ const clientSchema = z.object({
   phone: z.string().min(7, 'El teléfono es requerido.').regex(/^\+?\d{7,15}$/, 'Formato de teléfono inválido.').optional().or(z.literal('')),
   email: z.string().email('Email inválido.').optional().or(z.literal('')),
   address: z.string().min(5, 'La dirección es requerida.'),
-  addressLat: z.coerce.number({ invalid_type_error: 'La latitud es requerida para guardar.'}),
-  addressLng: z.coerce.number({ invalid_type_error: 'La longitud es requerida para guardar.'}),
+  addressLat: z.coerce.number(),
+  addressLng: z.coerce.number(),
 });
 
 export interface ClientFormState {

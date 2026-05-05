@@ -110,21 +110,21 @@ export function RepartidorForm({ repartidor, onSuccess }: RepartidorFormProps) {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onFormSubmit)} className="space-y-4">
         <div className="grid gap-4">
-          <FormField control={form.control} name="name" render={({ field }) => (
+          <FormField control={form.control as any} name="name" render={({ field }) => (
             <FormItem><FormLabel>Nombre Completo</FormLabel><FormControl><Input placeholder="Nombre del repartidor" {...field} /></FormControl><FormMessage /></FormItem>
           )} />
-          <FormField control={form.control} name="phone" render={({ field }) => (
+          <FormField control={form.control as any} name="phone" render={({ field }) => (
             <FormItem><FormLabel>Teléfono</FormLabel><FormControl><Input type="tel" placeholder="223..." {...field} /></FormControl><FormMessage /></FormItem>
           )} />
           <div className="grid grid-cols-2 gap-4">
-            <FormField control={form.control} name="vehicleType" render={({ field }) => (
+            <FormField control={form.control as any} name="vehicleType" render={({ field }) => (
               <FormItem><FormLabel>Tipo de Vehículo</FormLabel><FormControl><Input placeholder="Ej: Moto" {...field} /></FormControl><FormMessage /></FormItem>
             )} />
-            <FormField control={form.control} name="licensePlate" render={({ field }) => (
+            <FormField control={form.control as any} name="licensePlate" render={({ field }) => (
               <FormItem><FormLabel>Patente</FormLabel><FormControl><Input placeholder="ABC 123" {...field} /></FormControl><FormMessage /></FormItem>
             )} />
           </div>
-          <FormField control={form.control} name="isActive" render={({ field }) => (
+          <FormField control={form.control as any} name="isActive" render={({ field }) => (
             <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm mt-2">
               <div className="space-y-0.5">
                 <FormLabel>Estado</FormLabel>

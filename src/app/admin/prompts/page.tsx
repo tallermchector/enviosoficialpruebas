@@ -64,7 +64,7 @@ const adminSitePages = adminNavItems.reduce((acc, item) => {
         }
     }
     return acc;
-}, [] as { label: string; pages: { value: string; label: string }[] });
+}, [] as { label: string; pages: { value: string; label: string }[] }[]);
 
 
 const allPagesForSelection = [...mainPage, ...mainSitePages, ...additionalPages, ...adminSitePages];

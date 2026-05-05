@@ -7,7 +7,7 @@ const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL })
 const adapter = new PrismaPg(pool)
 
 const prismaClientSingleton = () => {
-  return new PrismaClient({ adapter }).$extends(withAccelerate())
+  return new PrismaClient({ adapter })
 }
 
 declare global {

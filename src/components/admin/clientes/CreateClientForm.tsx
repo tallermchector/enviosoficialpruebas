@@ -20,8 +20,8 @@ const createClientSchema = z.object({
   phone: z.string().min(7, 'El teléfono es requerido.').regex(/^\+?\d{7,15}$/, 'Formato de teléfono inválido.'),
   email: z.string().email('Email inválido.').optional().or(z.literal('')),
   address: z.string().min(5, 'La dirección es requerida.'),
-  addressLat: z.coerce.number({ invalid_type_error: 'La latitud es requerida para guardar.'}),
-  addressLng: z.coerce.number({ invalid_type_error: 'La longitud es requerida para guardar.'}),
+  addressLat: z.coerce.number(),
+  addressLng: z.coerce.number(),
 });
 
 type CreateClientFormValues = z.infer<typeof createClientSchema>;
@@ -53,6 +53,8 @@ export function CreateClientForm() {
       phone: '',
       email: '',
       address: '',
+      addressLat: 0,
+      addressLng: 0,
     },
   });
 
@@ -117,22 +119,22 @@ export function CreateClientForm() {
     <Form {...form}>
       <form onSubmit={onFormSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <FormField control={form.control} name="name" render={({ field }) => (
+          <FormField control={form.control as any} name="name" render={({ field }) => (
             <FormItem><FormLabel>Nombre *</FormLabel><FormControl><Input placeholder="Nombre" {...field} /></FormControl><FormMessage /></FormItem>
           )} />
-          <FormField control={form.control} name="lastName" render={({ field }) => (
+          <FormField control={form.control as any} name="lastName" render={({ field }) => (
             <FormItem><FormLabel>Apellido</FormLabel><FormControl><Input placeholder="Apellido" {...field} /></FormControl><FormMessage /></FormItem>
           )} />
         </div>
-        <FormField control={form.control} name="phone" render={({ field }) => (
+        <FormField control={form.control as any} name="phone" render={({ field }) => (
             <FormItem><FormLabel>Teléfono *</FormLabel><FormControl><Input type="tel" placeholder="2235123456" {...field} /></FormControl><FormMessage /></FormItem>
         )} />
-        <FormField control={form.control} name="email" render={({ field }) => (
+        <FormField control={form.control as any} name="email" render={({ field }) => (
             <FormItem><FormLabel>Email (Opcional)</FormLabel><FormControl><Input type="email" placeholder="cliente@email.com" {...field} /></FormControl><FormMessage /></FormItem>
         )} />
         
         <div className="space-y-2">
-            <FormField control={form.control} name="address" render={({ field }) => (
+            <FormField control={form.control as any} name="address" render={({ field }) => (
                 <FormItem>
                     <FormLabel>Dirección *</FormLabel>
                     <div className="flex gap-2">

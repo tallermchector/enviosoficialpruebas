@@ -3,7 +3,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Button, type buttonVariants } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
@@ -61,7 +61,7 @@ export interface HeroSectionProps {
   priority?: boolean;
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -72,7 +72,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
@@ -85,7 +85,7 @@ const itemVariants = {
   },
 };
 
-const visualElementVariants = {
+const visualElementVariants: Variants = {
   hidden: { x: 30, opacity: 0, scale: 0.95 },
   visible: {
     x: 0,

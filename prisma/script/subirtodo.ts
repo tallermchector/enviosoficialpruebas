@@ -78,22 +78,22 @@ async function main() {
   try {
     // El orden de limpieza es importante para evitar violaciones de claves foráneas
     // Se limpia desde las tablas que dependen de otras hacia las tablas de las que dependen
-    await clearTable('Etiqueta');
-    await clearTable('Order');
-    await clearTable('SocialPost');
-    await clearTable('Client');
-    await clearTable('PriceRange');
-    await clearTable('Repartidor');
+    await clearTable('etiqueta');
+    await clearTable('order');
+    await clearTable('socialPost');
+    await clearTable('client');
+    await clearTable('priceRange');
+    await clearTable('repartidor');
 
     console.log('\nTodas las tablas han sido limpiadas. Iniciando inserción...\n');
 
     // El orden de inserción también es importante, inverso al de limpieza
-    await importTable('Repartidor', 'repartidor.json');
-    await importTable('PriceRange', 'priceRange.json');
-    await importTable('Client', 'client.json');
-    await importTable('Order', 'order.json');
-    await importTable('SocialPost', 'socialPost.json');
-    await importTable('Etiqueta', 'etiqueta.json');
+    await importTable('repartidor', 'repartidor.json');
+    await importTable('priceRange', 'priceRange.json');
+    await importTable('client', 'client.json');
+    await importTable('order', 'order.json');
+    await importTable('socialPost', 'socialPost.json');
+    await importTable('etiqueta', 'etiqueta.json');
 
     console.log('\nProceso de importación de datos completado exitosamente.');
   } catch (error) {

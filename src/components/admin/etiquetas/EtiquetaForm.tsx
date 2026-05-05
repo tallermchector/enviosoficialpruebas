@@ -160,7 +160,7 @@ export function EtiquetaForm({ initialData }: EtiquetaFormProps) {
                 <CardTitle className="text-xl flex items-center gap-2"><Briefcase /> Tipo de Envío</CardTitle>
               </CardHeader>
               <CardContent>
-                <FormField control={form.control} name="tipoEnvio" render={({ field }) => (
+                <FormField control={form.control as any} name="tipoEnvio" render={({ field }) => (
                   <FormItem>
                     <FormLabel>Seleccione una opción</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -176,14 +176,14 @@ export function EtiquetaForm({ initialData }: EtiquetaFormProps) {
                 )} />
                  {tipoEnvio === ServiceTypeEnum.EXPRESS && (
                     <div className="grid grid-cols-2 gap-4 mt-4">
-                        <FormField control={form.control} name="deliveryStartTime" render={({ field }) => (
+                        <FormField control={form.control as any} name="deliveryStartTime" render={({ field }) => (
                             <FormItem>
                                 <FormLabel className="flex items-center gap-2"><Clock />Desde</FormLabel>
                                 <FormControl><Input type="time" {...field} /></FormControl>
                                 <FormMessage />
                             </FormItem>
                         )} />
-                        <FormField control={form.control} name="deliveryEndTime" render={({ field }) => (
+                        <FormField control={form.control as any} name="deliveryEndTime" render={({ field }) => (
                             <FormItem>
                                 <FormLabel className="flex items-center gap-2"><Clock />Hasta</FormLabel>
                                 <FormControl><Input type="time" {...field} /></FormControl>
@@ -201,13 +201,13 @@ export function EtiquetaForm({ initialData }: EtiquetaFormProps) {
                   <CardTitle className="text-xl flex items-center gap-2"><User /> Datos del Remitente</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <FormField control={form.control} name="remitenteNombre" render={({ field }) => (
+                  <FormField control={form.control as any} name="remitenteNombre" render={({ field }) => (
                     <FormItem><FormLabel>Nombre / Cliente</FormLabel><FormControl><Input placeholder="Ej: Juan Pérez" {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
-                  <FormField control={form.control} name="remitenteDireccion" render={({ field }) => (
+                  <FormField control={form.control as any} name="remitenteDireccion" render={({ field }) => (
                     <FormItem><FormLabel>Dirección de Retiro</FormLabel><FormControl><Input placeholder="Ej: Av. Colón 1234" {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
-                  <FormField control={form.control} name="remitenteNotas" render={({ field }) => (
+                  <FormField control={form.control as any} name="remitenteNotas" render={({ field }) => (
                     <FormItem><FormLabel>Notas adicionales</FormLabel><FormControl><Textarea placeholder="Ej: Tocar timbre depto 5B" {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
                 </CardContent>
@@ -218,20 +218,20 @@ export function EtiquetaForm({ initialData }: EtiquetaFormProps) {
                   <CardTitle className="text-xl flex items-center gap-2"><User /> Datos del Destinatario</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <FormField control={form.control} name="destinatarioNombre" render={({ field }) => (
+                  <FormField control={form.control as any} name="destinatarioNombre" render={({ field }) => (
                     <FormItem><FormLabel>Nombre y Apellido</FormLabel><FormControl><Input placeholder="Ej: María Gonzalez" {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
-                  <FormField control={form.control} name="destinatarioDireccion" render={({ field }) => (
+                  <FormField control={form.control as any} name="destinatarioDireccion" render={({ field }) => (
                     <FormItem>
                       <FormLabel>Dirección de Entrega</FormLabel>
                       <FormControl><Input placeholder="Ej: Rivadavia 5678" {...field} disabled={tipoEnvio === ServiceTypeEnum.PUNTO_DE_RETIRO} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
-                  <FormField control={form.control} name="destinatarioTelefono" render={({ field }) => (
+                  <FormField control={form.control as any} name="destinatarioTelefono" render={({ field }) => (
                     <FormItem><FormLabel>Teléfono</FormLabel><FormControl><Input type="tel" placeholder="Ej: 2235123456" {...field} /></FormControl><FormMessage /></FormItem>
                   )} />
-                  <FormField control={form.control} name="montoACobrar" render={({ field }) => (
+                  <FormField control={form.control as any} name="montoACobrar" render={({ field }) => (
                     <FormItem>
                       <FormLabel>Monto a Cobrar (Opcional)</FormLabel>
                       <FormControl><Input type="number" step="0.01" placeholder="Ej: 1500" {...field} /></FormControl>

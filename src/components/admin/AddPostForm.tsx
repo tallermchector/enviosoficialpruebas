@@ -125,7 +125,7 @@ export function AddPostForm() {
         <form onSubmit={handleFormSubmit}>
           <CardContent className="space-y-6">
             <FormField
-              control={form.control}
+              control={form.control as any}
               name="platform"
               render={({ field }) => (
                 <FormItem>
@@ -147,7 +147,7 @@ export function AddPostForm() {
               )}
             />
             <FormField
-              control={form.control}
+              control={form.control as any}
               name="content"
               render={({ field }) => (
                 <FormItem>
@@ -160,7 +160,7 @@ export function AddPostForm() {
               )}
             />
             <FormField
-              control={form.control}
+              control={form.control as any}
               name="postUrl"
               render={({ field }) => (
                 <FormItem>
@@ -173,7 +173,7 @@ export function AddPostForm() {
               )}
             />
             <FormField
-              control={form.control}
+              control={form.control as any}
               name="imageUrl"
               render={({ field }) => (
                 <FormItem>
@@ -190,7 +190,7 @@ export function AddPostForm() {
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="likes"
                 render={({ field }) => (
                   <FormItem>
@@ -203,7 +203,7 @@ export function AddPostForm() {
                 )}
               />
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="comments"
                 render={({ field }) => (
                   <FormItem>
@@ -216,7 +216,7 @@ export function AddPostForm() {
                 )}
               />
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="shares"
                 render={({ field }) => (
                   <FormItem>

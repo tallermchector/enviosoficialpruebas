@@ -15,8 +15,10 @@ export function BarcodeScanner({ onScan }: BarcodeScannerProps) {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const { ref, error } = useZxing({
-    onResult(result) {
+  const [error, setError] = useState<Error | null>(null);
+
+  const { ref } = useZxing({
+    onDecodeResult(result) {
       if (!isProcessing) {
         const barcodeText = result.getText();
         if (barcodeText) {
@@ -27,7 +29,9 @@ export function BarcodeScanner({ onScan }: BarcodeScannerProps) {
     },
     onError(err) {
       console.error('Scanner Error:', err);
-      if (err.name === 'NotAllowedError') {
+      const errorObj = err instanceof Error ? err : new Error(String(err));
+      setError(errorObj);
+      if (errorObj.name === 'NotAllowedError') {
         toast({
           variant: 'destructive',
           title: 'Acceso a la Cámara Denegado',
@@ -62,7 +66,7 @@ export function BarcodeScanner({ onScan }: BarcodeScannerProps) {
 
   return (
     <div className="relative w-full aspect-video rounded-lg overflow-hidden border bg-muted">
-       <video ref={ref} className="w-full h-full object-cover" />
+       <video ref={ref as any} className="w-full h-full object-cover" />
         {isProcessing && (
             <div className="absolute inset-0 bg-background/80 flex flex-col items-center justify-center">
                 <Loader2 className="h-8 w-8 animate-spin text-primary" />

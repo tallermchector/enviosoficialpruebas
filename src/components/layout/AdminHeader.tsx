@@ -234,7 +234,7 @@ export function AdminHeader() {
                                     <AccordionTrigger
                                         className={cn(
                                         "py-4 px-4 rounded-xl transition-all duration-300 w-full justify-between group",
-                                        groupIsActive && !'href' in item
+                                        groupIsActive && !('href' in item)
                                             ? "text-secondary font-semibold [&[data-state=open]]:bg-gradient-to-r [&[data-state=open]]:from-secondary/20 [&[data-state=open]]:to-secondary/10"
                                             : "text-primary-foreground hover:text-secondary hover:bg-primary-foreground/5",
                                         "hover:no-underline",
