@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Loader2, Save, Search, CheckCircle, ArrowLeft } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Link from 'next/link';
-import type { Client as PrismaClient } from '../../../../generated/prisma/client';
+import type { Client as PrismaClient } from '../../../../generated/prisma/client/client';
 
 type FormattedClient = Omit<PrismaClient, 'addressLat' | 'addressLng'> & {
   addressLat: number | null;

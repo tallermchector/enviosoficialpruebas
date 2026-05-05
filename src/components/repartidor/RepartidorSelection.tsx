@@ -1,7 +1,7 @@
 // src/components/repartidor/RepartidorSelection.tsx
 'use client';
 
-import type { Repartidor } from '../../../generated/prisma/client';
+import type { Repartidor } from '../../../generated/prisma/client/client';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Bike, User, ArrowRight } from "lucide-react";

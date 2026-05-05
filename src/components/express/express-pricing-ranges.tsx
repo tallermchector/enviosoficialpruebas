@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Zap, MapPin, ArrowRightCircle, Calculator, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import type { PriceRange } from '../../../generated/prisma/client';
+import type { PriceRange } from '../../../generated/prisma/client/client';
 
 // Define a client-safe type with numbers instead of Decimals
 export type PriceRangeClient = Omit<PriceRange, 'distanciaMinKm' | 'distanciaMaxKm' | 'precioRango'> & {

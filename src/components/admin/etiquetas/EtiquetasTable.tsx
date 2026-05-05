@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Pencil, Printer, Check, X, Loader2, Truck, PackageCheck, AlertCircle } from "lucide-react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { ServiceTypeEnum } from '../../../../generated/prisma/client';
+import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import { useToast } from "@/hooks/use-toast";
 import Link from "next/link";
 import { EtiquetaStatus, type FormattedEtiqueta } from '@/types';

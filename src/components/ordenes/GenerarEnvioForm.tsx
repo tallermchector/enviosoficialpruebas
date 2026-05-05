@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import type { Client } from '../../../generated/prisma/client'; 
+import type { Client } from '../../../generated/prisma/client/client';
 import { ClientSearchForm } from './ClientSearchForm';
 import { ClientRegistrationForm } from './ClientRegistrationForm';
 import { ShipmentCreationForm } from './ShipmentCreationForm';
