@@ -104,7 +104,7 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
   }), [initialClientData, today]);
 
   const form = useForm<ShipmentCreationFormValues>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(shipmentCreationZodSchema) as any,
     defaultValues: defaultFormValues,
   });
   
@@ -253,7 +253,7 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit( as any)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit as any)} className="space-y-8">
         
         {initialClientData && (
           <Card className="bg-blue-50 border-blue-200 shadow-sm">

@@ -24,7 +24,7 @@ const imageUrlSchema = z.string().refine(val => val === '' || val.startsWith('/'
 });
 
 const addPostSchema = z.object({
-  platform: z.nativeEnum(SocialPlatformEnum, { invalid_type_error: 'La plataforma es requerida.' }),
+  platform: z.nativeEnum(SocialPlatformEnum),
   content: z.string().min(10, { message: 'El contenido debe tener al menos 10 caracteres.' }),
   postUrl: z.string().url({ message: "Por favor, introduce una URL de publicación válida." }),
   imageUrl: imageUrlSchema.optional().or(z.literal('')),
@@ -57,7 +57,7 @@ export function AddPostForm() {
   const { toast } = useToast();
 
   const form = useForm<AddPostFormValues>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(addPostSchema) as any,
     defaultValues: {
       platform: SocialPlatformEnum.instagram,
       content: '',

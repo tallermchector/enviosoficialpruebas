@@ -19,7 +19,7 @@ const PUNTO_RETIRO_ADDRESS = "11 de Septiembre 3317, Mar del Plata";
 const EtiquetaFormSchema = z.object({
   id: z.coerce.number().int().optional(),
   orderNumber: z.string().optional(),
-  tipoEnvio: z.nativeEnum(ServiceTypeEnum, { invalid_type_error: 'El tipo de servicio es requerido.' }),
+  tipoEnvio: z.nativeEnum(ServiceTypeEnum),
   
   remitenteNombre: z.string().min(3, { message: 'El nombre del remitente es requerido.' }),
   remitenteDireccion: z.string().min(5, { message: 'La dirección de retiro es requerida.' }),

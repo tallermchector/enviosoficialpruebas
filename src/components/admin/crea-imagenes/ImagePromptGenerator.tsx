@@ -63,7 +63,7 @@ export function ImagePromptGenerator() {
   const { toast } = useToast();
 
   const form = useForm<PromptGeneratorFormValues>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(promptGeneratorSchema) as any,
     defaultValues: {
       sectionType: '',
       service: '',

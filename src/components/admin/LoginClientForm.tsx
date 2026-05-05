@@ -48,7 +48,7 @@ export function LoginClientForm() {
   const router = useRouter();
 
   const form = useForm<LoginSchema>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(loginSchema) as any,
     defaultValues: {
       username: "EnviosAdmin",
       password: "Vendetta_3317_10",
@@ -114,7 +114,7 @@ export function LoginClientForm() {
           <CardDescription className="font-sans">Ingresa tus credenciales para continuar.</CardDescription>
         </CardHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit( as any)}>
+          <form onSubmit={form.handleSubmit(onFormSubmit as any)}>
             <CardContent className="space-y-6">
               <FormField
                 control={form.control as any}

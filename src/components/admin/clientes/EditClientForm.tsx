@@ -58,7 +58,7 @@ export function EditClientForm({ client }: EditClientFormProps) {
   const { toast } = useToast();
 
   const form = useForm<ClientFormValues>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(clientSchema) as any,
     defaultValues: {
       id: client.id,
       name: client.name,

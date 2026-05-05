@@ -178,7 +178,7 @@ function PagePromptGenerator() {
   const [lastSubmittedPage, setLastSubmittedPage] = useState<string | undefined>();
 
   const form = useForm<PagePromptFormValues>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(pagePromptSchema) as any,
     defaultValues: { pageName: '' },
   });
 
@@ -235,7 +235,7 @@ function ComponentPromptGenerator() {
   const { toast } = useToast();
 
   const form = useForm<ComponentPromptFormValues>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(componentPromptSchema) as any,
     defaultValues: { pageName: '', componentName: '' },
   });
 

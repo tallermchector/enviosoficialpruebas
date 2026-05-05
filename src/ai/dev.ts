@@ -2,7 +2,7 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/summarize-testimonials.ts';
-import '@/ai/flows/generate-image-prompt.ts';
-import '@/ai/flows/generate-page-prompt.ts';
-import '@/ai/flows/generate-component-prompt.ts';
+import '@/ai/flows/summarize-testimonials';
+import '@/ai/flows/generate-image-prompt';
+import '@/ai/flows/generate-page-prompt';
+import '@/ai/flows/generate-component-prompt';

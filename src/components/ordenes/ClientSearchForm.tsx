@@ -30,7 +30,7 @@ export function ClientSearchForm({ onClientFound, onClientNotFound, setIsParentP
   const { toast } = useToast();
 
   const form = useForm<SearchClientFormValues>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(searchClientSchema) as any,
     defaultValues: {
       phone: '',
     },
@@ -82,7 +82,7 @@ export function ClientSearchForm({ onClientFound, onClientNotFound, setIsParentP
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit( as any)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit as any)} className="space-y-6">
         <FormField
           control={form.control as any}
           name="phone"

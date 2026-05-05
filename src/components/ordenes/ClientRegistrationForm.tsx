@@ -37,7 +37,7 @@ export function ClientRegistrationForm({ initialPhone, onClientRegistered, onCan
   const { toast } = useToast();
 
   const form = useForm<ClientRegistrationFormValues>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(clientRegistrationZodSchema) as any,
     defaultValues: {
       name: '',
       lastName: '',
@@ -105,7 +105,7 @@ export function ClientRegistrationForm({ initialPhone, onClientRegistered, onCan
         Por favor, completa los siguientes datos para registrarlo.
       </p>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit( as any)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit as any)} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               control={form.control as any}

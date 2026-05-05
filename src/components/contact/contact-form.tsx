@@ -56,7 +56,7 @@ export function ContactForm() {
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
-    resolver: zodResolver() as any,
+    resolver: zodResolver(contactSchema) as any,
     defaultValues: {
       name: '',
       email: '',
