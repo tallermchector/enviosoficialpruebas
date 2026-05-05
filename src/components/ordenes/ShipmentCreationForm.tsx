@@ -36,8 +36,8 @@ const shipmentCreationZodSchema = z.object({
   destinationAddress: z.string().min(5, 'Dirección de destino es requerida.'),
 
   serviceType: z.nativeEnum(ServiceTypeEnum), 
-  pickupDate: z.date({ required_error: "Fecha de retiro es requerida." }), 
-  deliveryDate: z.date({ required_error: "Fecha de entrega es requerida." }),
+  pickupDate: z.date(), 
+  deliveryDate: z.date(),
   pickupTimeFrom: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para retiro desde."),
   pickupTimeTo: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para retiro hasta."),
   deliveryTimeFrom: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para entrega desde."),

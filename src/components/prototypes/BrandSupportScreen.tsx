@@ -8,7 +8,7 @@ import {
   Cpu,
   Plus,
   Minus,
-  Instagram,
+  Camera as Instagram,
   Send,
   MessageCircle,
   Home,

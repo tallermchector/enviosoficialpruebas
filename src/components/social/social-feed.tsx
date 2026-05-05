@@ -4,7 +4,7 @@ import type { SocialPost } from "@/types/social-post";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Facebook, Instagram, MessageSquare, MessageCircle as MessageIcon, Share2, ExternalLink, ThumbsUp } from "lucide-react";
+import { Share2 as Facebook, Camera as Instagram, MessageSquare, MessageCircle as MessageIcon, Share2, ExternalLink, ThumbsUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SocialFeedProps {
