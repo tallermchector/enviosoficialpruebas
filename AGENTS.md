@@ -8,11 +8,11 @@ Welcome to the **Envios DosRuedas** project. This file provides essential inform
 ## 🛠️ Tech Stack
 - **Framework**: Next.js 15+ (App Router)
 - **Language**: TypeScript
-- **Database**: PostgreSQL with Prisma ORM
+- **Database**: PostgreSQL con Prisma ORM v7 (Driver Adapter pg)
 - **Styling**: Tailwind CSS
 - **UI Components**: Shadcn/ui, Framer Motion, Lucide React
 - **AI Integration**: Google Genkit
-- **Package Manager**: Bun (preferred)
+- **Package Manager**: pnpm (mandatory)
 
 ## 📂 Project Structure
 - `src/app/`: App Router routes (Admin, Repartidor, Public).
@@ -36,12 +36,14 @@ Welcome to the **Envios DosRuedas** project. This file provides essential inform
   - Use `framer-motion` for animations (follow the design principles in `DESIGN.md`).
 - **Forms**: Use `react-hook-form` with `zod` for validation.
 - **Server Actions**: Prefer Server Actions for data mutations.
+- **Prisma**: We are on Prisma v7. **Do not** import from `@prisma/client`. You must import the client and types using relative paths to `generated/prisma/client` (e.g. `import { PrismaClient } from '../../generated/prisma/client'`). The Prisma client is initialized in `src/lib/prisma.ts`.
 
 ## 🛠️ Development Workflow
-- **Start Dev Server**: `bun dev`
-- **Database Sync**: `bunx prisma db push`
-- **Linting**: `bun run lint`
-- **Type Checking**: `bun run typecheck`
+- **Start Dev Server**: `pnpm run dev`
+- **Database Sync**: `pnpm exec prisma db push`
+- **Database Scripts**: `pnpm run db:seed`, `pnpm run db:export`, `pnpm run db:import` (powered by tsx)
+- **Linting**: `pnpm run lint`
+- **Type Checking**: `pnpm run typecheck`
 
 ## 🎨 Design Principles
 1. **Efficiency Visual**: Quick access to tracking and pricing.
