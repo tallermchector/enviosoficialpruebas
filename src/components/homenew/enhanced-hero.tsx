@@ -20,7 +20,7 @@ export function EnhancedHero() {
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
   const sceneRef = useRef<THREE.Scene | null>(null)
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null)
-  const animationFrameId = useRef<number>()
+  const animationFrameId = useRef<number | undefined>(undefined)
   const mouse = useRef(new THREE.Vector2())
   const [isLoaded, setIsLoaded] = useState(false)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -314,7 +314,7 @@ export function EnhancedHero() {
             transition={{
               duration: 15 + i * 5,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
+              ease: "linear" as any,
               delay: i * 2,
             }}
             style={{
@@ -340,7 +340,7 @@ export function EnhancedHero() {
           animate={{ scale: 1, rotate: 0 }}
           transition={{
             delay: 0.3,
-            type: "spring",
+            type: "spring" as any,
             stiffness: 200,
             damping: 20,
             duration: 1.2,
@@ -355,8 +355,8 @@ export function EnhancedHero() {
                 scale: [1, 1.1, 1],
               }}
               transition={{
-                rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
-                scale: { duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
+                rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" as any },
+                scale: { duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as any },
               }}
             />
             <motion.div
@@ -366,8 +366,8 @@ export function EnhancedHero() {
                 scale: [1, 0.95, 1],
               }}
               transition={{
-                rotate: { duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
-                scale: { duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 },
+                rotate: { duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" as any },
+                scale: { duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as any, delay: 1 },
               }}
             />
 
@@ -381,7 +381,7 @@ export function EnhancedHero() {
               transition={{
                 duration: 4,
                 repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
+                ease: "easeInOut" as any,
               }}
             />
 
@@ -409,7 +409,7 @@ export function EnhancedHero() {
                   duration: 3,
                   repeat: Number.POSITIVE_INFINITY,
                   delay: i * 0.2,
-                  ease: "easeInOut",
+                  ease: "easeInOut" as any,
                 }}
                 style={{
                   left: "50%",
@@ -445,7 +445,7 @@ export function EnhancedHero() {
             transition={{
               duration: 8,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
+              ease: "linear" as any,
             }}
             style={{
               backgroundSize: "200% 200%",
@@ -516,7 +516,7 @@ export function EnhancedHero() {
           <span className="text-sm font-medium">Descubre más</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as any }}
           >
             <ArrowDown className="w-5 h-5" />
           </motion.div>

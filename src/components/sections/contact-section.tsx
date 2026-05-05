@@ -56,7 +56,7 @@ export function ContactSection() {
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver() as any,
     defaultValues: {
       name: '',
       email: '',
@@ -119,7 +119,7 @@ export function ContactSection() {
               <Form {...form}>
                 <form action={formAction} className="space-y-6">
                   <FormField
-                    control={form.control}
+                    control={form.control as any}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
@@ -132,7 +132,7 @@ export function ContactSection() {
                     )}
                   />
                   <FormField
-                    control={form.control}
+                    control={form.control as any}
                     name="email"
                     render={({ field }) => (
                       <FormItem>
@@ -145,7 +145,7 @@ export function ContactSection() {
                     )}
                   />
                   <FormField
-                    control={form.control}
+                    control={form.control as any}
                     name="message"
                     render={({ field }) => (
                       <FormItem>

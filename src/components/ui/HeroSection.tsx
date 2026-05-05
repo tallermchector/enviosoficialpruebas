@@ -78,7 +78,7 @@ const itemVariants: Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      type: 'spring',
+      type: "spring" as any,
       stiffness: 80,
       damping: 12,
     },
@@ -92,7 +92,7 @@ const visualElementVariants: Variants = {
     opacity: 1,
     scale: 1,
     transition: {
-      type: 'spring',
+      type: "spring" as any,
       stiffness: 70,
       damping: 15,
       delay: 0.2,

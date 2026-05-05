@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Home, Mail, Facebook, Instagram } from "lucide-react"
+import { Phone, Home, Mail, Share2 as Facebook, Camera as Instagram } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import type React from 'react';
@@ -16,7 +16,7 @@ const cardVariants = {
     transition: {
       delay: i * 0.15,
       duration: 0.4,
-      ease: "easeOut",
+      ease: "easeOut" as any,
     },
   }),
 };

@@ -99,7 +99,7 @@ export function AdminHeader() {
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 200, damping: 25 }}
+      transition={{ type: "spring" as any, stiffness: 200, damping: 25 }}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         {/* Logo */}

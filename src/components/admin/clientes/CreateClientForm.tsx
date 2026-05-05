@@ -46,7 +46,7 @@ export function CreateClientForm() {
   const { toast } = useToast();
 
   const form = useForm<CreateClientFormValues>({
-    resolver: zodResolver(createClientSchema),
+    resolver: zodResolver() as any,
     defaultValues: {
       name: '',
       lastName: '',

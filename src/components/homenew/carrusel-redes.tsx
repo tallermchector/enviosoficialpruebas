@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Instagram, Facebook, Twitter, ExternalLink, Phone, Heart } from 'lucide-react';
+import { Camera as Instagram, Share2 as Facebook, MessageCircle as Twitter, ExternalLink, Phone, Heart } from "lucide-react";
 
 const socialNetworks = [
   {
@@ -90,7 +90,7 @@ export const CarruselRedes = () => {
             <motion.div
               className="flex gap-6"
               animate={{ x: [0, -1000] }}
-              transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+              transition={{ repeat: Infinity, duration: 40, ease: "linear" as any }}
               whileHover={{ animationPlayState: 'paused' }}
             >
               {[...feedItems, ...feedItems, ...feedItems].map((item, idx) => (

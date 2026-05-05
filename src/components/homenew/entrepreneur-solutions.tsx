@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { TrendingUp, Users, Package, Sparkles, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import Image from "next/image"
 
 export function EntrepreneurSolutions() {
@@ -37,7 +37,7 @@ export function EntrepreneurSolutions() {
     },
   ]
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -48,14 +48,14 @@ export function EntrepreneurSolutions() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200,
         damping: 20,
         duration: 0.8,
@@ -78,7 +78,7 @@ export function EntrepreneurSolutions() {
             transition={{
               duration: 12 + i * 2,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut",
+              ease: "easeInOut" as any,
               delay: i * 2,
             }}
             style={{
@@ -114,7 +114,7 @@ export function EntrepreneurSolutions() {
             transition={{
               duration: 8,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
+              ease: "linear" as any,
             }}
             style={{
               background: "linear-gradient(90deg, #1e40af, #fbbf24, #1e40af)",

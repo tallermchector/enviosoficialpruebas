@@ -55,7 +55,7 @@ export function EntrepreneurSolutions() {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as any,
         stiffness: 90,
         damping: 12,
       },
@@ -100,7 +100,7 @@ export function EntrepreneurSolutions() {
                 <div style={{ perspective: "1000px" }}>
                   <motion.div
                     whileHover={{ rotateY: -15, rotateX: 10 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    transition={{ type: "spring" as any, stiffness: 300, damping: 20 }}
                     className="group relative h-full rounded-xl"
                     style={{ transformStyle: "preserve-3d" }}
                   >

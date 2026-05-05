@@ -11,7 +11,7 @@ const PriceRangeSchema = z.object({
   distanciaMinKm: z.coerce.number().min(0, 'La distancia mínima no puede ser negativa.'),
   distanciaMaxKm: z.coerce.number().positive('La distancia máxima debe ser mayor que cero.'),
   precioRango: z.coerce.number().positive('El precio debe ser mayor que cero.'),
-  serviceType: z.nativeEnum(ServiceTypeEnum, { required_error: 'El tipo de servicio es requerido.' }),
+  serviceType: z.nativeEnum(ServiceTypeEnum, { invalid_type_error: 'El tipo de servicio es requerido.' }),
   isActive: z.boolean(),
 }).refine(data => data.distanciaMinKm < data.distanciaMaxKm, {
   message: 'La distancia máxima debe ser mayor que la distancia mínima.',

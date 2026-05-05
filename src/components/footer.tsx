@@ -9,9 +9,9 @@ import {
   Phone,
   Mail,
   MapPin,
-  Facebook,
-  Instagram,
-  Twitter,
+  Share2 as Facebook,
+  Camera as Instagram,
+  MessageCircle as Twitter,
   ChevronUp,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -53,7 +53,7 @@ export function Footer() {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: "easeOut" as any }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
@@ -154,7 +154,7 @@ export function Footer() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.8 }}
             whileHover={{ scale: 1.15, rotate: 5 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" as any }}
             className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-50"
           >
             <Button

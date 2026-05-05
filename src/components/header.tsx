@@ -95,7 +95,7 @@ export function Header() {
       <motion.header 
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: "easeOut" as any }}
         className={cn(
         "sticky top-0 z-50 transition-all duration-300",
         isScrolled 
@@ -259,7 +259,7 @@ export function Header() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.2, ease: "easeInOut" }}
+                            transition={{ duration: 0.2, ease: "easeInOut" as any }}
                             className="pl-6 mt-1 space-y-0.5 overflow-hidden"
                           >
                             {group.items.map((item) => {

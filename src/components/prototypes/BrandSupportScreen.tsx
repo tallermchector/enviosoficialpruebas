@@ -16,7 +16,7 @@ import {
   HelpCircle,
   User,
   Heart
-} from 'lucide-react';
+} from "lucide-react";
 
 const BrandSupportScreen = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);

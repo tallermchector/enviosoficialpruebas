@@ -293,10 +293,10 @@ const saveShipmentSchema = z.object({
   clientNameAtOrder: z.string().optional(),
   clientPhoneAtOrder: z.string().optional(),
 
-  pickupDate: z.coerce.date({ required_error: "Fecha de retiro es requerida." }),
+  pickupDate: z.coerce.date({ invalid_type_error: "Fecha de retiro es requerida." }),
   pickupTimeFrom: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para retiro desde."),
   pickupTimeTo: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para retiro hasta."),
-  deliveryDate: z.coerce.date({ required_error: "Fecha de entrega es requerida." }),
+  deliveryDate: z.coerce.date({ invalid_type_error: "Fecha de entrega es requerida." }),
   deliveryTimeFrom: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para entrega desde."),
   deliveryTimeTo: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para entrega hasta."),
   

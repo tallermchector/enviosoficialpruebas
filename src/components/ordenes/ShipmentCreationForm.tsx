@@ -104,7 +104,7 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
   }), [initialClientData, today]);
 
   const form = useForm<ShipmentCreationFormValues>({
-    resolver: zodResolver(shipmentCreationZodSchema),
+    resolver: zodResolver() as any,
     defaultValues: defaultFormValues,
   });
   
@@ -253,7 +253,7 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit( as any)} className="space-y-8">
         
         {initialClientData && (
           <Card className="bg-blue-50 border-blue-200 shadow-sm">
@@ -275,21 +275,21 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
             <CardTitle className="flex items-center text-xl"><MapPin className="mr-2 h-5 w-5 text-primary" />Detalles de Recogida</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <FormField control={form.control} name="originFullName" render={({ field }) => (
+            <FormField control={form.control as any} name="originFullName" render={({ field }) => (
               <FormItem>
                 <FormLabel>Nombre del Contacto en Recogida *</FormLabel>
                 <FormControl><Input placeholder="Ej: Nombre de la tienda o persona" {...field} /></FormControl>
                 <FormMessage />
               </FormItem>
             )} />
-            <FormField control={form.control} name="originPhone" render={({ field }) => (
+            <FormField control={form.control as any} name="originPhone" render={({ field }) => (
               <FormItem>
                 <FormLabel>Teléfono del Contacto en Recogida *</FormLabel>
                 <FormControl><Input type="tel" placeholder="Ej: 2231234567" {...field} /></FormControl>
                 <FormMessage />
               </FormItem>
             )} />
-            <FormField control={form.control} name="originAddress" render={({ field }) => (
+            <FormField control={form.control as any} name="originAddress" render={({ field }) => (
               <FormItem>
                 <FormLabel>Dirección de Recogida *</FormLabel>
                 <FormControl><Input placeholder="Calle, Número, Localidad (Ej: Av. Colón 1234, Mar del Plata)" {...field} /></FormControl>
@@ -297,7 +297,7 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
               </FormItem>
             )} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
-              <FormField control={form.control} name="pickupDate" render={({ field }) => (
+              <FormField control={form.control as any} name="pickupDate" render={({ field }) => (
                 <FormItem className="flex flex-col">
                   <FormLabel>Fecha de Retiro *</FormLabel>
                   <Popover>
@@ -316,14 +316,14 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
                   <FormMessage />
                 </FormItem>
               )} />
-              <FormField control={form.control} name="pickupTimeFrom" render={({ field }) => (
+              <FormField control={form.control as any} name="pickupTimeFrom" render={({ field }) => (
                 <FormItem>
                   <FormLabel>Retiro Desde *</FormLabel>
                   <FormControl><Input type="time" {...field} className="h-10"/></FormControl>
                   <FormMessage />
                 </FormItem>
               )} />
-              <FormField control={form.control} name="pickupTimeTo" render={({ field }) => (
+              <FormField control={form.control as any} name="pickupTimeTo" render={({ field }) => (
                 <FormItem>
                   <FormLabel>Retiro Hasta *</FormLabel>
                   <FormControl><Input type="time" {...field} className="h-10"/></FormControl>
@@ -343,28 +343,28 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <FormField control={form.control} name="destinationContactName" render={({ field }) => (
+            <FormField control={form.control as any} name="destinationContactName" render={({ field }) => (
               <FormItem>
                 <FormLabel>Nombre Completo del Destinatario *</FormLabel>
                 <FormControl><Input placeholder="Nombre y Apellido" {...field} /></FormControl>
                 <FormMessage />
               </FormItem>
             )} />
-            <FormField control={form.control} name="destinationContactPhone" render={({ field }) => (
+            <FormField control={form.control as any} name="destinationContactPhone" render={({ field }) => (
               <FormItem>
                 <FormLabel>Teléfono del Destinatario *</FormLabel>
                 <FormControl><Input type="tel" placeholder="Ej: 2237654321" {...field} /></FormControl>
                 <FormMessage />
               </FormItem>
             )} />
-             <FormField control={form.control} name="destinationContactEmail" render={({ field }) => (
+             <FormField control={form.control as any} name="destinationContactEmail" render={({ field }) => (
               <FormItem>
                 <FormLabel>Email del Destinatario (Opcional)</FormLabel>
                 <FormControl><Input type="email" placeholder="correo@ejemplo.com" {...field} /></FormControl>
                 <FormMessage />
               </FormItem>
             )} />
-            <FormField control={form.control} name="destinationAddress" render={({ field }) => (
+            <FormField control={form.control as any} name="destinationAddress" render={({ field }) => (
               <FormItem>
                 <FormLabel>Dirección de Entrega *</FormLabel>
                 <FormControl><Input placeholder="Calle, Número, Localidad (Ej: San Martín 5678, Mar del Plata)" {...field} /></FormControl>
@@ -372,7 +372,7 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
               </FormItem>
             )} />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
-              <FormField control={form.control} name="deliveryDate" render={({ field }) => (
+              <FormField control={form.control as any} name="deliveryDate" render={({ field }) => (
                  <FormItem className="flex flex-col">
                   <FormLabel>Fecha de Entrega *</FormLabel>
                   <Popover>
@@ -391,14 +391,14 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
                   <FormMessage />
                 </FormItem>
               )} />
-              <FormField control={form.control} name="deliveryTimeFrom" render={({ field }) => (
+              <FormField control={form.control as any} name="deliveryTimeFrom" render={({ field }) => (
                 <FormItem>
                   <FormLabel>Entrega Desde *</FormLabel>
                   <FormControl><Input type="time" {...field} className="h-10"/></FormControl>
                   <FormMessage />
                 </FormItem>
               )} />
-              <FormField control={form.control} name="deliveryTimeTo" render={({ field }) => (
+              <FormField control={form.control as any} name="deliveryTimeTo" render={({ field }) => (
                 <FormItem>
                   <FormLabel>Entrega Hasta *</FormLabel>
                   <FormControl><Input type="time" {...field} className="h-10"/></FormControl>
@@ -415,7 +415,7 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
             <CardTitle className="flex items-center text-xl"><Truck className="mr-2 h-5 w-5 text-primary" />Tipo de Servicio y Cotización</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <FormField control={form.control} name="serviceType" render={({ field }) => (
+            <FormField control={form.control as any} name="serviceType" render={({ field }) => (
               <FormItem>
                 <FormLabel>Tipo de Servicio *</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>

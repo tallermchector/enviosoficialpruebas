@@ -16,7 +16,7 @@ export function CtaSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" as any }}
         >
           <Card className="overflow-hidden">
             <div className="grid md:grid-cols-2 items-center">

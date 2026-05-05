@@ -66,7 +66,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
       y: 0,
       transition: {
         delay: i * 0.1,
-        type: "spring",
+        type: "spring" as any,
         stiffness: 100,
         damping: 10,
       },

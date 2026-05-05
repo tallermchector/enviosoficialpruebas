@@ -47,7 +47,7 @@ function ElegantShape({
         transition={{
           duration: 12,
           repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
+          ease: "easeInOut" as any,
         }}
         style={{
           width,

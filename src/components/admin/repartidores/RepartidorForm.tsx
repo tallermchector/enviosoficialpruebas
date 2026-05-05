@@ -53,7 +53,7 @@ export function RepartidorForm({ repartidor, onSuccess }: RepartidorFormProps) {
   const { toast } = useToast();
 
   const form = useForm<RepartidorFormValues>({
-    resolver: zodResolver(repartidorSchema),
+    resolver: zodResolver(repartidorSchema) as any,
     defaultValues: {
       id: repartidor?.id,
       name: repartidor?.name || '',
@@ -108,7 +108,7 @@ export function RepartidorForm({ repartidor, onSuccess }: RepartidorFormProps) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onFormSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit( as any)} className="space-y-4">
         <div className="grid gap-4">
           <FormField control={form.control as any} name="name" render={({ field }) => (
             <FormItem><FormLabel>Nombre Completo</FormLabel><FormControl><Input placeholder="Nombre del repartidor" {...field} /></FormControl><FormMessage /></FormItem>

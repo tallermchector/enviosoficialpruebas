@@ -15,7 +15,7 @@ export function NeuralHorizonHero() {
     const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
     const sceneRef = useRef<THREE.Scene | null>(null);
     const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
-    const animationFrameId = useRef<number>();
+    const animationFrameId = useRef<number | undefined>(undefined);
     const mouse = useRef(new THREE.Vector2());
 
     const setupScene = useCallback(() => {
@@ -219,13 +219,13 @@ export function NeuralHorizonHero() {
                 className="relative z-10 flex flex-col items-center text-center p-4 text-primary-foreground"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: "easeOut" as any }}
             >
                 <motion.div 
                     className="mb-6 p-1 rounded-full relative bg-primary/30 animate-float"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, type: "spring", stiffness: 150 }}
+                    transition={{ delay: 0.2, type: "spring" as any, stiffness: 150 }}
                 >
                     <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-yellow-400 via-pink-500 to-blue-400" 
                          style={{animation: 'spin-slow 8s linear infinite'}}

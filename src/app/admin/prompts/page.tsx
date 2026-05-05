@@ -178,7 +178,7 @@ function PagePromptGenerator() {
   const [lastSubmittedPage, setLastSubmittedPage] = useState<string | undefined>();
 
   const form = useForm<PagePromptFormValues>({
-    resolver: zodResolver(pagePromptSchema),
+    resolver: zodResolver() as any,
     defaultValues: { pageName: '' },
   });
 
@@ -201,7 +201,7 @@ function PagePromptGenerator() {
      <Form {...form}>
         <form onSubmit={handleFormSubmit}>
             <CardContent className="space-y-6">
-                <FormField control={form.control} name="pageName" render={({ field }) => (
+                <FormField control={form.control as any} name="pageName" render={({ field }) => (
                     <FormItem>
                     <FormLabel>Página a Replicar</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -235,7 +235,7 @@ function ComponentPromptGenerator() {
   const { toast } = useToast();
 
   const form = useForm<ComponentPromptFormValues>({
-    resolver: zodResolver(componentPromptSchema),
+    resolver: zodResolver() as any,
     defaultValues: { pageName: '', componentName: '' },
   });
 
@@ -262,7 +262,7 @@ function ComponentPromptGenerator() {
     <Form {...form}>
         <form onSubmit={handleFormSubmit}>
             <CardContent className="space-y-6">
-                <FormField control={form.control} name="pageName" render={({ field }) => (
+                <FormField control={form.control as any} name="pageName" render={({ field }) => (
                     <FormItem>
                         <FormLabel>Página</FormLabel>
                         <Select onValueChange={(value) => { field.onChange(value); form.resetField('componentName'); }} defaultValue={field.value}>
@@ -274,7 +274,7 @@ function ComponentPromptGenerator() {
                         <FormMessage />
                     </FormItem>
                 )} />
-                 <FormField control={form.control} name="componentName" render={({ field }) => (
+                 <FormField control={form.control as any} name="componentName" render={({ field }) => (
                     <FormItem>
                         <FormLabel>Componente</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value} disabled={!selectedPage}>

@@ -105,7 +105,7 @@ export function StatsSection() {
       rotateY: 0,
       scale: 1,
       transition: {
-        type: 'spring',
+        type: "spring" as any,
         stiffness: 80,
         damping: 15,
         duration: 0.7

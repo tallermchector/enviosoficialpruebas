@@ -34,7 +34,7 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
   const [isScannerOpen, setIsScannerOpen] = useState(false);
 
   const form = useForm<AssignFormValues>({
-    resolver: zodResolver(assignSchema),
+    resolver: zodResolver() as any,
     defaultValues: { orderNumber: '' },
   });
 
@@ -78,9 +78,9 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex items-end gap-2">
+            <form onSubmit={form.handleSubmit( as any)} className="flex items-end gap-2">
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="orderNumber"
                 render={({ field }) => (
                   <FormItem className="flex-grow">

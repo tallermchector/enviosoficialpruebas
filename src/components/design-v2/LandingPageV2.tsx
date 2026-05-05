@@ -9,11 +9,11 @@ import {
   Phone,
   ShieldCheck,
   Zap,
-  Instagram,
-  Facebook,
-  Twitter,
+  Camera as Instagram,
+  Share2 as Facebook,
+  MessageCircle as Twitter,
   Mail
-} from 'lucide-react';
+} from "lucide-react";
 
 const LandingPageV2: React.FC = () => {
   return (

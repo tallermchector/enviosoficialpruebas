@@ -59,7 +59,7 @@ export function ServicesOverview() {
                 initial: { y: 0 },
                 hover: { y: -5 },
               }}
-              transition={{ type: "spring", stiffness: 100 }}
+              transition={{ type: "spring" as any, stiffness: 100 }}
             >
               <div className="absolute inset-0">
                 <Image

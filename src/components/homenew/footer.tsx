@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Truck, Share2, Settings, MapPin, Phone, Mail, Camera as Instagram, Share2 as Facebook, MessageCircle as Twitter } from 'lucide-react';
+import { Truck, Share2, Settings, MapPin, Phone, Mail, Camera as Instagram, Share2 as Facebook, MessageCircle as Twitter } from "lucide-react";
 import Link from 'next/link';
 
 export const Footer = () => {

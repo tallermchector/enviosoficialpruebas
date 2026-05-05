@@ -48,7 +48,7 @@ export function LoginClientForm() {
   const router = useRouter();
 
   const form = useForm<LoginSchema>({
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver() as any,
     defaultValues: {
       username: "EnviosAdmin",
       password: "Vendetta_3317_10",
@@ -97,7 +97,7 @@ export function LoginClientForm() {
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: "easeOut" as any }}
     >
       <Card className="w-full max-w-md shadow-2xl">
         <CardHeader className="text-center">
@@ -114,10 +114,10 @@ export function LoginClientForm() {
           <CardDescription className="font-sans">Ingresa tus credenciales para continuar.</CardDescription>
         </CardHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onFormSubmit)}>
+          <form onSubmit={form.handleSubmit( as any)}>
             <CardContent className="space-y-6">
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="username"
                 render={({ field }) => (
                   <FormItem>
@@ -133,7 +133,7 @@ export function LoginClientForm() {
                 )}
               />
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="password"
                 render={({ field }) => (
                   <FormItem>

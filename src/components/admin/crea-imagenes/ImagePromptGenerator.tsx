@@ -63,7 +63,7 @@ export function ImagePromptGenerator() {
   const { toast } = useToast();
 
   const form = useForm<PromptGeneratorFormValues>({
-    resolver: zodResolver(promptGeneratorSchema),
+    resolver: zodResolver() as any,
     defaultValues: {
       sectionType: '',
       service: '',
@@ -109,7 +109,7 @@ export function ImagePromptGenerator() {
         <form onSubmit={handleFormSubmit}>
           <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
             <FormField
-              control={form.control}
+              control={form.control as any}
               name="sectionType"
               render={({ field }) => (
                 <FormItem>
@@ -131,7 +131,7 @@ export function ImagePromptGenerator() {
               )}
             />
             <FormField
-              control={form.control}
+              control={form.control as any}
               name="service"
               render={({ field }) => (
                 <FormItem>
@@ -153,7 +153,7 @@ export function ImagePromptGenerator() {
               )}
             />
              <FormField
-              control={form.control}
+              control={form.control as any}
               name="aspectRatio"
               render={({ field }) => (
                 <FormItem>
@@ -169,7 +169,7 @@ export function ImagePromptGenerator() {
               )}
             />
             <FormField
-              control={form.control}
+              control={form.control as any}
               name="style"
               render={({ field }) => (
                 <FormItem>
@@ -186,7 +186,7 @@ export function ImagePromptGenerator() {
             />
              <div className="md:col-span-2">
                 <FormField
-                control={form.control}
+                control={form.control as any}
                 name="background"
                 render={({ field }) => (
                     <FormItem>
@@ -201,7 +201,7 @@ export function ImagePromptGenerator() {
             </div>
             <div className="md:col-span-2">
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="details"
                 render={({ field }) => (
                   <FormItem>

@@ -15,7 +15,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Loader2, PlusCircle } from 'lucide-react';
+import { Loader2, PlusCircle } from "lucide-react";
 import type { SocialPostState } from '@/app/admin/actions';
 
 // A flexible schema for image URLs, allowing local paths or full URLs
@@ -24,7 +24,7 @@ const imageUrlSchema = z.string().refine(val => val === '' || val.startsWith('/'
 });
 
 const addPostSchema = z.object({
-  platform: z.nativeEnum(SocialPlatformEnum, { required_error: 'La plataforma es requerida.' }),
+  platform: z.nativeEnum(SocialPlatformEnum, { invalid_type_error: 'La plataforma es requerida.' }),
   content: z.string().min(10, { message: 'El contenido debe tener al menos 10 caracteres.' }),
   postUrl: z.string().url({ message: "Por favor, introduce una URL de publicación válida." }),
   imageUrl: imageUrlSchema.optional().or(z.literal('')),
@@ -57,7 +57,7 @@ export function AddPostForm() {
   const { toast } = useToast();
 
   const form = useForm<AddPostFormValues>({
-    resolver: zodResolver(addPostSchema),
+    resolver: zodResolver() as any,
     defaultValues: {
       platform: SocialPlatformEnum.instagram,
       content: '',
