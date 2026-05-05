@@ -6,7 +6,14 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useRouter } from 'next/navigation';
-import { ServiceTypeEnum, type Etiqueta as PrismaEtiqueta } from '../../../../generated/prisma/client';
+import { type Etiqueta as PrismaEtiqueta } from '../../../../generated/prisma/client';
+
+const ServiceTypeEnum = {
+  EXPRESS: 'EXPRESS',
+  LOW_COST: 'LOW_COST',
+  PUNTO_DE_RETIRO: 'PUNTO_DE_RETIRO'
+} as const;
+
 
 import { upsertEtiqueta } from '@/app/admin/etiquetas/actions';
 import type { EtiquetaFormState } from '@/app/admin/etiquetas/actions';

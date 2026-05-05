@@ -167,7 +167,7 @@ interface GoogleDirectionsResponse {
 const quoteShipmentSchema = z.object({
   originAddress: z.string().min(5, "La dirección de origen es requerida."),
   destinationAddress: z.string().min(5, "La dirección de destino es requerida."),
-  serviceType: z.nativeEnum(PrismaServiceTypeEnum, { errorMap: () => ({ message: "Tipo de servicio inválido." }) }),
+  serviceType: z.nativeEnum(PrismaServiceTypeEnum),
 });
 
 export async function quoteShipment(input: QuoteShipmentInput): Promise<QuoteShipmentResult> {
@@ -293,10 +293,10 @@ const saveShipmentSchema = z.object({
   clientNameAtOrder: z.string().optional(),
   clientPhoneAtOrder: z.string().optional(),
 
-  pickupDate: z.coerce.date({ invalid_type_error: "Fecha de retiro es requerida." }),
+  pickupDate: z.coerce.date(),
   pickupTimeFrom: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para retiro desde."),
   pickupTimeTo: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para retiro hasta."),
-  deliveryDate: z.coerce.date({ invalid_type_error: "Fecha de entrega es requerida." }),
+  deliveryDate: z.coerce.date(),
   deliveryTimeFrom: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para entrega desde."),
   deliveryTimeTo: z.string().regex(/^([01]\d|2[0-3]):([0-5]\d)$/, "Formato HH:MM inválido para entrega hasta."),
   
