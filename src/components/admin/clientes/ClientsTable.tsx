@@ -24,7 +24,7 @@ import Link from 'next/link';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import { toggleClientStatus } from '@/app/admin/clientes/actions';
-import type { Client as PrismaClient } from "@prisma/client";
+import type { Client as PrismaClient } from '../../../../generated/prisma/client';
 
 type FormattedClient = Omit<PrismaClient, 'addressLat' | 'addressLng'> & {
   addressLat: number | null;

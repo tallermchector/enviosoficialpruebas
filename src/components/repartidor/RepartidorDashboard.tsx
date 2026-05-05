@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { Repartidor } from "@prisma/client";
+import type { Repartidor } from '../../../generated/prisma/client';
 import type { FormattedEtiqueta } from "@/types";
 import { EtiquetaStatus } from '@/types';
 import { Button } from "@/components/ui/button";

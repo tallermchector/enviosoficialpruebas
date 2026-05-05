@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Coins, MapPin, ArrowRightCircle, HelpCircle } from "lucide-react";
 import Image from "next/image";
-import type { PriceRange } from "@prisma/client";
+import type { PriceRange } from '../../../generated/prisma/client';
 
 // Define a client-safe type with numbers instead of Decimals
 export type PriceRangeClient = Omit<PriceRange, 'distanciaMinKm' | 'distanciaMaxKm' | 'precioRango'> & {

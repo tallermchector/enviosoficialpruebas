@@ -1,10 +1,9 @@
 // prisma/script/subirtodo.ts
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { PrismaClient, Prisma } from '@prisma/client';
+import { Prisma } from '../../generated/prisma/client';
+import prisma from '../../src/lib/prisma';
 import fs from 'fs';
 import path from 'path';
-
-const prisma = new PrismaClient();
 const datosDir = path.join(__dirname, '../datos');
 
 // Función para limpiar una tabla

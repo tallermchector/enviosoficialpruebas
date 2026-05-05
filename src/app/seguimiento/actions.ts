@@ -2,7 +2,7 @@
 'use server';
 
 import prisma from '@/lib/prisma';
-import type { Order as PrismaOrder } from '@prisma/client';
+import type { Order as PrismaOrder } from '../../../generated/prisma/client';
 
 // Define a type for the order with Decimal fields converted to numbers
 type FormattedOrder = Omit<PrismaOrder, 'originLat' | 'originLng' | 'destinationLat' | 'destinationLng' | 'quotedPrice' | 'shippingCost' | 'totalCost'> & {

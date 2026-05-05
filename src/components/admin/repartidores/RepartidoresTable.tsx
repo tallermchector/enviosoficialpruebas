@@ -17,7 +17,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { MoreHorizontal, Pencil, Trash2, UserCheck, UserX } from "lucide-react";
 import { useToast } from '@/hooks/use-toast';
 import { deleteRepartidor } from '@/app/admin/repartidores/actions';
-import type { Repartidor } from "@prisma/client";
+import type { Repartidor } from '../../../../generated/prisma/client';
 
 interface RepartidoresTableProps {
   repartidores: Repartidor[];

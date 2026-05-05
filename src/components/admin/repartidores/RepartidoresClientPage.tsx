@@ -10,7 +10,7 @@ import { Footer } from "@/components/homenew/footer";
 import { RepartidoresTable } from "@/components/admin/repartidores/RepartidoresTable";
 import { RepartidorForm } from "@/components/admin/repartidores/RepartidorForm";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Repartidor, Etiqueta as PrismaEtiqueta } from "@prisma/client";
+import { Repartidor, Etiqueta as PrismaEtiqueta } from '../../../../generated/prisma/client';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 import { HojaDeRuta } from '@/components/admin/repartidores/HojaDeRuta';
 import type { FormattedEtiqueta } from '@/types';

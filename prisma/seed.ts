@@ -1,7 +1,5 @@
 // prisma/seed.ts
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '../src/lib/prisma';
 
 async function main() {
   console.log('Iniciando el script de limpieza de la base de datos...');

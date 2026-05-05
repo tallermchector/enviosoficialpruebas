@@ -1,5 +1,5 @@
 // src/types/order-actions.ts
-import type { Client, Prisma, ServiceTypeEnum as PrismaServiceTypeEnum } from '@prisma/client';
+import type { Client, Prisma, ServiceTypeEnum as PrismaServiceTypeEnum } from '../../generated/prisma/client';
 import type { z } from 'zod';
 
 // --- Types for searchClientByPhone ---

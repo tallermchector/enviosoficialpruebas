@@ -3,7 +3,7 @@
 
 import { z } from 'zod';
 import prisma from '@/lib/prisma';
-import { Prisma, ServiceTypeEnum } from '@prisma/client';
+import { Prisma, ServiceTypeEnum } from '../../../../generated/prisma/client';
 import { revalidatePath } from 'next/cache';
 
 const PriceRangeSchema = z.object({

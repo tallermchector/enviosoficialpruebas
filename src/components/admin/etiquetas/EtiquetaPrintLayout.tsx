@@ -1,6 +1,6 @@
 // src/components/admin/etiquetas/EtiquetaPrintLayout.tsx
 'use client';
-import { ServiceTypeEnum } from "@prisma/client";
+import { ServiceTypeEnum } from '../../../../generated/prisma/client';
 import { Package, Home, Clock, Building } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";

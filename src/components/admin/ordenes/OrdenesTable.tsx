@@ -16,7 +16,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { MoreHorizontal, Pencil, Trash2 } from "lucide-react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import type { Order as PrismaOrder, Client } from "@prisma/client";
+import type { Order as PrismaOrder, Client } from '../../../../generated/prisma/client';
 import { deleteOrder } from '@/app/admin/ordenes/actions';
 import { useToast } from "@/hooks/use-toast";
 

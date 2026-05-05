@@ -5,7 +5,7 @@ import { useActionState, useEffect, useTransition } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { SocialPlatformEnum } from '@prisma/client';
+import { SocialPlatformEnum } from '../../../generated/prisma/client';
 
 import { addSocialPost } from '@/app/admin/actions';
 import { useToast } from '@/hooks/use-toast';

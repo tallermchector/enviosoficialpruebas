@@ -1,9 +1,8 @@
 // prisma/script/bajartodo.ts
-import { Prisma, PrismaClient } from "@prisma/client";
+import { Prisma } from '../../generated/prisma/client';
+import prisma from '../../src/lib/prisma';
 import * as fs from "fs";
 import * as path from "path";
-
-const prisma = new PrismaClient();
 const outputDir = path.join(__dirname, "..", "datos");
 
 // Utility to handle JSON serialization of BigInt and Decimal

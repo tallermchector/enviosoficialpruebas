@@ -8,7 +8,7 @@ import * as z from 'zod';
 import { createRepartidor, updateRepartidor } from '@/app/admin/repartidores/actions';
 import type { RepartidorFormState } from '@/app/admin/repartidores/actions';
 import { useToast } from '@/hooks/use-toast';
-import { Repartidor } from '@prisma/client';
+import { Repartidor } from '../../../../generated/prisma/client';
 
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';

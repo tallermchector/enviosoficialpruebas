@@ -2,7 +2,7 @@
 import type { Metadata } from 'next';
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
-import { type Repartidor } from "@prisma/client";
+import { type Repartidor } from '../../../../generated/prisma/client';
 import { EtiquetaStatus, type FormattedEtiqueta } from "@/types";
 import { RepartidorDashboard } from '@/components/repartidor/RepartidorDashboard';
 

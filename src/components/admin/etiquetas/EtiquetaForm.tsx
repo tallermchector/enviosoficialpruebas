@@ -6,7 +6,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useRouter } from 'next/navigation';
-import { ServiceTypeEnum, type Etiqueta as PrismaEtiqueta } from '@prisma/client';
+import { ServiceTypeEnum, type Etiqueta as PrismaEtiqueta } from '../../../../generated/prisma/client';
 
 import { upsertEtiqueta } from '@/app/admin/etiquetas/actions';
 import type { EtiquetaFormState } from '@/app/admin/etiquetas/actions';
