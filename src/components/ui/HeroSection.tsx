@@ -180,18 +180,24 @@ export function HeroSection({
                   className={cn(
                     'px-10 py-5 font-[family-name:var(--font-orbitron)] font-black rounded-xl transition-all uppercase tracking-tight h-auto',
                     isYellowButton
-                      ? "bg-secondary hover:bg-secondary/90 text-black shadow-[0_0_20px_rgba(251,191,36,0.3)]"
-                      : "bg-white/5 border border-white/10 text-white hover:bg-white/10",
+                      ? "bg-secondary hover:bg-secondary/90 text-black shadow-[0_0_20px_rgba(251,191,36,0.3)] animate-pulse-glow"
+                      : "bg-white/5 border border-white/10 text-white hover:bg-white/10 overflow-hidden relative group",
                     button.className
                   )}
                 >
                   {button.href && !button.onClick ? (
                     <Link href={button.href} target={button.target} rel={button.rel}>
+                      {!isYellowButton && (
+                        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
+                      )}
                       {IconComponent && <IconComponent className="mr-2 h-5 w-5" />}
                       {button.text}
                     </Link>
                   ) : (
                     <>
+                      {!isYellowButton && (
+                        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
+                      )}
                       {IconComponent && <IconComponent className="mr-2 h-5 w-5" />}
                       {button.text}
                     </>
@@ -220,6 +226,19 @@ export function HeroSection({
           <div className="absolute inset-0 bg-gradient-to-b from-[#050810] via-transparent to-[#050810]" />
         </div>
       )}
+
+      <style jsx global>{`
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+          50% { box-shadow: 0 0 35px rgba(251, 191, 36, 0.6); }
+        }
+        .animate-pulse-glow {
+          animation: pulse-glow 2s infinite;
+        }
+        @keyframes shimmer {
+          100% { transform: translateX(100%); }
+        }
+      `}</style>
 
       {/* Decorative Gradients */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-30 z-0">

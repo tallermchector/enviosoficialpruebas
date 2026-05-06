@@ -5,32 +5,52 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Zap, Shield, MapPin, Phone, Clock, Award } from "lucide-react"
 import { motion } from "framer-motion"
 
+function UrgencyClock() {
+  return (
+    <div className="relative w-32 h-32 mx-auto mb-8">
+      <div className="absolute inset-0 border-4 border-primary/20 rounded-full" />
+      <motion.div
+        className="absolute top-1/2 left-1/2 w-1 h-12 bg-primary origin-bottom -translate-x-1/2 -translate-y-full rounded-full"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+      />
+      <motion.div
+        className="absolute top-1/2 left-1/2 w-1 h-8 bg-secondary origin-bottom -translate-x-1/2 -translate-y-full rounded-full"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+      />
+      <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg" />
+      <div className="absolute inset-0 border-t-4 border-primary rounded-full animate-spin-slow opacity-30" />
+    </div>
+  )
+}
+
 export function ExpressBenefits() {
   const benefits = [
     {
+      icon: Clock,
+      title: "Alta criticidad horaria",
+      description: "Diseñado para cuando el tiempo es el factor crítico. Vos elegís el límite de entrega (ej. \"antes de las 17:00 hs\").",
+    },
+    {
       icon: Zap,
-      title: "Velocidad Máxima",
-      description: "Entregas en el mismo día con la mayor rapidez posible, priorizando tus envíos.",
+      title: "Anticipación mínima",
+      description: "Solo requerimos 2 horas de anticipación para garantizar la viabilidad del ruteo exclusivo.",
+    },
+    {
+      icon: Award,
+      title: "Certeza Absoluta",
+      description: "Precisión garantizada en el tiempo de tu cliente final.",
     },
     {
       icon: MapPin,
       title: "Seguimiento en Tiempo Real",
-      description: "Monitorea tu envío en vivo desde la recolección hasta la entrega final.",
+      description: "Monitoreá tu envío en vivo desde la recolección hasta la entrega final.",
     },
     {
       icon: Phone,
       title: "Soporte Prioritario",
       description: "Línea directa de atención para clientes express con respuesta inmediata.",
-    },
-    {
-      icon: Clock,
-      title: "Horarios Flexibles",
-      description: "Elige el rango horario que mejor se adapte a tu agenda y necesidades.",
-    },
-    {
-      icon: Award,
-      title: "Garantía de Entrega",
-      description: "Tu envió será entregado en tiempo y forma.",
     },
   ]
 
@@ -45,6 +65,7 @@ export function ExpressBenefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
+            <UrgencyClock />
             <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
               ¿POR QUÉ <span className="text-primary">ELEGIR EXPRESS?</span>
             </h2>
@@ -61,7 +82,7 @@ export function ExpressBenefits() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ y: -10 }}
+                whileHover={{ scale: 1.05, y: -10 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

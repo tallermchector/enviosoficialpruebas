@@ -9,14 +9,14 @@ export function ExpressHero() {
       preTitle="DISPONIBLE EN MAR DEL PLATA"
       title={
         <>
-          MENSAJERÍA - <br />
-          <span className="text-primary">ENVÍOS EXPRESS</span>
+          ENVÍOS EXPRESS <br />
+          <span className="text-primary">INMEDIATOS</span>
         </>
       }
-      description="Servicio de mensajería rápido y confiable para entregas el mismo día en Mar del Plata. Ideal para documentos y paquetes con máxima prioridad."
+      description="La solución premium para operaciones de alta criticidad horaria. Vos tenés el control total: elegí el rango exacto de entrega con certeza absoluta."
       ctaButtons={[
-        { text: "COTIZAR ENVÍO EXPRESS", href: "/cotizar/express", variant: "secondary" },
-        { text: "VER TARIFAS", href: "#express-pricing-ranges", variant: "outline", icon: "Play" },
+        { text: "COTIZÁ TU ENVÍO EXPRESS", href: "/cotizar/express", variant: "secondary" },
+        { text: "HABLAR POR WHATSAPP", href: "https://wa.me/5492236602699", variant: "outline", icon: "Mail" },
       ]}
       backgroundImageUrl="/bannerenvios.webp"
       backgroundImageAlt="Banner envíos express Envios DosRuedas"

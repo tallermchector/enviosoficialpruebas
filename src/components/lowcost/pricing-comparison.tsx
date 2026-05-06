@@ -51,7 +51,7 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
   };
 
   return (
-    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+    <section id="pricing-comparison" className="py-24 px-4 bg-[#050810] relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">

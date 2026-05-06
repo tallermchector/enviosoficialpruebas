@@ -5,32 +5,61 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Package, ShieldCheck, CreditCard, BarChart, Truck, Users } from "lucide-react"
 import { motion } from "framer-motion"
 
+function SuccessMetrics() {
+  const metrics = [
+    { label: "Entregas Efectivas", value: "99.8%" },
+    { label: "Clientes Corporativos", value: "+150" },
+    { label: "SLA Cumplido", value: "100%" },
+  ]
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+      {metrics.map((metric, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1 }}
+          className="text-center p-8 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm"
+        >
+          <div className="text-4xl font-black text-primary font-[family-name:var(--font-orbitron)] mb-2 italic">
+            {metric.value}
+          </div>
+          <div className="text-xs font-bold uppercase tracking-widest text-gray-500">
+            {metric.label}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  )
+}
+
 export function EntrepreneurBenefits() {
   const benefits = [
     {
-      icon: Package,
-      title: "Almacenaje Seguro",
-      description: "Contamos con depósitos propios con seguridad 24/7 para tu mercadería.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Control de Stock",
-      description: "Sistemas integrados para que sepas exactamente qué tienes y qué falta.",
+      icon: Truck,
+      title: "Partner Logístico Especializado",
+      description: "Más que un envío, somos tu depósito. Soluciones de almacenamiento y fulfillment para PyMEs.",
     },
     {
       icon: CreditCard,
-      title: "Cuenta Corriente",
-      description: "Paga tus servicios de forma quincenal o mensual según tu conveniencia.",
+      title: "Cuentas Corrientes",
+      description: "Esquemas de facturación mensual centralizada adaptados a tu flujo de caja (Factura C disponible).",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Límites Claros y Seguros",
+      description: "Flota de motos exclusiva. Llevamos bultos de hasta 5 kg (40x40x30 cm). Seguimiento centralizado vía WhatsApp.",
+    },
+    {
+      icon: Package,
+      title: "Almacenaje Seguro",
+      description: "Contamos con depósitos propios con seguridad para tu mercadería.",
     },
     {
       icon: BarChart,
       title: "Reportes Detallados",
       description: "Métricas claras sobre tus entregas, devoluciones y tiempos promedio.",
-    },
-    {
-      icon: Truck,
-      title: "Flota Exclusiva",
-      description: "Prioridad en el ruteo para pedidos corporativos y de emprendedores.",
     },
     {
       icon: Users,
@@ -50,6 +79,7 @@ export function EntrepreneurBenefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
+            <SuccessMetrics />
             <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
               BENEFICIOS <span className="text-primary">PARA NEGOCIOS</span>
             </h2>
@@ -66,7 +96,7 @@ export function EntrepreneurBenefits() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ y: -10 }}
+                whileHover={{ scale: 1.05, y: -10 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

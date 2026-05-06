@@ -12,9 +12,9 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/entrepreneur/entrepreneur-pricing-ranges";
 
 export const metadata: Metadata = {
-  title: "E-Commerce 3PL y Cuentas Corrientes - Envios DosRuedas",
+  title: "Logística 3PL y Cuentas Corrientes para E-Commerce | Tu solución confiable",
   description:
-    "Soluciones logísticas avanzadas para E-Commerce: 3PL, Fulfillment, Same Day y Next Day. Cuentas corrientes flexibles con beneficios exclusivos para potenciar tu escalabilidad.",
+    "Tercerización integral con integración vertical. Transformá tu estructura de gasto fijo en soluciones escalables que acompañan el crecimiento de tu negocio.",
   keywords:
     "ecommerce 3pl, fulfillment mar del plata, envios next day, cuenta corriente logistica, deposito ecommerce, picking y packing",
 }

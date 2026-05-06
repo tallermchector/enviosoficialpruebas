@@ -2,20 +2,25 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card"
-import { DollarSign, Clock, MapPin, TrendingDown, Users, Globe } from "lucide-react"
+import { DollarSign, Clock, MapPin, TrendingDown, Users, Globe, CheckCircle2 } from "lucide-react"
 import { motion } from "framer-motion"
 
 export function LowcostBenefits() {
   const benefits = [
     {
-      icon: DollarSign,
-      title: "Tarifa Más Baja",
-      description: "Ahorra costos logísticos con nuestra tarifa más competitiva del mercado local.",
+      icon: Globe,
+      title: "Eficiencia en Ruteo",
+      description: "Ruteo diario masivo optimizado mediante IA. NO se elige rango horario para maximizar tu rentabilidad.",
     },
     {
       icon: Clock,
-      title: "Entrega Same-Day",
-      description: "Recolección y entrega en el mismo día respetando los horarios de corte.",
+      title: "Corte y Entrega (SLA)",
+      description: "Ingresá tus pedidos antes de las 13:00 hs y te garantizamos la entrega efectiva en el día, antes de las 19:00 hs.",
+    },
+    {
+      icon: DollarSign,
+      title: "Economía y Escala",
+      description: "Bajá tus costos fijos y pagá solo por lo que enviás.",
     },
     {
       icon: MapPin,
@@ -25,17 +30,12 @@ export function LowcostBenefits() {
     {
       icon: TrendingDown,
       title: "Menos Operatividad",
-      description: "Simplifica tus despachos diarios con un esquema de retiro programado.",
+      description: "Simplificá tus despachos diarios con un esquema de retiro programado.",
     },
     {
       icon: Users,
       title: "Ideal Emprendedores",
-      description: "Escala tu negocio sin preocuparte por los costos fijos de envío.",
-    },
-    {
-      icon: Globe,
-      title: "Ruteo Inteligente",
-      description: "Tecnología aplicada para trazar las rutas más eficientes y rápidas.",
+      description: "Escalá tu negocio sin preocuparte por los costos fijos de envío.",
     },
   ]
 
@@ -66,7 +66,7 @@ export function LowcostBenefits() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ y: -10 }}
+                whileHover={{ scale: 1.05, y: -10 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -76,8 +76,17 @@ export function LowcostBenefits() {
                   <CardContent className="p-10 relative">
                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors" />
 
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
-                      <IconComponent className="w-8 h-8 text-primary" />
+                    <div className="flex justify-between items-start mb-8">
+                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform relative">
+                        <IconComponent className="w-8 h-8 text-primary" />
+                      </div>
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.2 + 0.5 }}
+                      >
+                        <CheckCircle2 className="w-6 h-6 text-green-500" />
+                      </motion.div>
                     </div>
                     <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{benefit.description}</p>

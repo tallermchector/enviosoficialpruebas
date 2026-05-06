@@ -8,13 +8,14 @@ export function LowcostHero() {
       preTitle="TARIFA OPTIMIZADA"
       title={
         <>
-          MENSAJERÍA - <br />
-          <span className="text-primary">ENVÍOS LOW-COST</span>
+          ENVÍOS LOWCOST: <br />
+          <span className="text-primary">MÁXIMA RENTABILIDAD</span>
         </>
       }
-      description="Descubre nuestros servicios de mensajería rápida y económica. Envíos seguros y a precios bajos para todas tus necesidades con ruteo inteligente."
+      description="Variabilizá tus costos logísticos con nuestro servicio de ruteo masivo inteligente. La mejor tarifa de Mar del Plata sin sacrificar seguridad."
       ctaButtons={[
-        { text: "COTIZAR EL SERVICIO", href: "/cotizar/lowcost", variant: 'secondary' }
+        { text: "COTIZAR ENVÍO LOWCOST", href: "/cotizar/lowcost", variant: 'secondary' },
+        { text: "VER TARIFAS OPTIMIZADAS", href: "#pricing-comparison", variant: 'outline', icon: 'Play' }
       ]}
       backgroundImageUrl="/bannerenvios.webp"
       backgroundImageAlt="Banner Envíos Low Cost Envios DosRuedas"

@@ -8,13 +8,14 @@ export function EnviosFlexHero() {
       preTitle="BENEFICIO EMPRENDEDORES"
       title={
         <>
-          ENVÍOS FLEX - <br />
-          <span className="text-primary">MERCADOLIBRE</span>
+          ENVÍOS FLEX MERCADOLIBRE: <br />
+          <span className="text-primary">POTENCIÁ TU REPUTACIÓN</span>
         </>
       }
-      description="Potencia tus ventas online con envíos profesionales y entregas en el día. Ofrece envíos en el día para tus ventas antes de las 15hs y mejora tu reputación."
+      description="Somos expertos en la logística de MercadoLibre. Optimizamos tus entregas Same-Day para que tu medidor siempre esté en verde y vos solo te enfoques en vender."
       ctaButtons={[
-        { text: "COTIZAR SERVICIO FLEX", href: "/cotizar/lowcost", variant: "secondary" }
+        { text: "ACTIVAR ENVÍOS FLEX", href: "/cotizar/lowcost", variant: "secondary" },
+        { text: "CONTACTAR ASESOR FLEX", href: "https://wa.me/5492236602699", variant: "outline", icon: "Mail" }
       ]}
       backgroundImageUrl="/bannerenvios.webp"
       backgroundImageAlt="Banner Envíos Flex Envios DosRuedas"

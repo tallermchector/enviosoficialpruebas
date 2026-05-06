@@ -8,13 +8,14 @@ export function EntrepreneurHero() {
       preTitle="E-COMMERCE 3PL"
       title={
         <>
-          LOGÍSTICA <br />
-          <span className="text-primary">INTEGRAL 3PL</span>
+          LOGÍSTICA 3PL Y <br />
+          <span className="text-primary">CUENTAS CORRIENTES</span>
         </>
       }
-      description="Más que un envío, somos tu depósito. Fulfillment, Almacenamiento y Cuentas Corrientes Flexibles para negocios que buscan escalar al siguiente nivel."
+      description="Tercerización integral con integración vertical. Transformá tu estructura de gasto fijo en soluciones escalables que acompañan el crecimiento de tu negocio."
       ctaButtons={[
-        { text: "SOLICITAR ASESORÍA", href: "/contacto", variant: "secondary" }
+        { text: "SOLICITAR PLAN CORPORATIVO", href: "/contacto", variant: "secondary" },
+        { text: "AGENDAR ASESORÍA 3PL", href: "https://wa.me/5492236602699", variant: "outline", icon: "Mail" }
       ]}
       backgroundImageUrl="/bannerenvios.webp"
       backgroundImageAlt="Banner Plan Emprendedor Envios DosRuedas"

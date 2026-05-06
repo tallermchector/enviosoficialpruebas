@@ -13,9 +13,9 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/lowcost/pricing-comparison";
 
 export const metadata: Metadata = {
-  title: "Envios Low Cost - Envios DosRuedas | Mensajería Económica en Mar del Plata",
+  title: "Envíos LowCost: Máxima Rentabilidad | Tu solución confiable",
   description:
-    "Servicio de mensajería económica con rutas optimizadas. Ahorra hasta 50% en tus envíos sin sacrificar calidad.",
+    "Variabilizá tus costos logísticos con nuestro servicio de ruteo masivo inteligente. La mejor tarifa de Mar del Plata sin sacrificar seguridad.",
   keywords:
     "envios low cost, mensajeria economica, envios baratos, mar del plata, rutas optimizadas, envios programados",
 }
