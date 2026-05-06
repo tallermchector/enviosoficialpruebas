@@ -10,29 +10,37 @@ export const ServicesOverview = () => {
   const services = [
     {
       title: "Envíos Express",
-      desc: "Entregas el mismo día para cuando necesitas velocidad máxima.",
+      desc: "Prioridad absoluta con rango horario a elección del cliente.",
       icon: <Zap />,
       href: "/servicios/envios-express",
-      className: "md:col-span-2 md:row-span-2 bg-primary/10 border-primary/20 hover:border-primary/50",
+      className: "md:col-span-2 md:row-span-1 bg-primary/10 border-primary/20 hover:border-primary/50",
       iconClassName: "bg-primary text-white shadow-[0_0_20px_rgba(37,99,235,0.4)]",
       badge: "ALTA PRIORIDAD",
       image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=800"
     },
     {
-      title: "Envíos Low Cost",
-      desc: "La opción más económica sin sacrificar calidad ni seguridad.",
+      title: "Envíos LowCost",
+      desc: "La solución más rentable para ruteo masivo con entrega en el día.",
       icon: <Clock />,
       href: "/servicios/envios-lowcost",
       className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-secondary/40",
       iconClassName: "bg-secondary text-black shadow-[0_0_20px_rgba(234,179,8,0.3)]",
     },
     {
-      title: "Moto Fija",
-      desc: "Servicio dedicado para tu negocio con repartidor exclusivo.",
-      icon: <Truck />,
-      href: "/servicios/moto-fija",
-      className: "md:col-span-1 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-blue-400/30",
+      title: "Envíos Flex (MeLi)",
+      desc: "Socio estratégico de MercadoLibre. Cumplimos tus SLAs Same-Day.",
+      icon: <Package />,
+      href: "/servicios/enviosflex",
+      className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-blue-400/30",
       iconClassName: "bg-blue-400/20 text-blue-400",
+    },
+    {
+      title: "E-Commerce & 3PL",
+      desc: "Gestión integral: almacenamiento, picking y distribución 24hs.",
+      icon: <Truck />,
+      href: "/servicios/plan-emprendedores",
+      className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-primary/30",
+      iconClassName: "bg-primary/20 text-primary",
     }
   ];
 

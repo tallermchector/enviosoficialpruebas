@@ -8,36 +8,36 @@ import { cn } from "@/lib/utils";
 
 const services = [
   {
-    title: "ENTREGA EXPRESS",
-    desc: "Menos de 60 minutos para tus envíos críticos. Rapidez innegociable.",
-    icon: <Clock />,
+    title: "ENVÍOS EXPRESS",
+    desc: "Prioridad absoluta con rango horario a elección del cliente.",
+    icon: <Zap />,
     color: "hsl(221.2, 83.2%, 53.3%)",
     href: "/servicios/envios-express",
-    badge: "URGENTE"
+    badge: "ALTA PRIORIDAD"
   },
   {
-    title: "MULTIENTREGAS",
-    desc: "Optimiza rutas masivas y ahorra hasta un 30% en logística diaria.",
-    icon: <Truck />,
+    title: "ENVÍOS LOWCOST",
+    desc: "La solución más rentable para ruteo masivo con entrega en el día.",
+    icon: <Clock />,
     color: "hsl(45, 93%, 47%)",
     href: "/servicios/envios-lowcost",
-    badge: "AHORRO"
+    badge: "RENTABILIDAD"
   },
   {
-    title: "ALMACENAJE",
-    desc: "Micro-fulfillment estratégico en puntos clave de la ciudad.",
+    title: "ENVÍOS FLEX (MELI)",
+    desc: "Socio estratégico de MercadoLibre. Cumplimos tus SLAs Same-Day.",
     icon: <Package />,
     color: "hsl(221.2, 83.2%, 53.3%)",
     href: "/servicios/enviosflex",
-    badge: "FLEXIBLE"
+    badge: "MERCADOLIBRE"
   },
   {
-    title: "SEGURO TOTAL",
-    desc: "Protección premium garantizada en cada trayecto. Confianza total.",
-    icon: <ShieldCheck />,
+    title: "E-COMMERCE & 3PL",
+    desc: "Gestión integral: almacenamiento, picking y distribución 24hs.",
+    icon: <Truck />,
     color: "hsl(45, 93%, 47%)",
-    href: "/nosotros/preguntas-frecuentes",
-    badge: "Garantía"
+    href: "/servicios/plan-emprendedores",
+    badge: "INTEGRAL"
   }
 ];
 
@@ -126,7 +126,7 @@ export default function SliderServicios() {
               {/* Specific Visual for certain cards */}
               {idx === 0 && (
                 <div className="absolute bottom-20 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <Clock size={100} className="text-white" />
+                  <Zap size={100} className="text-white" />
                 </div>
               )}
             </motion.div>
