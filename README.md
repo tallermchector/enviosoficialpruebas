@@ -65,13 +65,6 @@ Sigue estos pasos para levantar el proyecto en un entorno de desarrollo local.
 -   Bun (o npm/yarn)
 -   Una base de datos PostgreSQL.
 
-### 2. Clonar el Repositorio
-
-```bash
-git clone https://github.com/tu-usuario/envios-dos-ruedas.git
-cd envios-dos-ruedas
-```
-
 ### 3. Instalar Dependencias
 
 Se recomienda usar `bun` para una instalación más rápida.
