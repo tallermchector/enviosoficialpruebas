@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { PrismaClient as PrismaClientType, Order as PrismaOrder, Client as PrismaClient } from "../../../../generated/prisma/client";
+
 // Revalidate data to ensure it's fresh, e.g., every 60 seconds.
 export const revalidate = 60;
 
@@ -33,7 +35,9 @@ export default async function AdminOrdenesPage() {
 
   // Convert Decimal fields to numbers for client component compatibility
   // We use a type assertion here because Prisma extensions sometimes lose the relation types in inference
-  const formattedOrders = (orders as any[]).map(order => ({
+  const typedOrders = orders as (PrismaOrder & { client: PrismaClient | null })[];
+  
+  const formattedOrders = typedOrders.map(order => ({
     ...order,
     quotedPrice: order.quotedPrice?.toNumber() ?? 0,
     shippingCost: order.shippingCost?.toNumber() ?? 0,
