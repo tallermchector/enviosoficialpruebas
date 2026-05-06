@@ -10,6 +10,15 @@ import { PlusCircle } from "lucide-react";
 import type { Metadata } from 'next';
 import { Order as PrismaOrder, Client as PrismaClient } from "../../../../generated/prisma/client";
 
+export const metadata: Metadata = {
+  title: "Gestión de Órdenes",
+  description: "Administra, visualiza, crea y modifica las órdenes de envío.",
+  robots: {
+    index: false, // Prevent admin pages from being indexed by search engines
+    follow: false,
+  },
+};
+
 // Revalidate data to ensure it's fresh, e.g., every 60 seconds.
 export const revalidate = 60;
 
