@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export const CtaSection = () => {
   return (
-    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+    <section className="py-24 px-6 bg-[#050810] relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
         <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />
@@ -23,7 +23,7 @@ export const CtaSection = () => {
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-32 translate-x-32" />
 
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-[10px] font-bold tracking-[0.3em] mb-10 uppercase">
+          <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-[10px] font-bold tracking-[0.3em] mb-10 uppercase">
              LISTO PARA EMPEZAR? <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
           </div>
 

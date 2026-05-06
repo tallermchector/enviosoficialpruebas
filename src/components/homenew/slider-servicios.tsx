@@ -33,7 +33,7 @@ const services = [
 
 export default function SliderServicios() {
   return (
-    <section className="py-24 px-4 bg-[#0a0d16]">
+    <section className="py-24 px-6 bg-[#0a0d16]">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-16">
           <div>

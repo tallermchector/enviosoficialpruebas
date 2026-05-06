@@ -9,7 +9,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="pt-32 pb-16 px-4 border-t border-white/5 bg-[#050810] relative overflow-hidden">
+    <footer className="pt-32 pb-16 px-6 border-t border-white/5 bg-[#050810] relative overflow-hidden">
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -25,9 +25,14 @@ export const Footer = () => {
                   className="object-contain"
                 />
               </div>
-              <span className="font-[family-name:var(--font-orbitron)] font-black text-2xl tracking-tighter text-white uppercase italic">
-                DOS<span className="text-primary">RUEDAS</span>
-              </span>
+              <div className="flex flex-col">
+                <span className="font-[family-name:var(--font-orbitron)] font-black text-2xl tracking-tighter text-white uppercase italic leading-none">
+                  DOS<span className="text-primary">RUEDAS</span>
+                </span>
+                <span className="text-[10px] text-primary font-bold uppercase tracking-[0.3em] mt-2">
+                  tu solución confiable
+                </span>
+              </div>
             </Link>
             <p className="text-gray-500 text-sm mb-10 leading-relaxed font-[family-name:var(--font-roboto)]">
               Liderando la logística de última milla en Mar del Plata. Rapidez, seguridad y compromiso en cada entrega desde 2018.

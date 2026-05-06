@@ -144,7 +144,7 @@ export default function HeroGeometric({
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
+      <div className="relative z-10 container mx-auto px-6 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             custom={0}
@@ -156,7 +156,7 @@ export default function HeroGeometric({
             <div className="hidden md:block mb-6">
                  <Image src="/LogoEnviosDosRuedas.webp" alt="Logo" width={100} height={100} className="rounded-full" />
             </div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.08]">
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/[0.03] border border-white/[0.08]">
                 <Sparkles className="w-4 h-4 text-[#FBC50D]" />
                 <span className="text-sm font-medium text-white/90">{badge}</span>
                 <Zap className="w-4 h-4 text-[#2BAECF]" />
@@ -174,7 +174,7 @@ export default function HeroGeometric({
           </motion.div>
 
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <p className="text-base sm:text-lg md:text-xl text-white/60 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4 font-sans">
+            <p className="text-base sm:text-lg md:text-xl text-white/60 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-6 font-sans">
               Somos tu solución confiable en servicios de mensajería y delivery en Mar del Plata. Ofrecemos soluciones
               rápidas, seguras y económicas para todas tus necesidades de envío.
             </p>

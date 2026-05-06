@@ -62,7 +62,7 @@ const NavLink = ({
     <Link
       href={href}
       className={cn(
-        "flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+        "flex items-center space-x-2 px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200",
         isActive
           ? "bg-primary/20 text-blue-400 border border-primary/30"
           : "text-white/70 hover:text-white hover:bg-white/10",
@@ -106,12 +106,12 @@ export function OptimizedHeader() {
       animate={{ y: 0 }}
       transition={{ type: "spring" as any, stiffness: 200, damping: 25 }}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
+      <div className="container mx-auto flex items-center justify-between px-6 md:px-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+        <Link href="/" className="flex items-center gap-2 group cursor-pointer max-w-[40%] sm:max-w-none">
           <motion.div
             whileHover={{ rotate: 12, scale: 1.1 }}
-            className="w-10 h-10 transition-transform"
+            className="w-10 h-10 transition-transform shrink-0"
           >
             <Image
               src="/LogoEnviosDosRuedas.webp"
@@ -121,9 +121,14 @@ export function OptimizedHeader() {
               className="object-contain"
             />
           </motion.div>
-          <span className="font-[family-name:var(--font-orbitron)] font-black text-xl tracking-tighter text-white uppercase italic hidden sm:inline-block">
-            DOS<span className="text-primary">RUEDAS</span>
-          </span>
+          <div className="flex flex-col">
+            <span className="font-[family-name:var(--font-orbitron)] font-black text-xl tracking-tighter text-white uppercase italic hidden sm:inline-block leading-none">
+              DOS<span className="text-primary">RUEDAS</span>
+            </span>
+            <span className="text-[8px] text-primary/80 font-bold uppercase tracking-[0.2em] hidden sm:inline-block leading-none mt-1">
+              tu solución confiable
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -141,7 +146,7 @@ export function OptimizedHeader() {
                 <DropdownMenuTrigger asChild>
                   <motion.div
                     className={cn(
-                      "flex cursor-pointer items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
+                      "flex cursor-pointer items-center space-x-2 rounded-lg px-6 py-2 text-sm font-medium transition-all duration-200",
                       groupIsActive
                         ? "bg-primary/20 text-blue-400 border border-primary/30"
                         : "text-white/70 hover:text-white hover:bg-white/10",
@@ -199,14 +204,14 @@ export function OptimizedHeader() {
 
         {/* Right side mobile trigger */}
         <div className="flex items-center gap-4">
-           <a href="tel:+5492236602699" className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white text-[10px] font-bold tracking-widest hover:bg-white/10 transition-all uppercase">
+           <a href="tel:+5492236602699" className="hidden md:flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white text-[10px] font-bold tracking-widest hover:bg-white/10 transition-all uppercase">
             <Phone size={14} className="text-secondary" /> +54 223 660-2699
           </a>
 
           <div className="lg:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 h-11 w-11 flex items-center justify-center">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Abrir menú</span>
                 </Button>
@@ -238,7 +243,7 @@ export function OptimizedHeader() {
                       <Link
                         href="/"
                         className={cn(
-                          "flex items-center space-x-4 py-4 px-4 rounded-xl transition-all duration-300 w-full group",
+                          "flex items-center space-x-4 py-4 px-6 rounded-xl transition-all duration-300 w-full group",
                           isActive("/")
                             ? "bg-primary/20 text-blue-400 border border-primary/30 shadow-lg"
                             : "text-white/70 hover:text-white hover:bg-white/5",
@@ -260,7 +265,7 @@ export function OptimizedHeader() {
                           <AccordionItem value={group.label} className="border-b-0">
                             <AccordionTrigger
                               className={cn(
-                                "py-4 px-4 rounded-xl transition-all duration-300 w-full justify-between group",
+                                "py-4 px-6 rounded-xl transition-all duration-300 w-full justify-between group",
                                 groupIsActive
                                   ? "text-primary font-semibold [&[data-state=open]]:bg-primary/10"
                                   : "text-white/70 hover:text-white hover:bg-white/5",
@@ -281,7 +286,7 @@ export function OptimizedHeader() {
                                       <Link
                                         href={item.href}
                                         className={cn(
-                                          "flex items-center space-x-3 py-3 px-4 rounded-lg transition-all duration-300 w-full text-left",
+                                          "flex items-center space-x-3 py-3 px-6 rounded-lg transition-all duration-300 w-full text-left",
                                           isActive(item.href)
                                             ? "bg-primary/20 text-blue-400 font-medium"
                                             : "text-white/60 hover:text-white hover:bg-white/5",
@@ -306,7 +311,7 @@ export function OptimizedHeader() {
                       <Link
                         href="/contacto"
                         className={cn(
-                          "flex items-center space-x-4 py-4 px-4 rounded-xl transition-all duration-300 w-full group",
+                          "flex items-center space-x-4 py-4 px-6 rounded-xl transition-all duration-300 w-full group",
                           isActive("/contacto")
                             ? "bg-primary/20 text-blue-400 border border-primary/30 shadow-lg"
                             : "text-white/70 hover:text-white hover:bg-white/5",

@@ -29,7 +29,7 @@ export default function HeroAnimado() {
   };
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 px-4 overflow-hidden flex items-center">
+    <section className="relative min-h-screen pt-20 md:pt-32 pb-20 px-6 overflow-hidden flex items-center">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -57,15 +57,20 @@ export default function HeroAnimado() {
         >
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xs font-bold tracking-widest mb-8 uppercase"
+            className="inline-flex items-center gap-4 mb-8"
           >
-            <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-            DISPONIBLE EN MAR DEL PLATA
+            <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
+              <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+              DISPONIBLE EN MAR DEL PLATA
+            </div>
+            <span className="text-primary text-xs font-black uppercase tracking-[0.2em] italic hidden sm:block">
+              "tu solución confiable"
+            </span>
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="font-[family-name:var(--font-orbitron)] text-5xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white"
+            className="font-[family-name:var(--font-orbitron)] text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white"
           >
             LOGÍSTICA URBANA <br />
             DE <span className="text-primary">ALTA PRECISIÓN</span> <br />

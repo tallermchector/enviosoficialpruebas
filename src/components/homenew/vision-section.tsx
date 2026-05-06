@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export const VisionSection = () => {
   return (
-    <section className="py-32 px-4 bg-[#050810] relative overflow-hidden">
+    <section className="py-32 px-6 bg-[#050810] relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
@@ -31,8 +31,8 @@ export const VisionSection = () => {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 border-l border-white/10 pl-8">
             <div>
-              <div className="text-5xl font-black font-[family-name:var(--font-orbitron)] text-secondary mb-2 tracking-tighter italic">150+</div>
-              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">MENSAJEROS ACTIVOS</div>
+              <div className="text-2xl font-black font-[family-name:var(--font-orbitron)] text-secondary mb-2 tracking-tighter italic uppercase leading-tight">Flota ágil y especializada</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">RED LOGÍSTICA PROPIA</div>
             </div>
             <div>
               <div className="text-5xl font-black font-[family-name:var(--font-orbitron)] text-primary mb-2 tracking-tighter italic">15min</div>

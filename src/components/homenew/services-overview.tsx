@@ -38,7 +38,7 @@ export const ServicesOverview = () => {
   ];
 
   return (
-    <section className="py-32 px-4 bg-[#0a0d16] relative overflow-hidden">
+    <section className="py-32 px-6 bg-[#0a0d16] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">

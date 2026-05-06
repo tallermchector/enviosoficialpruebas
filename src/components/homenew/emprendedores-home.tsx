@@ -43,7 +43,7 @@ export const EmprendedoresHome = () => {
   ];
 
   return (
-    <section className="relative py-32 px-4 overflow-hidden bg-[#050810]">
+    <section className="relative py-32 px-6 overflow-hidden bg-[#050810]">
       {/* Background Effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
@@ -56,7 +56,7 @@ export const EmprendedoresHome = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xs font-bold tracking-widest mb-6 uppercase"
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xs font-bold tracking-widest mb-6 uppercase"
           >
             <Zap size={14} className="animate-pulse" /> SOLUCIONES PARA EMPRENDEDORES
           </motion.div>

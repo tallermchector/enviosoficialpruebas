@@ -429,7 +429,7 @@ export function EnhancedHero() {
           transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-blue-400/20 border border-white/20 backdrop-blur-sm mb-4"
+            className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-blue-400/20 border border-white/20 backdrop-blur-sm mb-4"
             whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
           >
             <Sparkles className="w-4 h-4 text-yellow-400" />
