@@ -10,9 +10,11 @@ export const ServicesOverview = () => {
   const services = [
     {
       title: "Envíos Express",
-      desc: "Prioridad absoluta con rango horario a elección del cliente.",
+      bajada: "Prioridad absoluta y certeza total.",
+      desc: <>Diseñado para operaciones de alta criticidad horaria. <span className="font-bold text-gray-200">Vos elegís el rango exacto</span> de entrega con solo 2 horas de anticipación. Garantizamos precisión en el tiempo de tu cliente final.</>,
       icon: <Zap />,
       href: "/servicios/envios-express",
+      buttonText: "Solicitar Express",
       className: "md:col-span-2 md:row-span-1 bg-primary/10 border-primary/20 hover:border-primary/50",
       iconClassName: "bg-primary text-white shadow-[0_0_20px_rgba(37,99,235,0.4)]",
       badge: "ALTA PRIORIDAD",
@@ -20,25 +22,31 @@ export const ServicesOverview = () => {
     },
     {
       title: "Envíos LowCost",
-      desc: "La solución más rentable para ruteo masivo con entrega en el día.",
+      bajada: "Máxima rentabilidad y eficiencia en ruteo masivo.",
+      desc: <>Variabilizá tus costos logísticos. <span className="font-bold text-gray-200">Ingresá tus pedidos</span> antes de las 13:00 hs y te <span className="font-bold text-gray-200">garantizamos la entrega en el día</span> antes de las 19:00 hs.</>,
       icon: <Clock />,
       href: "/servicios/envios-lowcost",
+      buttonText: "Ahorrá con LowCost",
       className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-secondary/40",
       iconClassName: "bg-secondary text-black shadow-[0_0_20px_rgba(234,179,8,0.3)]",
     },
     {
-      title: "Envíos Flex (MeLi)",
-      desc: "Socio estratégico de MercadoLibre. Cumplimos tus SLAs Same-Day.",
+      title: "Envíos Flex (MercadoLibre)",
+      bajada: "Potenciá tu reputación al máximo.",
+      desc: <>Somos expertos en MercadoLibre. Despachá hasta las 15:00 hs y nosotros cumplimos tus <span className="font-bold text-gray-200">acuerdos de nivel de servicio (SLAs) Same-Day</span> para que tu termómetro siempre esté en verde.</>,
       icon: <Package />,
       href: "/servicios/enviosflex",
+      buttonText: "Activar Envíos Flex",
       className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-blue-400/30",
       iconClassName: "bg-blue-400/20 text-blue-400",
     },
     {
       title: "E-Commerce & 3PL",
-      desc: "Gestión integral: almacenamiento, picking y distribución 24hs.",
+      bajada: "Tercerización integral y cuentas corrientes.",
+      desc: <>Más que un envío, somos tu depósito y tu equipo. <span className="font-bold text-gray-200">Soluciones escalables</span> para PyMEs y plataformas digitales, con facturación mensual centralizada.</>,
       icon: <Truck />,
       href: "/servicios/plan-emprendedores",
+      buttonText: "Hablar con un asesor",
       className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-primary/30",
       iconClassName: "bg-primary/20 text-primary",
     }
@@ -135,21 +143,24 @@ export const ServicesOverview = () => {
                   {React.cloneElement(service.icon as React.ReactElement<{ size?: number; className?: string; fill?: string }>, { size: 28 })}
                 </div>
 
-                <h3 className="font-display text-orbitron text-xl md:text-2xl lg:text-3xl font-black mb-3 lg:mb-4 uppercase text-white tracking-tight leading-tight">
+                <h3 className="font-display text-orbitron text-xl md:text-2xl lg:text-3xl font-black mb-1 uppercase text-white tracking-tight leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-gray-400 text-xs md:text-sm lg:text-base leading-relaxed mb-6 font-[family-name:var(--font-roboto)] font-light max-w-[280px]">
-                  {service.desc}
+                <p className="text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                  {service.bajada}
                 </p>
+                <div className="text-gray-400 text-xs md:text-sm lg:text-base leading-relaxed mb-6 font-[family-name:var(--font-roboto)] font-light max-w-[320px]">
+                  {service.desc}
+                </div>
               </div>
 
               <div className="relative z-10 flex items-center justify-between">
                 <Link
                   href={service.href}
-                  aria-label={`Conocer más sobre ${service.title}`}
+                  aria-label={`Solicitar información sobre ${service.title}`}
                   className="flex items-center gap-3 text-white font-display text-orbitron text-[10px] font-black uppercase tracking-[0.2em] group-hover:text-primary transition-all group-hover:gap-5"
                 >
-                  Conocer Más <ChevronRight size={16} aria-hidden="true" />
+                  {service.buttonText} <ChevronRight size={16} aria-hidden="true" />
                 </Link>
 
                 {service.badge && (
