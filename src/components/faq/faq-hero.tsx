@@ -6,7 +6,7 @@ export function FaqHero() {
   return (
     <HeroSection
       title="Preguntas Frecuentes"
-      description="Todo lo que necesitas saber sobre nuestras operativas, tarifas y SLAs de entrega. Transparencia total."
+      description="Todo lo que necesitás saber sobre nuestra operativa, tarifas y SLAs de entrega. Transparencia total."
       backgroundImageUrl="/bannerenvios.png"
       backgroundImageAlt="Banner FAQ Envios DosRuedas"
     />

@@ -23,7 +23,7 @@ export function FaqContactCta() {
                   rel="noopener noreferrer"
                 >
                   <MessageCircle className="w-6 h-6 mr-2" />
-                  WhatsApp
+                  Contactanos por WhatsApp
                 </a>
               </Button>
 

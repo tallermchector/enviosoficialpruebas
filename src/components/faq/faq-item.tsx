@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface FaqItemProps {
   question: string
@@ -37,13 +38,22 @@ export function FaqItem({ question, answer, defaultOpen = false }: FaqItemProps)
           </div>
         </button>
 
-        {isOpen && (
-          <div className="px-6 pb-6 animate-in fade-in slide-in-from-top-2 duration-300">
-            <div className="pt-4 border-t border-border/50">
-              <p className="text-muted-foreground leading-relaxed font-sans text-lg">{answer}</p>
-            </div>
-          </div>
-        )}
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <div className="px-6 pb-6">
+                <div className="pt-4 border-t border-border/50">
+                  <p className="text-muted-foreground leading-relaxed font-sans text-lg">{answer}</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </CardContent>
     </Card>
   )

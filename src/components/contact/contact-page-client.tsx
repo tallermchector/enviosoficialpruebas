@@ -26,7 +26,7 @@ export function ContactPageClient() {
     <>
       <HeroSection
         title="Contacto Comercial"
-        description="¿Listo para escalar tu negocio? Habla con un asesor logístico y diseña un esquema tarifario a tu medida."
+        description="¿Listo para escalar tu negocio? Hablá con un asesor logístico y diseñemos un esquema tarifario a tu medida."
         backgroundImageUrl="/bannerenvios.png"
         backgroundImageAlt="Banner contacto Envios DosRuedas"
       />
@@ -49,8 +49,8 @@ export function ContactPageClient() {
       >
         <div className="container mx-auto">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4 font-display">¿Tienes alguna consulta?</h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto font-sans">Completa el formulario y te responderemos a la brevedad.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4 font-display">¿Tenés alguna consulta?</h2>
+            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto font-sans">Completá el formulario y te responderemos a la brevedad.</p>
           </div>
           <ContactForm />
         </div>
