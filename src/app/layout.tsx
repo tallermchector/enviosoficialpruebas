@@ -19,14 +19,14 @@ const orbitron = Orbitron({
 
 
 export const metadata: Metadata = {
-  title: 'EnviosDosRuedas | Mensajería y Delivery Express en Mar del Plata',
+  title: 'Envíos DosRuedas | Tu solución confiable',
   description: 'Servicio confiable de mensajería y delivery en moto. Envíos express y low-cost para e-commerce, pymes y Mercado Libre Flex en Mar del Plata. Cotizá online.',
   keywords: 'mensajeria mar del plata, delivery mar del plata, envios en moto, cadeteria mar del plata, envios flex, envios low cost, mensajeria express, envios dos ruedas',
   alternates: {
     canonical: 'https://www.enviosdosruedas.com',
   },
   openGraph: {
-    title: 'EnviosDosRuedas | Mensajería y Delivery Rápido en Mar del Plata',
+    title: 'Envíos DosRuedas | Tu solución confiable',
     description: 'Envíos express, low-cost, para emprendedores y Mercado Libre Flex. Cotiza online.',
     url: 'https://www.enviosdosruedas.com',
     images: [
@@ -49,6 +49,8 @@ export const metadata: Metadata = {
 
 export const viewport = {
   themeColor: "#1E40AF",
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({

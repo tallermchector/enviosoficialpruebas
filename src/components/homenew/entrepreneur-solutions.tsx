@@ -89,7 +89,7 @@ export function EntrepreneurSolutions() {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           className="text-center mb-16 md:mb-20"
           initial={{ opacity: 0, y: 30 }}

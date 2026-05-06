@@ -70,7 +70,7 @@ export const CarruselRedes = () => {
   }
 
   return (
-    <section className="py-32 px-4 bg-[#050810] overflow-hidden relative">
+    <section className="py-32 px-6 bg-[#050810] overflow-hidden relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-primary/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
