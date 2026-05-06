@@ -124,22 +124,19 @@ export default function HeroAnimado() {
             Tu Solución Confiable
           </motion.div>
 
-          <motion.h1
-            variants={itemVariants}
+          <h1
             className="font-display text-orbitron text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black italic tracking-tighter leading-[0.9] mb-4 xl:mb-6 uppercase text-white"
           >
             Servicio de <span className="text-primary drop-shadow-[0_0_25px_rgba(37,99,235,0.4)]">mensajería</span> y <span className="text-secondary italic drop-shadow-[0_0_20px_rgba(234,179,8,0.2)]">delivery</span> Envios Dosruedas
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={itemVariants}
+          <p
             className="text-gray-400 text-base lg:text-lg xl:text-xl mb-8 xl:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-[family-name:var(--font-roboto)] font-light"
           >
             Somos tu solución confiable en servicios de mensajería y delivery en Mar del Plata. Ofrecemos soluciones rápidas, seguras y económicas para todas tus necesidades de envío.
-          </motion.p>
+          </p>
 
-          <motion.div
-            variants={itemVariants}
+          <div
             className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center"
           >
             <Link
@@ -162,7 +159,7 @@ export default function HeroAnimado() {
               </div>
               <span className="text-xs">Ver Servicios</span>
             </Link>
-          </motion.div>
+          </div>
 
           <motion.div
             variants={itemVariants}

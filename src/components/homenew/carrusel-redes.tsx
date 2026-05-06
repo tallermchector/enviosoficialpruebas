@@ -93,10 +93,12 @@ export const CarruselRedes = () => {
                 key={idx}
                 onClick={net.isWhatsApp ? handleWhatsAppClick : () => window.open(net.href, "_blank")}
                 className="group flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-white/10 transition-all text-white"
+                aria-label={`Seguinos en ${net.name}`}
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
                   style={{ backgroundColor: `${net.color}15`, color: net.color }}
+                  aria-hidden="true"
                 >
                   <net.icon size={24} />
                 </div>
@@ -124,8 +126,9 @@ export const CarruselRedes = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-72 h-72 shrink-0 rounded-3xl overflow-hidden relative group border border-white/10 shadow-2xl transition-all hover:border-primary/50 block"
+                  aria-label={`Ver publicación en ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
                 >
-                  <img src={item.image} alt="Social feed" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
+                  <img src={item.image} alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-[#050810]/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-6 p-8">
                     <div className="w-16 h-16 rounded-2xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white">
                       {item.type === 'ig' && <Instagram size={32} />}

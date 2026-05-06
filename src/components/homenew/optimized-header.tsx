@@ -240,14 +240,14 @@ export const OptimizedHeader = () => {
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 w-12 h-12 rounded-xl" aria-label="Abrir menú de navegación">
-                  <Menu className="h-7 w-7" aria-hidden="true" />
+                  <Menu className="h-7 w-7" />
                   <span className="sr-only">Abrir menú</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[320px] bg-[#050810] text-white border-white/10 pt-12 p-6 shadow-2xl" aria-describedby="mobile-menu-description">
                 <SheetHeader className="mb-12 flex flex-row items-center space-x-4">
                   <div className="relative w-10 h-10 rounded-xl flex items-center justify-center drop-shadow-[0_0_10px_rgba(37,99,235,0.4)]">
-                    <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" sizes="40px" priority />
+                    <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" sizes="40px" />
                   </div>
                   <SheetTitle className="text-white font-display text-orbitron font-black italic text-xl tracking-tighter uppercase whitespace-nowrap">
                     Envíos Dos <span className="text-primary">Ruedas</span>
