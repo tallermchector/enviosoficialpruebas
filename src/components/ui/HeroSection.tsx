@@ -72,7 +72,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { y: 30, opacity: 0 },
+  hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -95,7 +95,7 @@ export function HeroSection({
   backgroundImageAlt = 'Hero background image',
   backgroundOverlayOpacity = 0.2,
   textColorClassName = 'text-white',
-  titleClassName = 'text-5xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-[family-name:var(--font-orbitron)]',
+  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-[family-name:var(--font-orbitron)]',
   descriptionClassName = 'text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-[family-name:var(--font-roboto)]',
   visualElement,
   layout = 'center-stacked',
@@ -113,7 +113,7 @@ export function HeroSection({
   else if (backgroundType === 'image') bgClasses = 'bg-[#050810]';
 
   const sectionClasses = cn(
-    'relative flex items-center overflow-hidden pt-32 pb-20 px-4',
+    'relative flex items-center overflow-hidden pt-24 pb-12 md:pt-32 md:pb-20 px-6',
     minHeight,
     bgClasses,
     className
@@ -225,6 +225,11 @@ export function HeroSection({
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-30 z-0">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />
+      </div>
+
+      {/* Text Accent Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-64 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-blue-500/10 blur-[120px] rounded-full" />
       </div>
 
       <div className={cn("container mx-auto relative z-10 w-full", layout === 'center-stacked' ? "" : "grid lg:grid-cols-2 gap-12 items-center")}>

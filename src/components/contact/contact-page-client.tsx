@@ -24,35 +24,12 @@ const sectionVariants = {
 export function ContactPageClient() {
   return (
     <>
-      <motion.div
-        custom={0}
-        initial="hidden"
-        animate="visible"
-        variants={sectionVariants}
-      >
-        <HeroSection
-          title={
-            <span className="text-secondary font-display">Contacta con Nosotros</span>
-          }
-          description={
-            <>
-              <h2 className="text-2xl md:text-3xl text-primary-foreground/90 mb-4 font-semibold font-display">Envios DosRuedas</h2>
-              <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed font-sans">Somos tu solución confiable en servicios de mensajería y delivery en Mar del Plata. Contáctanos y obtén una respuesta rápida.</p>
-            </>
-          }
-          backgroundType="image"
-          backgroundImageUrl="/bannerenvios.png"
-          backgroundImageAlt="Banner contacto Envios DosRuedas"
-          backgroundOverlayOpacity={0.75}
-          textColorClassName="text-primary-foreground"
-          textAlignment="text-center"
-          minHeight="min-h-[40vh] sm:min-h-[50vh]"
-          contentMaxWidth="max-w-3xl"
-          titleClassName="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-display"
-          descriptionClassName="text-base sm:text-lg md:text-xl"
-          className="py-10 sm:py-12 md:py-16"
-        />
-      </motion.div>
+      <HeroSection
+        title="Contacto Comercial"
+        description="¿Listo para escalar tu negocio? Habla con un asesor logístico y diseña un esquema tarifario a tu medida."
+        backgroundImageUrl="/bannerenvios.png"
+        backgroundImageAlt="Banner contacto Envios DosRuedas"
+      />
       <motion.div
         custom={1}
         initial="hidden"
