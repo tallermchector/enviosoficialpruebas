@@ -8,36 +8,44 @@ import { cn } from "@/lib/utils";
 
 const services = [
   {
-    title: "ENVÍOS EXPRESS",
-    desc: "Prioridad absoluta con rango horario a elección del cliente.",
+    title: "Envíos Express",
+    bajada: "Prioridad absoluta y certeza total.",
+    desc: "Diseñado para operaciones de alta criticidad horaria. Vos elegís el rango exacto de entrega con solo 2 horas de anticipación. Garantizamos precisión en el tiempo de tu cliente final.",
     icon: <Zap />,
     color: "hsl(221.2, 83.2%, 53.3%)",
     href: "/servicios/envios-express",
-    badge: "ALTA PRIORIDAD"
+    badge: "ALTA PRIORIDAD",
+    buttonText: "Solicitar Express"
   },
   {
-    title: "ENVÍOS LOWCOST",
-    desc: "La solución más rentable para ruteo masivo con entrega en el día.",
+    title: "Envíos LowCost",
+    bajada: "Máxima rentabilidad y eficiencia en ruteo masivo.",
+    desc: "Variabilizá tus costos logísticos. Ingresá tus pedidos antes de las 13:00 hs y te garantizamos la entrega en el día antes de las 19:00 hs.",
     icon: <Clock />,
     color: "hsl(45, 93%, 47%)",
     href: "/servicios/envios-lowcost",
-    badge: "RENTABILIDAD"
+    badge: "RENTABILIDAD",
+    buttonText: "Ahorrá con LowCost"
   },
   {
-    title: "ENVÍOS FLEX (MELI)",
-    desc: "Socio estratégico de MercadoLibre. Cumplimos tus SLAs Same-Day.",
+    title: "Envíos Flex (MercadoLibre)",
+    bajada: "Potenciá tu reputación al máximo.",
+    desc: "Somos expertos en MercadoLibre. Despachá hasta las 15:00 hs y nosotros cumplimos tus acuerdos de nivel de servicio (SLAs) Same-Day para que tu termómetro siempre esté en verde.",
     icon: <Package />,
     color: "hsl(221.2, 83.2%, 53.3%)",
     href: "/servicios/enviosflex",
-    badge: "MERCADOLIBRE"
+    badge: "MERCADOLIBRE",
+    buttonText: "Activar Envíos Flex"
   },
   {
-    title: "E-COMMERCE & 3PL",
-    desc: "Gestión integral: almacenamiento, picking y distribución 24hs.",
+    title: "E-Commerce & 3PL",
+    bajada: "Tercerización integral y cuentas corrientes.",
+    desc: "Más que un envío, somos tu depósito y tu equipo. Soluciones escalables para PyMEs y plataformas digitales, con facturación mensual centralizada.",
     icon: <Truck />,
     color: "hsl(45, 93%, 47%)",
     href: "/servicios/plan-emprendedores",
-    badge: "INTEGRAL"
+    badge: "INTEGRAL",
+    buttonText: "Hablar con un asesor"
   }
 ];
 
@@ -105,9 +113,12 @@ export default function SliderServicios() {
                   <span className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">{service.badge}</span>
                   <div className="h-px w-6 bg-white/10" />
                 </div>
-                <h3 className="font-display text-orbitron text-2xl font-black text-white mb-6 uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
+                <h3 className="font-display text-orbitron text-2xl font-black text-white mb-1 uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
                   {service.title}
                 </h3>
+                <p className="text-primary text-[9px] font-black uppercase tracking-[0.2em] mb-4">
+                  {service.bajada}
+                </p>
                 <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)] font-light">
                   {service.desc}
                 </p>
@@ -117,7 +128,7 @@ export default function SliderServicios() {
                 href={service.href}
                 className="flex items-center gap-4 text-white font-display text-orbitron text-[10px] font-black uppercase tracking-[0.3em] opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all group-hover:gap-6 pt-10 mt-auto border-t border-white/5"
               >
-                VER MÁS <ChevronRight size={18} />
+                {service.buttonText} <ChevronRight size={18} />
               </Link>
 
               {/* Decorative Side Accent */}

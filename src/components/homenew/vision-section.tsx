@@ -16,8 +16,9 @@ export const VisionSection = () => {
   ];
 
   const stats = [
-    { label: "Clientes Satisfechos - Empresas y emprendedores confían en nosotros", value: "5000+", color: "text-secondary" },
-    { label: "Años de Innovación - Líderes en mensajería en Mar del Plata", value: "7+", color: "text-primary" }
+    { label: "Confianza local comprobada", value: "+5.000", color: "text-secondary" },
+    { label: "Innovación constante en última milla", value: "7 Años", color: "text-primary" },
+    { label: "Motocicletas dedicadas para máxima agilidad urbana", value: "Flota Exclusiva", color: "text-blue-400" }
   ];
 
   return (
@@ -47,7 +48,7 @@ export const VisionSection = () => {
             </h2>
 
             <p className="text-gray-400 text-lg md:text-xl mb-12 leading-relaxed font-[family-name:var(--font-roboto)] font-light max-w-2xl">
-              Transformamos tus costos fijos en soluciones flexibles que acompañan el crecimiento de tu negocio.
+              Transformamos <span className="font-bold text-gray-300">tus costos fijos en soluciones flexibles</span> que acompañan el crecimiento de tu negocio.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-16">
@@ -69,10 +70,10 @@ export const VisionSection = () => {
               ))}
             </div>
 
-            <div className="flex items-center gap-16 pt-10 border-t border-white/10">
+            <div className="flex flex-wrap items-center gap-x-16 gap-y-10 pt-10 border-t border-white/10">
               {stats.map((stat, i) => (
-                <div key={i} className="flex flex-col">
-                  <span className={`text-5xl md:text-6xl font-black font-display text-orbitron ${stat.color} tracking-tighter italic drop-shadow-lg`}>
+                <div key={i} className="flex flex-col max-w-[200px]">
+                  <span className={`text-4xl md:text-5xl font-black font-display text-orbitron ${stat.color} tracking-tighter italic drop-shadow-lg leading-tight`}>
                     {stat.value}
                   </span>
                   <span className="text-[10px] text-gray-400 uppercase tracking-[0.4em] font-black mt-2">

@@ -45,37 +45,37 @@ export const CtaSection = () => {
               <Zap size={16} className="fill-yellow-400 text-yellow-400 animate-pulse" /> ¡Empezá Ahora!
             </motion.div>
 
-            <h2 className="font-display text-orbitron text-4xl md:text-8xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase italic">
-              ¿Impulsamos tu <br />
-              <span className="text-secondary drop-shadow-2xl">Logística?</span>
+            <h2 className="font-display text-orbitron text-4xl md:text-7xl lg:text-8xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase italic">
+              ¿Listo para escalar la <br />
+              <span className="text-secondary drop-shadow-2xl">logística de tu E-Commerce?</span>
             </h2>
 
-            <p className="text-blue-100 text-lg md:text-2xl mb-16 max-w-3xl mx-auto font-[family-name:var(--font-roboto)] leading-relaxed font-light opacity-80">
-              Únete a las empresas que ya optimizan su última milla con nosotros.
+            <p className="text-blue-100 text-lg md:text-2xl mb-16 max-w-4xl mx-auto font-[family-name:var(--font-roboto)] leading-relaxed font-light opacity-80">
+              <span className="font-bold">Olvidate de la gestión de paquetes</span> y enfocate en vender más. Dejá la distribución urbana en manos de expertos.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
               <Link
-                href="/cotizar/express"
-                aria-label="Solicitar Cotización personalizada para tu logística"
+                href="https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
+                aria-label="Contactanos por WhatsApp para servicios logísticos"
                 className="group w-full sm:w-auto px-12 py-6 bg-white text-blue-800 font-display text-orbitron font-black rounded-2xl transition-all shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 flex items-center justify-center gap-4 uppercase tracking-tighter text-sm"
               >
-                Solicitar Cotización <Calculator size={22} className="group-hover:rotate-12 transition-transform" />
+                Contactanos por WhatsApp <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
-                href="/contacto"
+                href="/tarifas"
                 className="w-full sm:w-auto px-12 py-6 bg-blue-500/20 hover:bg-blue-500/30 border border-white/20 text-white font-display text-orbitron font-bold rounded-2xl transition-all backdrop-blur-md flex items-center justify-center gap-4 uppercase tracking-widest text-xs"
               >
-                Contactanos <ArrowRight size={22} />
+                Ver Tarifas 2026 <Calculator size={22} />
               </Link>
             </div>
 
             <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-12 pt-16 border-t border-white/10">
               {[
-                { icon: <Clock aria-hidden="true" />, text: "5000+ Clientes" },
-                { icon: <ShieldCheck aria-hidden="true" />, text: "98% A Tiempo" },
-                { icon: <MousePointer2 aria-hidden="true" />, text: "24/7 Soporte" }
+                { icon: <Clock aria-hidden="true" />, text: "Confianza local comprobada" },
+                { icon: <ShieldCheck aria-hidden="true" />, text: "Innovación constante en última milla" },
+                { icon: <MousePointer2 aria-hidden="true" />, text: "Motocicletas dedicadas para máxima agilidad urbana" }
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center gap-4 text-[9px] font-black text-blue-100/50 uppercase tracking-[0.3em]">
                   <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/40 group-hover:text-white transition-all">
