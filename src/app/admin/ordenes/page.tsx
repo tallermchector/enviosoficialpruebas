@@ -32,7 +32,8 @@ export default async function AdminOrdenesPage() {
   });
 
   // Convert Decimal fields to numbers for client component compatibility
-  const formattedOrders = orders.map(order => ({
+  // We use a type assertion here because Prisma extensions sometimes lose the relation types in inference
+  const formattedOrders = (orders as any[]).map(order => ({
     ...order,
     quotedPrice: order.quotedPrice?.toNumber() ?? 0,
     shippingCost: order.shippingCost?.toNumber() ?? 0,
