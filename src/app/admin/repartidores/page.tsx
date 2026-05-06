@@ -2,7 +2,7 @@
 import prisma from "@/lib/prisma";
 import type { Metadata } from 'next';
 import { RepartidoresClientPage } from "@/components/admin/repartidores/RepartidoresClientPage";
-import type { Repartidor } from '../../../../generated/prisma/client';
+import type { Repartidor } from '../../../../generated/prisma/client/client';
 import { EtiquetaStatus, type FormattedEtiqueta } from "@/types";
 
 export const metadata: Metadata = {

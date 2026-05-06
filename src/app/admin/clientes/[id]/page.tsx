@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { EditClientForm } from "@/components/admin/clientes/EditClientForm";
 import type { Metadata } from "next";
 import { User } from "lucide-react";
-import type { Client as PrismaClient } from '../../../../../generated/prisma/client';
+import type { Client as PrismaClient } from '../../../../../generated/prisma/client/client';
 
 // Define a client-safe type with numbers instead of Decimals
 type FormattedClient = Omit<PrismaClient, 'addressLat' | 'addressLng'> & {

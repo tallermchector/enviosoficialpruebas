@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { AdminHeader } from "@/components/layout/AdminHeader";
 import { Footer } from "@/components/homenew/footer";
 import prisma from "@/lib/prisma";
-import { ServiceTypeEnum, type PriceRange as PrismaPriceRange } from '../../../../generated/prisma/client';
+import { ServiceTypeEnum, type PriceRange as PrismaPriceRange } from '../../../../generated/prisma/client/client';
 import { EditablePriceTable } from '@/components/admin/cotizaciones/EditablePriceTable';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';

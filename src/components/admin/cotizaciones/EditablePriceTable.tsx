@@ -15,7 +15,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from '@/components/ui/input';
 import { Save, Loader2, AlertCircle } from "lucide-react";
-import { ServiceTypeEnum } from '../../../../generated/prisma/client';
+import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import { useToast } from '@/hooks/use-toast';
 import { updateMultiplePriceRanges } from '@/app/admin/cotizaciones/actions';
 import type { MultiplePriceRangesState } from '@/app/admin/cotizaciones/actions';

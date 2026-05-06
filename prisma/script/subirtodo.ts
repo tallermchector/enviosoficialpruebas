@@ -1,6 +1,6 @@
 // prisma/script/subirtodo.ts
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Prisma } from '../../generated/prisma/client';
+import { Prisma } from '../../generated/prisma/client/client';
 import prisma from '../../src/lib/prisma';
 import fs from 'fs';
 import path from 'path';

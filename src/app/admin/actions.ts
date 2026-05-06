@@ -3,7 +3,7 @@
 
 import { z } from 'zod';
 import prisma from '@/lib/prisma';
-import { Prisma, SocialPlatformEnum } from '../../../generated/prisma/client';
+import { Prisma, SocialPlatformEnum } from '../../../generated/prisma/client/client';
 import { revalidatePath } from 'next/cache';
 
 // A flexible schema for image URLs, allowing local paths or full URLs

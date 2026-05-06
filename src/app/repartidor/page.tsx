@@ -1,7 +1,7 @@
 // src/app/repartidor/page.tsx
 import type { Metadata } from 'next';
 import prisma from "@/lib/prisma";
-import type { Repartidor } from '../../../generated/prisma/client';
+import type { Repartidor } from '../../../generated/prisma/client/client';
 import { RepartidorSelection } from '@/components/repartidor/RepartidorSelection';
 
 export const metadata: Metadata = {

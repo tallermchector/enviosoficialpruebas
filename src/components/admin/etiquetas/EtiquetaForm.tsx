@@ -6,7 +6,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useRouter } from 'next/navigation';
-import { type Etiqueta as PrismaEtiqueta } from '../../../../generated/prisma/client';
+import { type Etiqueta as PrismaEtiqueta } from '../../../../generated/prisma/client/client';
 
 const ServiceTypeEnum = {
   EXPRESS: 'EXPRESS',
