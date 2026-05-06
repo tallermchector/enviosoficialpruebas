@@ -1,5 +1,3 @@
-
-// src/components/ui/HeroSection.tsx
 'use client';
 
 import React from 'react';
@@ -10,7 +8,7 @@ import Link from 'next/link';
 import type { VariantProps } from 'class-variance-authority';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Mail, Star, Home, Truck, Calculator as CalculatorIcon, Users, ChevronDown, Menu, X } from 'lucide-react';
+import { ArrowRight, Mail, Star, Home, Truck, Calculator as CalculatorIcon, Users, ChevronDown, Menu, X, Play } from 'lucide-react';
 
 const iconMap: Record<string, React.ElementType> = {
   ArrowRight,
@@ -23,6 +21,7 @@ const iconMap: Record<string, React.ElementType> = {
   ChevronDown,
   Menu,
   X,
+  Play,
 };
 
 interface CtaButtonProps {
@@ -66,36 +65,20 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
     },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
-      type: "spring" as any,
-      stiffness: 80,
-      damping: 12,
-    },
-  },
-};
-
-const visualElementVariants: Variants = {
-  hidden: { x: 30, opacity: 0, scale: 0.95 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: "spring" as any,
-      stiffness: 70,
-      damping: 15,
-      delay: 0.2,
+      duration: 0.6,
+      ease: "easeOut",
     },
   },
 };
@@ -105,50 +88,35 @@ export function HeroSection({
   preTitle,
   description,
   ctaButtons,
-  backgroundType = 'gradient',
-  backgroundColor = 'bg-background',
+  backgroundType = 'image',
+  backgroundColor = 'bg-[#050810]',
   backgroundGradient = 'bg-gradient-to-br from-primary to-primary/80',
-  backgroundImageUrl,
+  backgroundImageUrl = '/bannerenvios.webp',
   backgroundImageAlt = 'Hero background image',
-  backgroundOverlayOpacity = 0,
-  textColorClassName = 'text-primary-foreground',
-  titleClassName = 'text-4xl sm:text-5xl lg:text-6xl font-bold font-display',
-  descriptionClassName = 'text-lg sm:text-xl lg:text-2xl opacity-90 leading-relaxed',
+  backgroundOverlayOpacity = 0.2,
+  textColorClassName = 'text-white',
+  titleClassName = 'text-5xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-[family-name:var(--font-orbitron)]',
+  descriptionClassName = 'text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-[family-name:var(--font-roboto)]',
   visualElement,
   layout = 'center-stacked',
-  minHeight = 'min-h-[60vh] md:min-h-[70vh]',
-  contentMaxWidth = 'max-w-4xl',
+  minHeight = 'min-h-screen',
+  contentMaxWidth = 'max-w-7xl',
   textAlignment = 'text-center',
   className = '',
   children,
   priority = false,
 }: HeroSectionProps) {
 
-  const ContentWrapper = motion.div;
-  const itemWrapperProps = { variants: itemVariants };
-
-  const VisualWrapper = motion.div;
-  const visualWrapperRightProps = {
-    variants: visualElementVariants,
-    initial: "hidden",
-    whileInView: "visible",
-    viewport: { once: true, amount: 0.2 },
-  };
-
   let bgClasses = '';
   if (backgroundType === 'color') bgClasses = backgroundColor;
   else if (backgroundType === 'gradient') bgClasses = backgroundGradient;
+  else if (backgroundType === 'image') bgClasses = 'bg-[#050810]';
 
   const sectionClasses = cn(
-    'relative flex items-center overflow-hidden',
+    'relative flex items-center overflow-hidden pt-32 pb-20 px-4',
     minHeight,
     bgClasses,
     className
-  );
-
-  const contentContainerClasses = cn(
-    'relative z-10 container mx-auto px-4 w-full',
-    'py-12 sm:py-16 md:py-24 lg:py-32'
   );
 
   const textContentWrapper = (
@@ -157,26 +125,29 @@ export function HeroSection({
       initial="hidden"
       animate="visible"
       className={cn(
-        textColorClassName,
+        'relative z-10 w-full',
         layout === 'center-stacked' ? `mx-auto ${contentMaxWidth} ${textAlignment}` :
         (layout === 'split-visual-right' ? `${textAlignment} lg:text-left` :
          layout === 'split-visual-left' ? `${textAlignment} lg:text-right` : textAlignment),
       )}
     >
       {preTitle && (
-        <motion.div variants={itemVariants}>
+        <motion.div variants={itemVariants} className="mb-8">
           {typeof preTitle === 'string' ? (
-            <Badge className="px-4 py-2 text-sm font-semibold" variant="secondary">{preTitle}</Badge>
+             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
+                <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                {preTitle}
+             </div>
           ) : preTitle}
         </motion.div>
       )}
 
-      <motion.div variants={itemVariants} className={cn(titleClassName, 'mt-4 leading-tight md:leading-tight')}>
+      <motion.h1 variants={itemVariants} className={cn(titleClassName)}>
         {title}
-      </motion.div>
+      </motion.h1>
 
       {description && (
-        <motion.div variants={itemVariants} className={cn('mt-6', descriptionClassName, 'max-w-xl', textAlignment === 'text-left' ? 'mr-auto' : textAlignment === 'text-right' ? 'ml-auto' : 'mx-auto')}>
+        <motion.div variants={itemVariants} className={cn(descriptionClassName, textAlignment === 'text-left' ? 'mr-auto' : textAlignment === 'text-right' ? 'ml-auto' : 'mx-auto')}>
             {description}
         </motion.div>
       )}
@@ -187,7 +158,7 @@ export function HeroSection({
         <motion.div
           variants={itemVariants}
           className={cn(
-            'mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto',
+            'flex flex-col sm:flex-row gap-6 items-center',
             textAlignment === 'text-center' ? 'justify-center' :
             (layout === 'split-visual-right' || textAlignment === 'text-left') ? 'justify-start' :
             (layout === 'split-visual-left' || textAlignment === 'text-right') ? 'justify-end' :
@@ -196,26 +167,32 @@ export function HeroSection({
         >
           {ctaButtons.map((button, index) => {
             const IconComponent = button.icon ? iconMap[button.icon] : null;
+
+            // Special styling for primary-like buttons to match HeroAnimado's yellow button
+            const isYellowButton = button.variant === 'secondary';
+
             return (
               <motion.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button
                   variant={button.variant || 'default'}
-                  size="lg"
                   asChild={!!button.href && !button.onClick}
                   onClick={button.onClick}
                   className={cn(
-                    'font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto',
+                    'px-10 py-5 font-[family-name:var(--font-orbitron)] font-black rounded-xl transition-all uppercase tracking-tight h-auto',
+                    isYellowButton
+                      ? "bg-secondary hover:bg-secondary/90 text-black shadow-[0_0_20px_rgba(251,191,36,0.3)]"
+                      : "bg-white/5 border border-white/10 text-white hover:bg-white/10",
                     button.className
                   )}
                 >
                   {button.href && !button.onClick ? (
                     <Link href={button.href} target={button.target} rel={button.rel}>
-                      {IconComponent && <IconComponent className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />}
+                      {IconComponent && <IconComponent className="mr-2 h-5 w-5" />}
                       {button.text}
                     </Link>
                   ) : (
                     <>
-                      {IconComponent && <IconComponent className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />}
+                      {IconComponent && <IconComponent className="mr-2 h-5 w-5" />}
                       {button.text}
                     </>
                   )}
@@ -229,44 +206,54 @@ export function HeroSection({
   );
 
   return (
-    <motion.section
-      className={sectionClasses}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <section className={sectionClasses}>
+      {/* Background Image with Overlay */}
       {backgroundType === 'image' && backgroundImageUrl && (
-        <Image
-          src={backgroundImageUrl}
-          alt={backgroundImageAlt}
-          fill
-          sizes="100vw"
-          style={{ objectFit: 'cover' }}
-          quality={80}
-          priority={priority}
-          className="z-0"
-        />
-      )}
-      {backgroundType === 'image' && backgroundOverlayOpacity > 0 && (
-        <div
-          className="absolute inset-0 bg-black z-0"
-          style={{ opacity: backgroundOverlayOpacity }}
-        ></div>
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={backgroundImageUrl}
+            alt={backgroundImageAlt}
+            fill
+            className="object-cover opacity-20"
+            priority={priority}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050810] via-transparent to-[#050810]" />
+        </div>
       )}
 
-      <div className={contentContainerClasses}>
-        {layout === 'center-stacked' && textContentWrapper}
-        {layout === 'split-visual-right' && (
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-1">{textContentWrapper}</div>
-            {visualElement && (
-              <div className="hidden lg:flex lg:col-span-1 items-center justify-center">
-                {visualElement}
-              </div>
-            )}
-          </div>
+      {/* Decorative Gradients */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-30 z-0">
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />
+      </div>
+
+      <div className={cn("container mx-auto relative z-10 w-full", layout === 'center-stacked' ? "" : "grid lg:grid-cols-2 gap-12 items-center")}>
+        {layout === 'center-stacked' ? textContentWrapper : (
+           <>
+             {layout === 'split-visual-left' && visualElement && (
+                <motion.div
+                  className="relative flex justify-center items-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                >
+                  {visualElement}
+                </motion.div>
+             )}
+             {textContentWrapper}
+             {layout === 'split-visual-right' && visualElement && (
+                <motion.div
+                  className="relative flex justify-center items-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                >
+                  {visualElement}
+                </motion.div>
+             )}
+           </>
         )}
       </div>
-    </motion.section>
+    </section>
   );
 }

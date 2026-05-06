@@ -1,63 +1,89 @@
+'use client';
+
+import React from 'react';
 import { Card, CardContent } from "@/components/ui/card"
-import { Wallet, Route, Shield, Clock, Users, Award } from "lucide-react"
+import { DollarSign, Clock, MapPin, TrendingDown, Users, Globe } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function LowcostBenefits() {
   const benefits = [
     {
-      icon: Wallet,
-      title: "Máximo Ahorro",
-      description: "Hasta 50% menos que los envíos express, sin comprometer la calidad del servicio.",
-    },
-    {
-      icon: Route,
-      title: "Rutas Inteligentes",
-      description: "Optimizamos las rutas para reducir costos y tiempos, beneficiándote con mejores precios.",
-    },
-    {
-      icon: Shield,
-      title: "Seguridad Garantizada",
-      description: "Todos los envíos incluyen seguro y seguimiento, sin importar el precio.",
+      icon: DollarSign,
+      title: "Tarifa Más Baja",
+      description: "Ahorra costos logísticos con nuestra tarifa más competitiva del mercado local.",
     },
     {
       icon: Clock,
-      title: "Flexibilidad Horaria",
-      description: "Programa tus envíos con anticipación y elige el horario que más te convenga.",
+      title: "Entrega Same-Day",
+      description: "Recolección y entrega en el mismo día respetando los horarios de corte.",
+    },
+    {
+      icon: MapPin,
+      title: "Cobertura Total",
+      description: "Llegamos a todos los barrios de Mar del Plata con ruteos optimizados.",
+    },
+    {
+      icon: TrendingDown,
+      title: "Menos Operatividad",
+      description: "Simplifica tus despachos diarios con un esquema de retiro programado.",
     },
     {
       icon: Users,
-      title: "Ideal para Negocios",
-      description: "Perfecto para e-commerce y negocios que manejan grandes volúmenes de envíos.",
+      title: "Ideal Emprendedores",
+      description: "Escala tu negocio sin preocuparte por los costos fijos de envío.",
     },
     {
-      icon: Award,
-      title: "Calidad Comprobada",
-      description: "La misma calidad y confiabilidad de siempre, a un precio más accesible.",
+      icon: Globe,
+      title: "Ruteo Inteligente",
+      description: "Tecnología aplicada para trazar las rutas más eficientes y rápidas.",
     },
   ]
 
   return (
-    <section className="py-16 px-4 bg-white">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">¿Por Qué Elegir Low Cost?</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-sans">
-            Descubre todas las ventajas de nuestro servicio de envíos económicos sin sacrificar calidad
-          </p>
+    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+              BENEFICIOS <span className="text-primary">LOWCOST</span>
+            </h2>
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+              La combinación perfecta entre economía y eficiencia logística para tu negocio.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon
             return (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
-                    <IconComponent className="w-6 h-6 text-yellow-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3 font-display">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed font-sans">{benefit.description}</p>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={index}
+                whileHover={{ y: -10 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+              >
+                <Card className="h-full bg-white/5 border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden">
+                  <CardContent className="p-10 relative">
+                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors" />
+
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
+                      <IconComponent className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{benefit.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             )
           })}
         </div>

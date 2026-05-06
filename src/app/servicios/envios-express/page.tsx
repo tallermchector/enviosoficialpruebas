@@ -40,9 +40,9 @@ export default async function EnviosExpressPage() {
   const priceRanges = await getPriceRanges();
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen bg-[#050810] text-white selection:bg-blue-500/30">
       <OptimizedHeader />
-      <main className="flex-grow">
+      <main>
         <ExpressPageClient priceRanges={priceRanges} />
       </main>
       <CarruselRedes />

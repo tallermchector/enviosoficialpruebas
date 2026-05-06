@@ -1,6 +1,9 @@
+'use client';
 
+import React from 'react';
 import { Card, CardContent } from "@/components/ui/card"
 import { FileText, Heart, Briefcase, Gift } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function UrgentScenarios() {
   const scenarios = [
@@ -12,62 +15,81 @@ export function UrgentScenarios() {
     },
     {
       icon: Heart,
-      title: "Emergencias Médicas",
+      title: "Salud",
       description: "Medicamentos, análisis médicos y suministros de salud con prioridad de entrega.",
       examples: ["Medicamentos especiales", "Resultados de laboratorio", "Suministros médicos"],
     },
     {
       icon: Briefcase,
-      title: "Negocios Críticos",
+      title: "Negocios",
       description: "Entregas comerciales que no pueden retrasarse sin afectar operaciones.",
       examples: ["Repuestos", "Muestras comerciales", "Productos perecederos"],
     },
     {
       icon: Gift,
-      title: "Ocasiones Especiales",
+      title: "Regalos",
       description: "Regalos y sorpresas que deben llegar en un rango horario acotado",
       examples: ["Regalos de cumpleaños", "Desayunos/Meriendas", "Comida especial"],
     },
   ]
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">¿Cuándo Necesitas Express?</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-sans">
-            Situaciones donde cada minuto cuenta y la rapidez es fundamental
-          </p>
+    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+              ¿CUÁNDO NECESITAS <span className="text-primary">EXPRESS?</span>
+            </h2>
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+              Situaciones donde cada minuto cuenta y la rapidez es fundamental.
+            </p>
+          </motion.div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {scenarios.map((scenario, index) => {
             const IconComponent = scenario.icon
             return (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-start mb-4">
-                    <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                      <IconComponent className="w-6 h-6 text-yellow-600" />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Card className="bg-white/5 border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm group hover:border-primary/30 transition-all h-full">
+                  <CardContent className="p-8">
+                    <div className="flex items-start mb-6">
+                      <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <IconComponent className="w-7 h-7 text-secondary" />
+                      </div>
+                      <div>
+                        <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-3 uppercase text-white tracking-tight">{scenario.title}</h3>
+                        <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{scenario.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-800 mb-2 font-display">{scenario.title}</h3>
-                      <p className="text-gray-600 leading-relaxed mb-4 font-sans">{scenario.description}</p>
+                    <div className="ml-20">
+                      <h4 className="font-[family-name:var(--font-orbitron)] text-xs font-bold text-white/50 mb-4 uppercase tracking-widest">Ejemplos comunes:</h4>
+                      <ul className="space-y-3 font-[family-name:var(--font-roboto)]">
+                        {scenario.examples.map((example, exampleIndex) => (
+                          <li key={exampleIndex} className="text-sm text-gray-400 flex items-center">
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
+                            {example}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </div>
-                  <div className="ml-16">
-                    <h4 className="font-semibold text-gray-700 mb-2 font-display">Ejemplos comunes:</h4>
-                    <ul className="space-y-1 font-sans">
-                      {scenario.examples.map((example, exampleIndex) => (
-                        <li key={exampleIndex} className="text-sm text-gray-600 flex items-center">
-                          <div className="w-1.5 h-1.5 bg-red-500 rounded-full mr-2"></div>
-                          {example}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </motion.div>
             )
           })}
         </div>

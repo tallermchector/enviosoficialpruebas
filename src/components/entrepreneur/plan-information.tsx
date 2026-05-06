@@ -1,63 +1,97 @@
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Settings, List, CheckCircle } from "lucide-react"
+"use client"
+
+import { Check } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function PlanInformation() {
-  const planDetails = [
+  const features = [
     {
-      icon: Clock,
-      title: "Horarios",
-      items: ["Lunes a Viernes de 9:00 a 19:00 hrs.", "Sábados de 10:00 a 15:00 hrs."],
+      title: "Soluciones 3PL",
+      description: "Terceriza tu logística con nosotros. Almacenamos, preparamos y enviamos tus productos.",
     },
     {
-      icon: Settings,
-      title: "¿Cómo Funciona?",
-      items: ["Elige tu franja de entrega: mañana (9-13hrs) o tarde (15-19hrs)"],
+      title: "Fulfillment",
+      description: "Picking y packing profesional. Tu mercadería segura y lista para salir en minutos.",
     },
     {
-      icon: List,
-      title: "Requisitos",
-      items: [
-        "Ser vendedor online activo",
-        "Tener un mínimo de envíos semanales",
-        "Mínimo de 6 envíos semanales (Lunes a Sábado)",
-      ],
+      title: "Cuentas Corrientes",
+      description: "Esquemas de pago flexibles adaptados al flujo de caja de tu empresa o emprendimiento.",
     },
   ]
 
-  return (
-    <section className="py-16 px-4 bg-white font-sans">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <Badge className="bg-blue-600 text-white hover:bg-blue-700 mb-6 px-4 py-2 text-sm font-medium">
-            Información Importante
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-8 font-display">Plan Emprendedores</h2>
-        </div>
+  const sectionVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {planDetails.map((detail, index) => {
-            const IconComponent = detail.icon
-            return (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <IconComponent className="w-8 h-8 text-blue-600" />
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { type: "spring" as any, stiffness: 100 } },
+  };
+
+  return (
+    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <motion.div
+          className="grid lg:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={sectionVariants}
+        >
+          {/* Left Content */}
+          <motion.div variants={itemVariants}>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-[10px] font-bold tracking-widest mb-6 uppercase">
+              SOLUCIONES CORPORATIVAS
+            </div>
+            <h2 className="font-[family-name:var(--font-orbitron)] text-3xl md:text-5xl font-black leading-[1] mb-8 uppercase text-white tracking-tighter">
+              LOGÍSTICA 3PL <br />
+              <span className="text-primary italic">PARA EMPRENDEDORES</span>
+            </h2>
+            <p className="text-gray-400 text-lg mb-10 leading-relaxed font-[family-name:var(--font-roboto)] max-w-xl">
+              Somos más que una empresa de envíos; nos convertimos en tu departamento de logística. Delegá el almacenamiento y la distribución en expertos y enfócate en hacer crecer tu negocio.
+            </p>
+
+            {/* Features */}
+            <div className="space-y-6 mb-10">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start"
+                  custom={index}
+                  variants={itemVariants}
+                >
+                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-primary/30">
+                    <Check className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-6 font-display">{detail.title}</h3>
-                  <div className="space-y-3">
-                    {detail.items.map((item, itemIndex) => (
-                      <div key={itemIndex} className="flex items-start text-left">
-                        <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <p className="text-gray-600 leading-relaxed">{item}</p>
-                      </div>
-                    ))}
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2 font-[family-name:var(--font-orbitron)] uppercase tracking-tight">{feature.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{feature.description}</p>
                   </div>
-                </CardContent>
-              </Card>
-            )
-          })}
-        </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Content - Large Branding */}
+          <motion.div
+            className="flex justify-center lg:justify-end mt-8 lg:mt-0"
+            variants={itemVariants}
+          >
+            <div className="text-center lg:text-right select-none opacity-20">
+              <div className="space-y-2">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-white font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
+                  CORE
+                </div>
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
+                  BUSINESS
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

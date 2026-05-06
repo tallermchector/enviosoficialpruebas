@@ -1,63 +1,89 @@
+'use client';
+
+import React from 'react';
 import { Card, CardContent } from "@/components/ui/card"
-import { TrendingUp, Star, Clock, Shield, Users, Award } from "lucide-react"
+import { TrendingUp, ShieldCheck, Clock, MapPin, Smartphone, UserCheck } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function MercadoLibreBenefits() {
   const benefits = [
     {
       icon: TrendingUp,
-      title: "Mejora tu Reputación",
-      description: "Cumple con los estándares de MercadoLibre y mejora tu calificación como vendedor.",
+      title: "Más Ventas",
+      description: "Los productos con 'Llega hoy' convierten hasta un 40% más que los envíos normales.",
     },
     {
-      icon: Star,
-      title: "Más Ventas",
-      description: "Los compradores prefieren vendedores con Envios Flex, aumentando tus oportunidades de venta.",
+      icon: ShieldCheck,
+      title: "Reputación Full",
+      description: "Mantenemos tu termómetro en verde cumpliendo el 100% de las promesas de entrega.",
     },
     {
       icon: Clock,
-      title: "Entregas Rápidas",
-      description: "Entrega el mismo día para pedidos antes de las 15hs, al día siguiente para el resto.",
+      title: "Flexibilidad Horaria",
+      description: "Recolecciones diarias adaptadas a tu volumen de ventas y horarios de despacho.",
     },
     {
-      icon: Shield,
-      title: "Seguimiento Completo",
-      description: "Tracking en tiempo real integrado con la plataforma de MercadoLibre.",
+      icon: MapPin,
+      title: "Cobertura MDP",
+      description: "Cubrimos todas las zonas habilitadas por MercadoLibre Flex en Mar del Plata.",
     },
     {
-      icon: Users,
-      title: "Satisfacción del Cliente",
-      description: "Clientes más satisfechos que dejan mejores calificaciones y reseñas.",
+      icon: Smartphone,
+      title: "App de Control",
+      description: "Gestiona y monitorea tus despachos desde nuestra plataforma exclusiva.",
     },
     {
-      icon: Award,
-      title: "Vendedor Premium",
-      description: "Accede a beneficios exclusivos de MercadoLibre para vendedores con Envios Flex.",
+      icon: UserCheck,
+      title: "Choferes Calificados",
+      description: "Personal capacitado para brindar la mejor experiencia de entrega a tus clientes.",
     },
   ]
 
   return (
-    <section className="py-16 px-4 bg-gray-50 font-sans">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">Beneficios de Envios Flex</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Descubre todas las ventajas de integrar Envios Flex a tu estrategia de ventas en MercadoLibre
-          </p>
+    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+              BENEFICIOS <span className="text-primary">PARA VENDEDORES</span>
+            </h2>
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+              La solución definitiva para llevar tu tienda de MercadoLibre al siguiente nivel de competitividad.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon
             return (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
-                    <IconComponent className="w-6 h-6 text-yellow-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3 font-display">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={index}
+                whileHover={{ y: -10 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+              >
+                <Card className="h-full bg-white/5 border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden">
+                  <CardContent className="p-10 relative">
+                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors" />
+
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
+                      <IconComponent className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{benefit.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             )
           })}
         </div>

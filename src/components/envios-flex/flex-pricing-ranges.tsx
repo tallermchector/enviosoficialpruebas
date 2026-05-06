@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -6,9 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Coins, ArrowRightCircle, HelpCircle } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import type { PriceRange } from '../../../generated/prisma/client/client';
 
-// Define a client-safe type with numbers instead of Decimals
 export type PriceRangeClient = Omit<PriceRange, 'distanciaMinKm' | 'distanciaMaxKm' | 'precioRango'> & {
   distanciaMinKm: number;
   distanciaMaxKm: number;
@@ -20,18 +19,6 @@ interface FlexPricingRangesProps {
 }
 
 export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
-    const displayedPriceRanges = priceRanges.filter(
-        (rango) => rango.distanciaMaxKm < 13
-    );
-
-    const formatKmDisplay = (km: number, isMaxBoundaryInTitleOrRange: boolean = false) => {
-        const kmFixed = parseFloat(km.toFixed(2));
-        if (isMaxBoundaryInTitleOrRange && String(kmFixed.toFixed(2)).endsWith('.99')) {
-            return Math.ceil(kmFixed).toString();
-        }
-        return Number.isInteger(kmFixed) ? kmFixed.toFixed(0) : kmFixed.toFixed(2).replace(".", ",");
-    };
-
     const flexTiers = [
         {
             name: "Nivel 1",
@@ -43,9 +30,7 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
                 "Segunda visita al 50%",
                 "Retiro sin cargo",
             ],
-            color: "border-yellow-300 bg-yellow-50",
             badgeText: "Crecimiento",
-            badgeColor: "bg-yellow-500",
         },
         {
             name: "Nivel 2",
@@ -57,9 +42,7 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
                 "2da visita GRATIS (Zona 1)",
                 "Prioridad en ruteo",
             ],
-            color: "border-blue-300 bg-blue-50",
             badgeText: "Pro",
-            badgeColor: "bg-blue-600",
         },
         {
             name: "Nivel 3",
@@ -71,9 +54,7 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
                 "Reprogramaciones 100% GRATIS",
                 "Soporte dedicado",
             ],
-            color: "border-green-300 bg-green-50",
             badgeText: "Elite",
-            badgeColor: "bg-green-600",
         },
     ];
 
@@ -85,94 +66,106 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
     };
 
     return (
-        <section className="py-16 px-4 bg-white">
-            <div className="container mx-auto max-w-6xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">
-                        Niveles y Tarifas Flex
-                    </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto font-sans">
-                        Escalá tu negocio con MercadoLibre Flex. A mayor volumen, mejores beneficios y tarifas para tus envíos.
-                    </p>
+        <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+            <div className="container mx-auto max-w-7xl relative z-10">
+                <div className="text-center mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+                            NIVELES Y <span className="text-primary">TARIFAS FLEX</span>
+                        </h2>
+                        <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+                        <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+                            Escalá tu negocio con MercadoLibre Flex. A mayor volumen, mejores beneficios y tarifas para tus envíos.
+                        </p>
+                    </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {flexTiers.map((tier, index) => {
                         return (
-                            <Card
+                             <motion.div
                                 key={index}
-                                className={`relative ${tier.color} border-2 hover:shadow-lg transition-shadow duration-300 flex flex-col`}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
                             >
-                                <Badge
-                                    className={`absolute -top-3 left-1/2 transform -translate-x-1/2 ${tier.badgeColor} text-white px-3 py-1 text-xs font-sans`}
-                                >
-                                    {tier.badgeText}
-                                </Badge>
-                                <CardHeader className="text-center pb-4 pt-8">
-                                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-yellow-300">
-                                        <Coins className="w-8 h-8 text-yellow-600" />
-                                    </div>
-                                    <CardTitle className="text-2xl font-bold text-gray-800 font-display">
-                                        {tier.name}
-                                    </CardTitle>
-                                    <p className="text-sm text-gray-500 font-sans">
-                                        {tier.distanceRange}
-                                    </p>
-                                    <div className="text-3xl font-bold text-yellow-700 my-2 font-display">
-                                        {tier.price}
-                                    </div>
-                                </CardHeader>
-                                <CardContent className="flex-grow font-sans">
-                                    <p className="text-gray-600 mb-4 text-center text-sm">
-                                        {tier.description}
-                                    </p>
-                                    <ul className="space-y-2 text-sm">
-                                        {tier.features.map((feature, featureIndex) => (
-                                            <li
-                                                key={featureIndex}
-                                                className="flex items-center text-gray-700"
-                                            >
-                                                <ArrowRightCircle className="w-4 h-4 text-yellow-500 mr-2 flex-shrink-0" />
-                                                {feature}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                            </Card>
+                                <Card className="relative bg-white/5 border-white/10 backdrop-blur-md hover:border-primary/50 transition-all duration-300 rounded-3xl overflow-hidden h-full flex flex-col group">
+                                    <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                                        {tier.badgeText}
+                                    </Badge>
+
+                                    <CardHeader className="text-center pt-12 pb-6">
+                                        <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                                            <Coins className="w-8 h-8 text-primary" />
+                                        </div>
+                                        <CardTitle className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-white uppercase tracking-tight">
+                                            {tier.name}
+                                        </CardTitle>
+                                        <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1">
+                                            {tier.distanceRange}
+                                        </p>
+                                        <div className="text-4xl font-black text-white mt-6 font-[family-name:var(--font-orbitron)] italic tracking-tighter">
+                                            {tier.price}
+                                        </div>
+                                    </CardHeader>
+
+                                    <CardContent className="flex-grow pb-12">
+                                        <p className="text-gray-400 mb-8 text-center text-sm font-[family-name:var(--font-roboto)] leading-relaxed">
+                                            {tier.description}
+                                        </p>
+                                        <ul className="space-y-4 font-[family-name:var(--font-roboto)]">
+                                            {tier.features.map((feature, featureIndex) => (
+                                                <li key={featureIndex} className="flex items-center text-gray-300 text-sm">
+                                                    <ArrowRightCircle className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
                         );
                     })}
-
-                    <Card className="relative border-blue-300 bg-blue-50 border-2 hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                        <Badge
-                            className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-3 py-1 text-xs font-sans"
-                        >
-                            Beneficio Clima
-                        </Badge>
-                        <CardHeader className="text-center pb-4 pt-8">
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-blue-300">
-                                <HelpCircle className="w-8 h-8 text-blue-600" />
-                            </div>
-                            <CardTitle className="text-2xl font-bold text-gray-800 font-display">
-                                Recargo por Lluvia
-                            </CardTitle>
-                            <p className="text-sm text-gray-500 font-sans">
-                                Tarifa Reducida
-                            </p>
-                        </CardHeader>
-                        <CardContent className="flex-grow flex flex-col justify-between font-sans">
-                            <p className="text-gray-600 mb-4 text-center text-sm">
-                                Para nuestros clientes Flex, el recargo por días de lluvia es reducido, siendo de tan solo el 30% sobre el valor del envío.
-                            </p>
-                            <Button
-                                onClick={handleWhatsAppClick}
-                                className="w-full bg-green-500 hover:bg-green-600 text-white mt-4"
-                            >
-                                <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={20} height={20} className="w-5 h-5 mr-2" />
-                                Más Información Flex
-                            </Button>
-                        </CardContent>
-                    </Card>
                 </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-12"
+                >
+                    <Card className="bg-gradient-to-r from-primary/10 to-secondary/5 border-white/10 backdrop-blur-md rounded-3xl overflow-hidden p-8 md:p-12">
+                         <div className="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold tracking-widest mb-6 uppercase">
+                                BENEFICIO CLIMA
+                              </div>
+                              <h3 className="font-[family-name:var(--font-orbitron)] text-3xl font-black text-white uppercase tracking-tighter mb-4 italic">
+                                RECARGO POR LLUVIA: <span className="text-secondary">SOLO 30%</span>
+                              </h3>
+                              <p className="text-gray-400 font-[family-name:var(--font-roboto)] leading-relaxed">
+                                Para nuestros clientes Flex, el recargo por días de lluvia es reducido. Minimizamos el impacto en tus costos operativos.
+                              </p>
+                            </div>
+                            <div className="flex justify-center md:justify-end">
+                               <Button
+                                onClick={handleWhatsAppClick}
+                                className="bg-secondary hover:bg-secondary/90 text-black font-[family-name:var(--font-orbitron)] font-black px-10 py-6 rounded-2xl transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto text-lg"
+                              >
+                                <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={24} height={24} className="w-6 h-6 mr-3" />
+                                MÁS INFORMACIÓN FLEX
+                              </Button>
+                            </div>
+                         </div>
+                    </Card>
+                </motion.div>
             </div>
         </section>
     );
