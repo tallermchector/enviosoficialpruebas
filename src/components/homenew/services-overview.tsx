@@ -8,25 +8,32 @@ import Link from 'next/link';
 export const ServicesOverview = () => {
   const services = [
     {
-      title: "ENVÍOS EXPRESS",
-      desc: "Entrega inmediata en menos de 45 minutos dentro del casco urbano. Seguimiento GPS en tiempo real para tu tranquilidad.",
+      title: "ENVÍO EXPRESS",
+      desc: "Para envíos urgentes. El cliente final elige el rango horario de entrega. Prioridad máxima.",
       icon: <Zap className="text-primary" />,
       iconBg: "bg-blue-500/10",
       href: "/servicios/envios-express"
     },
     {
-      title: "ENVÍOS LOW COST",
-      desc: "La opción más económica para tus envíos urbanos no urgentes. Programamos tu entrega en franjas horarias convenientes.",
+      title: "ENVÍO LOWCOST",
+      desc: "La opción más rentable. Retiro y entrega en el día, sujeto al ruteo óptimo de nuestra flota sin horario fijo.",
       icon: <Package className="text-secondary" />,
       iconBg: "bg-yellow-500/10",
-      href: "/servicios/envios-low-cost"
+      href: "/servicios/envios-lowcost"
     },
     {
-      title: "MOTO FIJA",
-      desc: "Personal dedicado exclusivamente para tu empresa. Optimiza tu logística diaria con un servicio de mensajería in-house.",
+      title: "ENVÍOS FLEX (MERCADOLIBRE)",
+      desc: "Integración perfecta para vendedores de MercadoLibre. Cumplimos con tus métricas y SLAs de entrega Same-Day.",
       icon: <Truck className="text-primary" />,
       iconBg: "bg-blue-500/10",
-      href: "/servicios/mensajeria-fija"
+      href: "/servicios/enviosflex"
+    },
+    {
+      title: "E-COMMERCE Y 3PL",
+      desc: "Logística integral para tu tienda online. Almacenaje, armado de paquetes y distribución 24hs con liquidaciones automáticas.",
+      icon: <Package className="text-secondary" />,
+      iconBg: "bg-yellow-500/10",
+      href: "/servicios/plan-emprendedores"
     }
   ];
 

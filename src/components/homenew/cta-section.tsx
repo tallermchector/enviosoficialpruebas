@@ -28,13 +28,12 @@ export const CtaSection = () => {
           </div>
 
           <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white">
-            TU <span className="text-secondary">ENVÍO</span>, <br />
-            A NUESTRA <span className="text-primary">VELOCIDAD</span>
+            ¿LISTO PARA OPTIMIZAR TU <br />
+            DISTRIBUCIÓN EN <span className="text-primary">MAR DEL PLATA?</span>
           </h2>
 
           <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
-            Únete a cientos de emprendedores y empresas que ya están transformando
-            sus entregas en una ventaja competitiva en Mar del Plata.
+            Súmate a la red logística más confiable de la ciudad. Contáctanos hoy para un esquema de tarifas a medida.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -42,14 +41,14 @@ export const CtaSection = () => {
               href="/cotizar/express"
               className="px-12 py-5 bg-primary hover:bg-primary/90 text-white font-[family-name:var(--font-orbitron)] font-black rounded-2xl transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(37,99,235,0.3)] flex items-center gap-3 uppercase tracking-tight"
             >
-              <Calculator size={20} /> COTIZAR ONLINE
+              <Calculator size={20} /> COTIZAR ENVÍO
             </Link>
             <a
               href="tel:+5492236602699"
               className="px-12 py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-[family-name:var(--font-orbitron)] font-bold rounded-2xl transition-all flex items-center gap-3 uppercase tracking-tight group"
             >
               <Phone size={20} className="text-secondary" />
-              HABLAR CON UN ASESOR
+              CONTACTAR A UN ASESOR
               <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
             </a>
           </div>

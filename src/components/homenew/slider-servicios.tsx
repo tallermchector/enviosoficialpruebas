@@ -6,26 +6,26 @@ import { Package, Truck, Clock, ShieldCheck, ChevronRight } from 'lucide-react';
 
 const services = [
   {
-    title: "ENTREGA EXPRESS",
-    desc: "Menos de 60 minutos para tus pedidos más críticos.",
+    title: "ENVÍO EXPRESS",
+    desc: "Para envíos urgentes. El cliente final elige el rango horario de entrega. Prioridad máxima.",
     icon: <Clock />,
     color: "hsl(221.2, 83.2%, 53.3%)"
   },
   {
-    title: "MULTIENTREGAS",
-    desc: "Optimiza rutas y ahorra hasta un 30% en logística diaria.",
+    title: "ENVÍO LOWCOST",
+    desc: "La opción más rentable. Retiro y entrega en el día, sujeto al ruteo óptimo de nuestra flota sin horario fijo.",
     icon: <Truck />,
     color: "hsl(45, 93%, 47%)"
   },
   {
-    title: "ALMACENAJE",
-    desc: "Guardamos tus productos en puntos estratégicos de la ciudad.",
+    title: "ENVÍOS FLEX (MERCADOLIBRE)",
+    desc: "Integración perfecta para vendedores de MercadoLibre. Cumplimos con tus métricas y SLAs de entrega Same-Day.",
     icon: <Package />,
     color: "hsl(221.2, 83.2%, 53.3%)"
   },
   {
-    title: "SEGURO TOTAL",
-    desc: "Cada paquete viaja protegido contra todo riesgo.",
+    title: "E-COMMERCE Y 3PL",
+    desc: "Logística integral para tu tienda online. Almacenaje, armado de paquetes y distribución 24hs con liquidaciones automáticas.",
     icon: <ShieldCheck />,
     color: "hsl(45, 93%, 47%)"
   }

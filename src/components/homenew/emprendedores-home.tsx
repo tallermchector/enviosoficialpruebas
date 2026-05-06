@@ -11,12 +11,16 @@ export const EmprendedoresHome = () => {
   const solutions = [
     {
       icon: TrendingUp,
-      title: "Plan Emprendedores",
-      description: "Tarifas preferenciales y servicios adaptados para hacer crecer tu negocio online",
-      features: ["Tarifas LowCost", "Facturación mensual", "Soporte dedicado", "Reportes detallados"],
+      title: "Cuentas Corrientes",
+      description: "Escalabilidad y control total para tu operativa diaria",
+      features: [
+        "Tarifas Planas por Volumen",
+        "Rendiciones y Liquidaciones Flexibles (Diarias, Semanales o Mensuales)",
+        "Gestión de Cobros Contrareembolso",
+      ],
       link: "/servicios/plan-emprendedores",
       image: "/cards/card1.webp",
-      badge: "Emprendedores",
+      badge: "Corporativo",
     },
     {
       icon: Package,
@@ -63,8 +67,8 @@ export const EmprendedoresHome = () => {
             transition={{ delay: 0.1 }}
             className="font-[family-name:var(--font-orbitron)] text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white"
           >
-            IMPULSA TU <span className="text-primary">NEGOCIO</span> <br />
-            CON LOGÍSTICA <span className="text-secondary">ELITE</span>
+            IMPULSAMOS TU <span className="text-primary">E-COMMERCE</span> <br />
+            O <span className="text-secondary">PYME</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -73,8 +77,8 @@ export const EmprendedoresHome = () => {
             transition={{ delay: 0.2 }}
             className="font-[family-name:var(--font-roboto)] text-gray-400 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Diseñamos servicios específicos para ayudar a crecer tu negocio online. Desde
-            tarifas preferenciales hasta integración con plataformas de venta líderes.
+            Cuentas corrientes flexibles diseñadas para escalar tu negocio. Olvídate
+            de la logística y concéntrate en vender.
           </motion.p>
         </div>
 
