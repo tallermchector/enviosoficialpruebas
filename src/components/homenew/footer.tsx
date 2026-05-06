@@ -1,10 +1,8 @@
-'use client';
-
 import React from 'react';
 import { Truck, MapPin, Phone, Mail, ShieldCheck, Zap, Globe, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { FooterSocialLinks } from './footer-social-links';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -53,28 +51,14 @@ export const Footer = () => {
               Tu solución confiable para mensajería y delivery en Mar del Plata. Servicios rápidos, seguros y económicos.
             </p>
 
-            <div className="flex gap-5">
-              {[
+            <FooterSocialLinks
+              links={[
                 { icon: "/icons/instagram.svg", href: "https://instagram.com/enviosdosruedas", label: "Instagram" },
                 { icon: "/icons/facebook.svg", href: "https://facebook.com/enviosdosruedas", label: "Facebook" },
                 { icon: "/icons/whatsapp.svg", href: "https://wa.me/542236602699", label: "WhatsApp" },
                 { icon: "/icons/google.svg", href: "#", label: "Google" }
-              ].map((social, i) => (
-                <motion.a
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5, scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-all text-white group/social"
-                >
-                  <div className="relative w-6 h-6 opacity-60 group-hover/social:opacity-100 transition-opacity">
-                    <Image src={social.icon} alt={social.label} fill className="object-contain" />
-                  </div>
-                </motion.a>
-              ))}
-            </div>
+              ]}
+            />
           </div>
 
           {/* Navigation Columns */}
@@ -169,7 +153,7 @@ export const Footer = () => {
           <div className="flex items-center gap-10">
             <Link href="/politica-de-privacidad" className="text-[9px] text-gray-600 hover:text-white uppercase tracking-widest font-black transition-colors">Privacidad</Link>
             <Link href="/terminos-y-condiciones" className="text-[9px] text-gray-600 hover:text-white uppercase tracking-widest font-black transition-colors">Términos</Link>
-            <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-gray-800">
+            <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-gray-800" aria-hidden="true">
               <Globe size={14} />
             </div>
           </div>
