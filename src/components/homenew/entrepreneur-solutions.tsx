@@ -3,41 +3,41 @@
 import { Button } from "@/components/ui/button"
 import { TrendingUp, Users, Package, Sparkles, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
-import { motion, type Variants } from "framer-motion"
+import { motion } from "framer-motion"
 import Image from "next/image"
 
 export function EntrepreneurSolutions() {
   const solutions = [
     {
       icon: TrendingUp,
-      title: "E-Commerce 3PL",
-      description: "Fulfillment, almacenamiento y logística integral para escalar tu tienda",
+      title: "Plan Emprendedores",
+      description: "Tarifas preferenciales y servicios adaptados para hacer crecer tu negocio online",
       link: "/servicios/plan-emprendedores",
       image: "/cards/card1.webp",
-      badge: "3PL / 360°",
+      badge: "Emprendedores",
       imageHint: "growing business",
     },
     {
       icon: Package,
-      title: "MercadoLibre Flex",
-      description: "Partner oficial para entregas en el día con SLA garantizado",
+      title: "Envíos Flex MercadoLibre",
+      description: "Integración perfecta con MercadoLibre para potenciar tus ventas",
       link: "/servicios/enviosflex",
       image: "/cards/card2.webp",
-      badge: "SLA 100%",
+      badge: "MercadoLibre",
       imageHint: "ecommerce delivery",
     },
     {
       icon: Users,
-      title: "Envíos LowCost",
-      description: "La solución más eficiente para ruteo masivo diario en la ciudad",
-      link: "/servicios/envios-lowcost",
+      title: "Moto Fija para Negocios",
+      description: "Repartidor dedicado exclusivamente para tu empresa",
+      link: "/servicios/moto-fija",
       image: "/cards/card3.webp",
-      badge: "Masivo",
-      imageHint: "massive delivery",
+      badge: "Dedicado",
+      imageHint: "dedicated courier",
     },
   ]
 
-  const containerVariants: Variants = {
+  const containerVariants: import("framer-motion").Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -48,14 +48,14 @@ export function EntrepreneurSolutions() {
     },
   }
 
-  const itemVariants: Variants = {
+  const itemVariants: import("framer-motion").Variants = {
     hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        type: "spring" as const,
+        type: "spring",
         stiffness: 200,
         damping: 20,
         duration: 0.8,
@@ -78,7 +78,7 @@ export function EntrepreneurSolutions() {
             transition={{
               duration: 12 + i * 2,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "easeInOut" as any,
+              ease: "easeInOut",
               delay: i * 2,
             }}
             style={{
@@ -89,13 +89,13 @@ export function EntrepreneurSolutions() {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           className="text-center mb-16 md:mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 backdrop-blur-sm mb-6"
@@ -107,21 +107,17 @@ export function EntrepreneurSolutions() {
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display text-foreground mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-6 primary-gradient-text"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
             transition={{
               duration: 8,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "linear" as any,
+              ease: "linear",
             }}
             style={{
-              background: "linear-gradient(90deg, #1e40af, #fbbf24, #1e40af)",
               backgroundSize: "200% 200%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
             }}
           >
             Soluciones Especiales para <span className="text-secondary">Emprendedores</span>
@@ -167,24 +163,24 @@ export function EntrepreneurSolutions() {
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                  
-                  <div className="relative z-10 p-6 flex flex-col h-full justify-end text-white">
-                      <div className="flex justify-between items-start mb-4">
-                        <span className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-black/30 backdrop-blur-md shadow-lg border border-white/20">
-                          {solution.badge}
-                        </span>
-                        <div className="w-12 h-12 bg-black/30 backdrop-blur-md rounded-xl flex items-center justify-center shadow-lg border border-white/20">
-                          <IconComponent className="w-6 h-6 text-white" />
-                        </div>
-                      </div>
 
-                      <div className="mt-auto">
-                          <h3 className="text-xl font-bold leading-tight font-display mb-2">{solution.title}</h3>
-                          <p className="text-sm text-zinc-300 line-clamp-2 leading-relaxed mb-4">{solution.description}</p>
-                          <div className="flex items-center text-sm font-semibold text-secondary group-hover/card:underline">
-                            Conocer más <ArrowUpRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover/card:-translate-y-0.5 group-hover/card:translate-x-0.5" />
-                          </div>
+                  <div className="relative z-10 p-6 flex flex-col h-full justify-end text-white">
+                    <div className="flex justify-between items-start mb-4">
+                      <span className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-black/30 backdrop-blur-md shadow-lg border border-white/20">
+                        {solution.badge}
+                      </span>
+                      <div className="w-12 h-12 bg-black/30 backdrop-blur-md rounded-xl flex items-center justify-center shadow-lg border border-white/20">
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
+                    </div>
+
+                    <div className="mt-auto">
+                      <h3 className="text-xl font-bold leading-tight font-display mb-2">{solution.title}</h3>
+                      <p className="text-sm text-zinc-300 line-clamp-2 leading-relaxed mb-4">{solution.description}</p>
+                      <div className="flex items-center text-sm font-semibold text-secondary group-hover/card:underline">
+                        Conocer más <ArrowUpRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover/card:-translate-y-0.5 group-hover/card:translate-x-0.5" />
+                      </div>
+                    </div>
                   </div>
                 </Link>
               </motion.div>

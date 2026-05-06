@@ -20,7 +20,7 @@ export function EnhancedHero() {
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null)
   const sceneRef = useRef<THREE.Scene | null>(null)
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null)
-  const animationFrameId = useRef<number | undefined>(undefined)
+  const animationFrameId = useRef<number | null>(null)
   const mouse = useRef(new THREE.Vector2())
   const [isLoaded, setIsLoaded] = useState(false)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -40,16 +40,16 @@ export function EnhancedHero() {
     };
 
     handleResize();
-    
+
     setRandomValues(
-        [...Array(6)].map(() => ({
-            y1: Math.random() * window.innerHeight,
-            y2: Math.random() * window.innerHeight,
-            top: Math.random() * 100 + "%",
-        }))
+      [...Array(6)].map(() => ({
+        y1: Math.random() * window.innerHeight,
+        y2: Math.random() * window.innerHeight,
+        top: Math.random() * 100 + "%",
+      }))
     );
 
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -243,9 +243,9 @@ export function EnhancedHero() {
         if (entry.isIntersecting) {
           if (!animationFrameId.current) animate()
         } else {
-          if (animationFrameId.current) {
+          if (animationFrameId.current !== null) {
             cancelAnimationFrame(animationFrameId.current)
-            animationFrameId.current = undefined
+            animationFrameId.current = null
           }
         }
       },
@@ -293,9 +293,9 @@ export function EnhancedHero() {
   }, [setupScene])
 
   return (
-    <section className="min-h-screen w-full relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 pt-20 md:pt-24">
+    <section className="min-h-screen w-full relative flex items-center justify-center overflow-hidden hero-gradient-bg pt-20 md:pt-24">
       {/* 3D Background */}
-      <div ref={containerRef} className="absolute top-0 left-0 w-full h-full" />
+      <div ref={containerRef} className="absolute inset-0" />
 
       {/* Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-slate-900/40 z-10" />
@@ -314,7 +314,7 @@ export function EnhancedHero() {
             transition={{
               duration: 15 + i * 5,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "linear" as any,
+              ease: "linear",
               delay: i * 2,
             }}
             style={{
@@ -331,7 +331,7 @@ export function EnhancedHero() {
         style={{ y, opacity }}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as any }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Logo Section */}
         <motion.div
@@ -340,7 +340,7 @@ export function EnhancedHero() {
           animate={{ scale: 1, rotate: 0 }}
           transition={{
             delay: 0.3,
-            type: "spring" as any,
+            type: "spring",
             stiffness: 200,
             damping: 20,
             duration: 1.2,
@@ -355,8 +355,8 @@ export function EnhancedHero() {
                 scale: [1, 1.1, 1],
               }}
               transition={{
-                rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" as any },
-                scale: { duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as any },
+                rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                scale: { duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" },
               }}
             />
             <motion.div
@@ -366,8 +366,8 @@ export function EnhancedHero() {
                 scale: [1, 0.95, 1],
               }}
               transition={{
-                rotate: { duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" as any },
-                scale: { duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as any, delay: 1 },
+                rotate: { duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+                scale: { duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 },
               }}
             />
 
@@ -381,7 +381,7 @@ export function EnhancedHero() {
               transition={{
                 duration: 4,
                 repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut" as any,
+                ease: "easeInOut",
               }}
             />
 
@@ -409,7 +409,7 @@ export function EnhancedHero() {
                   duration: 3,
                   repeat: Number.POSITIVE_INFINITY,
                   delay: i * 0.2,
-                  ease: "easeInOut" as any,
+                  ease: "easeInOut",
                 }}
                 style={{
                   left: "50%",
@@ -426,10 +426,10 @@ export function EnhancedHero() {
           className="mb-6 space-y-2"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
+          transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-blue-400/20 border border-white/20 backdrop-blur-sm mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-blue-400/20 border border-white/20 backdrop-blur-sm mb-4"
             whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
           >
             <Sparkles className="w-4 h-4 text-yellow-400" />
@@ -445,7 +445,7 @@ export function EnhancedHero() {
             transition={{
               duration: 8,
               repeat: Number.POSITIVE_INFINITY,
-              ease: "linear" as any,
+              ease: "linear",
             }}
             style={{
               backgroundSize: "200% 200%",
@@ -460,7 +460,7 @@ export function EnhancedHero() {
           className="max-w-3xl text-lg md:text-xl text-gray-200 leading-relaxed mb-10 font-light"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
+          transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           Somos tu solución confiable en servicios de mensajería y delivery en Mar del Plata. Ofrecemos soluciones{" "}
           <span className="text-yellow-400 font-medium">rápidas</span>,
@@ -473,13 +473,14 @@ export function EnhancedHero() {
           className="flex flex-col sm:flex-row gap-4 mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }}
+          transition={{ delay: 1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500 text-black font-bold shadow-2xl px-8 py-4 text-lg rounded-full border-2 border-yellow-400/50 hover:border-yellow-300 transition-all duration-300"
+              variant="gradient"
+              className="px-8 py-4 text-lg rounded-full"
             >
               <Link href="/cotizar/express" className="flex items-center gap-3">
                 <Calculator className="w-5 h-5" />
@@ -516,7 +517,7 @@ export function EnhancedHero() {
           <span className="text-sm font-medium">Descubre más</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as any }}
+            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           >
             <ArrowDown className="w-5 h-5" />
           </motion.div>

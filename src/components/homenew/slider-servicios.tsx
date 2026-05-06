@@ -2,78 +2,159 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Package, Truck, Clock, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Package, Truck, Clock, ShieldCheck, ChevronRight, LayoutGrid, Zap, Globe, MousePointer2 } from 'lucide-react';
+import Link from 'next/link';
+import { cn } from "@/lib/utils";
 
 const services = [
   {
-    title: "ENVÍO EXPRESS",
-    desc: "Para envíos urgentes. El cliente final elige el rango horario de entrega. Prioridad máxima.",
+    title: "ENTREGA EXPRESS",
+    desc: "Menos de 60 minutos para tus envíos críticos. Rapidez innegociable.",
     icon: <Clock />,
-    color: "hsl(221.2, 83.2%, 53.3%)"
+    color: "hsl(221.2, 83.2%, 53.3%)",
+    href: "/servicios/envios-express",
+    badge: "URGENTE"
   },
   {
-    title: "ENVÍO LOWCOST",
-    desc: "La opción más rentable. Retiro y entrega en el día, sujeto al ruteo óptimo de nuestra flota sin horario fijo.",
+    title: "MULTIENTREGAS",
+    desc: "Optimiza rutas masivas y ahorra hasta un 30% en logística diaria.",
     icon: <Truck />,
-    color: "hsl(45, 93%, 47%)"
+    color: "hsl(45, 93%, 47%)",
+    href: "/servicios/envios-lowcost",
+    badge: "AHORRO"
   },
   {
-    title: "ENVÍOS FLEX (MERCADOLIBRE)",
-    desc: "Integración perfecta para vendedores de MercadoLibre. Cumplimos con tus métricas y SLAs de entrega Same-Day.",
+    title: "ALMACENAJE",
+    desc: "Micro-fulfillment estratégico en puntos clave de la ciudad.",
     icon: <Package />,
-    color: "hsl(221.2, 83.2%, 53.3%)"
+    color: "hsl(221.2, 83.2%, 53.3%)",
+    href: "/servicios/enviosflex",
+    badge: "FLEXIBLE"
   },
   {
-    title: "E-COMMERCE Y 3PL",
-    desc: "Logística integral para tu tienda online. Almacenaje, armado de paquetes y distribución 24hs con liquidaciones automáticas.",
+    title: "SEGURO TOTAL",
+    desc: "Protección premium garantizada en cada trayecto. Confianza total.",
     icon: <ShieldCheck />,
-    color: "hsl(45, 93%, 47%)"
+    color: "hsl(45, 93%, 47%)",
+    href: "/nosotros/preguntas-frecuentes",
+    badge: "Garantía"
   }
 ];
 
 export default function SliderServicios() {
   return (
-    <section className="py-24 px-6 bg-[#0a0d16]">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-16">
-          <div>
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl font-black text-white mb-4 uppercase italic">
-              SOLUCIONES A <span className="text-[hsl(221.2,83.2%,53.3%)]">MEDIDA</span>
+    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 bg-[#0a0d16] overflow-hidden">
+      {/* Tech lines background */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full tech-grid-overlay" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-radial-gradient-blue" />
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-12">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="tag-primary">
+              <LayoutGrid size={16} className="text-primary" /> CAPACIDADES DINÁMICAS
+            </div>
+            <h2 className="font-display text-orbitron heading-xl italic">
+              SOLUCIONES A <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">MEDIDA</span>
             </h2>
-            <p className="text-gray-400 font-[family-name:var(--font-roboto)]">Potencia cada área de tu negocio con herramientas diseñadas para crecer.</p>
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-md lg:border-l lg:border-white/10 lg:pl-10"
+          >
+            <p className="text-gray-400 font-[family-name:var(--font-roboto)] text-lg md:text-xl leading-relaxed font-light">
+              Hemos redefinido los estándares de la logística urbana para ofrecerte una ventaja competitiva real en un mercado en constante evolución.
+            </p>
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
-              className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all cursor-pointer relative overflow-hidden"
-              whileHover={{ y: -8 }}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -12, scale: 1.02 }}
+              className="group p-10 rounded-[40px] bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden flex flex-col h-[420px] backdrop-blur-xl shadow-2xl"
             >
+              {/* Internal Accent Light */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/[0.02] blur-[40px] rounded-full group-hover:bg-primary/10 transition-all duration-700" />
+
               <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-white transition-transform group-hover:scale-110"
-                style={{ backgroundColor: `${service.color}15`, color: service.color }}
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-10 transition-all duration-700 group-hover:scale-110 group-hover:rotate-6 shadow-[0_15px_30px_-5px_rgba(0,0,0,0.5)]"
+                style={{ backgroundColor: service.color, color: idx % 2 === 0 ? 'white' : 'black' }}
               >
-                {React.cloneElement(service.icon, { size: 28 })}
-              </div>
-              <h3 className="font-[family-name:var(--font-orbitron)] text-xl font-bold text-white mb-4 uppercase">{service.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6 font-[family-name:var(--font-roboto)]">
-                {service.desc}
-              </p>
-              <div className="flex items-center gap-2 text-blue-400 text-sm font-bold opacity-0 group-hover:opacity-100 transition-all group-hover:gap-3">
-                DETALLES <ChevronRight size={16} />
+                {React.cloneElement(service.icon, { size: 32 })}
               </div>
 
-              {/* Animated Background Line */}
-              <div className="absolute bottom-0 left-0 w-0 h-1 transition-all duration-500 group-hover:w-full" style={{ backgroundColor: service.color }} />
+              <div className="mb-auto">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">{service.badge}</span>
+                  <div className="h-px w-6 bg-white/10" />
+                </div>
+                <h3 className="font-display text-orbitron text-2xl font-black text-white mb-6 uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
+                  {service.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)] font-light">
+                  {service.desc}
+                </p>
+              </div>
+
+              <Link
+                href={service.href}
+                className="flex items-center gap-4 text-white font-display text-orbitron text-[10px] font-black uppercase tracking-[0.3em] opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all group-hover:gap-6 pt-10 mt-auto border-t border-white/5"
+              >
+                VER MÁS <ChevronRight size={18} />
+              </Link>
+
+              {/* Decorative Side Accent */}
+              <div className="absolute bottom-10 -right-1 w-[2px] h-20 bg-gradient-to-b from-transparent via-white/10 to-transparent group-hover:via-primary/50 transition-all" />
+
+              {/* Specific Visual for certain cards */}
+              {idx === 0 && (
+                <div className="absolute bottom-20 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <Clock size={100} className="text-white" />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom Interactive Element */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mt-24 flex flex-col items-center gap-8 py-12 border-t border-white/5"
+        >
+          <div className="flex items-center gap-10">
+            <div className="flex items-center gap-3 text-white/20">
+              <Zap size={14} />
+              <span className="text-[9px] font-black tracking-[0.5em] uppercase">MÁXIMO PODER</span>
+            </div>
+            <div className="w-2 h-2 rounded-full bg-primary/20" />
+            <div className="flex items-center gap-3 text-white/20">
+              <Globe size={14} />
+              <span className="text-[9px] font-black tracking-[0.5em] uppercase">INFRAESTRUCTURA TOTAL</span>
+            </div>
+          </div>
+          <p className="text-gray-800 text-[8px] font-black uppercase tracking-[1em] text-center max-w-lg leading-loose opacity-50">
+            ENGINEERING LOGISTICS FOR THE MODERN ERA OF COMMERCE IN MAR DEL PLATA
+          </p>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,106 +1,179 @@
 'use client';
 
 import React from 'react';
-import { Share2, Settings, MapPin, Phone, Mail, Camera as Instagram, Share2 as Facebook, MessageCircle as Twitter } from "lucide-react";
+import { Truck, MapPin, Phone, Mail, ShieldCheck, Zap, Globe, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const footerLinks = {
+    empresa: [
+      { label: "Sobre Nosotros", href: "/nosotros/sobre-nosotros" },
+      { label: "Preguntas Frecuentes", href: "/nosotros/preguntas-frecuentes" },
+      { label: "Nuestras Redes", href: "/nosotros/nuestras-redes" },
+      { label: "Términos y Condiciones", href: "/terminos-y-condiciones" },
+      { label: "Política de Privacidad", href: "/politica-de-privacidad" }
+    ],
+    servicios: [
+      { label: "Envíos Express", href: "/servicios/envios-express" },
+      { label: "Envíos Low Cost", href: "/servicios/envios-lowcost" },
+      { label: "Mercado Libre Flex", href: "/servicios/enviosflex" },
+      { label: "Mensajería Fija", href: "/servicios/moto-fija" },
+      { label: "Plan Emprendedores", href: "/servicios/plan-emprendedores" },
+      { label: "Delivery Gastronómico", href: "/servicios/delivery-gastronomico" }
+    ]
+  };
+
   return (
-    <footer className="pt-32 pb-16 px-6 border-t border-white/5 bg-[#050810] relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+    <footer className="pt-32 pb-16 px-4 border-t border-white/5 bg-[#050810] relative overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none opacity-50" />
+      <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none opacity-30" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
-          <div className="col-span-1 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-10 group">
-              <div className="w-10 h-10 transition-transform group-hover:rotate-12">
-                <Image
-                  src="/LogoEnviosDosRuedas.webp"
-                  alt="Logo Envíos DosRuedas"
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-24 mb-24">
+
+          {/* Brand Identity */}
+          <div className="lg:col-span-4">
+            <Link href="/" className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 group shrink-0">
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center shrink-0 transition-all group-hover:rotate-6 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(37,99,235,0.4)]">
+                <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" sizes="(max-width: 640px) 48px, 56px" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-[family-name:var(--font-orbitron)] font-black text-2xl tracking-tighter text-white uppercase italic leading-none">
-                  DOS<span className="text-primary">RUEDAS</span>
+              <div className="flex flex-col justify-center">
+                <span className="font-display text-orbitron font-black text-xl sm:text-2xl lg:text-3xl tracking-tighter text-white uppercase italic leading-none mb-1">
+                  Envios DosRuedas
                 </span>
-                <span className="text-[10px] text-primary font-bold uppercase tracking-[0.3em] mt-2">
-                  tu solución confiable
+                <span className="font-display text-orbitron font-black text-primary drop-shadow-[0_0_10px_rgba(37,99,235,0.3)] text-[10px] sm:text-sm lg:text-base uppercase italic tracking-[0.15em] leading-none">
+                  Tu Solución Confiable
                 </span>
               </div>
             </Link>
-            <p className="text-gray-500 text-sm mb-10 leading-relaxed font-[family-name:var(--font-roboto)]">
-              Liderando la logística de última milla en Mar del Plata. Rapidez, seguridad y compromiso en cada entrega desde 2018.
+            <p className="text-gray-500 text-base mb-12 leading-relaxed font-[family-name:var(--font-roboto)] font-light max-w-sm">
+              Tu solución confiable para mensajería y delivery en Mar del Plata. Servicios rápidos, seguros y económicos.
             </p>
-            <div className="flex gap-4">
-              <a href="https://instagram.com/enviosdosruedas" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all text-white group/social">
-                <Instagram size={20} className="group-hover/social:scale-110 transition-transform" />
-              </a>
-              <a href="https://facebook.com/enviosdosruedas" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all text-white group/social">
-                <Facebook size={20} className="group-hover/social:scale-110 transition-transform" />
-              </a>
-              <a href="#" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/50 transition-all text-white group/social">
-                <Twitter size={20} className="group-hover/social:scale-110 transition-transform" />
-              </a>
+
+            <div className="flex gap-5">
+              {[
+                { icon: "/icons/instagram.svg", href: "https://instagram.com/enviosdosruedas", label: "Instagram" },
+                { icon: "/icons/facebook.svg", href: "https://facebook.com/enviosdosruedas", label: "Facebook" },
+                { icon: "/icons/whatsapp.svg", href: "https://wa.me/542236602699", label: "WhatsApp" },
+                { icon: "/icons/google.svg", href: "#", label: "Google" }
+              ].map((social, i) => (
+                <motion.a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-all text-white group/social"
+                >
+                  <div className="relative w-6 h-6 opacity-60 group-hover/social:opacity-100 transition-opacity">
+                    <Image src={social.icon} alt={social.label} fill className="object-contain" />
+                  </div>
+                </motion.a>
+              ))}
             </div>
           </div>
 
-          <div>
-            <h4 className="font-[family-name:var(--font-orbitron)] font-bold mb-8 tracking-widest text-xs uppercase text-white opacity-50">EMPRESA</h4>
-            <ul className="space-y-5 text-gray-500 text-sm font-[family-name:var(--font-roboto)]">
-              <li><Link href="/sobre-nosotros" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Sobre Nosotros</Link></li>
-              <li><Link href="/trabaja-con-nosotros" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Trabaja con Nosotros</Link></li>
-              <li><Link href="/tarifas" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Nuestras Tarifas</Link></li>
+          {/* Navigation Columns */}
+          <div className="lg:col-span-2">
+            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Servicios</h4>
+            <ul className="space-y-6">
+              {footerLinks.empresa.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-gray-500 hover:text-primary transition-all flex items-center gap-3 group text-sm font-[family-name:var(--font-roboto)] font-light">
+                    <div className="w-1 h-1 rounded-full bg-primary/20 group-hover:bg-primary group-hover:scale-150 transition-all" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-[family-name:var(--font-orbitron)] font-bold mb-8 tracking-widest text-xs uppercase text-white opacity-50">SERVICIOS</h4>
-            <ul className="space-y-5 text-gray-500 text-sm font-[family-name:var(--font-roboto)]">
-              <li><Link href="/servicios/envios-express" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Envíos Express</Link></li>
-              <li><Link href="/servicios/envios-lowcost" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Envíos LowCost</Link></li>
-              <li><Link href="/servicios/enviosflex" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Mercado Libre Flex</Link></li>
-              <li><Link href="/servicios/plan-emprendedores" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> E-Commerce 3PL</Link></li>
+          <div className="lg:col-span-2">
+            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Cotizar</h4>
+            <ul className="space-y-6">
+              {footerLinks.servicios.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-gray-500 hover:text-primary transition-all flex items-center gap-3 group text-sm font-[family-name:var(--font-roboto)] font-light">
+                    <div className="w-1 h-1 rounded-full bg-primary/20 group-hover:bg-primary group-hover:scale-150 transition-all" />
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-[family-name:var(--font-orbitron)] font-bold mb-8 tracking-widest text-xs uppercase text-white opacity-50">CONTACTO</h4>
-            <ul className="space-y-6 text-gray-500 text-sm font-[family-name:var(--font-roboto)]">
-              <li className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <MapPin size={18} className="text-secondary" />
+          {/* Contact Information */}
+          <div className="lg:col-span-4">
+            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Contacto Rápido</h4>
+            <ul className="space-y-8">
+              <li className="flex items-start gap-5 group">
+                <div className="w-12 h-12 rounded-2xl glass-card flex items-center justify-center shrink-0 group-hover:bg-secondary/20 group-hover:border-secondary/40 transition-all">
+                  <MapPin size={22} className="text-secondary" />
                 </div>
-                <span className="leading-relaxed">11 de Septiembre, <br /> Mar del Plata, Argentina</span>
+                <div className="flex flex-col">
+                  <span className="text-white font-display text-orbitron text-[10px] font-black uppercase tracking-widest mb-1 opacity-40">Ubicación</span>
+                  <span className="text-gray-400 text-sm leading-relaxed font-light">Mar del Plata, Argentina</span>
+                </div>
               </li>
-              <li className="flex items-center gap-4">
-                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <Phone size={18} className="text-primary" />
+
+              <li className="flex items-center gap-5 group">
+                <div className="w-12 h-12 rounded-2xl glass-card flex items-center justify-center shrink-0 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                  <Phone size={22} className="text-primary" />
                 </div>
-                <a href="tel:+5492236602699" className="hover:text-white transition-colors">+54 9 223 660-2699</a>
+                <div className="flex flex-col">
+                  <span className="text-white font-display text-orbitron text-[10px] font-black uppercase tracking-widest mb-1 opacity-40">Teléfono</span>
+                  <a href="tel:2236602699" className="text-gray-400 hover:text-white transition-colors font-light text-sm">223-660-2699</a>
+                </div>
               </li>
-              <li className="flex items-center gap-4">
-                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <Mail size={18} className="text-primary" />
+
+              <li className="flex items-center gap-5 group">
+                <div className="w-12 h-12 rounded-2xl glass-card flex items-center justify-center shrink-0 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all">
+                  <Mail size={22} className="text-primary" />
                 </div>
-                <a href="mailto:hola@enviosdosruedas.com" className="hover:text-white transition-colors">hola@enviosdosruedas.com</a>
+                <div className="flex flex-col">
+                  <span className="text-white font-display text-orbitron text-[10px] font-black uppercase tracking-widest mb-1 opacity-40">Email</span>
+                  <a href="mailto:matiascejas@enviosdosruedas.com" className="text-gray-400 hover:text-white transition-colors font-light text-sm">matiascejas@enviosdosruedas.com</a>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-6">
-          <p className="text-[10px] text-gray-600 uppercase tracking-[0.3em] font-bold">
-            © {currentYear} ENVIOS DOSRUEDAS. LOGÍSTICA URBANA DE ALTA PRECISIÓN.
-          </p>
-          <div className="flex gap-8 text-[10px] text-gray-600 uppercase tracking-widest font-bold">
-            <Link href="/terminos" className="hover:text-white transition-colors">Términos</Link>
-            <Link href="/privacidad" className="hover:text-white transition-colors">Privacidad</Link>
+        {/* Global Stats/Trust Banner */}
+        <div className="mb-16 grid grid-cols-2 md:grid-cols-4 gap-8 py-10 border-y border-white/5 bg-white/[0.01]">
+          {[
+            { icon: <ShieldCheck className="text-primary" />, label: "SEGURIDAD", value: "CERTIFICADA" },
+            { icon: <Zap className="text-secondary" />, label: "VELOCIDAD", value: "MÁXIMA" },
+            { icon: <Globe className="text-blue-400" />, label: "COBERTURA", value: "DISTRITAL" },
+            { icon: <ArrowUpRight className="text-green-400" />, label: "STATUS", value: "ONLINE" }
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col items-center justify-center text-center gap-2 px-4 border-r border-white/5 last:border-r-0">
+              <div className="opacity-60">{React.cloneElement(item.icon, { size: 20 })}</div>
+              <span className="text-[8px] font-black tracking-[0.4em] text-white/30 uppercase">{item.label}</span>
+              <span className="text-[10px] font-black text-white uppercase tracking-widest">{item.value}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+          <div className="flex flex-col gap-2">
+            <p className="text-[9px] text-gray-600 uppercase tracking-[0.4em] font-black text-center md:text-left">
+              © 2026 Envios DosRuedas. Todos los derechos reservados.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-10">
+            <Link href="/politica-de-privacidad" className="text-[9px] text-gray-600 hover:text-white uppercase tracking-widest font-black transition-colors">Privacidad</Link>
+            <Link href="/terminos-y-condiciones" className="text-[9px] text-gray-600 hover:text-white uppercase tracking-widest font-black transition-colors">Términos</Link>
+            <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-gray-800">
+              <Globe size={14} />
+            </div>
           </div>
         </div>
       </div>

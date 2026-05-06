@@ -2,73 +2,87 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Calculator, ArrowRight, Truck } from 'lucide-react';
+import { Calculator, ArrowRight, Zap, ShieldCheck, Clock, MousePointer2 } from 'lucide-react';
 import Link from 'next/link';
 
 export const CtaSection = () => {
   return (
-    <section className="py-24 px-6 bg-[#050810] relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />
+    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 bg-[#050810] overflow-hidden">
+      {/* High-End Background Effects */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 bg-radial-gradient-blue" />
+        <div className="absolute inset-0 bg-radial-gradient-yellow" />
+
+        {/* Static Background Highlight (Performance) */}
+        <div
+          className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 blur-[150px] rounded-full"
+        />
+
+        {/* Tech grid overlay */}
+        <div className="absolute inset-0 tech-grid-overlay" />
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto w-full relative z-10">
         <motion.div
-          className="p-16 rounded-[40px] bg-gradient-to-br from-primary/10 via-[#0a0d16]/80 to-secondary/5 border border-white/10 backdrop-blur-xl relative overflow-hidden text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="relative p-12 md:p-24 rounded-[60px] primary-gradient-bg overflow-hidden glow-blue group border border-white/10"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-32 translate-x-32" />
+          {/* Internal Glow Effects */}
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay" />
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/10 blur-[80px] rounded-full group-hover:bg-white/20 transition-all duration-1000" />
+          <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-yellow-400/10 blur-[80px] rounded-full" />
 
-          <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-[10px] font-bold tracking-[0.3em] mb-10 uppercase">
-             LISTO PARA EMPEZAR? <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
-          </div>
-
-          <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white">
-            ¿LISTO PARA OPTIMIZAR TU <br />
-            DISTRIBUCIÓN EN <span className="text-primary">MAR DEL PLATA?</span>
-          </h2>
-
-          <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
-            Súmate a la red logística más confiable de la ciudad. Contáctanos hoy para un esquema de tarifas a medida.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-             <Link
-              href="/cotizar/express"
-              className="px-12 py-5 bg-primary hover:bg-primary/90 text-white font-[family-name:var(--font-orbitron)] font-black rounded-2xl transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(37,99,235,0.3)] flex items-center gap-3 uppercase tracking-tight"
+          <div className="relative z-10 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-card text-white text-[10px] font-black tracking-[0.4em] mb-12 uppercase"
             >
-              <Calculator size={20} /> COTIZAR ENVÍO
-            </Link>
-            <a
-              href="tel:+5492236602699"
-              className="px-12 py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-[family-name:var(--font-orbitron)] font-bold rounded-2xl transition-all flex items-center gap-3 uppercase tracking-tight group"
-            >
-              <Phone size={20} className="text-secondary" />
-              CONTACTAR A UN ASESOR
-              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-            </a>
-          </div>
+              <Zap size={16} className="fill-yellow-400 text-yellow-400 animate-pulse" /> ¡Empezá Ahora!
+            </motion.div>
 
-          <div className="mt-16 pt-12 border-t border-white/5 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-white font-[family-name:var(--font-orbitron)] font-bold text-lg mb-1 tracking-tighter uppercase italic">98%</div>
-              <div className="text-[9px] text-gray-500 uppercase tracking-widest font-black">Satisfacción</div>
+            <h2 className="font-display text-orbitron text-4xl md:text-8xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase italic">
+              ¿Listos para tu <br />
+              <span className="text-secondary drop-shadow-2xl">Próximo Envío ?</span>
+            </h2>
+
+            <p className="text-blue-100 text-lg md:text-2xl mb-16 max-w-3xl mx-auto font-[family-name:var(--font-roboto)] leading-relaxed font-light opacity-80">
+              En Envios DosRuedas estamos listos para ayudarte con tus necesidades de mensajería y paquetería . Contáctanos hoy mismo o calcula tu envío.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+              <Link
+                href="/cotizar/express"
+                className="group w-full sm:w-auto px-12 py-6 bg-white text-blue-800 font-display text-orbitron font-black rounded-2xl transition-all shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 flex items-center justify-center gap-4 uppercase tracking-tighter text-sm"
+              >
+                Solicitar Cotización <Calculator size={22} className="group-hover:rotate-12 transition-transform" />
+              </Link>
+
+              <Link
+                href="/contacto"
+                className="w-full sm:w-auto px-12 py-6 bg-blue-500/20 hover:bg-blue-500/30 border border-white/20 text-white font-display text-orbitron font-bold rounded-2xl transition-all backdrop-blur-md flex items-center justify-center gap-4 uppercase tracking-widest text-xs"
+              >
+                Contactanos <ArrowRight size={22} />
+              </Link>
             </div>
-            <div>
-              <div className="text-white font-[family-name:var(--font-orbitron)] font-bold text-lg mb-1 tracking-tighter uppercase italic">24/7</div>
-              <div className="text-[9px] text-gray-500 uppercase tracking-widest font-black">Disponibilidad</div>
-            </div>
-             <div>
-              <div className="text-white font-[family-name:var(--font-orbitron)] font-bold text-lg mb-1 tracking-tighter uppercase italic">GPS</div>
-              <div className="text-[9px] text-gray-500 uppercase tracking-widest font-black">Tiempo Real</div>
-            </div>
-             <div>
-              <div className="text-white font-[family-name:var(--font-orbitron)] font-bold text-lg mb-1 tracking-tighter uppercase italic">FLEX</div>
-              <div className="text-[9px] text-gray-500 uppercase tracking-widest font-black">Integración</div>
+
+            <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-12 pt-16 border-t border-white/10">
+              {[
+                { icon: <Clock aria-hidden="true" />, text: "5000+ Clientes" },
+                { icon: <ShieldCheck aria-hidden="true" />, text: "98% A Tiempo" },
+                { icon: <MousePointer2 aria-hidden="true" />, text: "24/7 Soporte" }
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col items-center gap-4 text-[9px] font-black text-blue-100/50 uppercase tracking-[0.3em]">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/40 group-hover:text-white transition-all">
+                    {React.cloneElement(item.icon as React.ReactElement<{ size?: number; className?: string; fill?: string }>, { size: 18 })}
+                  </div>
+                  {item.text}
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>

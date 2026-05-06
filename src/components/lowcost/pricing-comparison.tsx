@@ -12,6 +12,7 @@ export type PriceRangeClient = Omit<PriceRange, 'distanciaMinKm' | 'distanciaMax
   distanciaMinKm: number;
   distanciaMaxKm: number;
   precioRango: number;
+  nombreZona?: string;
 };
 
 interface PricingComparisonProps {

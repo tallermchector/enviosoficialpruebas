@@ -2,157 +2,158 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingBag, TrendingUp, Zap, ArrowRight, CheckCircle, Package, Users } from 'lucide-react';
+import { Rocket, CheckCircle2, ArrowRight, ShieldCheck, Zap, Globe, Package } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { cn } from "@/lib/utils";
 
 export const EmprendedoresHome = () => {
   const solutions = [
     {
-      icon: TrendingUp,
-      title: "Cuentas Corrientes",
-      description: "Escalabilidad y control total para tu operativa diaria",
-      features: [
-        "Tarifas Planas por Volumen",
-        "Rendiciones y Liquidaciones Flexibles (Diarias, Semanales o Mensuales)",
-        "Gestión de Cobros Contrareembolso",
-      ],
+      title: "Plan Emprendedores",
+      description: "Tarifas preferenciales y servicios adaptados para hacer crecer tu negocio online",
+      icon: Rocket,
+      features: ["Tarifas LowCost", "Facturación mensual", "Soporte dedicado", "Reportes detallados"],
       link: "/servicios/plan-emprendedores",
-      image: "/cards/card1.webp",
-      badge: "Corporativo",
+      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=800",
+      badge: "Emprendedores",
     },
     {
-      icon: Package,
       title: "Envíos Flex MercadoLibre",
       description: "Integración perfecta con MercadoLibre para potenciar tus ventas",
+      icon: Zap,
       features: ["Entregas el mismo día", "Mejora tu reputación", "Tarifas LowCost", "API integrada"],
       link: "/servicios/enviosflex",
-      image: "/cards/card2.webp",
+      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800",
       badge: "MercadoLibre",
     },
     {
-      icon: Zap,
-      title: "Envíos Express",
-      description: "Alta criticidad horaria con rango a elección",
-      features: ["Control total del cliente", "Mínimo 2hs anticipación", "Seguimiento real", "Prioridad Premium"],
-      link: "/servicios/envios-express",
-      image: "/cards/card3.webp",
-      badge: "Inmediato",
+      title: "Moto Fija para Negocios",
+      description: "Repartidor dedicado exclusivamente para tu empresa",
+      icon: ShieldCheck,
+      features: ["Repartidor exclusivo", "Horarios personalizados", "Rutas optimizadas", "Seguimiento GPS"],
+      link: "/servicios/moto-fija",
+      image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=800",
+      badge: "Dedicado",
     },
   ];
 
   return (
-    <section className="relative py-32 px-6 overflow-hidden bg-[#050810]">
-      {/* Background Effects */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[150px]" />
+    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 overflow-hidden bg-[#050810]">
+      {/* Background Decorative Tech Elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.05]">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary rounded-full blur-[150px] mix-blend-screen" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,#3b82f633_0,transparent_50%)]" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xs font-bold tracking-widest mb-6 uppercase"
-          >
-            <Zap size={14} className="animate-pulse" /> SOLUCIONES PARA EMPRENDEDORES
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-[family-name:var(--font-orbitron)] text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white"
-          >
-            IMPULSAMOS TU <span className="text-primary">E-COMMERCE</span> <br />
-            O <span className="text-secondary">PYME</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="font-[family-name:var(--font-roboto)] text-gray-400 text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed"
-          >
-            Cuentas corrientes flexibles diseñadas para escalar tu negocio. Olvídate
-            de la logística y concéntrate en vender.
-          </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {solutions.map((solution, idx) => (
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 mb-24 items-end">
+          <div>
             <motion.div
-              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black tracking-[0.4em] mb-10 uppercase backdrop-blur-md"
+            >
+              <Rocket size={16} className="animate-bounce" /> Especial para Emprendedores
+            </motion.div>
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group relative h-[450px] rounded-3xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-500 shadow-2xl"
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="font-display text-orbitron text-5xl md:text-8xl font-black italic tracking-tighter leading-[0.85] text-white uppercase"
+            >
+              Soluciones <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Especiales</span> <br />
+              para <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]">Emprendedores</span>
+            </motion.h2>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:border-l lg:border-white/10 lg:pl-12"
+          >
+            <p className="font-[family-name:var(--font-roboto)] text-gray-400 text-lg md:text-2xl leading-relaxed font-light mb-10">
+              Diseñamos servicios específicos para ayudar a crecer tu negocio online. Desde tarifas preferenciales hasta integración con plataformas de venta.
+            </p>
+            <div className="flex gap-8">
+              <div className="flex flex-col gap-1">
+                <span className="text-white font-display text-orbitron text-2xl font-black italic tracking-tighter uppercase">500+</span>
+                <span className="text-[9px] text-gray-500 uppercase tracking-widest font-black">Empresas</span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="text-white font-display text-orbitron text-2xl font-black italic tracking-tighter uppercase">24/7</span>
+                <span className="text-[9px] text-gray-500 uppercase tracking-widest font-black">Operativa</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-auto lg:h-[650px]">
+          {solutions.map((solution, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -15, scale: 1.02 }}
+              className="group relative h-full rounded-[48px] overflow-hidden border border-white/5 bg-[#0a0d16] hover:border-primary/40 transition-all duration-700 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)]"
             >
               <Image
                 src={solution.image}
                 alt={solution.title}
                 fill
-                className="object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover opacity-15 grayscale group-hover:grayscale-0 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-[#050810]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-[#050810]/60 to-transparent" />
 
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+              <div className="absolute inset-0 p-12 flex flex-col justify-end">
                 <div className="flex justify-between items-start mb-auto">
-                  <span className="px-3 py-1 rounded-lg bg-black/50 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-widest">
+                  <span className="px-4 py-1.5 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-[9px] font-black text-primary uppercase tracking-[0.3em] shadow-lg">
                     {solution.badge}
                   </span>
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white">
-                    <solution.icon size={24} />
-                  </div>
                 </div>
 
-                <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-white mb-3 uppercase tracking-tight group-hover:text-primary transition-colors">
+                <div className="w-16 h-16 rounded-2xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-white mb-10 group-hover:bg-primary group-hover:text-white transition-all duration-500 group-hover:rotate-6 shadow-2xl backdrop-blur-sm">
+                  <solution.icon size={32} />
+                </div>
+
+                <h3 className="font-display text-orbitron text-3xl font-black text-white mb-6 uppercase tracking-tight leading-tight">
                   {solution.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-6 line-clamp-2 font-[family-name:var(--font-roboto)]">
+
+                <p className="text-gray-400 text-base mb-10 font-[family-name:var(--font-roboto)] leading-relaxed font-light">
                   {solution.description}
                 </p>
 
-                <div className="space-y-2 mb-8">
+                <div className="space-y-4 mb-12">
                   {solution.features.map((feature, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-2 text-xs text-white/70">
-                      <CheckCircle size={14} className="text-primary shrink-0" />
-                      <span>{feature}</span>
+                    <div key={fIdx} className="flex items-center gap-4 text-xs text-white/60 font-medium">
+                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                        <CheckCircle2 size={12} className="text-primary" />
+                      </div>
+                      <span className="uppercase tracking-widest">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <Link
                   href={solution.link}
-                  className="w-full py-4 rounded-xl bg-white/5 border border-white/10 text-white font-[family-name:var(--font-orbitron)] font-bold text-sm text-center flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-white transition-all"
+                  className="group/btn w-full py-6 rounded-2xl bg-white/[0.03] border border-white/10 text-white font-display text-orbitron font-black text-[10px] text-center flex items-center justify-center gap-4 hover:bg-white hover:text-black transition-all duration-500 uppercase tracking-[0.3em] shadow-xl backdrop-blur-sm active:scale-95"
                 >
-                  VER DETALLES <ArrowRight size={16} />
+                  CONFIGURAR PLAN <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
                 </Link>
               </div>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <p className="text-gray-400 text-lg mb-8">¿Necesitas una solución personalizada para tu empresa?</p>
-          <Link
-            href="/contacto"
-            className="px-10 py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-[family-name:var(--font-orbitron)] font-bold rounded-xl transition-all inline-flex items-center gap-3 group"
-          >
-            HABLEMOS DE TU PROYECTO
-            <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-          </Link>
-        </motion.div>
       </div>
+
+      {/* Dynamic Floor Element */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-50" />
     </section>
   );
 };

@@ -2,91 +2,170 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Package, Truck, ChevronRight } from 'lucide-react';
+import { Zap, Package, Truck, ChevronRight, Shield, Globe, Clock, ArrowRight, MousePointer2 } from 'lucide-react';
 import Link from 'next/link';
+import { cn } from "@/lib/utils";
 
 export const ServicesOverview = () => {
   const services = [
     {
-      title: "ENVÍO EXPRESS",
-      desc: "Para envíos urgentes. El cliente final elige el rango horario de entrega. Prioridad máxima.",
-      icon: <Zap className="text-primary" />,
-      iconBg: "bg-blue-500/10",
-      href: "/servicios/envios-express"
+      title: "Envíos Express",
+      desc: "Entregas el mismo día para cuando necesitas velocidad máxima.",
+      icon: <Zap />,
+      href: "/servicios/envios-express",
+      className: "md:col-span-2 md:row-span-2 bg-primary/10 border-primary/20 hover:border-primary/50",
+      iconClassName: "bg-primary text-white shadow-[0_0_20px_rgba(37,99,235,0.4)]",
+      badge: "ALTA PRIORIDAD",
+      image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=800"
     },
     {
-      title: "ENVÍO LOWCOST",
-      desc: "La opción más rentable. Retiro y entrega en el día, sujeto al ruteo óptimo de nuestra flota sin horario fijo.",
-      icon: <Package className="text-secondary" />,
-      iconBg: "bg-yellow-500/10",
-      href: "/servicios/envios-lowcost"
+      title: "Envíos Low Cost",
+      desc: "La opción más económica sin sacrificar calidad ni seguridad.",
+      icon: <Clock />,
+      href: "/servicios/envios-lowcost",
+      className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-secondary/40",
+      iconClassName: "bg-secondary text-black shadow-[0_0_20px_rgba(234,179,8,0.3)]",
     },
     {
-      title: "ENVÍOS FLEX (MERCADOLIBRE)",
-      desc: "Integración perfecta para vendedores de MercadoLibre. Cumplimos con tus métricas y SLAs de entrega Same-Day.",
-      icon: <Truck className="text-primary" />,
-      iconBg: "bg-blue-500/10",
-      href: "/servicios/enviosflex"
-    },
-    {
-      title: "E-COMMERCE Y 3PL",
-      desc: "Logística integral para tu tienda online. Almacenaje, armado de paquetes y distribución 24hs con liquidaciones automáticas.",
-      icon: <Package className="text-secondary" />,
-      iconBg: "bg-yellow-500/10",
-      href: "/servicios/plan-emprendedores"
+      title: "Moto Fija",
+      desc: "Servicio dedicado para tu negocio con repartidor exclusivo.",
+      icon: <Truck />,
+      href: "/servicios/moto-fija",
+      className: "md:col-span-1 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-blue-400/30",
+      iconClassName: "bg-blue-400/20 text-blue-400",
     }
   ];
 
-  return (
-    <section className="py-32 px-6 bg-[#0a0d16] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+  const containerVariants: import("framer-motion").Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-20">
+  const itemVariants: import("framer-motion").Variants = {
+    hidden: { y: 20, opacity: 0, scale: 0.98 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
+  return (
+    <section className="relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-[#050810] overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[160px] pointer-events-none opacity-50" />
+
+      {/* Section Lines */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-10">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
-              NUESTROS <span className="text-primary">SERVICIOS</span>
+            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full glass-card border border-primary/20 text-blue-400 text-[10px] font-black tracking-[0.2em] mb-8 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Nuestros Servicios
+            </div>
+            <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black italic uppercase text-white tracking-tighter leading-[0.9]">
+              Nuestros Servicios <br />
+              <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Principales</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mb-8 rounded-full" />
-            <p className="text-gray-400 text-lg max-w-xl font-[family-name:var(--font-roboto)]">
-              Ofrecemos soluciones adaptadas a cada necesidad, desde envíos urgentes hasta logística empresarial personalizada en Mar del Plata.
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="max-w-md lg:border-l lg:border-white/10 lg:pl-10"
+          >
+            <p className="text-gray-400 text-lg md:text-xl font-[family-name:var(--font-roboto)] font-light leading-relaxed">
+              Soluciones adaptadas a cada necesidad, desde entregas urgentes hasta servicios dedicados para tu negocio.
             </p>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-2 gap-4 lg:gap-6 h-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {services.map((service, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ y: -10 }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="p-10 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all group relative overflow-hidden backdrop-blur-sm"
+              variants={itemVariants}
+              whileHover={{
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className={cn(
+                "group p-6 lg:p-10 rounded-[32px] lg:rounded-[40px] glass-card transition-all duration-500 flex flex-col justify-between relative overflow-hidden",
+                service.className
+              )}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rotate-45 translate-x-16 -translate-y-16 group-hover:bg-primary/5 transition-colors" />
-              
-              <div className={`w-16 h-16 rounded-2xl ${service.iconBg} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative`}>
-                {React.cloneElement(service.icon as React.ReactElement<any>, { size: 32 })}
+              {/* Background Highlight on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative z-10">
+                <div className={cn(
+                  "w-12 h-12 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl flex items-center justify-center mb-6 lg:mb-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
+                  service.iconClassName
+                )}>
+                  {React.cloneElement(service.icon as React.ReactElement<{ size?: number; className?: string; fill?: string }>, { size: 28 })}
+                </div>
+
+                <h3 className="font-display text-orbitron text-xl md:text-2xl lg:text-3xl font-black mb-3 lg:mb-4 uppercase text-white tracking-tight leading-tight">
+                  {service.title}
+                </h3>
+                <p className="text-gray-400 text-xs md:text-sm lg:text-base leading-relaxed mb-6 font-[family-name:var(--font-roboto)] font-light max-w-[280px]">
+                  {service.desc}
+                </p>
               </div>
 
-              <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{service.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-8 font-[family-name:var(--font-roboto)]">{service.desc}</p>
+              <div className="relative z-10 flex items-center justify-between">
+                <Link
+                  href={service.href}
+                  aria-label={`Conocer más sobre ${service.title}`}
+                  className="flex items-center gap-3 text-white font-display text-orbitron text-[10px] font-black uppercase tracking-[0.2em] group-hover:text-primary transition-all group-hover:gap-5"
+                >
+                  Conocer Más <ChevronRight size={16} aria-hidden="true" />
+                </Link>
 
-              <Link
-                href={service.href}
-                className="flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest group-hover:gap-4 transition-all"
-              >
-                CONOCER MÁS <ChevronRight size={18} />
-              </Link>
+                {service.badge && (
+                  <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 text-blue-400 text-[9px] font-black tracking-widest uppercase border border-blue-500/30">
+                    <Clock size={12} aria-hidden="true" /> {service.badge}
+                  </div>
+                )}
+              </div>
+
+              {/* Decorative side border accent */}
+              <div className="absolute top-1/2 -right-1 w-[2px] h-20 bg-gradient-to-b from-transparent via-white/10 to-transparent group-hover:via-primary/50 transition-all" />
+
+              {/* Specific Visual for the main card */}
+              {idx === 0 && (
+                <>
+                  <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-primary/20 rounded-full blur-[100px] pointer-events-none group-hover:bg-primary/30 transition-all duration-700" />
+                  <div className="absolute top-10 right-10 opacity-10 group-hover:opacity-20 transition-opacity" aria-hidden="true">
+                    <MousePointer2 size={120} className="rotate-12 text-white" />
+                  </div>
+                </>
+              )}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

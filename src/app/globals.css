@@ -109,16 +109,16 @@ html {
       margin: 0 !important;
     }
     .printable-label-wrapper {
-        break-inside: avoid-page;
-        padding: 0 !important;
-        margin: 0 !important;
+      break-inside: avoid-page;
+      padding: 0 !important;
+      margin: 0 !important;
     }
     .labels-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
     }
-     .labels-container-grid {
+    .labels-container-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 10mm;
