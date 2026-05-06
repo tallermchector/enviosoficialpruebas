@@ -62,8 +62,8 @@ export const VisionSection = () => {
                     {React.cloneElement(item.icon, { size: 28 })}
                   </div>
                   <div>
-                    <h4 className="font-display text-orbitron text-sm font-black text-white uppercase tracking-wider mb-2 group-hover:text-primary transition-colors">{item.title}</h4>
-                    <p className="text-gray-500 text-xs font-[family-name:var(--font-roboto)] leading-relaxed font-light">{item.text}</p>
+                    <h3 className="font-display text-orbitron text-sm font-black text-white uppercase tracking-wider mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                    <p className="text-gray-400 text-xs font-[family-name:var(--font-roboto)] leading-relaxed font-light">{item.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -75,7 +75,7 @@ export const VisionSection = () => {
                   <span className={`text-5xl md:text-6xl font-black font-display text-orbitron ${stat.color} tracking-tighter italic drop-shadow-lg`}>
                     {stat.value}
                   </span>
-                  <span className="text-[10px] text-gray-500 uppercase tracking-[0.4em] font-black mt-2">
+                  <span className="text-[10px] text-gray-400 uppercase tracking-[0.4em] font-black mt-2">
                     {stat.label}
                   </span>
                 </div>

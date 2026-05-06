@@ -9,12 +9,14 @@ const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-roboto",
+  display: 'swap',
 })
 
 const orbitron = Orbitron({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   variable: "--font-orbitron",
+  display: 'swap',
 })
 
 
