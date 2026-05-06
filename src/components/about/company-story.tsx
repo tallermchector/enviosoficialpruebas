@@ -1,43 +1,53 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Calendar, MapPin, TrendingUp, Award } from "lucide-react"
+
+import { motion } from "framer-motion"
 
 export function CompanyStory() {
   const milestones = [
     {
       icon: Calendar,
-      year: "2020",
-      title: "Nuestros Inicios",
-      description: "Comenzamos como un pequeño servicio de mensajería local con una sola moto y mucha pasión.",
+      year: "2017",
+      title: "Inicios",
+      description: "Comenzamos como un servicio de mensajería local, adaptándonos rápidamente a las exigencias del mercado.",
     },
     {
       icon: TrendingUp,
       year: "2021",
-      title: "Crecimiento",
-      description: "Expandimos nuestra flota y comenzamos a ofrecer servicios especializados para emprendedores.",
+      title: "Transformación",
+      description: "Evolucionamos hacia el E-commerce moderno en Mar del Plata, optimizando procesos de última milla.",
     },
     {
       icon: Award,
-      year: "2022",
-      title: "Reconocimiento",
-      description: "Alcanzamos las 4.9 estrellas en Google Reviews y nos convertimos en referentes locales.",
+      year: "2023",
+      title: "Consolidación",
+      description: "Alcanzamos los 4.9 estrellas en Google Reviews, validando nuestro compromiso con la excelencia.",
     },
     {
       icon: MapPin,
       year: "2024",
-      title: "Expansión",
-      description: "Hoy cubrimos toda Mar del Plata y localidades cercanas con un equipo de profesionales.",
+      title: "Actualidad",
+      description: "Operamos bajo un modelo de tercerización 3PL diseñado para potenciar PyMEs y plataformas digitales.",
     },
   ]
 
   return (
-    <section className="py-16 px-4 bg-accent/30">
+    <section className="py-16 px-4 bg-accent/30 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-display">Nuestra Historia</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-sans">
-            Desde nuestros humildes comienzos hasta convertirnos en la empresa de confianza en Mar del Plata
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 font-display uppercase tracking-tight">Nuestra Historia</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-sans leading-relaxed">
+            Más de 7 años revolucionando la logística de última milla en Mar del Plata.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
           {/* Timeline Connector Line (Desktop) */}
@@ -46,18 +56,26 @@ export function CompanyStory() {
           {milestones.map((milestone, index) => {
             const IconComponent = milestone.icon
             return (
-              <Card key={index} className="relative z-10 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 border-border/50 bg-background/80 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
-                      <IconComponent className="w-6 h-6 text-secondary" />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.5 }}
+              >
+                <Card className="relative z-10 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/10 bg-background/60 backdrop-blur-md group h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent className="w-6 h-6 text-secondary" />
+                      </div>
+                      <span className="text-2xl font-bold text-secondary font-display">{milestone.year}</span>
                     </div>
-                    <span className="text-2xl font-bold text-secondary font-display">{milestone.year}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-3 font-display">{milestone.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed font-sans">{milestone.description}</p>
-                </CardContent>
-              </Card>
+                    <h3 className="text-xl font-bold text-foreground mb-3 font-display">{milestone.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed font-sans">{milestone.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             )
           })}
         </div>

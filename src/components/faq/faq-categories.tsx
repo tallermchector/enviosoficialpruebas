@@ -40,9 +40,14 @@ export function FaqCategories() {
             "Sí, el efectivo cobrado será rendido en el transcurso del día o al día siguiente.",
         },
         {
-          question: "¿Cuál es el tiempo estimado de entrega? ¿Ofrecen entregas?",
+          question: "¿Cómo realizo el seguimiento de mi envío?",
           answer:
-            "No trabajamos con urgencias. Solicitamos una anticipación mínima de 2 horas para organizarnos y entregar todo en tiempo y forma. Según el tipo de envío, la entrega se realizará en el horario pactado.",
+            "Centralizamos la gestión vía WhatsApp. Por razones de seguridad no utilizamos GPS en tiempo real, pero garantizamos la notificación inmediata tras la entrega efectiva del paquete.",
+        },
+        {
+          question: "¿Cuáles son los límites de carga?",
+          answer:
+            "Operamos con una flota exclusiva de motocicletas. La capacidad máxima es de 5 kg o dimensiones de 40x40x30 cm por bulto.",
         },
         {
           question: "¿Cómo puedo solicitar un servicio de mensajería?",
@@ -80,7 +85,7 @@ export function FaqCategories() {
         },
         {
           question: "¿Emiten factura?",
-          answer: "Realizamos factura C.",
+          answer: "Para todos nuestros servicios profesionales emitimos Factura C.",
         },
         {
           question: "¿Ofrecen descuentos para emprendedores o clientes masivos?",
@@ -103,14 +108,9 @@ export function FaqCategories() {
             "Sí, pero dependiendo de la distancia, podría tener un costo adicional.",
         },
         {
-          question: "¿Qué sucede si el destinatario no está presente en el momento de la entrega?",
+          question: "¿Qué sucede si el destinatario no está presente o rechaza el producto?",
           answer:
-            "El envío será cobrado de igual manera, y se deberá reprogramar la entrega y abonar otro envío.",
-        },
-        {
-          question: "¿Qué pasa si necesito cancelar un envío? ¿Hay algún cargo?",
-          answer:
-            "Depende del momento de la cancelación y a qué distancia de la entrega o el retiro se encuentre el cadete.",
+            "Si tu comprador rechaza el producto en el domicilio, la devolución del paquete a tu tienda o local se realiza totalmente SIN CARGO.",
         },
       ],
     },

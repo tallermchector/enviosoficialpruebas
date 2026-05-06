@@ -115,11 +115,11 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="max-w-2xl mx-auto shadow-xl border-border bg-card/50 backdrop-blur-sm">
+    <Card className="max-w-2xl mx-auto shadow-xl border-border bg-card/50 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 border-primary/10">
       <CardHeader className="pb-4">
-        <CardTitle className="text-2xl md:text-3xl font-bold text-center text-foreground font-display">Envíanos un Mensaje</CardTitle>
+        <CardTitle className="text-2xl md:text-3xl font-bold text-center text-foreground font-display">¿Tenés alguna consulta?</CardTitle>
         <CardDescription className="text-center text-sm sm:text-base text-muted-foreground font-sans">
-          Resolveremos tus dudas a la brevedad.
+          Completá el formulario y te responderemos a la brevedad.
         </CardDescription>
       </CardHeader>
       <CardContent className="pt-2 sm:pt-4">
@@ -133,7 +133,7 @@ export function ContactForm() {
                   <FormItem>
                     <FormLabel className="flex items-center font-sans"><User className="w-4 h-4 mr-2 text-primary"/>Nombre *</FormLabel>
                     <FormControl>
-                      <Input placeholder="Tu nombre" {...field} className="h-11 text-base bg-background/50 border-border/50 focus:border-primary font-sans"/>
+                      <Input placeholder="Tu nombre" {...field} className="h-11 text-base bg-background/50 border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 font-sans"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -147,7 +147,7 @@ export function ContactForm() {
                 <FormItem>
                   <FormLabel className="flex items-center font-sans"><Mail className="w-4 h-4 mr-2 text-primary"/>Email *</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="tu@email.com" {...field} className="h-11 text-base bg-background/50 border-border/50 focus:border-primary font-sans"/>
+                    <Input type="email" placeholder="tu@email.com" {...field} className="h-11 text-base bg-background/50 border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 font-sans"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -162,10 +162,10 @@ export function ContactForm() {
                   <FormLabel className="flex items-center font-sans"><MessageSquare className="w-4 h-4 mr-2 text-primary"/>Mensaje *</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Cuéntanos sobre tu consulta o necesidad de envío..."
+                      placeholder="Contanos sobre tu consulta o necesidad de envío..."
                       rows={5}
                       {...field}
-                      className="text-base bg-background/50 border-border/50 focus:border-primary font-sans"
+                      className="text-base bg-background/50 border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 font-sans"
                     />
                   </FormControl>
                   <FormMessage />
