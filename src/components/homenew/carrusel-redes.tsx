@@ -29,12 +29,36 @@ const socialNetworks = [
 ];
 
 const feedItems = [
-  { id: 1, type: 'ig', image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=400' },
-  { id: 2, type: 'tw', image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=400' },
-  { id: 3, type: 'ig', image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=400' },
-  { id: 4, type: 'fb', image: 'https://images.unsplash.com/photo-1549463591-24c1882bd396?auto=format&fit=crop&q=80&w=400' },
-  { id: 5, type: 'ig', image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=400' },
-  { id: 6, type: 'tw', image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=400' },
+  { 
+    id: 17, 
+    type: 'fb', 
+    image: '/redes/fac1.webp',
+    postUrl: "https://www.facebook.com/enviosdosruedas/posts/pfbid0a1i4tygsZQjwp9bsvS9xSHApJqMe5JkeoJbqx12Qvas18nSojtGhj6U9cFn3m5hDl"
+  },
+  { 
+    id: 15, 
+    type: 'ig', 
+    image: '/redes/ig1.webp',
+    postUrl: "https://www.instagram.com/enviosdosruedas/p/DJhlS5xOrTb/"
+  },
+  { 
+    id: 7, 
+    type: 'ig', 
+    image: '/redes/ig3.webp',
+    postUrl: "https://www.instagram.com/enviosdosruedas/p/DK12WIDslKW/"
+  },
+  { 
+    id: 19, 
+    type: 'ig', 
+    image: '/redes/ig4.webp',
+    postUrl: "https://www.instagram.com/enviosdosruedas/p/DEaAGAmRMKj/"
+  },
+  { 
+    id: 21, 
+    type: 'fb', 
+    image: '/redes/fac2.webp',
+    postUrl: "https://www.facebook.com/enviosdosruedas/posts/pfbid03WPv5ZE93ZNwL5PMRwuTpJxGaGSBzLigJqDSyzATNcSkRT3xBMZz7GKbhPv1mC53l"
+  },
 ];
 
 export const CarruselRedes = () => {
@@ -94,15 +118,17 @@ export const CarruselRedes = () => {
               whileHover={{ animationPlayState: 'paused' }}
             >
               {[...feedItems, ...feedItems, ...feedItems].map((item, idx) => (
-                <div
+                <a
                   key={idx}
-                  className="w-72 h-72 shrink-0 rounded-3xl overflow-hidden relative group border border-white/10 shadow-2xl transition-all hover:border-primary/50"
+                  href={(item as any).postUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-72 h-72 shrink-0 rounded-3xl overflow-hidden relative group border border-white/10 shadow-2xl transition-all hover:border-primary/50 block"
                 >
                   <img src={item.image} alt="Social feed" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-[#050810]/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-6 p-8">
                     <div className="w-16 h-16 rounded-2xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white">
                       {item.type === 'ig' && <Instagram size={32} />}
-                      {item.type === 'tw' && <Twitter size={32} />}
                       {item.type === 'fb' && <Facebook size={32} />}
                     </div>
                     <div className="text-center">
@@ -110,7 +136,7 @@ export const CarruselRedes = () => {
                       <ExternalLink size={20} className="text-secondary mx-auto" />
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </motion.div>
           </div>
