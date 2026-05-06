@@ -5,22 +5,45 @@ import { Card, CardContent } from "@/components/ui/card"
 import { TrendingUp, ShieldCheck, Clock, MapPin, Smartphone, UserCheck } from "lucide-react"
 import { motion } from "framer-motion"
 
+function ReputationThermometer() {
+  return (
+    <div className="max-w-md mx-auto mb-12">
+      <div className="flex justify-between text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">
+        <span>Reputación</span>
+        <span className="text-green-500">MercadoLíder Platinum</span>
+      </div>
+      <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden border border-white/10 flex">
+        <div className="h-full w-1/5 bg-red-500/50" />
+        <div className="h-full w-1/5 bg-orange-500/50" />
+        <div className="h-full w-1/5 bg-yellow-500/50" />
+        <div className="h-full w-1/5 bg-lime-500/50" />
+        <motion.div
+          className="h-full w-1/5 bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]"
+          initial={{ width: 0 }}
+          whileInView={{ width: '20%' }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        />
+      </div>
+    </div>
+  )
+}
+
 export function MercadoLibreBenefits() {
   const benefits = [
     {
-      icon: TrendingUp,
-      title: "Más Ventas",
-      description: "Los productos con 'Llega hoy' convierten hasta un 40% más que los envíos normales.",
+      icon: Clock,
+      title: "Corte 15:00 hs",
+      description: "Despachá tus ventas hasta las 15:00 hs para entrega garantizada en el mismo día.",
     },
     {
       icon: ShieldCheck,
-      title: "Reputación Full",
-      description: "Mantenemos tu termómetro en verde cumpliendo el 100% de las promesas de entrega.",
+      title: "Reputación Intacta",
+      description: "Cumplimos el 100% de tus acuerdos de nivel de servicio (SLAs) para que mantengas tu estatus de MercadoLíder.",
     },
     {
-      icon: Clock,
-      title: "Flexibilidad Horaria",
-      description: "Recolecciones diarias adaptadas a tu volumen de ventas y horarios de despacho.",
+      icon: TrendingUp,
+      title: "Devoluciones sin cargo",
+      description: "Si el comprador rechaza el producto en domicilio, la devolución a tu local es totalmente SIN CARGO.",
     },
     {
       icon: MapPin,
@@ -30,7 +53,7 @@ export function MercadoLibreBenefits() {
     {
       icon: Smartphone,
       title: "App de Control",
-      description: "Gestiona y monitorea tus despachos desde nuestra plataforma exclusiva.",
+      description: "Gestioná y monitoreá tus despachos desde nuestra plataforma exclusiva.",
     },
     {
       icon: UserCheck,
@@ -50,6 +73,7 @@ export function MercadoLibreBenefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
+            <ReputationThermometer />
             <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
               BENEFICIOS <span className="text-primary">PARA VENDEDORES</span>
             </h2>
@@ -66,13 +90,14 @@ export function MercadoLibreBenefits() {
             return (
               <motion.div
                 key={index}
-                whileHover={{ y: -10 }}
+                whileHover={{ scale: 1.05, y: -10 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <Card className="h-full bg-white/5 border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden">
+                <Card className="h-full bg-white/5 border-white/10 hover:border-[#FFE600]/50 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden relative">
+                   <div className="absolute top-0 left-0 w-full h-1 bg-[#FFE600] opacity-0 group-hover:opacity-100 transition-opacity" />
                   <CardContent className="p-10 relative">
                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors" />
 
