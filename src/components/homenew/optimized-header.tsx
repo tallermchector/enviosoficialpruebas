@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
-import { Menu, Home, Calculator as CalculatorIcon, Mail, ChevronDown, Phone, Truck } from "lucide-react"
+import { Menu, Home, Calculator as CalculatorIcon, Mail, ChevronDown, Phone } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence, type Variants } from "framer-motion"
 import { navGroups } from "@/lib/navigation"
@@ -111,9 +111,15 @@ export function OptimizedHeader() {
         <Link href="/" className="flex items-center gap-2 group cursor-pointer">
           <motion.div
             whileHover={{ rotate: 12, scale: 1.1 }}
-            className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center transition-transform"
+            className="w-10 h-10 transition-transform"
           >
-            <Truck className="text-white" size={24} />
+            <Image
+              src="/LogoEnviosDosRuedas.webp"
+              alt="Logo Envíos DosRuedas"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
           </motion.div>
           <span className="font-[family-name:var(--font-orbitron)] font-black text-xl tracking-tighter text-white uppercase italic hidden sm:inline-block">
             DOS<span className="text-primary">RUEDAS</span>
@@ -207,8 +213,14 @@ export function OptimizedHeader() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] bg-[#050810] text-white border-white/10 pt-10">
                 <SheetHeader className="mb-8 flex flex-row items-center space-x-3">
-                   <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                    <Truck className="text-white" size={20} />
+                   <div className="w-10 h-10">
+                    <Image
+                      src="/LogoEnviosDosRuedas.webp"
+                      alt="Logo Envíos DosRuedas"
+                      width={40}
+                      height={40}
+                      className="object-contain"
+                    />
                   </div>
                   <SheetTitle className="text-white font-[family-name:var(--font-orbitron)] font-black italic text-xl">
                     DOS<span className="text-primary">RUEDAS</span>

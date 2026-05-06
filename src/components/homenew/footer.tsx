@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Truck, Share2, Settings, MapPin, Phone, Mail, Camera as Instagram, Share2 as Facebook, MessageCircle as Twitter } from "lucide-react";
+import { Share2, Settings, MapPin, Phone, Mail, Camera as Instagram, Share2 as Facebook, MessageCircle as Twitter } from "lucide-react";
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,8 +16,14 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
           <div className="col-span-1 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-10 group">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center transition-transform group-hover:rotate-12">
-                <Truck size={22} className="text-white" />
+              <div className="w-10 h-10 transition-transform group-hover:rotate-12">
+                <Image
+                  src="/LogoEnviosDosRuedas.webp"
+                  alt="Logo Envíos DosRuedas"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                />
               </div>
               <span className="font-[family-name:var(--font-orbitron)] font-black text-2xl tracking-tighter text-white uppercase italic">
                 DOS<span className="text-primary">RUEDAS</span>
