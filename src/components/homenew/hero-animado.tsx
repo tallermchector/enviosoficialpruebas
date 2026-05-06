@@ -67,18 +67,16 @@ export default function HeroAnimado() {
             variants={itemVariants}
             className="font-[family-name:var(--font-orbitron)] text-5xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white"
           >
-            SERVICIO DE <br />
-            MENSAJERÍA <span className="text-primary">Y</span> <br />
-            <span className="text-primary">DELIVERY</span> <br />
-            <span className="text-3xl md:text-5xl opacity-80">ENVIOS DOSRUEDAS</span>
+            LOGÍSTICA URBANA <br />
+            DE <span className="text-primary">ALTA PRECISIÓN</span> <br />
+            EN <span className="text-primary">MAR DEL PLATA</span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-[family-name:var(--font-roboto)]"
           >
-            Tu solución confiable en Mar del Plata. Rápido, seguro y económico.
-            La evolución de la logística urbana sobre dos ruedas.
+            Tu partner logístico de última milla. Optimizamos tus envíos E-commerce y corporativos con tecnología, seguridad y entregas Same-Day.
           </motion.p>
 
           <motion.div
@@ -89,7 +87,7 @@ export default function HeroAnimado() {
               href="/cotizar/express"
               className="px-10 py-5 bg-secondary hover:bg-secondary/90 text-black font-[family-name:var(--font-orbitron)] font-black rounded-xl transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(251,191,36,0.3)] uppercase tracking-tight"
             >
-              SOLICITAR SERVICIO
+              COTIZAR ENVÍO
             </Link>
             <Link
               href="/servicios/envios-express"
@@ -98,7 +96,7 @@ export default function HeroAnimado() {
               <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:scale-110 transition-all">
                 <Play className="fill-white text-white ml-1" size={20} />
               </div>
-              <span>VER SERVICIOS</span>
+              <span>ABRIR CUENTA COMERCIAL</span>
             </Link>
           </motion.div>
         </motion.div>

@@ -21,13 +21,13 @@ export const VisionSection = () => {
             NUESTRA HISTORIA
           </div>
           <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black leading-[1] mb-10 uppercase text-white tracking-tighter">
-            NUESTRA VISIÓN DE LA <br />
-            <span className="text-primary italic">LOGÍSTICA MODERNA</span>
+            REVOLUCIONANDO <br />
+            <span className="text-primary italic">LA ÚLTIMA MILLA</span>
           </h2>
           <p className="text-gray-400 text-lg mb-12 leading-relaxed font-[family-name:var(--font-roboto)]">
-            En Envios DosRuedas, no solo movemos paquetes; movemos la economía de Mar del Plata.
-            Nuestra meta es integrar tecnología de punta con la agilidad del transporte urbano
-            para ofrecer un servicio sin fisuras que empodere a negocios y particulares.
+            Resolvemos el eslabón más complejo de la cadena logística. Garantizamos seguridad,
+            ruteo eficiente y comunicación transparente para que tus clientes reciban sus
+            paquetes en tiempo y forma.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 border-l border-white/10 pl-8">
             <div>
