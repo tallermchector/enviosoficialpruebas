@@ -5,19 +5,19 @@ import Link from "next/link"
 export function LowcostContent() {
   const features = [
     {
-      icon: DollarSign,
-      title: "Precios Económicos",
-      description: "La opción más conveniente para envíos no prioritarios.",
+      icon: BarChart3,
+      title: "Eficiencia en Ruteo",
+      description: "Ruteo diario masivo optimizado. NO se elige rango horario para maximizar eficiencia.",
     },
     {
       icon: Calendar,
-      title: "Envíos Programados",
-      description: "Planifica tus entregas con anticipación y ahorra dinero.",
+      title: "Corte y Entrega",
+      description: "Pedidos antes de las 13:00 hs se entregan garantizados antes de las 19:00 hs.",
     },
     {
-      icon: BarChart3,
-      title: "Rutas Optimizadas",
-      description: "Agrupamos envíos para ofrecerte tarifas más bajas.",
+      icon: DollarSign,
+      title: "Tarifa Económica",
+      description: "La mejor tarifa de Mar del Plata para envíos masivos y ruteos diarios.",
     },
   ]
 
@@ -39,9 +39,9 @@ export function LowcostContent() {
 
           {/* Right Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-6 font-display">Mensajería y Envíos Low Cost</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-6 font-display">Envíos LowCost: Máxima Eficiencia</h2>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            ¿No tenés apuro? Ahorrá en tus envíos con nuestro servicio de mensajería low cost. Programamos tus entregas en rutas optimizadas para ofrecerte el mejor precio sin sacrificar la seguridad y confiabilidad.
+            Nuestro servicio LowCost está diseñado para el ruteo diario masivo. Optimizamos nuestras rutas para ofrecer la tarifa más competitiva, garantizando la entrega en el día para pedidos ingresados antes del horario de corte.
             </p>
 
             {/* Features */}

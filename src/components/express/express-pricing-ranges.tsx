@@ -30,34 +30,68 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
     return Number.isInteger(kmFixed) ? kmFixed.toFixed(0) : kmFixed.toFixed(2).replace(".", ",");
   };
 
-  const expressTiers = displayedPriceRanges.map((rango: PriceRangeClient) => {
-    const titleMaxKmFormatted = formatKmDisplay(rango.distanciaMaxKm, true);
-    const rangeMinKmFormatted = formatKmDisplay(rango.distanciaMinKm);
-    const rangeMaxKmFormatted = formatKmDisplay(rango.distanciaMaxKm, true);
-
-    return {
-      name: `Hasta ${titleMaxKmFormatted} km`,
-      icon: MapPin, 
-      price: `$${rango.precioRango.toLocaleString("es-AR", {
-        minimumFractionDigits: rango.precioRango % 1 === 0 ? 0 : 2,
-        maximumFractionDigits: 2,
-      })}`,
-      distanceRange: `${rangeMinKmFormatted} km - ${rangeMaxKmFormatted} km`,
-      description: `Para envíos en el día solicitado antes de 15hs`,
-      features: [
-        "Servicio Express prioritario",
-        "Entrega en el mismo día",
-        "Seguimiento en tiempo real",
-      ],
+  const expressTiers = [
+    {
+      name: "Zona 1",
+      icon: MapPin,
+      price: "$3.700",
+      distanceRange: "Radio céntrico",
+      description: "Ideal para entregas inmediatas en el centro",
+      features: ["Elegís rango horario", "Mínimo 2hs anticipación", "Seguimiento real"],
       color: "border-blue-200 bg-blue-50",
-      badgeText: "Tarifa Express",
+      badgeText: "Tarifa 2026",
       badgeColor: "bg-blue-600",
       iconColor: "text-blue-600",
       priceColor: "text-blue-700",
       featureIconColor: "text-blue-500",
       iconBorderColor: "border-blue-200",
-    };
-  });
+    },
+    {
+      name: "Zona 2",
+      icon: MapPin,
+      price: "$4.600",
+      distanceRange: "Periferia cercana",
+      description: "Cobertura extendida con rapidez",
+      features: ["Elegís rango horario", "Mínimo 2hs anticipación", "Seguimiento real"],
+      color: "border-blue-200 bg-blue-50",
+      badgeText: "Tarifa 2026",
+      badgeColor: "bg-blue-600",
+      iconColor: "text-blue-600",
+      priceColor: "text-blue-700",
+      featureIconColor: "text-blue-500",
+      iconBorderColor: "border-blue-200",
+    },
+    {
+      name: "Zona 3",
+      icon: MapPin,
+      price: "$6.100",
+      distanceRange: "Zonas alejadas",
+      description: "Llegamos a donde otros no",
+      features: ["Elegís rango horario", "Mínimo 2hs anticipación", "Seguimiento real"],
+      color: "border-blue-200 bg-blue-50",
+      badgeText: "Tarifa 2026",
+      badgeColor: "bg-blue-600",
+      iconColor: "text-blue-600",
+      priceColor: "text-blue-700",
+      featureIconColor: "text-blue-500",
+      iconBorderColor: "border-blue-200",
+    },
+    {
+      name: "Zona 4",
+      icon: MapPin,
+      price: "$8.200",
+      distanceRange: "Límites de ciudad",
+      description: "Máxima cobertura urbana",
+      features: ["Elegís rango horario", "Mínimo 2hs anticipación", "Seguimiento real"],
+      color: "border-blue-200 bg-blue-50",
+      badgeText: "Tarifa 2026",
+      badgeColor: "bg-blue-600",
+      iconColor: "text-blue-600",
+      priceColor: "text-blue-700",
+      featureIconColor: "text-blue-500",
+      iconBorderColor: "border-blue-200",
+    },
+  ];
 
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -78,10 +112,10 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-800 mb-4 font-display">
-            Tarifas Envíos Express.
+            Tarifas 2026 Envíos Express
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            Consulta los precios para nuestros rangos de distancia más comunes. Para distancias mayores o una cotización exacta con mapa, utiliza nuestro cotizador.
+            Consulta los precios actualizados para nuestro servicio premium con rango horario a elección.
           </p>
         </div>
 
@@ -155,15 +189,15 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
                   <Calculator className="w-7 h-7 sm:w-8 sm:h-8 text-gray-700" />
                 </div>
                 <CardTitle className="text-xl sm:text-2xl font-bold text-gray-800 font-display">
-                  Distancias Mayores
+                  Zona 5
                 </CardTitle>
                 <p className="text-xs sm:text-sm text-gray-500 font-sans">
-                  o Cotización Exacta con Mapa
+                  $1.000 por kilómetro
                 </p>
               </CardHeader>
               <CardContent className="flex-grow flex flex-col justify-between">
                 <p className="text-gray-600 mb-3 text-center text-xs sm:text-sm font-sans">
-                  Para envíos que superen los rangos mostrados o para una cotización precisa con visualización de ruta, utiliza nuestro cotizador Express.
+                  Para envíos de larga distancia fuera del ejido urbano o una cotización precisa con mapa, utiliza nuestro cotizador.
                 </p>
                 <Button
                   asChild
@@ -179,14 +213,17 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
             </Card>
           </motion.div>
         </div>
-         <Card className="mt-8 md:mt-12 bg-yellow-50 border-yellow-300">
+         <Card className="mt-8 md:mt-12 bg-blue-50 border-blue-300">
           <CardContent className="p-4 sm:p-6 flex items-start space-x-3">
-            <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-600 flex-shrink-0 mt-0.5" />
+            <AlertTriangle className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 flex-shrink-0 mt-0.5" />
             <div className="font-sans">
-              <h4 className="font-semibold text-yellow-800 text-sm sm:text-base">Nota Importante sobre Tarifas Express:</h4>
-              <p className="text-xs sm:text-sm text-yellow-700">
-                Los precios mostrados son para los rangos iniciales y están sujetos a confirmación. El Cotizador Express proporciona el precio final más preciso basado en la distancia exacta, tiempo estimado y posibles factores adicionales (hora pico, tamaño del paquete).
-              </p>
+              <h4 className="font-semibold text-blue-800 text-sm sm:text-base">Condiciones del Servicio Express:</h4>
+              <ul className="text-xs sm:text-sm text-blue-700 list-disc pl-5 mt-2 space-y-1">
+                <li><strong>Tolerancia:</strong> 10 minutos en puerta (recargo de $2.200 por cada 10 min extra).</li>
+                <li><strong>Recargo por lluvia:</strong> 50% sobre el valor del envío.</li>
+                <li><strong>Bulto excedente:</strong> +$1.800 por bulto mayor a 5kg o 40cm.</li>
+                <li><strong>Anticipación:</strong> Mínimo 2 horas para garantizar disponibilidad.</li>
+              </ul>
             </div>
           </CardContent>
         </Card>

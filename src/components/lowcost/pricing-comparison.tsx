@@ -34,30 +34,52 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
     return Number.isInteger(kmFixed) ? kmFixed.toFixed(0) : kmFixed.toFixed(2).replace(".", ",");
   };
 
-  const lowCostTiers = displayedPriceRanges.map((rango: PriceRangeClient) => {
-    const titleMaxKmFormatted = formatKmDisplay(rango.distanciaMaxKm, true);
-    const rangeMinKmFormatted = formatKmDisplay(rango.distanciaMinKm);
-    const rangeMaxKmFormatted = formatKmDisplay(rango.distanciaMaxKm, true);
-
-    return {
-      name: `Hasta ${titleMaxKmFormatted} km`,
-      icon: MapPin, 
-      price: `$${rango.precioRango.toLocaleString("es-AR", {
-        minimumFractionDigits: rango.precioRango % 1 === 0 ? 0 : 2,
-        maximumFractionDigits: 2,
-      })}`,
-      distanceRange: `${rangeMinKmFormatted} km - ${rangeMaxKmFormatted} km`,
-      description: `Para envíos dentro de este rango de distancia.`,
-      features: [
-        "Servicio económico y confiable",
-        "Entrega en el día solicitando antes de 13hs",
-        "Seguimiento incluido",
-      ],
+  const lowCostTiers = [
+    {
+      name: "Zona 1",
+      icon: MapPin,
+      price: "$3.000",
+      distanceRange: "Radio céntrico",
+      description: "La mejor tarifa para ruteo en el centro",
+      features: ["Eficiencia en ruteo", "Corte 13:00 hs", "Entrega antes 19:00 hs"],
       color: "border-green-200 bg-green-50",
-      badgeText: "Tarifa Low Cost",
+      badgeText: "Tarifa 2026",
       badgeColor: "bg-green-600",
-    };
-  });
+    },
+    {
+      name: "Zona 2",
+      icon: MapPin,
+      price: "$4.000",
+      distanceRange: "Periferia cercana",
+      description: "Cobertura extendida económica",
+      features: ["Eficiencia en ruteo", "Corte 13:00 hs", "Entrega antes 19:00 hs"],
+      color: "border-green-200 bg-green-50",
+      badgeText: "Tarifa 2026",
+      badgeColor: "bg-green-600",
+    },
+    {
+      name: "Zona 3",
+      icon: MapPin,
+      price: "$5.300",
+      distanceRange: "Zonas alejadas",
+      description: "Llegamos a toda la ciudad al mejor costo",
+      features: ["Eficiencia en ruteo", "Corte 13:00 hs", "Entrega antes 19:00 hs"],
+      color: "border-green-200 bg-green-50",
+      badgeText: "Tarifa 2026",
+      badgeColor: "bg-green-600",
+    },
+    {
+      name: "Zona 4",
+      icon: MapPin,
+      price: "$7.000",
+      distanceRange: "Límites de ciudad",
+      description: "Máximo ahorro en distancias largas",
+      features: ["Eficiencia en ruteo", "Corte 13:00 hs", "Entrega antes 19:00 hs"],
+      color: "border-green-200 bg-green-50",
+      badgeText: "Tarifa 2026",
+      badgeColor: "bg-green-600",
+    },
+  ];
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "5492236602699";
@@ -73,11 +95,10 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">
-            Tarifas Envíos Low Cost por Distancia
+            Tarifas 2026 Envíos LowCost
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-sans">
-            Encuentra el precio de tu envío Low Cost según la distancia.
-            Transparencia y ahorro garantizado.
+            Eficiencia en ruteo masivo. Garantizamos entregas antes de las 19:00 hs para pedidos antes de las 13:00 hs.
           </p>
         </div>
 
@@ -139,15 +160,15 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
                 <HelpCircle className="w-8 h-8 text-blue-600" />
               </div>
               <CardTitle className="text-2xl font-bold text-gray-800 font-display">
-                Más de 13 km
+                Zona 5
               </CardTitle>
               <p className="text-sm text-gray-500">
-                Envíos de Larga Distancia
+                $700 por kilómetro
               </p>
             </CardHeader>
             <CardContent className="flex-grow flex flex-col justify-between">
               <p className="text-gray-600 mb-4 text-center text-sm">
-                Para envíos que superen los 13 km, ofrecemos cotizaciones personalizadas para asegurar el mejor precio.
+                Para envíos de larga distancia fuera del ejido urbano masivo, ofrecemos la tarifa más competitiva por km.
               </p>
               <Button
                 onClick={handleWhatsAppClick}

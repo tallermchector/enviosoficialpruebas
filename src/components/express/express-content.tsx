@@ -10,16 +10,16 @@ import Image from "next/image"
 export function ExpressContent() {
   const features = [
     {
-      title: "Entrega el mismo día",
-      description: "Para pedidos realizados antes de las 15:00, garantizamos la entrega en el mismo día.",
+      title: "Alta criticidad horaria",
+      description: "Servicio diseñado para cuando el tiempo es el factor más importante. Tú eliges cuándo entregamos.",
     },
     {
-      title: "Rango horario personalizado",
-      description: "Elige el rango horario que mejor se adapte a tus necesidades para recibir o enviar tu paquete.",
+      title: "Rango horario a elección",
+      description: "El cliente elige el rango horario de entrega que mejor se adapte a su necesidad.",
     },
     {
-      title: "Servicio prioritario",
-      description: "Tus envíos tienen prioridad sobre otros servicios, asegurando la máxima rapidez.",
+      title: "Anticipación mínima",
+      description: "Solo requerimos un mínimo de 2 horas de anticipación para coordinar tu envío prioritario.",
     },
   ]
 
@@ -56,7 +56,7 @@ export function ExpressContent() {
               Entregas rápidas y eficientes para tus necesidades
             </h2>
             <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed font-sans">
-            Nuestro servicio Express está diseñado para aquellas situaciones donde el tiempo es crucial. Garantizamos la entrega el mismo día para todos los pedidos realizados antes de las 15:00, con la posibilidad de elegir un rango horario específico.
+            Nuestro servicio Express está diseñado para situaciones de alta criticidad horaria. Es la solución premium donde el cliente tiene el control total, eligiendo el rango horario exacto para su entrega con una mínima anticipación.
             </p>
 
             {/* Features */}

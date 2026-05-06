@@ -42,8 +42,6 @@ export const navGroups: NavGroup[] = [
     items: [
       { href: "/servicios/envios-express", label: "Envíos Express", icon: Zap },
       { href: "/servicios/envios-lowcost", label: "Envíos LowCost", icon: DollarSign },
-      { href: "/servicios/moto-fija", label: "Moto Fija", icon: Bike },
-      { href: "/servicios/delivery-gastronomico", label: "Delivery Gastronómico", icon: Utensils },
       { href: "/servicios/plan-emprendedores", label: "Plan Emprendedores", icon: TrendingUp },
       { href: "/servicios/enviosflex", label: "Mercado Libre Flex", icon: ShoppingCart },
     ],

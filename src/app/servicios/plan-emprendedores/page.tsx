@@ -12,11 +12,11 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/entrepreneur/entrepreneur-pricing-ranges";
 
 export const metadata: Metadata = {
-  title: "Plan Emprendedores - Envios DosRuedas | Impulsa tu Negocio Online",
+  title: "E-Commerce 3PL y Cuentas Corrientes - Envios DosRuedas",
   description:
-    "Plan especializado para emprendedores y negocios online. Tarifas preferenciales, flexibilidad horaria y soporte dedicado. Potencia tus ventas con envíos profesionales.",
+    "Soluciones logísticas avanzadas para E-Commerce: 3PL, Fulfillment, Same Day y Next Day. Cuentas corrientes flexibles con beneficios exclusivos para potenciar tu escalabilidad.",
   keywords:
-    "plan emprendedores, envios negocios online, tarifas preferenciales, emprendedores mar del plata, envios ecommerce",
+    "ecommerce 3pl, fulfillment mar del plata, envios next day, cuenta corriente logistica, deposito ecommerce, picking y packing",
 }
 
 // Disable prerendering during build to avoid database connection issues

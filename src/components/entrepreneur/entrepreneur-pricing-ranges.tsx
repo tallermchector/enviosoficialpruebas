@@ -34,29 +34,50 @@ export function EntrepreneurPricingRanges({ priceRanges }: EntrepreneurPricingRa
     return Number.isInteger(kmFixed) ? kmFixed.toFixed(0) : kmFixed.toFixed(2).replace(".", ",");
   };
 
-  const entrepreneurTiers = displayedPriceRanges.map((rango: PriceRangeClient) => {
-    const titleMaxKmFormatted = formatKmDisplay(rango.distanciaMaxKm, true);
-    const rangeMinKmFormatted = formatKmDisplay(rango.distanciaMinKm);
-    const rangeMaxKmFormatted = formatKmDisplay(rango.distanciaMaxKm, true);
-
-    return {
-      name: `Hasta ${titleMaxKmFormatted} km`,
-      price: `$${rango.precioRango.toLocaleString("es-AR", {
-        minimumFractionDigits: rango.precioRango % 1 === 0 ? 0 : 2,
-        maximumFractionDigits: 2,
-      })}`,
-      distanceRange: `${rangeMinKmFormatted} km - ${rangeMaxKmFormatted} km`,
-      description: "Tarifa preferencial para miembros del Plan Emprendedor.",
+  const entrepreneurTiers = [
+    {
+      name: "3PL Fulfillment",
+      price: "$6.000",
+      distanceRange: "Tarifa Plana Same Day",
+      description: "Incluye almacenamiento, picking y embalaje básico.",
       features: [
-        "Servicio económico y confiable",
-        "Entrega en el día solicitando antes de 13hs",
-        "Ideal para alto volumen de envíos",
+        "Cobranza contra-reembolso bonificada",
+        "Rechazos devueltos sin cargo",
+        "Control de stock incluido",
+      ],
+      color: "border-purple-200 bg-purple-50",
+      badgeText: "Plan E-Commerce",
+      badgeColor: "bg-purple-600",
+    },
+    {
+      name: "Plan 24HS",
+      price: "$3.800",
+      distanceRange: "Next Day (Retiro hoy)",
+      description: "Tarifas decrecientes: Pro $3.500 | Elite $3.200 | Partner $3.000",
+      features: [
+        "20% OFF usando Drop-Off",
+        "Entrega garantizada < 24hs",
+        "Ideal para grandes volúmenes",
       ],
       color: "border-blue-200 bg-blue-50",
-      badgeText: "Plan Emprendedor",
+      badgeText: "Plan Escala",
       badgeColor: "bg-blue-600",
-    };
-  });
+    },
+    {
+      name: "Cta. Cte. Flexible",
+      price: "Híbrido",
+      distanceRange: "LowCost + Beneficios Express",
+      description: "Pagá tarifas LowCost pero con prioridad de gestión.",
+      features: [
+        "Corte extendido hasta 15:00 hs",
+        "Elección de rango horario",
+        "Facturación mensual centralizada",
+      ],
+      color: "border-green-200 bg-green-50",
+      badgeText: "Plan Corporativo",
+      badgeColor: "bg-green-600",
+    },
+  ];
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "5492236602699";
@@ -70,10 +91,10 @@ export function EntrepreneurPricingRanges({ priceRanges }: EntrepreneurPricingRa
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">
-            Tarifas Preferenciales del Plan Emprendedor
+            Planes 3PL y Soluciones E-Commerce
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Precios exclusivos para nuestros socios emprendedores, basados en la estructura de Low Cost para maximizar tu ahorro.
+            Elegí el plan que mejor se adapte al volumen de tu negocio. Desde almacenamiento hasta ruteo masivo de última milla.
           </p>
         </div>
 
@@ -123,36 +144,6 @@ export function EntrepreneurPricingRanges({ priceRanges }: EntrepreneurPricingRa
             );
           })}
 
-          <Card className="relative border-gray-300 bg-gray-100 border-2 hover:shadow-lg transition-shadow duration-300 flex flex-col">
-            <Badge
-                className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gray-700 text-white px-3 py-1 text-xs"
-            >
-                Cotización Personalizada
-            </Badge>
-            <CardHeader className="text-center pb-4 pt-8">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-gray-300">
-                <HelpCircle className="w-8 h-8 text-gray-700" />
-              </div>
-              <CardTitle className="text-2xl font-bold text-gray-800 font-display">
-                Más de 13 km
-              </CardTitle>
-              <p className="text-sm text-gray-500">
-                Envíos de Larga Distancia
-              </p>
-            </CardHeader>
-            <CardContent className="flex-grow flex flex-col justify-between">
-              <p className="text-gray-600 mb-4 text-center text-sm">
-                Para envíos que superen los 13 km, contáctanos para una cotización especial para tu emprendimiento.
-              </p>
-              <Button
-                onClick={handleWhatsAppClick}
-                className="w-full bg-green-500 hover:bg-green-600 text-white mt-4"
-              >
-                <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={20} height={20} className="w-5 h-5 mr-2" />
-                Consultar por WhatsApp
-              </Button>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>

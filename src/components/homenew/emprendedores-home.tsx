@@ -32,13 +32,13 @@ export const EmprendedoresHome = () => {
       badge: "MercadoLibre",
     },
     {
-      icon: Users,
-      title: "Moto Fija para Negocios",
-      description: "Repartidor dedicado exclusivamente para tu empresa",
-      features: ["Repartidor exclusivo", "Horarios personalizados", "Rutas optimizadas", "Seguimiento GPS"],
-      link: "/servicios/moto-fija",
+      icon: Zap,
+      title: "Envíos Express",
+      description: "Alta criticidad horaria con rango a elección",
+      features: ["Control total del cliente", "Mínimo 2hs anticipación", "Seguimiento real", "Prioridad Premium"],
+      link: "/servicios/envios-express",
       image: "/cards/card3.webp",
-      badge: "Dedicado",
+      badge: "Inmediato",
     },
   ];
 
