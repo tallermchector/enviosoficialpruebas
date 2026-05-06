@@ -18,9 +18,7 @@ import {
   Package,
   Clock,
   ShieldCheck,
-  Building2,
-  Rocket,
-  Utensils
+  Building2
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
@@ -52,11 +50,9 @@ const navGroups = [
     icon: Truck,
     items: [
       { label: 'Envíos Express', href: '/servicios/envios-express', icon: Zap },
-      { label: 'Envíos Low Cost', href: '/servicios/envios-lowcost', icon: Clock },
-      { label: 'Mercado Libre Flex', href: '/servicios/enviosflex', icon: Package },
-      { label: 'Mensajería Fija', href: '/servicios/moto-fija', icon: Building2 },
-      { label: 'Plan Emprendedores', href: '/servicios/plan-emprendedores', icon: Rocket },
-      { label: 'Delivery Gastronómico', href: '/servicios/delivery-gastronomico', icon: Utensils },
+      { label: 'Envíos LowCost', href: '/servicios/envios-lowcost', icon: Clock },
+      { label: 'Envíos Flex (MeLi)', href: '/servicios/enviosflex', icon: Package },
+      { label: 'E-Commerce & 3PL', href: '/servicios/plan-emprendedores', icon: Building2 },
     ],
   },
   {

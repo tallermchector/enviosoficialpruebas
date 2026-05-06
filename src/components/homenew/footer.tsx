@@ -19,11 +19,9 @@ export const Footer = () => {
     ],
     servicios: [
       { label: "Envíos Express", href: "/servicios/envios-express" },
-      { label: "Envíos Low Cost", href: "/servicios/envios-lowcost" },
-      { label: "Mercado Libre Flex", href: "/servicios/enviosflex" },
-      { label: "Mensajería Fija", href: "/servicios/moto-fija" },
-      { label: "Plan Emprendedores", href: "/servicios/plan-emprendedores" },
-      { label: "Delivery Gastronómico", href: "/servicios/delivery-gastronomico" }
+      { label: "Envíos LowCost", href: "/servicios/envios-lowcost" },
+      { label: "Envíos Flex (MeLi)", href: "/servicios/enviosflex" },
+      { label: "E-Commerce & 3PL", href: "/servicios/plan-emprendedores" }
     ]
   };
 
@@ -47,7 +45,7 @@ export const Footer = () => {
                   Envios DosRuedas
                 </span>
                 <span className="font-display text-orbitron font-black text-primary drop-shadow-[0_0_10px_rgba(37,99,235,0.3)] text-[10px] sm:text-sm lg:text-base uppercase italic tracking-[0.15em] leading-none">
-                  Tu Solución Confiable
+                  tu solución confiable
                 </span>
               </div>
             </Link>
@@ -81,9 +79,9 @@ export const Footer = () => {
 
           {/* Navigation Columns */}
           <div className="lg:col-span-2">
-            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Servicios</h4>
+            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Nosotros</h4>
             <ul className="space-y-6">
-              {footerLinks.empresa.map((link) => (
+              {footerLinks.empresa.slice(0, 3).map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-gray-500 hover:text-primary transition-all flex items-center gap-3 group text-sm font-[family-name:var(--font-roboto)] font-light">
                     <div className="w-1 h-1 rounded-full bg-primary/20 group-hover:bg-primary group-hover:scale-150 transition-all" />
@@ -95,7 +93,7 @@ export const Footer = () => {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Cotizar</h4>
+            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Servicios</h4>
             <ul className="space-y-6">
               {footerLinks.servicios.map((link) => (
                 <li key={link.href}>

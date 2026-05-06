@@ -17,7 +17,7 @@ export const VisionSection = () => {
 
   const stats = [
     { label: "Clientes Satisfechos - Empresas y emprendedores confían en nosotros", value: "5000+", color: "text-secondary" },
-    { label: "Años de Experiencia - Líderes en mensajería en Mar del Plata", value: "7+", color: "text-primary" }
+    { label: "Años de Innovación - Líderes en mensajería en Mar del Plata", value: "7+", color: "text-primary" }
   ];
 
   return (
@@ -38,16 +38,16 @@ export const VisionSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card border border-primary/20 text-blue-400 text-[10px] font-black tracking-[0.3em] mb-10 uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Creciendo Juntos
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Partner Logístico Especializado
             </div>
 
             <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black leading-[0.9] mb-10 uppercase text-white tracking-tighter">
               Nuestra Visión <br />
-              <span className="text-primary italic drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Global</span>
+              <span className="text-primary italic drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logística</span>
             </h2>
 
             <p className="text-gray-400 text-lg md:text-xl mb-12 leading-relaxed font-[family-name:var(--font-roboto)] font-light max-w-2xl">
-              Datos que respaldan nuestra calidad y compromiso. Descubre por qué somos la solución confiable para tus envíos en Mar del Plata.
+              Transformamos tus costos fijos en soluciones flexibles que acompañan el crecimiento de tu negocio.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-16">

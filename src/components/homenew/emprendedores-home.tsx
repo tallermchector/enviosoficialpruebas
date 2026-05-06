@@ -2,38 +2,38 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, CheckCircle2, ArrowRight, ShieldCheck, Zap, Globe, Package } from 'lucide-react';
+import { Rocket, CheckCircle2, ArrowRight, ShieldCheck, Zap, Globe, Package, Building2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export const EmprendedoresHome = () => {
   const solutions = [
     {
-      title: "Plan Emprendedores",
-      description: "Tarifas preferenciales y servicios adaptados para hacer crecer tu negocio online",
-      icon: Rocket,
-      features: ["Tarifas LowCost", "Facturación mensual", "Soporte dedicado", "Reportes detallados"],
+      title: "Soluciones Corporativas",
+      description: "Optimización logística para empresas con Cuenta Corriente Flexible y beneficios de escala",
+      icon: Building2,
+      features: ["Cuenta Corriente Flexible", "Facturación simplificada", "Gestión multi-usuario", "Reportes de impacto"],
       link: "/servicios/plan-emprendedores",
       image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=800",
-      badge: "Emprendedores",
+      badge: "Corporativo",
     },
     {
       title: "Envíos Flex MercadoLibre",
-      description: "Integración perfecta con MercadoLibre para potenciar tus ventas",
+      description: "Socio estratégico para potenciar tus ventas con entregas en el día",
       icon: Zap,
-      features: ["Entregas el mismo día", "Mejora tu reputación", "Tarifas LowCost", "API integrada"],
+      features: ["Cumplimiento de SLAs", "Mejora tu reputación", "Tarifas competitivas", "Soporte Flex dedicado"],
       link: "/servicios/enviosflex",
       image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800",
       badge: "MercadoLibre",
     },
     {
-      title: "Moto Fija para Negocios",
-      description: "Repartidor dedicado exclusivamente para tu empresa",
-      icon: ShieldCheck,
-      features: ["Repartidor exclusivo", "Horarios personalizados", "Rutas optimizadas", "Seguimiento GPS"],
-      link: "/servicios/moto-fija",
+      title: "Logística E-Commerce",
+      description: "Gestión integral de última milla para PyMEs en crecimiento",
+      icon: Globe,
+      features: ["Integración tecnológica", "Rutas optimizadas", "Flota especializada", "Seguimiento en tiempo real"],
+      link: "/servicios/plan-emprendedores",
       image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=800",
-      badge: "Dedicado",
+      badge: "PyMEs",
     },
   ];
 
@@ -54,7 +54,7 @@ export const EmprendedoresHome = () => {
               viewport={{ once: true }}
               className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-black tracking-[0.4em] mb-10 uppercase backdrop-blur-md"
             >
-              <Rocket size={16} className="animate-bounce" /> Especial para Emprendedores
+              <Building2 size={16} className="animate-pulse" /> Soluciones Corporativas y PyME
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -63,8 +63,8 @@ export const EmprendedoresHome = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="font-display text-orbitron text-5xl md:text-8xl font-black italic tracking-tighter leading-[0.85] text-white uppercase"
             >
-              Soluciones <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Especiales</span> <br />
-              para <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]">Emprendedores</span>
+              Potencia tu <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logística</span> <br />
+              con <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]">DosRuedas</span>
             </motion.h2>
           </div>
           <motion.div
@@ -75,7 +75,7 @@ export const EmprendedoresHome = () => {
             className="lg:border-l lg:border-white/10 lg:pl-12"
           >
             <p className="font-[family-name:var(--font-roboto)] text-gray-400 text-lg md:text-2xl leading-relaxed font-light mb-10">
-              Diseñamos servicios específicos para ayudar a crecer tu negocio online. Desde tarifas preferenciales hasta integración con plataformas de venta.
+              Transformamos la última milla de tu empresa con una flota ágil y especializada de alta precisión. Beneficios exclusivos para clientes corporativos.
             </p>
             <div className="flex gap-8">
               <div className="flex flex-col gap-1">

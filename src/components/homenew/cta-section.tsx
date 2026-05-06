@@ -46,12 +46,12 @@ export const CtaSection = () => {
             </motion.div>
 
             <h2 className="font-display text-orbitron text-4xl md:text-8xl font-black text-white mb-10 tracking-tighter leading-[0.9] uppercase italic">
-              ¿Listos para tu <br />
-              <span className="text-secondary drop-shadow-2xl">Próximo Envío ?</span>
+              ¿Impulsamos tu <br />
+              <span className="text-secondary drop-shadow-2xl">Logística?</span>
             </h2>
 
             <p className="text-blue-100 text-lg md:text-2xl mb-16 max-w-3xl mx-auto font-[family-name:var(--font-roboto)] leading-relaxed font-light opacity-80">
-              En Envios DosRuedas estamos listos para ayudarte con tus necesidades de mensajería y paquetería . Contáctanos hoy mismo o calcula tu envío.
+              Únete a las empresas que ya optimizan su última milla con nosotros.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
