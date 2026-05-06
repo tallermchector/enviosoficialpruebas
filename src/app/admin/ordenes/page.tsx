@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Revalidate data to ensure it's fresh, e.g., every 60 seconds.
-export const revalidate = 60;
+// Disable prerendering during build to avoid database connection issues
+export const revalidate = 0;
 
 export default async function AdminOrdenesPage() {
   const orders = await prisma.order.findMany({

@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     "envios flex, mercadolibre, vendedores online, entregas rapidas, mar del plata, reputacion vendedor, envios mismo dia",
 }
 
+// Disable prerendering during build to avoid database connection issues
+export const revalidate = 0;
+
 async function getPriceRanges(): Promise<PriceRangeClient[]> {
   const priceRanges = await prisma.priceRange.findMany({
     where: {

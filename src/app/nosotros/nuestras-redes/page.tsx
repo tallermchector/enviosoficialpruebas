@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     keywords: "redes sociales, facebook, instagram, whatsapp, promociones, noticias, envios mar del plata",
 };
 
-export const revalidate = 3600; // Revalidate data every hour
+export const revalidate = 0; // Disable prerendering during build to avoid database connection issues
 
 export default async function SocialNetworksPage() {
   const posts = await getAllPosts();

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 60; // Revalidate every minute to get fresh data
+export const revalidate = 0; // Disable prerendering during build to avoid database connection issues
 
 async function getRepartidores(): Promise<Repartidor[]> {
   const repartidores = await prisma.repartidor.findMany({

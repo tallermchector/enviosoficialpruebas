@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "envios low cost, mensajeria economica, envios baratos, mar del plata, rutas optimizadas, envios programados",
 }
 
+// Disable prerendering during build to avoid database connection issues
+export const revalidate = 0;
+
 async function getPriceRanges(): Promise<PriceRangeClient[]> {
   const priceRanges = await prisma.priceRange.findMany({
     where: {
