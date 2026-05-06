@@ -82,7 +82,7 @@ export const CarruselRedes = () => {
             <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter">
               SIGUE NUESTRO <span className="text-secondary">MOVIMIENTO</span>
             </h2>
-            <p className="text-gray-500 text-lg mt-4 font-[family-name:var(--font-roboto)] max-w-xl">
+            <p className="text-gray-400 text-lg mt-4 font-[family-name:var(--font-roboto)] max-w-xl">
               Únete a nuestra comunidad digital y mantente al día con las últimas noticias de logística en Mar del Plata.
             </p>
           </div>
@@ -104,7 +104,7 @@ export const CarruselRedes = () => {
                 </div>
                 <div className="text-left hidden lg:block">
                   <div className="text-sm font-bold font-[family-name:var(--font-orbitron)] tracking-tight uppercase">{net.name}</div>
-                  <div className="text-[10px] text-gray-500 uppercase tracking-widest">{net.description}</div>
+                  <div className="text-[10px] text-gray-400 uppercase tracking-widest">{net.description}</div>
                 </div>
               </button>
             ))}
@@ -126,7 +126,7 @@ export const CarruselRedes = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-72 h-72 shrink-0 rounded-3xl overflow-hidden relative group border border-white/10 shadow-2xl transition-all hover:border-primary/50 block"
-                  aria-label={`Ver publicación en ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
+                  aria-label={`Ver publicación ${item.id} en ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
                 >
                   <img src={item.image} alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-[#050810]/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-6 p-8">

@@ -91,7 +91,7 @@ export default function HeroAnimado() {
 
       {/* Simplified Background Effects for Performance */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-soft-light" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZUZpbHRlcic+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuNjUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2VGaWx0ZXIpJy8+PC9zdmc+')] opacity-10 mix-blend-soft-light" />
 
         {/* Glowing Orbs (Static for better performance) */}
         <div className="absolute -top-[10%] -left-[5%] w-[50%] h-[50%] bg-blue-600/20 rounded-full blur-[100px]" />
@@ -141,6 +141,7 @@ export default function HeroAnimado() {
           >
             <Link
               href="/cotizar/express"
+              aria-label="Solicitar Servicio de mensajería desde el héroe"
               className="group relative px-10 py-5 bg-secondary hover:bg-yellow-400 text-black font-display text-orbitron font-black rounded-2xl transition-all shadow-[0_10px_40px_-10px_rgba(234,179,8,0.4)] uppercase tracking-tight overflow-hidden active:scale-95"
             >
               <span className="relative z-10 flex items-center gap-2">

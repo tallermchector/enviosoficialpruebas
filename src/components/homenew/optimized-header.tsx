@@ -144,7 +144,7 @@ export const OptimizedHeader = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo Section */}
-        <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group shrink-0 min-w-0">
+        <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group shrink-0 min-w-0" aria-label="Volver al inicio desde la cabecera">
           <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all group-hover:rotate-6 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(37,99,235,0.4)]">
             <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" priority sizes="(max-width: 768px) 32px, 40px" />
           </div>
@@ -222,7 +222,7 @@ export const OptimizedHeader = () => {
               variant="gradient"
               className="px-6 rounded-xl font-display text-orbitron uppercase tracking-tighter"
             >
-              <Link href="/cotizar/express">
+              <Link href="/cotizar/express" aria-label="Cotizar Envío desde la cabecera">
                 <CalculatorIcon className="mr-2 h-4 w-4" />
                 Cotizar Envío
               </Link>
@@ -358,10 +358,10 @@ export const OptimizedHeader = () => {
                       </Link>
                     </SheetClose>
                     <div className="mt-6 flex items-center justify-center gap-6" id="mobile-menu-description">
-                      <Link href="https://instagram.com/enviosdosruedas" aria-label="Visitar nuestro Instagram" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-white transition-all">
+                      <Link href="https://instagram.com/enviosdosruedas" aria-label="Visitar nuestro Instagram desde el menú móvil" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-white transition-all">
                         <InstagramIcon className="w-5 h-5" aria-hidden="true" />
                       </Link>
-                      <a href="tel:+5492236602699" aria-label="Llamar a Envios DosRuedas" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all">
+                      <a href="tel:+5492236602699" aria-label="Llamar a Envios DosRuedas desde el menú móvil" className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-secondary hover:text-white transition-all">
                         <Phone className="w-5 h-5" aria-hidden="true" />
                       </a>
                     </div>

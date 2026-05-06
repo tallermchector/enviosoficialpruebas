@@ -34,7 +34,7 @@ export const Footer = () => {
 
           {/* Brand Identity */}
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 group shrink-0">
+            <Link href="/" className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 group shrink-0" aria-label="Volver al inicio desde el pie de página">
               <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center shrink-0 transition-all group-hover:rotate-6 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(37,99,235,0.4)]">
                 <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" sizes="(max-width: 640px) 48px, 56px" />
               </div>
@@ -47,27 +47,27 @@ export const Footer = () => {
                 </span>
               </div>
             </Link>
-            <p className="text-gray-500 text-base mb-12 leading-relaxed font-[family-name:var(--font-roboto)] font-light max-w-sm">
+            <p className="text-gray-400 text-base mb-12 leading-relaxed font-[family-name:var(--font-roboto)] font-light max-w-sm">
               Tu solución confiable para mensajería y delivery en Mar del Plata. Servicios rápidos, seguros y económicos.
             </p>
 
             <FooterSocialLinks
               links={[
-                { icon: "/icons/instagram.svg", href: "https://instagram.com/enviosdosruedas", label: "Instagram" },
-                { icon: "/icons/facebook.svg", href: "https://facebook.com/enviosdosruedas", label: "Facebook" },
-                { icon: "/icons/whatsapp.svg", href: "https://wa.me/542236602699", label: "WhatsApp" },
-                { icon: "/icons/google.svg", href: "#", label: "Google" }
+                { icon: "/icons/instagram.svg", href: "https://instagram.com/enviosdosruedas", label: "Instagram en el pie de página" },
+                { icon: "/icons/facebook.svg", href: "https://facebook.com/enviosdosruedas", label: "Facebook en el pie de página" },
+                { icon: "/icons/whatsapp.svg", href: "https://wa.me/542236602699", label: "WhatsApp en el pie de página" },
+                { icon: "/icons/google.svg", href: "#", label: "Google en el pie de página" }
               ]}
             />
           </div>
 
           {/* Navigation Columns */}
           <div className="lg:col-span-2">
-            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Nosotros</h4>
+            <h3 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Nosotros</h3>
             <ul className="space-y-6">
               {footerLinks.empresa.slice(0, 3).map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-500 hover:text-primary transition-all flex items-center gap-3 group text-sm font-[family-name:var(--font-roboto)] font-light">
+                  <Link href={link.href} className="text-gray-400 hover:text-primary transition-all flex items-center gap-3 group text-sm font-[family-name:var(--font-roboto)] font-light">
                     <div className="w-1 h-1 rounded-full bg-primary/20 group-hover:bg-primary group-hover:scale-150 transition-all" />
                     {link.label}
                   </Link>
@@ -77,11 +77,11 @@ export const Footer = () => {
           </div>
 
           <div className="lg:col-span-2">
-            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Servicios</h4>
+            <h3 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Servicios</h3>
             <ul className="space-y-6">
               {footerLinks.servicios.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-500 hover:text-primary transition-all flex items-center gap-3 group text-sm font-[family-name:var(--font-roboto)] font-light">
+                  <Link href={link.href} className="text-gray-400 hover:text-primary transition-all flex items-center gap-3 group text-sm font-[family-name:var(--font-roboto)] font-light">
                     <div className="w-1 h-1 rounded-full bg-primary/20 group-hover:bg-primary group-hover:scale-150 transition-all" />
                     {link.label}
                   </Link>
@@ -92,7 +92,7 @@ export const Footer = () => {
 
           {/* Contact Information */}
           <div className="lg:col-span-4">
-            <h4 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Contacto Rápido</h4>
+            <h3 className="font-display text-orbitron font-black mb-10 tracking-[0.3em] text-[10px] uppercase text-white/40">Contacto Rápido</h3>
             <ul className="space-y-8">
               <li className="flex items-start gap-5 group">
                 <div className="w-12 h-12 rounded-2xl glass-card flex items-center justify-center shrink-0 group-hover:bg-secondary/20 group-hover:border-secondary/40 transition-all">
@@ -145,14 +145,14 @@ export const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex flex-col gap-2">
-            <p className="text-[9px] text-gray-600 uppercase tracking-[0.4em] font-black text-center md:text-left">
+            <p className="text-[9px] text-gray-400 uppercase tracking-[0.4em] font-black text-center md:text-left">
               © 2026 Envios DosRuedas. Todos los derechos reservados.
             </p>
           </div>
 
           <div className="flex items-center gap-10">
-            <Link href="/politica-de-privacidad" className="text-[9px] text-gray-600 hover:text-white uppercase tracking-widest font-black transition-colors">Privacidad</Link>
-            <Link href="/terminos-y-condiciones" className="text-[9px] text-gray-600 hover:text-white uppercase tracking-widest font-black transition-colors">Términos</Link>
+            <Link href="/politica-de-privacidad" className="text-[9px] text-gray-400 hover:text-white uppercase tracking-widest font-black transition-colors">Privacidad</Link>
+            <Link href="/terminos-y-condiciones" className="text-[9px] text-gray-400 hover:text-white uppercase tracking-widest font-black transition-colors">Términos</Link>
             <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-gray-800" aria-hidden="true">
               <Globe size={14} />
             </div>
