@@ -1,54 +1,70 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+'use client';
+
+import React from 'react';
+import { motion } from "framer-motion"
+import { PackageSearch, Truck, CheckSquare, Star } from "lucide-react"
 
 export function HowItWorks() {
   const steps = [
     {
-      step: "1",
-      title: "Registrate",
-      description: "Completa el formulario de registro y valida tu cuenta de MercadoLibre.",
+      icon: PackageSearch,
+      title: "1. Vendes",
+      description: "Recibes una venta con Mercado Envios Flex en tu panel de MercadoLibre.",
     },
     {
-      step: "2",
-      title: "Configura",
-      description: "Configura tu cuenta para que funcione con Envios Flex según la distancia de entregas que prefieras.",
+      icon: Truck,
+      title: "2. Retiramos",
+      description: "Coordinamos el retiro por tu local o domicilio en el horario de corte pactado.",
     },
     {
-      step: "3",
-      title: "Vende",
-      description: "Publica tus productos con la opción de Envios Flex habilitada.",
+      icon: CheckSquare,
+      title: "3. Entregamos",
+      description: "Nuestra flota distribuye los paquetes en Mar del Plata durante la tarde.",
     },
     {
-      step: "4",
-      title: "Nosotros Entregamos",
-      description: "Recibimos la orden y entregamos en el día o al día siguiente según el horario.",
+      icon: Star,
+      title: "4. Calificas",
+      description: "Tu cliente recibe el paquete en el día y tu reputación sube automáticamente.",
     },
   ]
 
   return (
-    <section className="py-16 px-4 bg-white font-sans">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <Badge className="bg-blue-600 text-white hover:bg-blue-700 mb-6 px-4 py-2 text-sm font-medium">
-            Proceso Simple
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">¿Cómo Funciona?</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            En solo 4 pasos simples estarás vendiendo con Envios Flex y mejorando tu reputación en MercadoLibre
-          </p>
+    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
+       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+              LOGÍSTICA <span className="text-primary">SIN FRICCIONES</span>
+            </h2>
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+              Integramos tu flujo de ventas con nuestra red de distribución en tiempo real.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
-            <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold font-display">
-                  {step.step}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3 font-display">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
-              </CardContent>
-            </Card>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="relative p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm"
+            >
+              <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                 <step.icon className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="font-[family-name:var(--font-orbitron)] text-xl font-bold mb-4 uppercase text-white tracking-tight">{step.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{step.description}</p>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,14 +1,13 @@
-
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Coins, ArrowRightCircle, HelpCircle } from "lucide-react";
+import { Coins, ArrowRightCircle, Calculator } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import type { PriceRange } from '../../../generated/prisma/client/client';
 
-// Define a client-safe type with numbers instead of Decimals
 export type PriceRangeClient = Omit<PriceRange, 'distanciaMinKm' | 'distanciaMaxKm' | 'precioRango'> & {
   distanciaMinKm: number;
   distanciaMaxKm: number;
@@ -21,19 +20,6 @@ interface EntrepreneurPricingRangesProps {
 
 
 export function EntrepreneurPricingRanges({ priceRanges }: EntrepreneurPricingRangesProps) {
-  // We'll use the same logic as the low-cost pricing
-  const displayedPriceRanges = priceRanges.filter(
-    (rango) => rango.distanciaMaxKm < 13
-  );
-
-  const formatKmDisplay = (km: number, isMaxBoundaryInTitleOrRange: boolean = false) => {
-    const kmFixed = parseFloat(km.toFixed(2));
-    if (isMaxBoundaryInTitleOrRange && String(kmFixed.toFixed(2)).endsWith('.99')) {
-      return Math.ceil(kmFixed).toString();
-    }
-    return Number.isInteger(kmFixed) ? kmFixed.toFixed(0) : kmFixed.toFixed(2).replace(".", ",");
-  };
-
   const entrepreneurTiers = [
     {
       name: "3PL Fulfillment",
@@ -45,9 +31,7 @@ export function EntrepreneurPricingRanges({ priceRanges }: EntrepreneurPricingRa
         "Rechazos devueltos sin cargo",
         "Control de stock incluido",
       ],
-      color: "border-purple-200 bg-purple-50",
       badgeText: "Plan E-Commerce",
-      badgeColor: "bg-purple-600",
     },
     {
       name: "Plan 24HS",
@@ -59,9 +43,7 @@ export function EntrepreneurPricingRanges({ priceRanges }: EntrepreneurPricingRa
         "Entrega garantizada < 24hs",
         "Ideal para grandes volúmenes",
       ],
-      color: "border-blue-200 bg-blue-50",
       badgeText: "Plan Escala",
-      badgeColor: "bg-blue-600",
     },
     {
       name: "Cta. Cte. Flexible",
@@ -73,77 +55,78 @@ export function EntrepreneurPricingRanges({ priceRanges }: EntrepreneurPricingRa
         "Elección de rango horario",
         "Facturación mensual centralizada",
       ],
-      color: "border-green-200 bg-green-50",
       badgeText: "Plan Corporativo",
-      badgeColor: "bg-green-600",
     },
   ];
 
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "5492236602699";
-    const message = "Hola, necesito cotizar un envío para mi emprendimiento de más de 13 km.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
-  };
-
   return (
-    <section className="py-16 px-4 bg-gray-50 font-sans">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">
-            Planes 3PL y Soluciones E-Commerce
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Elegí el plan que mejor se adapte al volumen de tu negocio. Desde almacenamiento hasta ruteo masivo de última milla.
-          </p>
+    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+              PLANES 3PL Y <span className="text-primary">SOLUCIONES E-COMMERCE</span>
+            </h2>
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+              Elegí el plan que mejor se adapte al volumen de tu negocio. Desde almacenamiento hasta ruteo masivo.
+            </p>
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {entrepreneurTiers.map((tier, index) => {
             return (
-              <Card
-                key={index}
-                className={`relative ${tier.color} border-2 hover:shadow-lg transition-shadow duration-300 flex flex-col`}
+               <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
               >
-                <Badge
-                  className={`absolute -top-3 left-1/2 transform -translate-x-1/2 ${tier.badgeColor} text-white px-3 py-1 text-xs`}
-                >
-                  {tier.badgeText}
-                </Badge>
-                <CardHeader className="text-center pb-4 pt-8">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-blue-200">
-                    <Coins className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <CardTitle className="text-2xl font-bold text-gray-800 font-display">
-                    {tier.name}
-                  </CardTitle>
-                  <p className="text-sm text-gray-500">
-                    {tier.distanceRange}
-                  </p>
-                  <div className="text-3xl font-bold text-blue-700 my-2 font-display">
-                    {tier.price}
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-gray-600 mb-4 text-center text-sm">
-                    {tier.description}
-                  </p>
-                  <ul className="space-y-2 text-sm">
-                    {tier.features.map((feature, featureIndex) => (
-                      <li
-                        key={featureIndex}
-                        className="flex items-center text-gray-700"
-                      >
-                        <ArrowRightCircle className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                  <Card className="relative bg-white/5 border-white/10 backdrop-blur-md hover:border-primary/50 transition-all duration-300 rounded-3xl overflow-hidden h-full flex flex-col group">
+                      <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                          {tier.badgeText}
+                      </Badge>
+
+                      <CardHeader className="text-center pt-12 pb-6">
+                          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                              <Coins className="w-8 h-8 text-primary" />
+                          </div>
+                          <CardTitle className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-white uppercase tracking-tight">
+                              {tier.name}
+                          </CardTitle>
+                          <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1">
+                              {tier.distanceRange}
+                          </p>
+                          <div className="text-4xl font-black text-white mt-6 font-[family-name:var(--font-orbitron)] italic tracking-tighter">
+                              {tier.price}
+                          </div>
+                      </CardHeader>
+
+                      <CardContent className="flex-grow pb-12">
+                          <p className="text-gray-400 mb-8 text-center text-sm font-[family-name:var(--font-roboto)] leading-relaxed">
+                              {tier.description}
+                          </p>
+                          <ul className="space-y-4 font-[family-name:var(--font-roboto)]">
+                              {tier.features.map((feature, featureIndex) => (
+                                  <li key={featureIndex} className="flex items-center text-gray-300 text-sm">
+                                      <ArrowRightCircle className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
+                                      {feature}
+                                  </li>
+                              ))}
+                          </ul>
+                      </CardContent>
+                  </Card>
+              </motion.div>
             );
           })}
-
         </div>
       </div>
     </section>

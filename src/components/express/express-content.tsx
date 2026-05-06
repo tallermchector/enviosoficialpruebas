@@ -1,4 +1,3 @@
-
 "use client"
 
 import { Button } from "@/components/ui/button"
@@ -41,10 +40,12 @@ export function ExpressContent() {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 px-4 bg-white">
-      <div className="container mx-auto max-w-7xl">
+    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
         <motion.div 
-          className="grid lg:grid-cols-2 gap-10 md:gap-12 items-center"
+          className="grid lg:grid-cols-2 gap-12 items-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -52,15 +53,19 @@ export function ExpressContent() {
         >
           {/* Left Content */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 mb-4 sm:mb-6 font-display">
-              Entregas rápidas y eficientes para tus necesidades
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-[10px] font-bold tracking-widest mb-6 uppercase">
+              SOLUCIONES PREMIUM
+            </div>
+            <h2 className="font-[family-name:var(--font-orbitron)] text-3xl md:text-5xl font-black leading-[1] mb-8 uppercase text-white tracking-tighter">
+              ENTREGAS RÁPIDAS Y <br />
+              <span className="text-primary italic">EFICIENTES</span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed font-sans">
-            Nuestro servicio Express está diseñado para situaciones de alta criticidad horaria. Es la solución premium donde el cliente tiene el control total, eligiendo el rango horario exacto para su entrega con una mínima anticipación.
+            <p className="text-gray-400 text-lg mb-10 leading-relaxed font-[family-name:var(--font-roboto)] max-w-xl">
+              Nuestro servicio Express está diseñado para situaciones de alta criticidad horaria. Es la solución premium donde el cliente tiene el control total, eligiendo el rango horario exacto para su entrega con una mínima anticipación.
             </p>
 
             {/* Features */}
-            <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+            <div className="space-y-6 mb-10">
               {features.map((feature, index) => (
                 <motion.div 
                   key={index} 
@@ -68,12 +73,12 @@ export function ExpressContent() {
                   custom={index}
                   variants={itemVariants}
                 >
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0 mt-1">
-                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-primary/30">
+                    <Check className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-blue-800 mb-1 sm:mb-2 font-display">{feature.title}</h3>
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-sans">{feature.description}</p>
+                    <h3 className="text-xl font-bold text-white mb-2 font-[family-name:var(--font-orbitron)] uppercase tracking-tight">{feature.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -81,13 +86,13 @@ export function ExpressContent() {
 
             {/* CTA Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 font-sans"
+              className="flex flex-col sm:flex-row gap-4"
               variants={itemVariants}
             >
               <Button
                 asChild
                 size="lg"
-                className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
+                className="bg-secondary hover:bg-secondary/90 text-black font-[family-name:var(--font-orbitron)] font-black px-8 py-4 rounded-xl transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto"
               >
                 <Link href="/cotizar/express">Cotiza tu Envío</Link>
               </Button>
@@ -95,27 +100,27 @@ export function ExpressContent() {
                 onClick={handleWhatsAppClick}
                 variant="outline"
                 size="lg"
-                className="border-green-500 text-green-600 hover:bg-green-50 px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base"
+                className="bg-white/5 border border-white/10 text-white hover:bg-white/10 font-[family-name:var(--font-orbitron)] font-bold px-8 py-4 rounded-xl transition-all uppercase tracking-tight h-auto"
               >
-                <Image src="/icon/icon-whatsapp-verde.svg" alt="WhatsApp Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                Consultar por WhatsApp
+                <Image src="/icon/icon-whatsapp-verde.svg" alt="WhatsApp Icon" width={20} height={20} className="w-5 h-5 mr-2" />
+                WhatsApp
               </Button>
             </motion.div>
           </motion.div>
 
           {/* Right Content - Large Branding */}
           <motion.div 
-            className="flex justify-center lg:justify-end mt-8 lg:mt-0 font-display"
+            className="flex justify-center lg:justify-end mt-8 lg:mt-0"
             variants={itemVariants}
-            initial={{opacity: 0, x: 20}}
-            animate={{opacity:1, x: 0}}
           >
-            <div className="text-center lg:text-right">
-              <div className="space-y-1 sm:space-y-2">
-                <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-teal-500 bg-clip-text">
+            <div className="text-center lg:text-right select-none opacity-20">
+              <div className="space-y-2">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-white font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
                   ENVIOS
                 </div>
-                <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-800">DOS RUEDAS</div>
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
+                  DOS RUEDAS
+                </div>
               </div>
             </div>
           </motion.div>

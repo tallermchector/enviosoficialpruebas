@@ -1,12 +1,15 @@
+'use client';
+
+import React from 'react';
 import { Card, CardContent } from "@/components/ui/card"
 import { Star, Quote } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function SuccessStories() {
   const testimonials = [
     {
       name: "María González",
       business: "Tienda de Ropa Online",
-      image: "/placeholder.svg?height=80&width=80",
       rating: 5,
       testimonial:
         "Desde que uso el Plan Emprendedor, mis ventas aumentaron un 40%. Los clientes confían más en mi tienda porque saben que sus pedidos llegarán rápido y seguro.",
@@ -15,7 +18,6 @@ export function SuccessStories() {
     {
       name: "Carlos Rodríguez",
       business: "Productos Artesanales",
-      image: "/placeholder.svg?height=80&width=80",
       rating: 5,
       testimonial:
         "La flexibilidad horaria me permite coordinar mejor con mis clientes. El soporte es excelente y siempre resuelven mis consultas rápidamente.",
@@ -24,7 +26,6 @@ export function SuccessStories() {
     {
       name: "Ana Martínez",
       business: "Cosmética Natural",
-      image: "/placeholder.svg?height=80&width=80",
       rating: 5,
       testimonial:
         "Las tarifas preferenciales me permiten ofrecer envío gratis a mis clientes sin afectar mis márgenes. Es una ventaja competitiva importante.",
@@ -33,42 +34,63 @@ export function SuccessStories() {
   ]
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Historias de Éxito</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Conoce cómo otros emprendedores han hecho crecer sus negocios con nuestro Plan Emprendedor
-          </p>
+    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+              HISTORIAS DE <span className="text-primary">ÉXITO</span>
+            </h2>
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+              Conoce cómo otros negocios han crecido con nuestras soluciones logísticas.
+            </p>
+          </motion.div>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 bg-gray-200 rounded-full mr-4 flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Foto</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.business}</p>
-                    <div className="flex items-center mt-1">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Card className="h-full bg-white/5 border-white/10 backdrop-blur-md rounded-3xl overflow-hidden hover:border-primary/30 transition-all group">
+                <CardContent className="p-10 relative">
+                   <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors" />
+
+                  <div className="flex items-center mb-8">
+                    <div className="w-16 h-16 bg-primary/10 rounded-2xl mr-6 flex items-center justify-center text-primary border border-primary/20">
+                      <Star className="w-8 h-8 fill-primary" />
+                    </div>
+                    <div>
+                      <h4 className="font-[family-name:var(--font-orbitron)] font-bold text-white uppercase tracking-tight">{testimonial.name}</h4>
+                      <p className="text-xs text-primary font-bold uppercase tracking-widest">{testimonial.business}</p>
+                      <div className="flex items-center mt-2">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-primary text-primary" />
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <Quote className="w-8 h-8 text-blue-200 mb-3" />
-                <p className="text-gray-700 mb-4 leading-relaxed italic">&quot;{testimonial.testimonial}&quot;</p>
+                  <Quote className="w-10 h-10 text-primary/20 mb-4" />
+                  <p className="text-gray-400 mb-8 leading-relaxed italic font-[family-name:var(--font-roboto)]">&quot;{testimonial.testimonial}&quot;</p>
 
-                <div className="bg-blue-50 p-3 rounded-lg">
-                  <p className="text-sm font-semibold text-blue-800">Resultado: {testimonial.results}</p>
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="bg-primary/10 border border-primary/20 p-4 rounded-2xl">
+                    <p className="text-xs font-bold text-primary uppercase tracking-widest">Resultado: {testimonial.results}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>

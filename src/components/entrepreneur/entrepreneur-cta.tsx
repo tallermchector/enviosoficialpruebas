@@ -1,41 +1,58 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Mail, ArrowRight } from "lucide-react"
-import Image from "next/image"
+import { ShieldCheck, Phone, ArrowRight } from "lucide-react"
+import Link from "next/link"
+import { motion } from "framer-motion"
 
 export function EntrepreneurCta() {
   return (
-    <section className="py-16 px-4 bg-blue-600">
-      <div className="container mx-auto max-w-4xl">
-        <Card className="bg-white">
-          <CardContent className="p-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">¿Listo para Hacer Crecer tu Negocio?</h2>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto font-sans">
-              Únete a cientos de emprendedores que ya confían en nosotros para sus envíos. Comienza hoy mismo y
-              experimenta la diferencia.
-            </p>
+    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+        <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />
+      </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 font-sans">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                <ArrowRight className="w-5 h-5 mr-2" />
-                Solicitar Plan Ahora
-              </Button>
-              <Button variant="outline" size="lg">
-                Calcular Ahorros
-              </Button>
-            </div>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <motion.div
+          className="p-12 md:p-16 rounded-[40px] bg-gradient-to-br from-primary/10 via-[#0a0d16]/80 to-secondary/5 border border-white/10 backdrop-blur-xl relative overflow-hidden text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-32 translate-x-32" />
 
-            <div className="border-t pt-6">
-              <p className="text-sm text-gray-600 mb-4 font-sans">¿Tienes preguntas? Contáctanos:</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center font-sans">
-                <Button variant="ghost" size="sm" className="text-green-600 hover:text-green-700">
-                  <Image src="/icon/icon-whatsapp-verde.svg" alt="WhatsApp Icon" width={16} height={16} className="w-4 h-4 mr-2" />
-                  WhatsApp: 223-660-2699
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-[10px] font-bold tracking-[0.3em] mb-10 uppercase">
+             SOCIO LOGÍSTICO <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          </div>
+
+          <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white">
+            ¿LISTO PARA ESCALAR <br />
+            TU <span className="text-primary">E-COMMERCE?</span>
+          </h2>
+
+          <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+            Olvídate de los paquetes y concéntrate en tu producto. Nosotros nos encargamos de toda la cadena de distribución.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+             <Link
+              href="/contacto"
+              className="px-12 py-5 bg-primary hover:bg-primary/90 text-white font-[family-name:var(--font-orbitron)] font-black rounded-2xl transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(37,99,235,0.3)] flex items-center gap-3 uppercase tracking-tight h-auto"
+            >
+              <ShieldCheck size={20} /> SOLICITAR PLAN
+            </Link>
+            <a
+              href="tel:+5492236602699"
+              className="px-12 py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-[family-name:var(--font-orbitron)] font-bold rounded-2xl transition-all flex items-center gap-3 uppercase tracking-tight group h-auto"
+            >
+              <Phone size={20} className="text-secondary" />
+              HABLAR CON UN ASESOR
+              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
