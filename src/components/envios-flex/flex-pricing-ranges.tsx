@@ -32,29 +32,50 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
         return Number.isInteger(kmFixed) ? kmFixed.toFixed(0) : kmFixed.toFixed(2).replace(".", ",");
     };
 
-    const flexTiers = displayedPriceRanges.map((rango: PriceRangeClient) => {
-        const titleMaxKmFormatted = formatKmDisplay(rango.distanciaMaxKm, true);
-        const rangeMinKmFormatted = formatKmDisplay(rango.distanciaMinKm);
-        const rangeMaxKmFormatted = formatKmDisplay(rango.distanciaMaxKm, true);
-
-        return {
-            name: `Hasta ${titleMaxKmFormatted} km`,
-            price: `$${rango.precioRango.toLocaleString("es-AR", {
-                minimumFractionDigits: rango.precioRango % 1 === 0 ? 0 : 2,
-                maximumFractionDigits: 2,
-            })}`,
-            distanceRange: `${rangeMinKmFormatted} km - ${rangeMaxKmFormatted} km`,
-            description: "Tarifa aplicable para envíos de Mercado Libre Flex.",
+    const flexTiers = [
+        {
+            name: "Nivel 1",
+            price: "Tarifa Clásica",
+            distanceRange: "1 a 4 envíos diarios",
+            description: "Ideal para vendedores que recién comienzan con Flex.",
             features: [
-                "Entrega en el día para ventas Flex",
-                "Mejora tu reputación en Mercado Libre",
-                "Integración con tu cuenta de vendedor",
+                "Tarifa zonificada estándar",
+                "Segunda visita al 50%",
+                "Retiro sin cargo",
             ],
             color: "border-yellow-300 bg-yellow-50",
-            badgeText: "Mercado Libre Flex",
+            badgeText: "Crecimiento",
             badgeColor: "bg-yellow-500",
-        };
-    });
+        },
+        {
+            name: "Nivel 2",
+            price: "Tarifa Híbrida",
+            distanceRange: "+5 envíos diarios",
+            description: "Beneficios exclusivos para vendedores constantes.",
+            features: [
+                "Zona 4 y 5 tope fijo $6.500",
+                "2da visita GRATIS (Zona 1)",
+                "Prioridad en ruteo",
+            ],
+            color: "border-blue-300 bg-blue-50",
+            badgeText: "Pro",
+            badgeColor: "bg-blue-600",
+        },
+        {
+            name: "Nivel 3",
+            price: "$4.500",
+            distanceRange: "Grandes Cuentas (+10)",
+            description: "Máxima eficiencia y previsibilidad de costos.",
+            features: [
+                "Tarifa PLANA toda la ciudad",
+                "Reprogramaciones 100% GRATIS",
+                "Soporte dedicado",
+            ],
+            color: "border-green-300 bg-green-50",
+            badgeText: "Elite",
+            badgeColor: "bg-green-600",
+        },
+    ];
 
     const handleWhatsAppClick = () => {
         const phoneNumber = "5492236602699";
@@ -68,10 +89,10 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
             <div className="container mx-auto max-w-6xl">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 font-display">
-                        Tarifas para Envíos Flex
+                        Niveles y Tarifas Flex
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto font-sans">
-                        Precios competitivos para tus ventas de Mercado Libre, basados en nuestra estructura de costos optimizada.
+                        Escalá tu negocio con MercadoLibre Flex. A mayor volumen, mejores beneficios y tarifas para tus envíos.
                     </p>
                 </div>
 
@@ -121,33 +142,33 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
                         );
                     })}
 
-                    <Card className="relative border-gray-300 bg-gray-100 border-2 hover:shadow-lg transition-shadow duration-300 flex flex-col">
+                    <Card className="relative border-blue-300 bg-blue-50 border-2 hover:shadow-lg transition-shadow duration-300 flex flex-col">
                         <Badge
-                            className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gray-700 text-white px-3 py-1 text-xs font-sans"
+                            className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-3 py-1 text-xs font-sans"
                         >
-                            Cotización Personalizada
+                            Beneficio Clima
                         </Badge>
                         <CardHeader className="text-center pb-4 pt-8">
-                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-gray-300">
-                                <HelpCircle className="w-8 h-8 text-gray-700" />
+                            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-blue-300">
+                                <HelpCircle className="w-8 h-8 text-blue-600" />
                             </div>
                             <CardTitle className="text-2xl font-bold text-gray-800 font-display">
-                                Más de 13 km
+                                Recargo por Lluvia
                             </CardTitle>
                             <p className="text-sm text-gray-500 font-sans">
-                                Zonas Extendidas
+                                Tarifa Reducida
                             </p>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col justify-between font-sans">
                             <p className="text-gray-600 mb-4 text-center text-sm">
-                                Para zonas más alejadas o envíos Flex que superen los 13 km, contáctanos para una cotización a medida.
+                                Para nuestros clientes Flex, el recargo por días de lluvia es reducido, siendo de tan solo el 30% sobre el valor del envío.
                             </p>
                             <Button
                                 onClick={handleWhatsAppClick}
                                 className="w-full bg-green-500 hover:bg-green-600 text-white mt-4"
                             >
                                 <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={20} height={20} className="w-5 h-5 mr-2" />
-                                Consultar por WhatsApp
+                                Más Información Flex
                             </Button>
                         </CardContent>
                     </Card>

@@ -6,18 +6,18 @@ export function EnviosFlexContent() {
   const features = [
     {
       icon: Zap,
-      title: "Entregas Rápidas Garantizadas",
-      description: "Cumplimos con los plazos de Mercado Envios Flex para mejorar tu reputación.",
+      title: "SLA Garantizado",
+      description: "Entregas mismo día antes de las 20:00 hs si vendes antes de las 15:00 hs.",
     },
     {
       icon: ShoppingCart,
-      title: "Integración Sencilla",
-      description: "Nos adaptamos a tu flujo de trabajo de Mercado Libre.",
+      title: "Retiro Bonificado",
+      description: "Retiro en tu domicilio bonificado al 100% en todo Mar del Plata.",
     },
     {
       icon: MapPin,
-      title: "Amplia Cobertura",
-      description: "Llegamos a las zonas habilitadas para Envios Flex en Mar del plata.",
+      title: "Reputación al Máximo",
+      description: "Cumplimos estrictamente con los tiempos de MercadoLibre para cuidar tu cuenta.",
     },
   ]
 
@@ -27,9 +27,9 @@ export function EnviosFlexContent() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-6 font-display">Envios Flex Mercado Libre</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-6 font-display">Logística MercadoLibre Flex</h2>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            ¿Vendés por Mercado Libre? Potenciá tus ventas con Envios Flex. Entregamos tus productos en el día o al día siguiente, mejorando tu reputación y la satisfacción de tus compradores. Nos integramos fácilmente a tu operatoria.
+            Somos tu partner estratégico para MercadoLibre Flex en Mar del Plata. Ofrecemos integración total con SLA garantizado: si vendés antes de las 15:00 hs, entregamos el mismo día antes de las 20:00 hs. Retiramos por tu local o depósito sin cargo.
             </p>
 
             {/* Features */}

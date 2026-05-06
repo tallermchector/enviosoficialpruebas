@@ -34,22 +34,6 @@ export const pageComponentMap: Record<string, ComponentInfo[]> = {
         { name: "Cómo Funciona Low Cost", path: "src/components/lowcost/how-lowcost-works.tsx" },
         { name: "CTA de Envíos Low Cost", path: "src/components/lowcost/lowcost-cta.tsx" },
     ],
-    "Moto Fija": [
-        { name: "Hero de Moto Fija", path: "src/components/moto-fija/moto-fija-hero.tsx" },
-        { name: "Contenido de Moto Fija", path: "src/components/moto-fija/moto-fija-content.tsx" },
-        { name: "Características del Servicio", path: "src/components/moto-fija/service-features.tsx" },
-        { name: "Clientes Ideales", path: "src/components/moto-fija/ideal-clients.tsx" },
-        { name: "Planes y Tarifas", path: "src/components/moto-fija/pricing-plans.tsx" },
-        { name: "CTA de Moto Fija", path: "src/components/moto-fija/moto-fija-cta.tsx" },
-    ],
-     "Delivery Gastronómico": [
-        { name: "Hero de Delivery Gastronómico", path: "src/components/delivery-gastronomico/hero-gastronomico.tsx" },
-        { name: "Misión Gastronómico", path: "src/components/delivery-gastronomico/mision-gastronomico.tsx" },
-        { name: "Diferencia del Servicio", path: "src/components/delivery-gastronomico/diferencia-gastronomico.tsx" },
-        { name: "Beneficios para el Negocio", path: "src/components/delivery-gastronomico/beneficios-gastronomico.tsx" },
-        { name: "Preguntas Frecuentes (Gastronomía)", path: "src/components/delivery-gastronomico/faq-gastronomico.tsx" },
-        { name: "CTA para Asesoramiento (Gastronomía)", path: "src/components/delivery-gastronomico/cta-gastronomico.tsx" },
-    ],
     "Plan Emprendedores": [
         { name: "Hero del Plan Emprendedores", path: "src/components/entrepreneur/entrepreneur-hero.tsx" },
         { name: "Información del Plan", path: "src/components/entrepreneur/plan-information.tsx" },

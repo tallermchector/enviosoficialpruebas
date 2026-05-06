@@ -58,9 +58,9 @@ export const Footer = () => {
             <h4 className="font-[family-name:var(--font-orbitron)] font-bold mb-8 tracking-widest text-xs uppercase text-white opacity-50">SERVICIOS</h4>
             <ul className="space-y-5 text-gray-500 text-sm font-[family-name:var(--font-roboto)]">
               <li><Link href="/servicios/envios-express" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Envíos Express</Link></li>
-              <li><Link href="/servicios/envios-low-cost" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Envíos Low Cost</Link></li>
+              <li><Link href="/servicios/envios-lowcost" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Envíos LowCost</Link></li>
               <li><Link href="/servicios/enviosflex" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Mercado Libre Flex</Link></li>
-              <li><Link href="/servicios/moto-fija" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> Mensajería Fija</Link></li>
+              <li><Link href="/servicios/plan-emprendedores" className="hover:text-primary transition-colors flex items-center gap-2 group"><div className="w-1 h-1 rounded-full bg-primary/30 group-hover:bg-primary transition-colors" /> E-Commerce 3PL</Link></li>
             </ul>
           </div>
 

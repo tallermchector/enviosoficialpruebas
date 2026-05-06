@@ -8,30 +8,30 @@ export function EntrepreneurHero() {
     <HeroSection
       preTitle={
         <Badge className="bg-blue-600 text-white hover:bg-blue-700 mb-6 px-4 py-2 text-sm font-medium font-sans">
-          Beneficio Emprendedores
+          E-Commerce 3PL y Soluciones Corporativas
         </Badge>
       }
       title={
         <div className="flex items-center justify-center gap-4">
           <BarChart3 className="w-10 h-10 md:w-12 md:h-12 text-yellow-400" />
           <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-400">
-            Plan Emprendedor
+            Logística 3PL
           </span>
           <ShoppingCart className="w-10 h-10 md:w-12 md:h-12 text-yellow-400" />
         </div>
       }
       description={
         <>
-          <h2 className="text-2xl md:text-3xl text-primary-foreground/90 mt-6 mb-2 font-semibold font-display">Envios DosRuedas</h2>
+          <h2 className="text-2xl md:text-3xl text-primary-foreground/90 mt-6 mb-2 font-semibold font-display">Más que un envío, somos tu depósito</h2>
           <div className="max-w-4xl mx-auto space-y-2">
             <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed font-sans">
-              <strong>Potencia tus ventas online con envíos profesionales.</strong>
+              <strong>Fulfillment, Almacenamiento y Cuentas Corrientes Flexibles.</strong>
             </p>
             <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed font-sans">
-            Optimiza tus ventas online con nuestro servicio especializado para emprendedores.
+            Delegá tu logística y centrate en vender. Nosotros nos encargamos del resto.
             </p>
             <p className="text-lg md:text-xl text-primary-foreground/80 leading-relaxed font-sans">
-            Accede a envíos de bajo costo con la opción de elegir tu rango horario.
+            Soluciones escalables para negocios que buscan el siguiente nivel.
             </p>
           </div>
         </>
