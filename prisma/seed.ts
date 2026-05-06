@@ -1,8 +1,17 @@
 import "dotenv/config";
-import prisma from "../src/lib/prisma.js";
+import { PrismaClient } from "../generated/prisma/client/index.js";
+
+// Use DIRECT_URL for seeding to bypass accelerator and avoid timeouts
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: process.env.DIRECT_URL,
+    },
+  },
+});
 
 async function main() {
-  console.log("Iniciando el proceso de seeding...");
+  console.log("Iniciando el proceso de seeding (usando DIRECT_URL)...");
 
   try {
     // 1. Limpieza de datos
@@ -37,7 +46,6 @@ async function main() {
       { id: 22, serviceType: "LOW_COST", distanciaMinKm: 13.01, distanciaMaxKm: 20.00, precioRango: 8200.00, isActive: true, createdAt: new Date("2025-06-21T05:44:19.882Z"), updatedAt: new Date("2025-06-21T06:23:24.074Z") },
     ];
 
-    // Para tablas con IDs específicos, es mejor hacerlo de forma secuencial o en una sola transacción
     for (const data of priceRangeData) {
       await prisma.priceRange.create({ data: data as any });
     }
@@ -141,15 +149,9 @@ async function main() {
     console.log("\n¡Seeding completado exitosamente!");
   } catch (error) {
     console.error("Error durante el seeding:", error);
-    throw error;
+  } finally {
+    await prisma.$disconnect();
   }
 }
 
-main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+main();
