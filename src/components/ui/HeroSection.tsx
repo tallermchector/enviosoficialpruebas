@@ -1,14 +1,22 @@
-'use client';
-
 import React from 'react';
-import { motion, type Variants } from 'framer-motion';
 import { Button, type buttonVariants } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import type { VariantProps } from 'class-variance-authority';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Mail, Star, Home, Truck, Calculator as CalculatorIcon, Users, ChevronDown, Menu, X, Play } from 'lucide-react';
+import {
+  ArrowRight,
+  Mail,
+  Star,
+  Home,
+  Truck,
+  Calculator as CalculatorIcon,
+  Users,
+  ChevronDown,
+  Menu,
+  X,
+  Play
+} from 'lucide-react';
 
 const iconMap: Record<string, React.ElementType> = {
   ArrowRight,
@@ -26,10 +34,9 @@ const iconMap: Record<string, React.ElementType> = {
 
 interface CtaButtonProps {
   text: string;
-  href?: string;
+  href: string;
   variant?: VariantProps<typeof buttonVariants>['variant'];
   icon?: string;
-  onClick?: () => void;
   target?: string;
   rel?: string;
   asChild?: boolean;
@@ -59,29 +66,6 @@ export interface HeroSectionProps {
   children?: React.ReactNode;
   priority?: boolean;
 }
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
 
 export function HeroSection({
   title,
@@ -120,10 +104,7 @@ export function HeroSection({
   );
 
   const textContentWrapper = (
-     <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
+     <div
       className={cn(
         'relative z-10 w-full',
         layout === 'center-stacked' ? `mx-auto ${contentMaxWidth} ${textAlignment}` :
@@ -132,31 +113,33 @@ export function HeroSection({
       )}
     >
       {preTitle && (
-        <motion.div variants={itemVariants} className="mb-8">
+        <div className="mb-8">
           {typeof preTitle === 'string' ? (
              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
                 <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
                 {preTitle}
              </div>
           ) : preTitle}
-        </motion.div>
+        </div>
       )}
 
-      <motion.h1 variants={itemVariants} className={cn(titleClassName)}>
+      <h1 className={cn(titleClassName, "animate-fade-in-up")}>
         {title}
-      </motion.h1>
+      </h1>
 
       {description && (
-        <motion.div variants={itemVariants} className={cn(descriptionClassName, textAlignment === 'text-left' ? 'mr-auto' : textAlignment === 'text-right' ? 'ml-auto' : 'mx-auto')}>
+        <div
+          className={cn(descriptionClassName, textAlignment === 'text-left' ? 'mr-auto' : textAlignment === 'text-right' ? 'ml-auto' : 'mx-auto', "animate-fade-in-up")}
+          style={{ animationDelay: '0.1s' }}
+        >
             {description}
-        </motion.div>
+        </div>
       )}
 
-      {children && <motion.div variants={itemVariants} className="mt-6 md:mt-8">{children}</motion.div>}
+      {children && <div className="mt-6 md:mt-8">{children}</div>}
 
       {ctaButtons && ctaButtons.length > 0 && (
-        <motion.div
-          variants={itemVariants}
+        <div
           className={cn(
             'flex flex-col sm:flex-row gap-6 items-center',
             textAlignment === 'text-center' ? 'justify-center' :
@@ -172,11 +155,14 @@ export function HeroSection({
             const isYellowButton = button.variant === 'secondary';
 
             return (
-              <motion.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <div
+                key={index}
+                className="transition-transform hover:scale-105 active:scale-95 animate-fade-in-up"
+                style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+              >
                 <Button
                   variant={button.variant || 'default'}
-                  asChild={!!button.href && !button.onClick}
-                  onClick={button.onClick}
+                  asChild
                   className={cn(
                     'px-10 py-5 font-[family-name:var(--font-orbitron)] font-black rounded-xl transition-all uppercase tracking-tight h-auto',
                     isYellowButton
@@ -185,30 +171,20 @@ export function HeroSection({
                     button.className
                   )}
                 >
-                  {button.href && !button.onClick ? (
-                    <Link href={button.href} target={button.target} rel={button.rel}>
-                      {!isYellowButton && (
-                        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
-                      )}
-                      {IconComponent && <IconComponent className="mr-2 h-5 w-5" />}
-                      {button.text}
-                    </Link>
-                  ) : (
-                    <>
-                      {!isYellowButton && (
-                        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
-                      )}
-                      {IconComponent && <IconComponent className="mr-2 h-5 w-5" />}
-                      {button.text}
-                    </>
-                  )}
+                  <Link href={button.href} target={button.target} rel={button.rel}>
+                    {!isYellowButton && (
+                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
+                    )}
+                    {IconComponent && <IconComponent className="mr-2 h-5 w-5" />}
+                    {button.text}
+                  </Link>
                 </Button>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       )}
-    </motion.div>
+    </div>
   );
 
   return (
@@ -227,19 +203,6 @@ export function HeroSection({
         </div>
       )}
 
-      <style jsx global>{`
-        @keyframes pulse-glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
-          50% { box-shadow: 0 0 35px rgba(251, 191, 36, 0.6); }
-        }
-        .animate-pulse-glow {
-          animation: pulse-glow 2s infinite;
-        }
-        @keyframes shimmer {
-          100% { transform: translateX(100%); }
-        }
-      `}</style>
-
       {/* Decorative Gradients */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-30 z-0">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
@@ -255,29 +218,51 @@ export function HeroSection({
         {layout === 'center-stacked' ? textContentWrapper : (
            <>
              {layout === 'split-visual-left' && visualElement && (
-                <motion.div
-                  className="relative flex justify-center items-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                >
+                <div className="relative flex justify-center items-center">
                   {visualElement}
-                </motion.div>
+                </div>
              )}
              {textContentWrapper}
              {layout === 'split-visual-right' && visualElement && (
-                <motion.div
-                  className="relative flex justify-center items-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 0.5 }}
-                >
+                <div className="relative flex justify-center items-center">
                   {visualElement}
-                </motion.div>
+                </div>
              )}
            </>
         )}
       </div>
+
+      {/* Use standard CSS for animations instead of styled-jsx if possible,
+          but since this is a Server Component, styled-jsx won't work well without client boundary.
+          Actually, Next.js supports styled-jsx in server components now, but standard Tailwind is preferred.
+          The pulse-glow and shimmer are already in globals.css or can be added via arbitrary values or tailwind config.
+      */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+          50% { box-shadow: 0 0 35px rgba(251, 191, 36, 0.6); }
+        }
+        .animate-pulse-glow {
+          animation: pulse-glow 2s infinite;
+        }
+        @keyframes shimmer {
+          100% { transform: translateX(100%); }
+        }
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.6s ease-out forwards;
+          opacity: 0;
+        }
+      `}} />
     </section>
   );
 }

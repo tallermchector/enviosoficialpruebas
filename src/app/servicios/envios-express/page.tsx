@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   keywords: "envios express mar del plata, mensajeria urgente, delivery rapido, entrega mismo dia, paqueteria express",
 };
 
-// Disable prerendering during build to avoid database connection issues
-export const revalidate = 0;
+// Optimización: Revalidación cada hora para aprovechar el caché de Bun y Prisma
+export const revalidate = 3600;
 
 async function getPriceRanges(): Promise<PriceRangeClient[]> {
   const priceRanges = await prisma.priceRange.findMany({
