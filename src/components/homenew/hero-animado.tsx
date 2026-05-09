@@ -200,7 +200,10 @@ export default function HeroAnimado() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 200, damping: 25 }}
             >
-              <RotatingCard className="w-full h-full drop-shadow-[0_45px_70px_-15px_rgba(0,0,0,0.7)]" />
+              <RotatingCard 
+                frontImageSrc="/cards/card_mapa.webp"
+                className="w-full h-full drop-shadow-[0_45px_70px_-15px_rgba(0,0,0,0.7)]" 
+              />
 
               {/* Floating Glass Badges */}
               <motion.div
