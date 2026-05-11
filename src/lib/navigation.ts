@@ -1,68 +1,25 @@
+import { Truck, Zap, Clock, Package, Building2, ShieldCheck, Mail, Share2 } from 'lucide-react';
 
-import {
-  Truck,
-  Calculator,
-  Users,
-  Home,
-  Mail,
-  ChevronDown,
-  Menu,
-  X,
-  Zap,
-  DollarSign,
-  Bike,
-  TrendingUp,
-  ShoppingCart,
-  Info,
-  HelpCircle,
-  Share2,
-  Utensils,
-  type LucideIcon,
-} from "lucide-react";
-import type React from "react";
-
-export interface NavItem {
-  href: string;
-  label: string;
-  icon?: React.ElementType;
-}
-
-export interface NavGroup {
-  label: string;
-  icon: React.ElementType;
-  items: NavItem[];
-  basePath?: string;
-}
-
-export const navGroups: NavGroup[] = [
+export const navGroups = [
   {
-    label: "Servicios",
+    label: 'Servicios',
+    basePath: '/servicios',
     icon: Truck,
-    basePath: "/servicios",
     items: [
-      { href: "/servicios/envios-express", label: "Envíos Express", icon: Zap },
-      { href: "/servicios/envios-lowcost", label: "Envíos LowCost", icon: DollarSign },
-      { href: "/servicios/plan-emprendedores", label: "Plan Emprendedores", icon: TrendingUp },
-      { href: "/servicios/enviosflex", label: "Mercado Libre Flex", icon: ShoppingCart },
+      { label: 'Envíos Express', href: '/servicios/envios-express', icon: Zap },
+      { label: 'Envíos LowCost', href: '/servicios/envios-lowcost', icon: Clock },
+      { label: 'Envíos Flex (MeLi)', href: '/servicios/enviosflex', icon: Package },
+      { label: 'E-Commerce & 3PL', href: '/servicios/plan-emprendedores', icon: Building2 },
     ],
   },
   {
-    label: "Cotizar",
-    icon: Calculator,
-    basePath: "/cotizar",
+    label: 'Nosotros',
+    basePath: '/nosotros',
+    icon: Building2,
     items: [
-      { href: "/cotizar/express", label: "Cotizar Express", icon: Zap },
-      { href: "/cotizar/lowcost", label: "Cotizar LowCost", icon: DollarSign },
-    ],
-  },
-  {
-    label: "Nosotros",
-    icon: Users,
-    basePath: "/nosotros",
-    items: [
-      { href: "/nosotros/sobre-nosotros", label: "Sobre Nosotros", icon: Info },
-      { href: "/nosotros/preguntas-frecuentes", label: "Preguntas Frecuentes", icon: HelpCircle },
-      { href: "/nosotros/nuestras-redes", label: "Nuestras Redes", icon: Share2 },
+      { label: 'Sobre Nosotros', href: '/nosotros/sobre-nosotros', icon: ShieldCheck },
+      { label: 'Preguntas Frecuentes', href: '/nosotros/preguntas-frecuentes', icon: Mail },
+      { label: 'Nuestras Redes', href: '/nosotros/nuestras-redes', icon: Share2 },
     ],
   },
 ];
