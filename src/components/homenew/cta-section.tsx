@@ -4,12 +4,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Calculator, ArrowRight, Zap, ShieldCheck, Clock, MousePointer2 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const CtaSection = () => {
   return (
     <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 bg-[#050810] overflow-hidden">
       {/* High-End Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/hero/abstracto_background.jpeg"
+          alt="Background Abstracto"
+          fill
+          className="object-cover opacity-[0.07] grayscale"
+        />
         <div className="absolute inset-0 bg-radial-gradient-blue" />
         <div className="absolute inset-0 bg-radial-gradient-yellow" />
 

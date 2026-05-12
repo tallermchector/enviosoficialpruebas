@@ -41,6 +41,12 @@ export const EmprendedoresHome = () => {
     <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 overflow-hidden bg-[#050810]">
       {/* Background Decorative Tech Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.05]">
+        <Image
+          src="/hero/delivery_background.jpeg"
+          alt="Background Delivery"
+          fill
+          className="object-cover"
+        />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary rounded-full blur-[150px] mix-blend-screen" />
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,#3b82f633_0,transparent_50%)]" />
       </div>

@@ -98,7 +98,7 @@ export const VisionSection = () => {
             {/* Visual Glass Frame */}
             <div className="relative aspect-[4/5] rounded-[60px] overflow-hidden group border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]">
               <Image
-                src="/img/home/vision_global_4.jpeg"
+                src="/hero/mapa_background.jpeg"
                 alt="Vanguardia Logística"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

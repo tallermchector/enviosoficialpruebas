@@ -15,7 +15,7 @@ export function HeroBackground() {
         className="absolute inset-0 z-0 pointer-events-none"
       >
         <Image
-          src="/bannerenvios.webp"
+          src="/hero/hero_background.jpeg"
           alt="Logística Urbana Mar del Plata"
           fill
           sizes="100vw"
