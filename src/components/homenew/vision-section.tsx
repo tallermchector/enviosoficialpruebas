@@ -102,7 +102,7 @@ export const VisionSection = () => {
                 alt="Vanguardia Logística"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-[3s] group-hover:scale-110 filter brightness-90 contrast-110"
+                className="object-cover transition-transform duration-[3000ms] group-hover:scale-110 filter brightness-90 contrast-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-transparent to-transparent opacity-90" />
 
