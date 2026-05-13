@@ -34,8 +34,9 @@ export function UrgentScenarios() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-24 px-4 bg-slate-900 relative overflow-hidden">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-20">
@@ -45,9 +46,9 @@ export function UrgentScenarios() {
             viewport={{ once: true }}
           >
             <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
-              ¿CUÁNDO NECESITAS <span className="text-primary">EXPRESS?</span>
+              ¿CUÁNDO NECESITAS <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">EXPRESS?</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <div className="w-24 h-2 bg-secondary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
             <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
               Situaciones donde cada minuto cuenta y la rapidez es fundamental.
             </p>
@@ -65,11 +66,12 @@ export function UrgentScenarios() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-white/5 border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm group hover:border-primary/30 transition-all h-full">
+                <Card className="bg-[#0f172a] border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm group hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all h-full relative">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <CardContent className="p-8">
                     <div className="flex items-start mb-6">
-                      <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <IconComponent className="w-7 h-7 text-secondary" />
+                      <div className="w-14 h-14 bg-secondary/10 border border-secondary/20 rounded-2xl flex items-center justify-center mr-6 flex-shrink-0 group-hover:scale-110 group-hover:border-secondary/50 transition-transform">
+                        <IconComponent className="w-7 h-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.8)] transition-all" />
                       </div>
                       <div>
                         <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-3 uppercase text-white tracking-tight">{scenario.title}</h3>
@@ -81,7 +83,7 @@ export function UrgentScenarios() {
                       <ul className="space-y-3 font-[family-name:var(--font-roboto)]">
                         {scenario.examples.map((example, exampleIndex) => (
                           <li key={exampleIndex} className="text-sm text-gray-400 flex items-center">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
+                            <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3 shadow-[0_0_5px_rgba(234,179,8,0.5)]"></div>
                             {example}
                           </li>
                         ))}

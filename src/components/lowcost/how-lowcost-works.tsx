@@ -25,8 +25,9 @@ export function HowLowcostWorks() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
-       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-24 px-4 bg-slate-900 relative overflow-hidden">
+       <div className="absolute inset-0 z-0 pointer-events-none opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]" />
+       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-20">
@@ -36,9 +37,9 @@ export function HowLowcostWorks() {
             viewport={{ once: true }}
           >
             <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
-              ¿CÓMO <span className="text-primary">FUNCIONA?</span>
+              ¿CÓMO <span className="text-primary drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]">FUNCIONA?</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(37,99,235,0.4)]" />
             <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
               Un proceso simple y transparente diseñado para maximizar tu productividad.
             </p>
@@ -53,10 +54,11 @@ export function HowLowcostWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="relative p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm"
+              className="relative p-8 rounded-3xl bg-[#0f172a] border border-white/10 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(37,99,235,0.1)] transition-all duration-300 group backdrop-blur-sm"
             >
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 border border-primary/40 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                 <CheckCircle2 className="w-6 h-6 text-primary" />
+              <div className="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-l-3xl" />
+              <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 border border-primary/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
+                 <CheckCircle2 className="w-6 h-6 text-primary group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.8)] transition-all" />
               </div>
               <h3 className="font-[family-name:var(--font-orbitron)] text-xl font-bold mb-4 uppercase text-white tracking-tight">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{step.description}</p>

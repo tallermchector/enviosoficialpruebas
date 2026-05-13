@@ -8,19 +8,19 @@ import { motion } from "framer-motion"
 function UrgencyClock() {
   return (
     <div className="relative w-32 h-32 mx-auto mb-8">
-      <div className="absolute inset-0 border-4 border-primary/20 rounded-full" />
+      <div className="absolute inset-0 border-4 border-secondary/20 rounded-full" />
       <motion.div
-        className="absolute top-1/2 left-1/2 w-1 h-12 bg-primary origin-bottom -translate-x-1/2 -translate-y-full rounded-full"
+        className="absolute top-1/2 left-1/2 w-1 h-12 bg-secondary origin-bottom -translate-x-1/2 -translate-y-full rounded-full shadow-[0_0_15px_rgba(234,179,8,0.8)]"
         animate={{ rotate: 360 }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 w-1 h-8 bg-secondary origin-bottom -translate-x-1/2 -translate-y-full rounded-full"
+        className="absolute top-1/2 left-1/2 w-1 h-8 bg-white origin-bottom -translate-x-1/2 -translate-y-full rounded-full"
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       />
       <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 shadow-lg" />
-      <div className="absolute inset-0 border-t-4 border-primary rounded-full animate-spin-slow opacity-30" />
+      <div className="absolute inset-0 border-t-4 border-secondary rounded-full animate-spin-slow opacity-50" />
     </div>
   )
 }
@@ -55,8 +55,8 @@ export function ExpressBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+    <section className="py-24 px-4 bg-slate-950 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-20">
@@ -67,9 +67,9 @@ export function ExpressBenefits() {
           >
             <UrgencyClock />
             <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
-              ¿POR QUÉ <span className="text-primary">ELEGIR EXPRESS?</span>
+              ¿POR QUÉ <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">ELEGIR EXPRESS?</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <div className="w-24 h-2 bg-secondary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
             <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
               Descubre todas las ventajas de nuestro servicio premium de entregas rápidas.
             </p>
@@ -87,13 +87,15 @@ export function ExpressBenefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="h-full"
               >
-                <Card className="h-full bg-white/5 border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden">
+                <Card className="h-full bg-[#0f172a] border-white/10 hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all duration-300 group backdrop-blur-sm rounded-3xl overflow-hidden relative">
+                   <div className="absolute top-0 left-0 w-full h-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <CardContent className="p-10 relative">
-                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors" />
+                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-secondary/5 transition-colors duration-300" />
 
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
-                      <IconComponent className="w-8 h-8 text-primary" />
+                    <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative border border-secondary/20 group-hover:border-secondary/50">
+                      <IconComponent className="w-8 h-8 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.8)] transition-all" />
                     </div>
                     <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{benefit.description}</p>

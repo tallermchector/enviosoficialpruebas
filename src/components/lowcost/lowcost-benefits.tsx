@@ -40,7 +40,7 @@ export function LowcostBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+    <section className="py-24 px-4 bg-slate-950 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -51,9 +51,9 @@ export function LowcostBenefits() {
             viewport={{ once: true }}
           >
             <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
-              BENEFICIOS <span className="text-primary">LOWCOST</span>
+              BENEFICIOS <span className="text-primary drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]">LOWCOST</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(37,99,235,0.4)]" />
             <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
               La combinación perfecta entre economía y eficiencia logística para tu negocio.
             </p>
@@ -71,21 +71,23 @@ export function LowcostBenefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="h-full"
               >
-                <Card className="h-full bg-white/5 border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden">
+                <Card className="h-full bg-white/5 border-white/10 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(37,99,235,0.1)] transition-all duration-300 group backdrop-blur-md rounded-3xl overflow-hidden relative">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <CardContent className="p-10 relative">
-                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors" />
+                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors duration-300" />
 
                     <div className="flex justify-between items-start mb-8">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform relative">
-                        <IconComponent className="w-8 h-8 text-primary" />
+                      <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 group-hover:border-primary/50 transition-transform relative">
+                        <IconComponent className="w-8 h-8 text-primary group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.8)] transition-all" />
                       </div>
                       <motion.div
                         initial={{ opacity: 0, scale: 0 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.2 + 0.5 }}
                       >
-                        <CheckCircle2 className="w-6 h-6 text-green-500" />
+                        <CheckCircle2 className="w-6 h-6 text-green-500/80 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]" />
                       </motion.div>
                     </div>
                     <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>

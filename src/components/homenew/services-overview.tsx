@@ -15,8 +15,8 @@ export const ServicesOverview = () => {
       icon: <Zap />,
       href: "/servicios/envios-express",
       buttonText: "Solicitar Express",
-      className: "md:col-span-2 md:row-span-1 bg-primary/10 border-primary/20 hover:border-primary/50",
-      iconClassName: "bg-primary text-white shadow-[0_0_20px_rgba(37,99,235,0.4)]",
+      className: "md:col-span-2 md:row-span-1 bg-slate-900 border-white/10 hover:border-secondary/50",
+      iconClassName: "bg-secondary/10 border border-secondary/20 text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.6)]",
       badge: "ALTA PRIORIDAD",
       image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=800"
     },
@@ -27,8 +27,8 @@ export const ServicesOverview = () => {
       icon: <Clock />,
       href: "/servicios/envios-lowcost",
       buttonText: "Ahorrá con LowCost",
-      className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-secondary/40",
-      iconClassName: "bg-secondary text-black shadow-[0_0_20px_rgba(234,179,8,0.3)]",
+      className: "md:col-span-2 md:row-span-1 bg-slate-950 border-white/10 hover:border-primary/40",
+      iconClassName: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]",
     },
     {
       title: "Envíos Flex (MercadoLibre)",
@@ -37,8 +37,9 @@ export const ServicesOverview = () => {
       icon: <Package />,
       href: "/servicios/enviosflex",
       buttonText: "Activar Envíos Flex",
-      className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-blue-400/30",
-      iconClassName: "bg-blue-400/20 text-blue-400",
+      className: "md:col-span-2 md:row-span-1 bg-[#FFF159] border-[#FFF159]/20 hover:border-[#2D3277]/40 text-slate-900",
+      iconClassName: "bg-[#2D3277]/10 border border-[#2D3277]/20 text-[#2D3277]",
+      isMeli: true,
     },
     {
       title: "E-Commerce & 3PL",
@@ -47,8 +48,8 @@ export const ServicesOverview = () => {
       icon: <Truck />,
       href: "/servicios/plan-emprendedores",
       buttonText: "Hablar con un asesor",
-      className: "md:col-span-2 md:row-span-1 bg-white/[0.03] border-white/5 hover:border-primary/30",
-      iconClassName: "bg-primary/20 text-primary",
+      className: "md:col-span-2 md:row-span-1 bg-[#0f172a] border-white/10 hover:border-white/30 backdrop-blur-md",
+      iconClassName: "bg-white/5 border border-white/10 text-white",
     }
   ];
 
@@ -143,13 +144,13 @@ export const ServicesOverview = () => {
                   {React.cloneElement(service.icon as React.ReactElement<{ size?: number; className?: string; fill?: string }>, { size: 28 })}
                 </div>
 
-                <h3 className="font-display text-orbitron text-xl md:text-2xl lg:text-3xl font-black mb-1 uppercase text-white tracking-tight leading-tight">
+                <h3 className={cn("font-display text-orbitron text-xl md:text-2xl lg:text-3xl font-black mb-1 uppercase tracking-tight leading-tight", service.isMeli ? "text-slate-900" : "text-white")}>
                   {service.title}
                 </h3>
-                <p className="text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+                <p className={cn("text-[10px] font-black uppercase tracking-[0.2em] mb-4", service.isMeli ? "text-[#2D3277]" : "text-primary")}>
                   {service.bajada}
                 </p>
-                <div className="text-gray-400 text-xs md:text-sm lg:text-base leading-relaxed mb-6 font-[family-name:var(--font-roboto)] font-light max-w-[320px]">
+                <div className={cn("text-xs md:text-sm lg:text-base leading-relaxed mb-6 font-[family-name:var(--font-roboto)] font-light max-w-[320px]", service.isMeli ? "text-[#333333] [&>span]:text-slate-900" : "text-gray-400 [&>span]:text-gray-200")}>
                   {service.desc}
                 </div>
               </div>
@@ -158,13 +159,13 @@ export const ServicesOverview = () => {
                 <Link
                   href={service.href}
                   aria-label={`Solicitar información sobre ${service.title}`}
-                  className="flex items-center gap-3 text-white font-display text-orbitron text-[10px] font-black uppercase tracking-[0.2em] group-hover:text-primary transition-all group-hover:gap-5"
+                  className={cn("flex items-center gap-3 font-display text-orbitron text-[10px] font-black uppercase tracking-[0.2em] transition-all group-hover:gap-5", service.isMeli ? "text-[#2D3277]" : "text-white group-hover:text-primary")}
                 >
                   {service.buttonText} <ChevronRight size={16} aria-hidden="true" />
                 </Link>
 
                 {service.badge && (
-                  <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/20 text-blue-400 text-[9px] font-black tracking-widest uppercase border border-blue-500/30">
+                  <div className={cn("hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full text-[9px] font-black tracking-widest uppercase border", service.isMeli ? "bg-[#2D3277]/10 text-[#2D3277] border-[#2D3277]/20" : "bg-blue-500/20 text-blue-400 border-blue-500/30")}>
                     <Clock size={12} aria-hidden="true" /> {service.badge}
                   </div>
                 )}
