@@ -27,8 +27,8 @@ export const ServicesOverview = () => {
       icon: <Clock />,
       href: "/servicios/envios-lowcost",
       buttonText: "Ahorrá con LowCost",
-      className: "md:col-span-2 md:row-span-1 bg-slate-950 border-white/10 hover:border-primary/40",
-      iconClassName: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]",
+      className: "md:col-span-2 md:row-span-1 bg-[#020617] border-white/5 hover:border-cyan-500/40",
+      iconClassName: "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]",
     },
     {
       title: "Envíos Flex (MercadoLibre)",
@@ -48,8 +48,8 @@ export const ServicesOverview = () => {
       icon: <Truck />,
       href: "/servicios/plan-emprendedores",
       buttonText: "Hablar con un asesor",
-      className: "md:col-span-2 md:row-span-1 bg-[#0f172a] border-white/10 hover:border-white/30 backdrop-blur-md",
-      iconClassName: "bg-white/5 border border-white/10 text-white",
+      className: "md:col-span-2 md:row-span-1 bg-[#062c24] border-emerald-500/20 hover:border-emerald-500/40 backdrop-blur-md",
+      iconClassName: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400",
     }
   ];
 

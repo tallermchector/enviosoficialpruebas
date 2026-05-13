@@ -26,7 +26,6 @@ export function HeroBackground() {
       </motion.div>
 
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PScwIDAgMjAwIDIwMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48ZmlsdGVyIGlkPSdub2lzZUZpbHRlcic+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuNjUnIG51bU9jdGF2ZXM9JzMnIHN0aXRjaFRpbGVzPSdzdGl0Y2gnLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWx0ZXI9J3VybCgjbm9pc2VGaWx0ZXIpJy8+PC9zdmc+')] opacity-10 mix-blend-soft-light" />
         <div className="absolute -top-[10%] -left-[5%] w-[50%] h-[50%] bg-blue-600/20 rounded-full blur-[100px]" />
         <div className="absolute -bottom-[10%] -right-[5%] w-[40%] h-[40%] bg-yellow-500/10 rounded-full blur-[100px]" />
         <svg className="absolute inset-0 w-full h-full opacity-10">
