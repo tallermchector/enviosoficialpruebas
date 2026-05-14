@@ -39,16 +39,24 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#050810] text-white selection:bg-blue-500/30 flex flex-col">
       <OptimizedHeader />
       <main className="flex-grow">
-        {/* Above the fold (LCP Critical) - Renderizado estático inicial para performance extrema */}
-        <HeroAnimado />
+        <div className="bg-gradient-to-b from-[#050810] via-[#0a0a0a] to-[#121212]">
+          {/* Above the fold (LCP Critical) - Renderizado estático inicial para performance extrema */}
+          <HeroAnimado />
 
-        {/* Below the fold (Lazy loaded to reduce TBT and Script Evaluation) */}
-        <VisionSection />
-        <ServicesOverview />
-        <CtaSection />
-        <EmprendedoresHome />
-        <SliderServicios />
-        <CarruselRedes />
+          {/* Below the fold (Lazy loaded to reduce TBT and Script Evaluation) */}
+          <VisionSection />
+        </div>
+
+        <div className="bg-gradient-to-b from-[#121212] via-[#0a0f1c] to-[#0a1a14]">
+          <ServicesOverview />
+          <CtaSection />
+        </div>
+
+        <div className="bg-gradient-to-b from-[#0a1a14] via-[#050810] to-[#050810]">
+          <EmprendedoresHome />
+          <SliderServicios />
+          <CarruselRedes />
+        </div>
       </main>
       <Footer />
     </div>

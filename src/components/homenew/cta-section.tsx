@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 export const CtaSection = () => {
   return (
-    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 bg-[#050810] overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 bg-transparent overflow-hidden">
       {/* High-End Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image

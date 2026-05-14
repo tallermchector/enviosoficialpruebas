@@ -21,18 +21,18 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-slate-900/80 border-white/10 hover:border-secondary/50",
-    icon: "bg-secondary/10 border border-secondary/20 text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.6)]",
-    accent: "text-secondary",
+    card: "bg-gradient-to-br from-zinc-900/90 to-black border-red-500/20 hover:border-red-500/40 backdrop-blur-md",
+    icon: "bg-red-500/10 border border-red-500/20 text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]",
+    accent: "text-red-500",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-gray-200",
-    button: "text-white group-hover:text-secondary",
-    badge: "bg-secondary/20 text-secondary border-secondary/30",
-    accentColor: "secondary",
-    glowColor: "rgba(234,179,8,0.2)"
+    button: "text-white group-hover:text-red-500",
+    badge: "bg-red-500/20 text-red-500 border-red-500/30",
+    accentColor: "red-500",
+    glowColor: "rgba(239,68,68,0.2)"
   },
   lowcost: {
-    card: "bg-slate-950/80 border-white/5 hover:border-cyan-500/40",
+    card: "bg-gradient-to-br from-slate-900/90 to-slate-950/90 border-cyan-500/20 hover:border-cyan-500/40 backdrop-blur-md",
     icon: "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]",
     accent: "text-cyan-400",
     text: "text-white",
@@ -43,25 +43,25 @@ const THEMES: Record<string, ServiceTheme> = {
     glowColor: "rgba(6,182,212,0.15)"
   },
   meli: {
-    card: "bg-[#FFF159] border-[#FFF159]/20 hover:border-[#2D3277]/40 shadow-xl shadow-yellow-500/5",
+    card: "bg-gradient-to-br from-[#FFFDE7]/95 to-[#FFF9C4]/95 border-[#FFE600]/40 hover:border-[#2D3277]/40 shadow-xl shadow-yellow-500/5 backdrop-blur-md",
     icon: "bg-[#2D3277]/10 border border-[#2D3277]/20 text-[#2D3277]",
     accent: "text-[#2D3277]",
-    text: "text-slate-900",
-    desc: "text-[#333333] [&>span]:text-slate-950",
+    text: "text-[#2D3277]",
+    desc: "text-slate-700 [&>span]:text-slate-900",
     button: "text-[#2D3277] group-hover:gap-6",
     badge: "bg-[#2D3277]/10 text-[#2D3277] border-[#2D3277]/20",
     accentColor: "[#2D3277]",
     glowColor: "rgba(45,50,119,0.1)"
   },
   ecommerce: {
-    card: "bg-[#062c24] border-emerald-500/20 hover:border-emerald-500/40 backdrop-blur-md",
-    icon: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400",
-    accent: "text-emerald-400",
-    text: "text-white",
-    desc: "text-gray-400 [&>span]:text-emerald-50",
-    button: "text-white group-hover:text-emerald-400",
-    badge: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
-    accentColor: "emerald-400",
+    card: "bg-gradient-to-br from-emerald-50/95 to-white/95 border-emerald-500/20 hover:border-emerald-500/40 backdrop-blur-md",
+    icon: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-600",
+    accent: "text-emerald-700",
+    text: "text-emerald-900",
+    desc: "text-emerald-800/80 [&>span]:text-emerald-900",
+    button: "text-emerald-700 group-hover:text-emerald-900",
+    badge: "bg-emerald-500/20 text-emerald-800 border-emerald-500/30",
+    accentColor: "emerald-500",
     glowColor: "rgba(16,185,129,0.2)"
   }
 };
@@ -130,7 +130,7 @@ export const ServicesOverview = () => {
   };
 
   return (
-    <section className="relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-[#050810] overflow-hidden">
+    <section className="relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-transparent overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[160px] pointer-events-none opacity-50" />
       
