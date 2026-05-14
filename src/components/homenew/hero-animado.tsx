@@ -6,7 +6,7 @@ import { HeroScrollIndicator } from './hero-scroll-indicator';
 
 export default function HeroAnimado() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center pt-24 pb-12 lg:pt-32 lg:pb-16 px-4 overflow-hidden bg-[#050810]">
+    <section className="relative min-h-[100dvh] flex items-center justify-center pt-24 pb-12 lg:pt-32 lg:pb-16 px-4 overflow-hidden bg-transparent">
       {/* Background Parallax - Client Component */}
       <HeroBackground />
 
