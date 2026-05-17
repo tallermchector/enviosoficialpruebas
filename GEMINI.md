@@ -1,34 +1,57 @@
-# Guía de Colaboración para Asistentes de IA de Google
+# GEMINI.md - Manual de Operación Gemini CLI & Genkit
 
-¡Bienvenido/a al proyecto **Envios DosRuedas**! Esta guía está diseñada para ayudarte a colaborar de manera efectiva en este proyecto como asistente de IA de Google. Tu objetivo es ayudar a los desarrolladores a construir, modificar y mejorar la aplicación de forma conversacional e intuitiva.
+## Model Tiering
+Para optimizar costos y performance, se deben asignar las tareas según la capacidad del modelo:
 
-## Resumen del Proyecto
+- **Gemini 2.0 Flash / 1.5 Pro:**
+  - Tareas: Refactorización de lógica compleja (optimización de rutas), análisis de diseño visual en componentes críticos, generación de esquemas de base de datos.
+  - Contexto: Utilizar cuando se requiera razonamiento profundo o multimodality.
+- **Gemini 1.5 Flash:**
+  - Tareas: Completado de código repetitivo, redacción de historias de usuario (Jira/Linear), generación de mocks de datos, documentación técnica de funciones.
 
-**Envios DosRuedas** es una aplicación web para una empresa de mensajería y delivery. La aplicación permite a los usuarios cotizar envíos, ver información sobre servicios, contactar a la empresa y, a futuro, realizar un seguimiento de sus pedidos.
+## CLI & MCP Config
+El entorno de desarrollo utiliza la CLI de Gemini integrada con Google Genkit.
 
-## Stack Tecnológico
+### Inicialización:
+```bash
+# Iniciar UI de desarrollo de Genkit
+pnpm run genkit:dev
 
-El proyecto está construido con las siguientes tecnologías. Es fundamental que te adhieras a este stack y no introduzcas frameworks o librerías no solicitadas.
-
--   **Framework:** Next.js con App Router
--   **Lenguaje:** TypeScript
--   **UI:** React con componentes de ShadCN UI
--   **Estilos:** Tailwind CSS
--   **Base de Datos:** PostgreSQL con Prisma ORM
--   **Inteligencia Artificial:** Genkit para flujos de IA
-
-## Cómo Realizar Cambios en el Código
-
-Tu única forma de modificar el código del proyecto es a través de una estructura XML específica. **Nunca debes generar código fuera de este formato.**
-
-Cada vez que propongas un cambio, debes envolverlo en un bloque `<changes>`.
-
-### Formato Obligatorio
-
-```xml
-<changes>
-  <description>[Un resumen conciso de los cambios que estás realizando]</description>
-  <change>
-    <file>[La RUTA ABSOLUTA Y COMPLETA del archivo a modificar]</file>
-    <content><![CDATA[El CONTENIDO COMPLETO Y FINAL del archivo. No uses diffs ni fragmentos de código. Asegúrate de que el código esté correctamente escapado.
+# Variables de Entorno requeridas
+# GEMINI_API_KEY: Para modelos generativos
+# GOOGLE_MAPS_API_KEY: Para flows de geocodificación
 ```
+
+### Servidores MCP (Model Context Protocol):
+Si el agente requiere interactuar con servicios externos, se habilitan los siguientes bridges:
+- **Prisma Bridge:** Para introspección directa del esquema `schema.prisma`.
+- **Google Maps Bridge:** Para validación de direcciones en tiempo real durante el desarrollo de prompts.
+
+## Structured Outputs Constraints
+Para garantizar la estabilidad del backend en TypeScript, todos los flujos de IA que alimenten la lógica de negocio deben forzar el uso de **JSON Schemas** estrictos.
+
+### Ejemplo de Configuración en Genkit:
+```typescript
+const OptimizedItinerarySchema = z.object({
+  stops: z.array(z.object({
+    address: z.string(),
+    lat: z.number(),
+    lng: z.number(),
+    estimatedTime: z.string(),
+    priority: z.number().min(1).max(5)
+  })),
+  totalDistance: z.number(),
+  optimizedAt: z.string()
+});
+
+// Forzar respuesta al modelo
+const response = await ai.generate({
+  model: 'gemini-1.5-pro',
+  prompt: '...',
+  output: { schema: OptimizedItinerarySchema }
+});
+```
+
+### Reglas de Respuesta:
+1. El modelo **no debe** incluir explicaciones fuera del JSON si el flag `structured_output` está activo.
+2. Fallos en la validación del esquema deben ser capturados y re-intentados con un prompt de corrección automática.
