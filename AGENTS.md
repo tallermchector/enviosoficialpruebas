@@ -1,60 +1,34 @@
-# Instructions for AI Agents (AGENTS.md)
+# AGENTS.md - Guía de Comportamiento para Agentes Autónomos
 
-Welcome to the **Envios DosRuedas** project. This file provides essential information and guidelines for AI agents working on this codebase.
+## System Role & Context
+**Dos Ruedas Pro** es una plataforma de gestión logística de última milla diseñada para optimizar la eficiencia operativa en Mar del Plata. El sistema abarca desde la cotización dinámica hasta la exportación de propuestas operativas en **PDF de alta fidelidad (formato A4)**. El agente debe actuar como un Senior AI Engineer enfocado en la precisión técnica y la integridad visual.
 
-## 🚀 Project Overview
-**Envios DosRuedas** is a modern logistics and delivery web application. It includes a public site for customers, an admin panel (`/admin`), and a delivery personnel portal (`/repartidor`).
+## Core Stack Rules
+- **Framework:** Next.js 16+ (App Router). Priorizar Server Components para el core y Client Components solo para interactividad.
+- **UI Architecture:**
+  - Componentes de página modulares en `src/components/paginas/`.
+  - Estilado con Tailwind CSS siguiendo el **Stitch Design System**.
+  - **Maquetación A4:** Uso estricto de unidades `mm` y control total de overflow para asegurar que el contenido PDF sea idéntico al renderizado web.
+- **Type Safety:** TypeScript en modo estricto. Prohibido el uso de `any`.
+- **Database:** Prisma ORM v7. Importaciones siempre desde paths relativos a `generated/prisma/client`.
 
-## 🛠️ Tech Stack
-- **Framework**: Next.js 15+ (App Router)
-- **Language**: TypeScript
-- **Database**: PostgreSQL con Prisma ORM v7 (Driver Adapter pg)
-- **Styling**: Tailwind CSS
-- **UI Components**: Shadcn/ui, Framer Motion, Lucide React
-- **AI Integration**: Google Genkit
-- **Package Manager**: pnpm (mandatory)
+## AI Agent Flows (Genkit)
+El core de inteligencia reside en `src/ai/flows/`.
+- **Flow Principal:** `optimize-delivery-routes.ts` (Implementación pendiente/en curso).
+  - **Inputs:** `addresses: string[]`, `vehicleType: 'moto' | 'furgon'`, `priority: boolean`.
+  - **Process:** Geocodificación vía Google Maps -> Agrupación por zonas -> Ordenamiento por ventana horaria.
+  - **Outputs:** `OptimizedItinerary` (JSON estructurado con coordenadas y tiempos estimados).
+  - **Tools:** `googleMapsGeocoding`, `distanceMatrixCalculator`.
 
-## 📂 Project Structure
-- `src/app/`: App Router routes (Admin, Repartidor, Public).
-- `src/components/`: Reusable React components.
-  - `ui/`: Base Shadcn/ui components.
-  - `admin/` / `repartidor/`: Feature-specific components.
-- `src/lib/`: Utility functions and Prisma client.
-- `src/app/actions.ts`: Server Actions for data mutations.
-- `prisma/`: Database schema and migrations/scripts.
-- `public/`: Static assets.
+## Strict Guidelines ("Qué hacer" vs "Qué NO hacer")
 
-## 📜 Coding Conventions & Best Practices
-- **Tailwind CSS**: Always use the `cn()` utility for concatenating classes.
-- **Color Tokens**: Use HSL tokens defined in `globals.css` (e.g., `bg-primary`, `text-secondary`). Do not hardcode hex/RGB values.
-- **Typography**:
-  - Headers: `Orbitron` (`font-orbitron`).
-  - Body: `Roboto` (`font-roboto`).
-- **Icons**: Use `lucide-react`.
-- **Components**:
-  - Implement `dark mode` support explicitly.
-  - Use `framer-motion` for animations (follow the design principles in `DESIGN.md`).
-- **Forms**: Use `react-hook-form` with `zod` for validation.
-- **Server Actions**: Prefer Server Actions for data mutations.
-- **Prisma**: We are on Prisma v7. **Do not** import from `@prisma/client`. You must import the client and types using relative paths to `generated/prisma/client` (e.g. `import { PrismaClient } from '../../generated/prisma/client'`). The Prisma client is initialized in `src/lib/prisma.ts`.
+### SÍ Hacer:
+- **Layout Elástico:** Usar Flexbox (`flex-grow`, `flex-shrink`) para layouts dinámicos que se adapten a diferentes densidades de datos sin romper el diseño A4.
+- **Responsive A4:** Controlar márgenes y saltos de página (`page-break-inside: avoid`) para exportación limpia.
+- **Copywriting Argentino:** Usar "voseo" (hablá, cotizá, tenés) en todo el contenido público.
+- **Shadow DOM / Glassmorphism:** Aplicar efectos de transparencia y bordes sutiles según `DESIGN.md`.
 
-## 🛠️ Development Workflow
-- **Start Dev Server**: `pnpm run dev`
-- **Database Sync**: `pnpm exec prisma db push`
-- **Database Scripts**: `pnpm run db:seed`, `pnpm run db:export`, `pnpm run db:import` (powered by tsx)
-- **Linting**: `pnpm run lint`
-- **Type Checking**: `pnpm run typecheck`
-
-## 🎨 Design Principles
-1. **Efficiency Visual**: Quick access to tracking and pricing.
-2. **Modernity**: Use glassmorphism (`backdrop-blur-sm`, `border-white/20`) and subtle gradients.
-3. **Responsiveness**: Mobile-first approach is mandatory.
-4. **Consistency**: Adhere strictly to the `DESIGN.md` guidelines.
-
-## 🔐 Authentication (Dev/Internal)
-The admin panel currently uses hardcoded credentials for development, which can be found in `src/app/admin/login/actions.ts`.
-
-## ⚠️ Important Notes
-- **Do not** introduce new UI libraries without prior approval.
-- **Adhere** to the existing folder structure.
-- **Verify** changes by running linting and type checks before submitting.
+### NO Hacer:
+- **Reducción Destructiva:** No eliminar texto o datos reales para "ahorrar espacio". Si el contenido excede el A4, implementar lógica de paginación o escalado de fuente proporcional.
+- **External CSS:** No importar librerías de CSS externas (Bootstrap, Bulma). Todo debe ser Tailwind nativo.
+- **Direct DOM Manipulation:** No usar `document` o `window` fuera de hooks de React o comprobaciones de `typeof window`.
