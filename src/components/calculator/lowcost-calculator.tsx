@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Calculator, Loader2, PackageCheck, RotateCcw, ThumbsUp } from 'lucide-react';
 import React, { useState, FormEvent, useMemo } from 'react';
 import RouteMap from './route-map';
+import { AddressAutocomplete } from './address-autocomplete';
 import { useToast } from '@/hooks/use-toast';
 import { quoteShipment } from '@/app/ordenes/actions';
 import { ServiceTypeEnum } from '../../../generated/prisma/client/client';
@@ -89,24 +90,22 @@ export default function LowCostCalculator() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="origin" className="text-base font-sans">Dirección de Origen</Label>
-                <Input
+                <AddressAutocomplete
                   id="origin"
-                  type="text"
                   placeholder="Ej: Av. Colón 1234, Mar del Plata"
                   value={origin}
-                  onChange={(e) => setOrigin(e.target.value)}
+                  onChange={setOrigin}
                   required
                   className="text-base font-sans"
                 />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="destination" className="text-base font-sans">Dirección de Destino</Label>
-                <Input
+                <AddressAutocomplete
                   id="destination"
-                  type="text"
                   placeholder="Ej: Juan B. Justo 5678, Mar del Plata"
                   value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
+                  onChange={setDestination}
                   required
                   className="text-base font-sans"
                 />

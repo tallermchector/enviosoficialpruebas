@@ -5,8 +5,7 @@ import { z } from 'zod';
 import prisma from '@/lib/prisma';
 import { Prisma } from '../../../../generated/prisma/client/client';
 import { revalidatePath } from 'next/cache';
-
-const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+import { geocodeNominatim } from '@/lib/maps/nominatim';
 
 interface GeocodeResult {
   lat: number;
@@ -14,46 +13,21 @@ interface GeocodeResult {
   formatted_address: string;
 }
 
-interface GoogleGeocodeResponse {
-  results: {
-    geometry: { location: { lat: number, lng: number } };
-    formatted_address: string;
-  }[];
-  status: string;
-  error_message?: string;
-}
-
 export async function geocodeAddress(address: string): Promise<{ success: boolean; data?: GeocodeResult; error?: string }> {
-  if (!GOOGLE_MAPS_API_KEY || GOOGLE_MAPS_API_KEY === 'YOUR_GOOGLE_MAPS_API_KEY') {
-    console.warn("Geocoding skipped: Google Maps API key not configured.");
-    // Simulate a successful response for development without a key
-    return { 
-        success: true, 
-        data: { 
-            lat: -38.0054, 
-            lng: -57.5426, 
-            formatted_address: `${address} (Ubicación Simulada)`
-        }
-    };
-  }
-
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${GOOGLE_MAPS_API_KEY}&language=es&components=country:AR|administrative_area:Buenos%20Aires|locality:Mar%20del%20Plata`;
-
   try {
-    const response = await fetch(url);
-    const data: GoogleGeocodeResponse = await response.json();
+    const coords = await geocodeNominatim(address);
 
-    if (data.status === 'OK' && data.results.length > 0) {
+    if (coords) {
       return {
         success: true,
         data: {
-          lat: data.results[0].geometry.location.lat,
-          lng: data.results[0].geometry.location.lng,
-          formatted_address: data.results[0].formatted_address,
+          lat: coords.lat,
+          lng: coords.lng,
+          formatted_address: `${address}, Mar del Plata`, // Mocked display formatting
         },
       };
     } else {
-      return { success: false, error: data.error_message || `No se encontraron resultados para "${address}".` };
+      return { success: false, error: `No se encontraron resultados para "${address}".` };
     }
   } catch (e: unknown) {
     const error = e instanceof Error ? e : new Error(String(e));
