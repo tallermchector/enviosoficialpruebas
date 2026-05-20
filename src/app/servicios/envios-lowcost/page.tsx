@@ -20,26 +20,31 @@ export const metadata: Metadata = {
     "envios low cost, mensajeria economica, envios baratos, mar del plata, rutas optimizadas, envios programados",
 }
 
-// Optimización: Revalidación cada hora para aprovechar el caché de Bun y Prisma
-export const revalidate = 3600;
+// Disable prerendering since it relies on Prisma DB
+export const revalidate = 0;
 
 async function getPriceRanges(): Promise<PriceRangeClient[]> {
-  const priceRanges = await prisma.priceRange.findMany({
-    where: {
-      serviceType: ServiceTypeEnum.LOW_COST,
-      isActive: true,
-    },
-    orderBy: {
-      distanciaMinKm: 'asc',
-    },
-  });
+  try {
+    const priceRanges = await prisma.priceRange.findMany({
+      where: {
+        serviceType: ServiceTypeEnum.LOW_COST,
+        isActive: true,
+      },
+      orderBy: {
+        distanciaMinKm: 'asc',
+      },
+    });
 
-  return priceRanges.map(pr => ({
-    ...pr,
-    distanciaMinKm: pr.distanciaMinKm.toNumber(),
-    distanciaMaxKm: pr.distanciaMaxKm.toNumber(),
-    precioRango: pr.precioRango.toNumber(),
-  }));
+    return priceRanges.map(pr => ({
+      ...pr,
+      distanciaMinKm: pr.distanciaMinKm.toNumber(),
+      distanciaMaxKm: pr.distanciaMaxKm.toNumber(),
+      precioRango: pr.precioRango.toNumber(),
+    }));
+  } catch (error) {
+    console.error("Error fetching low-cost price ranges:", error);
+    return [];
+  }
 }
 
 

@@ -16,7 +16,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose 
 import { Menu, X, Home, Truck, Calculator as CalculatorIcon, Users, Mail, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
-import { navGroups, type NavGroup } from "@/lib/navigation";
+import { navGroups } from "@/lib/navigation";
 
 const mobileNavVariants = {
     hidden: {},
@@ -83,9 +83,9 @@ export function Header() {
     return false;
   }
 
-  const isGroupActive = (group: NavGroup) => {
+  const isGroupActive = (group: any) => {
     if (group.basePath && isActive(group.basePath)) return true
-    return group.items.some(item => isActive(item.href))
+    return group.items.some((item: any) => isActive(item.href))
   }
   
   const closeMenu = () => setIsMenuOpen(false);

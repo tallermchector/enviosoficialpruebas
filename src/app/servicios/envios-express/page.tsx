@@ -14,26 +14,31 @@ export const metadata: Metadata = {
   keywords: "envios express mar del plata, mensajeria urgente, delivery rapido, entrega mismo dia, paqueteria express",
 };
 
-// Optimización: Revalidación cada hora para aprovechar el caché de Bun y Prisma
-export const revalidate = 3600;
+// Disable prerendering since it relies on Prisma DB
+export const revalidate = 0;
 
 async function getPriceRanges(): Promise<PriceRangeClient[]> {
-  const priceRanges = await prisma.priceRange.findMany({
-    where: {
-      serviceType: ServiceTypeEnum.EXPRESS,
-      isActive: true,
-    },
-    orderBy: {
-      distanciaMinKm: 'asc',
-    },
-  });
+  try {
+    const priceRanges = await prisma.priceRange.findMany({
+      where: {
+        serviceType: ServiceTypeEnum.EXPRESS,
+        isActive: true,
+      },
+      orderBy: {
+        distanciaMinKm: 'asc',
+      },
+    });
 
-  return priceRanges.map(pr => ({
-    ...pr,
-    distanciaMinKm: pr.distanciaMinKm.toNumber(),
-    distanciaMaxKm: pr.distanciaMaxKm.toNumber(),
-    precioRango: pr.precioRango.toNumber(),
-  }));
+    return priceRanges.map(pr => ({
+      ...pr,
+      distanciaMinKm: pr.distanciaMinKm.toNumber(),
+      distanciaMaxKm: pr.distanciaMaxKm.toNumber(),
+      precioRango: pr.precioRango.toNumber(),
+    }));
+  } catch (error) {
+    console.error("Error fetching price ranges:", error);
+    return [];
+  }
 }
 
 export default async function EnviosExpressPage() {

@@ -20,6 +20,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Calendar } from '@/components/ui/calendar';
 import RouteMap from '@/components/calculator/route-map';
+import { AddressAutocomplete } from '@/components/calculator/address-autocomplete';
 import { MapPin, Truck, Package, Calculator as CalculatorIcon, Loader2, CalendarIcon, User, Phone, Mail, Clock, PackagePlus, ArrowLeft } from 'lucide-react';
 import { format, isValid, parse, addDays, startOfDay } from 'date-fns';
 import { es } from 'date-fns/locale';
@@ -292,7 +293,9 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
             <FormField control={form.control as any} name="originAddress" render={({ field }) => (
               <FormItem>
                 <FormLabel>Dirección de Recogida *</FormLabel>
-                <FormControl><Input placeholder="Calle, Número, Localidad (Ej: Av. Colón 1234, Mar del Plata)" {...field} /></FormControl>
+                <FormControl>
+                  <AddressAutocomplete id="originAddress" placeholder="Calle, Número, Localidad (Ej: Av. Colón 1234, Mar del Plata)" value={field.value} onChange={field.onChange} />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )} />
@@ -367,7 +370,9 @@ export function ShipmentCreationForm({ initialClientData, onOrderCreated, onBack
             <FormField control={form.control as any} name="destinationAddress" render={({ field }) => (
               <FormItem>
                 <FormLabel>Dirección de Entrega *</FormLabel>
-                <FormControl><Input placeholder="Calle, Número, Localidad (Ej: San Martín 5678, Mar del Plata)" {...field} /></FormControl>
+                <FormControl>
+                  <AddressAutocomplete id="destinationAddress" placeholder="Calle, Número, Localidad (Ej: San Martín 5678, Mar del Plata)" value={field.value} onChange={field.onChange} />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )} />
