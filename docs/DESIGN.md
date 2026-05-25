@@ -1,95 +1,130 @@
-# Design System: Dos Ruedas Pro (Envios DosRuedas)
-**Version:** 2.0 (Premium Evolution)  
-**Target Platform:** Next.js + Tailwind CSS  
-
+---
+version: "3.0"
+theme: "Corporate / Modern Futuristic"
+targetPlatform: "Next.js + Tailwind CSS"
+tokens:
+  colors:
+    background:
+      light: "hsl(0 0% 100%)"
+      dark: "hsl(222 84% 4.9%)"
+      hexLight: "#FFFFFF"
+      hexDark: "#050810"
+    foreground:
+      light: "hsl(222.2 84% 4.9%)"
+      dark: "hsl(210 40% 98%)"
+      hexLight: "#020617"
+      hexDark: "#F8FAFC"
+    primary:
+      light: "hsl(221.2 83.2% 53.3%)"
+      dark: "hsl(217.2 91.2% 59.8%)"
+      hexLight: "#2563EB"
+      hexDark: "#3B82F6"
+    secondary:
+      light: "hsl(45 93% 47%)"
+      dark: "hsl(45 93% 47%)"
+      hexLight: "#E89A17"
+      hexDark: "#EAB308"
+    accent:
+      light: "hsl(210 40% 96.1%)"
+      dark: "hsl(217.2 32.6% 17.5%)"
+      hexLight: "#60A5FA"
+      hexDark: "#1E293B"
+  typography:
+    display: "Orbitron, monospace"
+    body: "Roboto, sans-serif"
+    weights:
+      regular: 400
+      medium: 500
+      semibold: 600
+      extrabold: 800
+  effects:
+    glassmorphism:
+      backdropBlur: "blur(12px)"
+      backgroundColor: "rgba(255, 255, 255, 0.1)"
+      backgroundColorDark: "rgba(2, 6, 23, 0.4)"
+      borderColor: "rgba(255, 255, 255, 0.2)"
+      borderColorDark: "rgba(30, 41, 59, 0.5)"
+    gradients:
+      heroBg: "linear-gradient(to bottom, #050810, #0a0a0a, #121212)"
+      primaryButton: "linear-gradient(to right, #2563EB, #3B82F6, #2563EB)"
+      secondaryCTA: "linear-gradient(to right, #EAB308, #ca8a04)"
 ---
 
-## 1. Visual Theme & Atmosphere
+# Design System - Envios DosRuedas (Premium Evolution)
 
-**Dos Ruedas Pro** is structured on a **Corporate / Modern Futuristic** design aesthetic. It balances the rugged, high-density reliability of industrial logistics with the clean, sophisticated transparency of cutting-edge technology. 
+Este documento define el sistema de diseño evolucionado para **Envios DosRuedas**, una plataforma de logística y mensajería de última milla. Está estructurado estrictamente en un formato de dos capas (metadatos YAML y especificaciones en Markdown) para ser interpretado nativamente por Google Stitch AI y desarrolladores front-end.
 
-*   **Vibe & Mood**: Hyper-efficient, secure, and fast. The digital presence evokes a premium, 24/7 night-time operations focus through an immersive dark-mode foundation, paired with highly calculated bright accent signals.
-*   **Visual Pillars**:
-    *   *Glassmorphism (Frosted Glass)*: Panel depth is established using blurred translucent layers that float above topographic/matrix gradients, symbolizing operational clarity.
-    *   *Slick Gradients*: Clean, flowing color transitions that simulate speed and kinetic energy.
-    *   *High Contrast*: High-visibility colors used sparingly to lead the user’s eye directly to conversion funnels.
-*   **Density Strategy**:
-    *   *Public Facing*: Spacious layout spacing to ensure high readability and a welcoming onboarding.
-    *   *Dashboards (Admin/Courier)*: Medium-to-high data density allowing fast status assessment and minimal scrolling under sunlight.
+## 1. Misión y Visión de Marca
 
----
+*   **Eslogan**: "Tu Solución Confiable".
+*   **Pilares**: Rapidez, Seguridad, Modernidad y Confianza.
+*   **Voz**: Profesional, tecnológica, eficiente y cercana (empleando el voseo argentino: *hablá*, *cotizá*, *tenés*).
 
-## 2. Color Palette & Roles
+## 2. Principios de Diseño Premium
 
-The system uses unified CSS variables defined in HSL format within `src/app/globals.css`, letting elements adapt natively between Light and Dark modes.
+1.  **Eficiencia Visual y Carga Cognitiva Reducida**: El usuario debe encontrar lo que busca rápidamente (seguimiento, cotización, gestión) a través de un contraste de color agresivo pero equilibrado.
+2.  **Confianza a través de la Modernidad (Glassmorphism)**: Uso de gradientes sutiles y paneles translúcidos (efectos de cristal) sobre fondos oscuros (ej. `#050810`) para transmitir una imagen tecnológica de vanguardia de logística 24/7.
+3.  **Consistencia Estricta**: Uso riguroso de los tokens definidos en el bloque YAML superior y mapeados en `tailwind.config.ts`.
+4.  **Mobile-First Innegociable**: Todas las interfaces, desde la landing page hasta el portal de repartidores, deben ser concebidas primero para pantallas táctiles de alta movilidad.
 
-### 2.1 Color Tokens & Hex Mappings
+## 3. Guía de Interacción y Estados de Componentes
 
-| Color Token | HSL Value (Light) | Hex (Light) | HSL Value (Dark) | Hex (Dark) | Semantic Role & Purpose |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| `background` | `0 0% 100%` | `#FFFFFF` | `222 84% 4.9%` | `#020617` | Base layer of the application canvas. |
-| `foreground` | `222.2 84% 4.9%` | `#020617` | `210 40% 98%` | `#F8FAFC` | Main readable typography and titles. |
-| `primary` | `221.2 83.2% 53.3%` | `#2563EB` | `217.2 91.2% 59.8%` | `#3B82F6` | **Primary Brand Accent**. Interactive links, icons. |
-| `secondary` | `45 93% 47%` | `#E89A17` | `45 93% 47%` | `#E89A17` | **Caution/CTA Gold**. Main call-to-actions, high priority. |
-| `muted` | `210 40% 96.1%` | `#F1F5F9` | `217.2 32.6% 17.5%` | `#1E293B` | Secondary container backgrounds and text. |
-| `accent` | `210 40% 96.1%` | `#F1F5F9` | `217.2 32.6% 17.5%` | `#1E293B` | Elevated panels, inactive rows, cards. |
-| `destructive` | `0 84.2% 60.2%` | `#EF4444` | `0 62.8% 30.6%` | `#7F1D1D` | Error panels, destructive actions, cancel buttons. |
-| `border` | `214.3 31.8% 91.4%` | `#E2E8F0` | `217.2 32.6% 17.5%` | `#1E293B` | Content separators and form bounds. |
+Para mantener la calidad "Premium", las interacciones del usuario deben ser fluidas y tangibles.
 
----
+### 3.1 Estados Interactivos Base
 
-## 3. Typography Rules
+*   **Hover**:
+    *   *Comportamiento*: Ligero aumento de escala y emisión de brillo.
+    *   *Clases*: `hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:bg-primary/90` (para azul primario) o `hover:bg-secondary/90` (para oro secundario).
+*   **Active (Click/Tap)**:
+    *   *Comportamiento*: Reducción de escala para simular presión física.
+    *   *Clases*: `active:scale-[0.98] active:brightness-90`.
+*   **Disabled**:
+    *   *Comportamiento*: Reducción de opacidad y bloqueo de eventos.
+    *   *Clases*: `opacity-50 cursor-not-allowed pointer-events-none`.
+*   **Focus**:
+    *   *Comportamiento*: Anillo de enfoque claro para accesibilidad.
+    *   *Clases*: `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background`.
 
-The typography system strictly leverages heavy weight variations and specialized font families to communicate technological precision and industrial robustness.
+### 3.2 Aplicación por Contexto
 
-*   **Display / Header Font: Orbitron** (`var(--font-orbitron)`)
-    *   *Aesthetic*: Cybernetic, geometric, and speed-oriented.
-    *   *Usage*: Main page titles (`H1`, `H2`), high-contrast metrics, tracking codes, price values, and the corporate logo.
-    *   *Details*: Weighted at Semibold (`600`) or Extra Bold (`800`). Utilizes tight letter-spacing (`tracking-tighter` / `-0.02em`) to maintain structural density.
-*   **Sans-Serif / Body Font: Roboto** (`var(--font-roboto)`)
-    *   *Aesthetic*: Highly legible, modern, and low-stress.
-    *   *Usage*: Paragraphs, input labels, form fields, descriptive captions, and data tables.
-    *   *Details*: Regular (`400`) and Medium (`500`) weights. Spacing scales to `tracking-normal`.
+*   **Calculadora y Formularios (`/cotizar`)**:
+    *   *Inputs*: Fondo `bg-slate-900/50` con borde `border-slate-800`. En focus, el borde cambia a `border-primary` con `ring-primary`.
+    *   *Botones de Cotizar*: Usar el estilo "Premium Gradient Button" (definido abajo) para máxima conversión.
+*   **Tracking (`/seguimiento`)**:
+    *   *Línea de Tiempo*: Marcadores de estado completados en `bg-primary`, en curso en `bg-secondary` (parpadeo `animate-pulse`), pendientes en `bg-slate-800`.
+    *   *Mapa*: Paneles superpuestos flotantes usando Glassmorphism (ver sección 4).
+*   **Dashboard Repartidor (`/repartidor`)**:
+    *   *Densidad*: Botones ultra-grandes (`min-h-[60px]`) para pulsación rápida en movimiento y alto contraste (blanco sobre negro) para visibilidad bajo la luz del sol.
 
----
+## 4. Patrones de UI y Movimiento
 
-## 4. Interactive States & Component Consistency
+### 4.1 Tratamientos Visuales Premium
 
-To prevent visual drift, all custom and shadcn/ui components (calculators, tracking timelines, scanner dashboards) must maintain consistent token states.
+*   **Glassmorphism (Frosted Glass)**:
+    *   *Implementación*: `bg-white/5 backdrop-blur-md border border-white/10 dark:bg-slate-950/40 dark:border-slate-800/50 rounded-xl`.
+    *   *Uso*: Tarjetas flotantes sobre mapas, resúmenes de pago, modales de login.
+*   **Zebra Striping y Profundidad de Sección**:
+    *   Alternar fondos de sección entre `bg-[#050810]` y `bg-[#0a0f1c]` para demarcar diferentes áreas de información sin usar líneas duras.
+*   **Botones Premium Gradientes (Primary CTA)**:
+    *   *Clases*: `bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-[length:200%_auto] text-white hover:bg-[right_center] transition-all duration-500 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] border-none rounded-md px-8 py-3 font-semibold tracking-wide`.
 
-### 4.1 Interactive State Matrices
+### 4.2 Tipografía Avanzada
 
-| State | CSS/Tailwind Classes (Light Mode) | CSS/Tailwind Classes (Dark Mode) | Behavioral Transition |
-| :--- | :--- | :--- | :--- |
-| **Hover** | `hover:bg-primary/90 hover:scale-[1.02] shadow-md` | `hover:bg-primary/80 hover:scale-[1.02] shadow-[0_0_15px_rgba(59,130,246,0.3)]` | Smooth 200ms scale-up and subtle emissive glow. |
-| **Active** | `active:scale-[0.98] active:bg-primary/95` | `active:scale-[0.98] active:bg-primary/90` | Scale-down on click to provide tangible physical feedback. |
-| **Disabled** | `opacity-50 cursor-not-allowed pointer-events-none` | `opacity-40 cursor-not-allowed pointer-events-none` | Complete reduction of click and hover handlers. |
-| **Focus** | `focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2` | `focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-slate-900` | Crisp visual ring enclosing the element. |
+*   **Títulos Principales (Orbitron)**: Usar siempre con Tracking ajustado `tracking-tighter` para aspecto técnico y en Bold (`font-bold` o `font-extrabold`).
+*   **Cuerpos de Texto (Roboto)**: Usar text-slate-300 para fondos oscuros para reducir la fatiga visual frente al blanco puro (`text-white`).
 
-### 4.2 Component Blueprint Styles
+### 4.3 Casos Especiales de Marca
 
-#### 1. Buttons
-*   *Primary Blue Button*: `bg-primary text-primary-foreground hover:bg-primary/90 rounded-md transition-all duration-200`
-*   *Secondary Gold CTA*: `bg-secondary text-[#451a03] font-bold hover:bg-[#d97706] rounded-md transition-all`
-*   *Premium Gradient Button*: `bg-gradient-to-r from-[#2563eb] via-[#3b82f6] to-[#2563eb] bg-[length:200%_auto] text-white hover:bg-[right_center] transition-all duration-500 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] border-none`
+*   **Sección Envíos Flex / Mercado Libre**:
+    *   *Fondo*: Estrictamente `#FFF159` (Yellow Mercado Libre).
+    *   *Texto*: `#333333` o `text-slate-900`.
+    *   *Acentos*: Azul Institucional `#2D3277`.
+*   **Logística 3PL (Plan Emprendedores)**:
+    *   *Atmósfera*: Uso profundo de azules oscuros, modo nocturno forzado y Glassmorphism pesado (`bg-white/5 border-white/10 backdrop-blur-md`).
 
-#### 2. Cards / Containers
-*   *Base Card*: `rounded-lg border bg-card text-card-foreground shadow-sm p-6`
-*   *Glassmorphic Panel*: `bg-white/10 dark:bg-slate-950/40 backdrop-blur-md border border-white/20 dark:border-slate-800/50 rounded-lg shadow-2xl`
-*   *Accent Logistics Card*: Standard card featuring a solid left-side gold boundary (`border-l-4 border-l-secondary`).
+## 5. Reglas de Inclusión en Next.js
 
-#### 3. Inputs & Forms
-*   `w-full bg-slate-50 dark:bg-slate-900 border border-input rounded-md px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring`
-
----
-
-## 5. Layout & Print Principles
-
-*   **Max Container Width**: Centered grids clamped at `1400px` (`2xl` in Tailwind) to ensure readability on wide displays.
-*   **Spacing Strategy**:
-    *   *Desktop layout margins*: Section paddings set at `4rem` (`py-16`).
-    *   *Mobile layout margins*: Condensed padding to `2rem` (`py-8`) to prevent layout clipping.
-*   **Print Layout (A4 Format)**:
-    *   Under `@media print`, forces A4 size (`size: A4`) with `10mm` margins.
-    *   Cards and barcodes must employ `break-inside: avoid` to avoid separation between pages.
-    *   Requires zero overflow layouts to ensure printed A4 labels match digital screens with absolute fidelity.
+1.  **Framer Motion**: Si un componente usa animaciones de entrada (`initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}`), DEBE incluir la directiva `'use client';` en la primera línea.
+2.  **React Leaflet (Mapas)**: Cualquier componente que renderice mapas debe ser importado dinámicamente usando `next/dynamic(..., { ssr: false })` en las páginas principales para evitar fallas con el objeto `window`.
+3.  **Manejo de Errores de BD**: Toda llamada a Prisma en Server Components (`/app/.../page.tsx` o `actions.ts`) debe estar encapsulada en bloques `try...catch` para proveer un *fallback UI* si la base de datos está caída o pausada, asegurando que el diseño de la interfaz siempre pueda ser explorado.
