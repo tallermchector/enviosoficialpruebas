@@ -79,8 +79,8 @@ export function HeroSection({
   backgroundImageAlt = 'Hero background image',
   backgroundOverlayOpacity = 0.2,
   textColorClassName = 'text-white',
-  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-[family-name:var(--font-orbitron)]',
-  descriptionClassName = 'text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-[family-name:var(--font-roboto)]',
+  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-display',
+  descriptionClassName = 'text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-sans',
   visualElement,
   layout = 'center-stacked',
   minHeight = 'min-h-screen',
@@ -115,8 +115,8 @@ export function HeroSection({
       {preTitle && (
         <div className="mb-8">
           {typeof preTitle === 'string' ? (
-             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
-                <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-xs font-bold tracking-widest uppercase">
+                <div className="w-2 h-2 bg-white animate-pulse" />
                 {preTitle}
              </div>
           ) : preTitle}
@@ -129,7 +129,7 @@ export function HeroSection({
 
       {description && (
         <div
-          className={cn(descriptionClassName, textAlignment === 'text-left' ? 'mr-auto' : textAlignment === 'text-right' ? 'ml-auto' : 'mx-auto', "animate-fade-in-up")}
+          className={cn(descriptionClassName, textAlignment === 'text-left' ? 'lg:mr-auto lg:ml-0' : textAlignment === 'text-right' ? 'lg:ml-auto lg:mr-0' : 'mx-auto', "animate-fade-in-up")}
           style={{ animationDelay: '0.1s' }}
         >
             {description}
@@ -151,7 +151,6 @@ export function HeroSection({
           {ctaButtons.map((button, index) => {
             const IconComponent = button.icon ? iconMap[button.icon] : null;
 
-            // Special styling for primary-like buttons to match HeroAnimado's yellow button
             const isYellowButton = button.variant === 'secondary';
 
             return (
@@ -164,17 +163,14 @@ export function HeroSection({
                   variant={button.variant || 'default'}
                   asChild
                   className={cn(
-                    'px-10 py-5 font-[family-name:var(--font-orbitron)] font-black rounded-xl transition-all uppercase tracking-tight h-auto',
+                    'px-10 py-5 font-sans font-bold rounded-none transition-all uppercase tracking-tight h-auto',
                     isYellowButton
-                      ? "bg-secondary hover:bg-secondary/90 text-black shadow-[0_0_20px_rgba(251,191,36,0.3)] animate-pulse-glow"
-                      : "bg-white/5 border border-white/10 text-white hover:bg-white/10 overflow-hidden relative group",
+                      ? "bg-secondary hover:bg-[#d97706] text-black shadow-lg"
+                      : "bg-slate-900 border border-slate-800 text-white hover:bg-slate-800",
                     button.className
                   )}
                 >
                   <Link href={button.href} target={button.target} rel={button.rel}>
-                    {!isYellowButton && (
-                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
-                    )}
                     {IconComponent && <IconComponent className="mr-2 h-5 w-5" />}
                     {button.text}
                   </Link>
@@ -196,25 +192,14 @@ export function HeroSection({
             src={backgroundImageUrl}
             alt={backgroundImageAlt}
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-10"
             priority={priority}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#050810] via-transparent to-[#050810]" />
         </div>
       )}
 
-      {/* Decorative Gradients */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none opacity-30 z-0">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />
-      </div>
-
-      {/* Text Accent Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-64 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-blue-500/10 blur-[120px] rounded-full" />
-      </div>
-
-      <div className={cn("container mx-auto relative z-10 w-full", layout === 'center-stacked' ? "" : "grid lg:grid-cols-2 gap-12 items-center")}>
+      <div className={cn("container mx-auto relative z-10 w-full", layout === 'center-stacked' ? "" : "grid lg:grid-cols-2 gap-20 items-center")}>
         {layout === 'center-stacked' ? textContentWrapper : (
            <>
              {layout === 'split-visual-left' && visualElement && (
@@ -232,22 +217,7 @@ export function HeroSection({
         )}
       </div>
 
-      {/* Use standard CSS for animations instead of styled-jsx if possible,
-          but since this is a Server Component, styled-jsx won't work well without client boundary.
-          Actually, Next.js supports styled-jsx in server components now, but standard Tailwind is preferred.
-          The pulse-glow and shimmer are already in globals.css or can be added via arbitrary values or tailwind config.
-      */}
       <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes pulse-glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
-          50% { box-shadow: 0 0 35px rgba(251, 191, 36, 0.6); }
-        }
-        .animate-pulse-glow {
-          animation: pulse-glow 2s infinite;
-        }
-        @keyframes shimmer {
-          100% { transform: translateX(100%); }
-        }
         @keyframes fade-in-up {
           from {
             opacity: 0;
