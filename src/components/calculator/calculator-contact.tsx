@@ -22,7 +22,7 @@ export default function CalculatorContact() {
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="text-sm sm:text-base border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary focus-visible:ring-primary-foreground w-full sm:w-auto font-sans">
-              <a href="tel:2236602699">
+              <a href="tel:+542236602699">
                 <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 Llámanos: 223-660-2699
               </a>

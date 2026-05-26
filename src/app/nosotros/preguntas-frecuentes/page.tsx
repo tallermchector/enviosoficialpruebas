@@ -14,8 +14,35 @@ export const metadata: Metadata = {
 }
 
 export default function FaqPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuáles son las zonas de cobertura? ¿Cubren toda la ciudad/región?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cubrimos todo Mar del Plata (no cubrimos zonas aledañas). Garantizamos presencia en todos los barrios de la ciudad con estándares de seguridad propios."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué los diferencia de otros servicios de mensajería en moto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Trabajamos con estándares de excelencia, no toleramos faltas de respeto y preferimos rechazar un envío antes que fallar. Nuestra ventaja es la flota exclusiva y la cero tercerización."
+        }
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <OptimizedHeader />
       <main>
         <FaqHero />

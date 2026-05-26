@@ -8,7 +8,7 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/express/express-pricing-ranges";
 
 export const metadata: Metadata = {
-  title: "Envíos Express Inmediatos en Mar del Plata | Tu solución confiable",
+  title: "Envíos Express en Mar del Plata | Mensajería Urgente en Güemes, Chauvín y Puerto",
   description:
     "La solución premium para operaciones de alta criticidad horaria. Vos tenés el control total: elegí el rango exacto de entrega con certeza absoluta.",
   keywords: "envios express mar del plata, mensajeria urgente, delivery rapido, entrega mismo dia, paqueteria express",

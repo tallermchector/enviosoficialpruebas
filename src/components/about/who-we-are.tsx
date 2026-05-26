@@ -55,6 +55,33 @@ export function WhoWeAre() {
             >
               Envíos DosRuedas se posiciona en el mercado como tu Partner Logístico Especializado. Entendemos que la eficiencia operativa en la entrega es el pilar fundamental de la experiencia del cliente final. Transformamos tu estructura de gasto fijo en soluciones flexibles que acompañan el crecimiento de tu negocio.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+              className="mt-12 p-8 bg-slate-900 border border-primary/20 rounded-none text-left"
+            >
+              <h3 className="text-2xl font-bold text-primary mb-4 font-display uppercase tracking-tight">Nuestra Ventaja Injusta</h3>
+              <p className="text-gray-300 leading-relaxed font-sans mb-4">
+                En un mercado saturado de apps genéricas, nosotros decidimos ir por el camino de la excelencia territorial. Nuestra "Ventaja Injusta" se basa en tres pilares innegociables:
+              </p>
+              <ul className="space-y-4 text-gray-400 font-sans">
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">●</span>
+                  <span><strong>Atención Personalizada:</strong> Damos la cara frente a cualquier inconveniente. No sos un ticket, sos un partner.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">●</span>
+                  <span><strong>Flota Exclusiva:</strong> Controlamos cada eslabón de la cadena para asegurar puntualidad y seguridad.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-secondary font-bold">●</span>
+                  <span><strong>Cero Tercerización:</strong> No delegamos tu confianza en terceros. Si es DosRuedas, lo hacemos nosotros.</span>
+                </li>
+              </ul>
+            </motion.div>
           </div>
         </div>
       </div>

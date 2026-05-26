@@ -33,7 +33,7 @@ export function ExpressContent() {
               <span className="text-primary italic">EFICIENTES</span>
             </h2>
             <p className="text-gray-400 text-xl mb-12 leading-relaxed font-sans max-w-xl">
-              Nuestro servicio Express está diseñado para situaciones de alta criticidad horaria. Es la solución premium donde el cliente tiene el control total, eligiendo el rango horario exacto para su entrega con una mínima anticipación.
+              Nuestro servicio Express ofrece cobertura total en Mar del Plata, llegando a barrios clave como Güemes, Chauvín, Los Troncos y la zona del Puerto con rapidez absoluta. Es la solución premium para alta criticidad horaria donde el cliente tiene el control total.
             </p>
 
             {/* Features */}
