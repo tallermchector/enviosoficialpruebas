@@ -11,7 +11,7 @@ export function EnviosFlexContent() {
     },
     {
       title: "Corte 15:00 hs",
-      description: "Recibimos pedidos hasta las 15:00 hs para entrega garantizada en el mismo día.",
+      description: "Garantizamos Cobertura MDP y Envíos Same-Day Mar del Plata recibiendo pedidos hasta las 15:00 hs.",
     },
     {
       title: "Seguimiento App",
@@ -51,7 +51,7 @@ export function EnviosFlexContent() {
               <span className="text-primary italic">CON ENVÍOS FLEX</span>
             </h2>
             <p className="text-gray-400 text-lg mb-10 leading-relaxed font-[family-name:var(--font-roboto)] max-w-xl">
-              Somos el aliado estratégico para vendedores de MercadoLibre en Mar del Plata. Optimizamos tus entregas Same-Day para que tú solo te preocupes por vender más.
+              Somos el aliado estratégico para vendedores de MercadoLibre con Cobertura MDP total. Optimizamos tus Envíos Same-Day Mar del Plata para que tú solo te preocupes por vender más.
             </p>
 
             {/* Features */}

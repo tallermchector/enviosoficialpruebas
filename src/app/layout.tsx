@@ -1,7 +1,7 @@
-
 import type { Metadata } from "next";
 import { Roboto, Orbitron } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
+import { WhatsAppReviewButton } from "@/components/seo/WhatsAppReviewButton";
 import "./globals.css";
 
 
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     canonical: 'https://www.enviosdosruedas.com',
   },
   openGraph: {
-    title: 'Envíos DosRuedas | Tu solución confiable',
-    description: 'Envíos express, low-cost, para emprendedores y Mercado Libre Flex. Cotiza online.',
+    title: 'Mensajería y Logística E-Commerce en Mar del Plata | Envíos DosRuedas',
+    description: 'Envíos express, low-cost, para emprendedores y Mercado Libre Flex. Cotiza online en Mar del Plata.',
     url: 'https://www.enviosdosruedas.com',
     images: [
       {
@@ -66,11 +66,11 @@ export default function RootLayout({
     name: 'EnviosDosRuedas',
     image: 'https://www.enviosdosruedas.com/icons/icon-512x512.png',
     url: 'https://www.enviosdosruedas.com',
-    telephone: '+5492236602699',
+    telephone: '+542236602699',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '11 de setiembre',
+      streetAddress: 'Friuli 1972',
       addressLocality: 'Mar del Plata',
       postalCode: 'B7600',
       addressCountry: 'AR',
@@ -104,6 +104,7 @@ export default function RootLayout({
         className={`${roboto.variable} ${orbitron.variable} font-sans antialiased`}
       >
         {children}
+        <WhatsAppReviewButton />
         <Toaster />
       </body>
     </html>

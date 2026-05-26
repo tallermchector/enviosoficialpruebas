@@ -119,8 +119,8 @@ export function Footer() {
              <h4 className="font-heading text-base font-semibold text-primary-foreground mb-4 pb-2 border-b-2 border-secondary inline-block">Contacto Rápido</h4>
             <ul className="space-y-3">
               {[
-                {Icon: MapPin, text: "Mar del Plata, Argentina"},
-                {Icon: Phone, text: "223-660-2699", href: "tel:2236602699"},
+                {Icon: MapPin, text: "Friuli 1972, Mar del Plata"},
+                {Icon: Phone, text: "+54 223 660-2699", href: "tel:+542236602699"},
                 {Icon: Mail, text: "matiascejas@enviosdosruedas.com", href: "mailto:matiascejas@enviosdosruedas.com"},
               ].map(({Icon, text, href}) => (
                 <li key={text}>

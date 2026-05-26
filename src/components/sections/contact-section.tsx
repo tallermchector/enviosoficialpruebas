@@ -173,7 +173,7 @@ export function ContactSection() {
                   <Phone className="h-6 w-6 text-primary mt-1 shrink-0" />
                   <div>
                     <h4 className="font-semibold">Teléfono</h4>
-                    <a href="tel:+525512345678" className="text-muted-foreground hover:text-primary transition-colors">+52 55 1234 5678</a>
+                    <a href="tel:+542236602699" className="text-muted-foreground hover:text-primary transition-colors">+54 223 660-2699</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -187,7 +187,7 @@ export function ContactSection() {
                   <MapPin className="h-6 w-6 text-primary mt-1 shrink-0" />
                   <div>
                     <h4 className="font-semibold">Dirección</h4>
-                    <p className="text-muted-foreground">Av. Siempreviva 742, Col. Springfield, CDMX, México</p>
+                    <p className="text-muted-foreground">Friuli 1972, Mar del Plata, Argentina</p>
                   </div>
                 </div>
               </CardContent>

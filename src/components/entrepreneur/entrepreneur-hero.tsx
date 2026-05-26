@@ -8,11 +8,11 @@ export function EntrepreneurHero() {
       preTitle="E-COMMERCE 3PL"
       title={
         <>
-          LOGÍSTICA 3PL Y <br />
-          <span className="text-primary">CUENTAS CORRIENTES</span>
+          ALMACENAMIENTO Y <br />
+          <span className="text-primary">FULFILLMENT PARA PyMEs</span>
         </>
       }
-      description="Tercerización integral con integración vertical. Transformá tu estructura de gasto fijo en soluciones escalables que acompañan el crecimiento de tu negocio."
+      description="Solución integral de almacenamiento y fulfillment para PyMEs en Mar del Plata. Contamos con depósitos propios en la ciudad para garantizar el mejor servicio 3PL."
       ctaButtons={[
         { text: "SOLICITAR PLAN CORPORATIVO", href: "/contacto", variant: "secondary" },
         { text: "AGENDAR ASESORÍA 3PL", href: "https://wa.me/5492236602699", variant: "outline", icon: "Mail" }

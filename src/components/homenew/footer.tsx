@@ -100,7 +100,7 @@ export const Footer = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-white font-display text-orbitron text-[10px] font-black uppercase tracking-widest mb-1 opacity-40">Ubicación</span>
-                  <span className="text-gray-400 text-sm leading-relaxed font-light">Mar del Plata, Argentina</span>
+                  <span className="text-gray-400 text-sm leading-relaxed font-light">Friuli 1972, Mar del Plata</span>
                 </div>
               </li>
 
@@ -110,7 +110,7 @@ export const Footer = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-white font-display text-orbitron text-[10px] font-black uppercase tracking-widest mb-1 opacity-40">Teléfono</span>
-                  <a href="tel:2236602699" className="text-gray-400 hover:text-white transition-colors font-light text-sm">223-660-2699</a>
+                  <a href="tel:+542236602699" className="text-gray-400 hover:text-white transition-colors font-light text-sm">+54 223 660-2699</a>
                 </div>
               </li>
 

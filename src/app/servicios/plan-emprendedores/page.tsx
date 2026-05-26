@@ -12,9 +12,8 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/entrepreneur/entrepreneur-pricing-ranges";
 
 export const metadata: Metadata = {
-  title: "Logística 3PL y Cuentas Corrientes para E-Commerce | Tu solución confiable",
-  description:
-    "Tercerización integral con integración vertical. Transformá tu estructura de gasto fijo en soluciones escalables que acompañan el crecimiento de tu negocio.",
+  title: "Almacenamiento y Fulfillment para PyMEs en Mar del Plata | Logística 3PL",
+  description: "Ofrecemos almacenamiento, picking, packing y fulfillment para PyMEs en Mar del Plata con depósitos propios en la ciudad. Optimizamos tu logística e-commerce.",
   keywords:
     "ecommerce 3pl, fulfillment mar del plata, envios next day, cuenta corriente logistica, deposito ecommerce, picking y packing",
 }

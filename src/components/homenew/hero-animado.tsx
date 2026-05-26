@@ -22,7 +22,7 @@ export default function HeroAnimado() {
           </div>
 
           <h1 className="font-display text-orbitron text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black italic tracking-tighter leading-[0.9] mb-4 xl:mb-6 uppercase text-white animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
-            Servicio de <span className="text-primary drop-shadow-[0_0_25px_rgba(37,99,235,0.4)]">mensajería</span> y <span className="text-secondary italic drop-shadow-[0_0_20px_rgba(234,179,8,0.2)]">delivery</span> Envios Dosruedas
+            Mensajería y <span className="text-primary drop-shadow-[0_0_25px_rgba(37,99,235,0.4)]">Logística E-Commerce</span> en <span className="text-secondary italic drop-shadow-[0_0_20px_rgba(234,179,8,0.2)]">Mar del Plata</span>
           </h1>
 
           <p className="text-gray-400 text-base lg:text-lg xl:text-xl mb-8 xl:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-[family-name:var(--font-roboto)] font-light animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">

@@ -32,7 +32,7 @@ export function FaqCategories() {
         {
           question: "¿Cuáles son las zonas de cobertura? ¿Cubren toda la ciudad/región?",
           answer:
-            "Cubrimos toda la ciudad, con la excepción de algunas zonas catalogadas como peligrosas por motivos de seguridad.",
+            "Cubrimos todo Mar del Plata (no cubrimos zonas aledañas). Garantizamos presencia en todos los barrios de la ciudad con estándares de seguridad propios.",
         },
         {
           question: "¿Realizan entregas a Contrareembolso?",
@@ -66,7 +66,7 @@ export function FaqCategories() {
         {
           question: "¿Qué los diferencia de otros servicios de mensajería en moto?",
           answer:
-            "Buscamos brindar un servicio de excelente calidad, donde la responsabilidad y la confianza son nuestros principales pilares.",
+            "Trabajamos con estándares de excelencia, no toleramos faltas de respeto y preferimos rechazar un envío antes que fallar. Nuestra ventaja es la flota exclusiva y la cero tercerización.",
         },
       ],
     },

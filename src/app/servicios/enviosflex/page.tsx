@@ -14,9 +14,8 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/envios-flex/flex-pricing-ranges";
 
 export const metadata: Metadata = {
-  title: "Envíos Flex MercadoLibre: Potenciá tu Reputación | Tu solución confiable",
-  description:
-    "Somos expertos en la logística de MercadoLibre. Optimizamos tus entregas Same-Day para que tu medidor siempre esté en verde y vos solo te enfoques en vender.",
+  title: "Envíos Flex MercadoLibre Mar del Plata | Cobertura MDP y Envíos Same-Day",
+  description: "Expertos en Envíos Flex MercadoLibre en Mar del Plata. Garantizamos Cobertura MDP y Envíos Same-Day para potenciar tu reputación y ventas.",
   keywords:
     "envios flex, mercadolibre, vendedores online, entregas rapidas, mar del plata, reputacion vendedor, envios mismo dia",
 }

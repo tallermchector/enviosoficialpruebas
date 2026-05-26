@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mensajería y Logística E-Commerce en Mar del Plata | Envíos DosRuedas",
+  description: "Servicio líder de mensajería y logística e-commerce en Mar del Plata. Envíos express, flex y soluciones 3PL para empresas y emprendedores.",
+};
+
 import dynamic from "next/dynamic"
 import { OptimizedHeader } from "@/components/homenew/optimized-header"
 import HeroAnimado from "@/components/homenew/hero-animado"
