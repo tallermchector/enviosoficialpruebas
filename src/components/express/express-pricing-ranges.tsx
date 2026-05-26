@@ -3,10 +3,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MapPin, ArrowRightCircle, Calculator, AlertTriangle } from "lucide-react";
+import { MapPin, ArrowRightCircle, Calculator, AlertTriangle, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { PriceRange } from '../../../generated/prisma/client/client';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export type PriceRangeClient = Omit<PriceRange, 'distanciaMinKm' | 'distanciaMaxKm' | 'precioRango'> & {
   distanciaMinKm: number;
@@ -20,17 +26,8 @@ interface ExpressPricingRangesProps {
 }
 
 export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps) {
-  const formatKmDisplay = (km: number, isMaxBoundaryInTitleOrRange: boolean = false) => {
-    const kmFixed = parseFloat(km.toFixed(2)); 
-    if (isMaxBoundaryInTitleOrRange && String(kmFixed.toFixed(2)).endsWith('.99')) {
-      return Math.ceil(kmFixed).toString();
-    }
-    return Number.isInteger(kmFixed) ? kmFixed.toFixed(0) : kmFixed.toFixed(2).replace(".", ",");
-  };
-
   const displayedPriceRanges = priceRanges.slice(0, 4);
 
-  // Hardcoded descriptions and features to match the visual style but using dynamic prices
   const staticData = [
     {
       description: "Ideal para entregas inmediatas en el centro",
@@ -51,27 +48,25 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
   ];
 
   return (
-    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-
+    <section className="py-32 px-4 bg-[#050810] relative">
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+            <h2 className="font-display text-4xl md:text-6xl font-black italic mb-6 uppercase text-white tracking-tighter">
               TARIFAS 2026 <span className="text-primary">ENVÍOS EXPRESS</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+            <div className="w-32 h-1.5 bg-primary mx-auto mb-8" />
+            <p className="text-gray-400 text-xl max-w-2xl mx-auto font-sans">
               Consulta los precios actualizados para nuestro servicio premium con rango horario a elección.
             </p>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {displayedPriceRanges.map((range, index) => (
             <motion.div
               key={range.id}
@@ -80,34 +75,34 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="relative bg-white/5 border-white/10 backdrop-blur-md hover:border-primary/50 transition-all duration-300 rounded-3xl overflow-hidden h-full flex flex-col group">
-                <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-full text-[10px] font-bold uppercase tracking-widest">
+              <Card className="relative bg-slate-900 border-slate-800 hover:border-primary/50 transition-all duration-300 rounded-none overflow-hidden h-full flex flex-col group shadow-xl">
+                <Badge className="absolute top-0 right-0 bg-primary text-white border-none py-1 px-4 rounded-none text-[10px] font-bold uppercase tracking-widest">
                   Tarifa 2026
                 </Badge>
 
-                <CardHeader className="text-center pt-12 pb-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <CardHeader className="text-center pt-16 pb-8">
+                  <div className="w-16 h-16 bg-slate-800 rounded-none flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors border border-slate-700">
                     <MapPin className="w-8 h-8 text-primary" />
                   </div>
-                  <CardTitle className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-white uppercase tracking-tight">
+                  <h3 className="font-sans text-2xl font-bold text-white uppercase tracking-tight">
                     {range.nombreZona || `Zona ${index + 1}`}
-                  </CardTitle>
-                  <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1">
+                  </h3>
+                  <p className="text-xs text-primary font-bold uppercase tracking-widest mt-2">
                     {index === 0 ? "Radio céntrico" : index === 1 ? "Periferia cercana" : index === 2 ? "Zonas alejadas" : "Límites de ciudad"}
                   </p>
-                  <div className="text-4xl font-black text-white mt-6 font-[family-name:var(--font-orbitron)] italic tracking-tighter">
+                  <div className="text-5xl font-black text-white mt-8 font-display italic tracking-tighter">
                     ${range.precioRango.toLocaleString('es-AR')}
                   </div>
                 </CardHeader>
 
-                <CardContent className="flex-grow pb-12">
-                  <p className="text-gray-400 mb-8 text-center text-sm font-[family-name:var(--font-roboto)] leading-relaxed">
+                <CardContent className="flex-grow pb-12 px-8">
+                  <p className="text-gray-400 mb-10 text-center text-sm font-sans leading-relaxed">
                     {staticData[index]?.description || "Servicio premium garantizado"}
                   </p>
-                  <ul className="space-y-4 font-[family-name:var(--font-roboto)]">
+                  <ul className="space-y-5 font-sans">
                     {(staticData[index]?.features || ["Elegís rango horario", "Seguimiento real"]).map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-gray-300 text-sm">
-                        <ArrowRightCircle className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -118,67 +113,92 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
           ))}
         </div>
 
-        <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           className="mt-12"
-        >
-          <Card className="bg-gradient-to-r from-primary/10 to-secondary/5 border-white/10 backdrop-blur-md rounded-3xl overflow-hidden p-8 md:p-12">
-             <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold tracking-widest mb-6 uppercase">
-                    COTIZACIÓN DINÁMICA
+        <div className="mt-24 space-y-12">
+          {/* Cotizador CTA Block */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-slate-900 border border-slate-800 rounded-none overflow-hidden p-8 md:p-16 shadow-2xl relative">
+               <div className="grid lg:grid-cols-3 gap-12 items-center">
+                  <div className="lg:col-span-2">
+                    <div className="inline-flex items-center gap-2 px-4 py-1 bg-secondary text-black text-[10px] font-bold tracking-widest mb-6 uppercase">
+                      COTIZACIÓN DINÁMICA
+                    </div>
+                    <h3 className="font-display text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6 italic">
+                      ZONA 5: <span className="text-secondary">$1.000 / KM</span>
+                    </h3>
+                    <p className="text-gray-400 font-sans text-lg leading-relaxed max-w-3xl">
+                      Para envíos de larga distancia fuera del ejido urbano o una cotización precisa con mapa, utiliza nuestro cotizador inteligente de alta precisión.
+                    </p>
                   </div>
-                  <h3 className="font-[family-name:var(--font-orbitron)] text-3xl font-black text-white uppercase tracking-tighter mb-4 italic">
-                    ZONA 5: <span className="text-secondary">$1.000 / KM</span>
-                  </h3>
-                  <p className="text-gray-400 font-[family-name:var(--font-roboto)] leading-relaxed">
-                    Para envíos de larga distancia fuera del ejido urbano o una cotización precisa con mapa, utiliza nuestro cotizador inteligente.
-                  </p>
-                </div>
-                <div className="flex justify-center md:justify-end">
-                   <Button
-                    asChild
-                    className="bg-secondary hover:bg-secondary/90 text-black font-[family-name:var(--font-orbitron)] font-black px-10 py-6 rounded-2xl transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto text-lg"
-                  >
-                    <Link href="/cotizar/express">
-                      <Calculator className="w-6 h-6 mr-3" />
-                      IR AL COTIZADOR
-                    </Link>
-                  </Button>
-                </div>
-             </div>
-          </Card>
-        </motion.div>
-
-         <motion.div
-           initial={{ opacity: 0 }}
-           whileInView={{ opacity: 1 }}
-           viewport={{ once: true }}
-           className="mt-12"
-         >
-           <Card className="bg-white/5 border-white/10 backdrop-blur-sm rounded-3xl p-8">
-            <div className="flex items-start gap-6">
-              <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
-                <AlertTriangle className="h-6 w-6 text-primary" />
-              </div>
-              <div className="font-[family-name:var(--font-roboto)]">
-                <h4 className="font-bold text-white text-lg mb-4 uppercase tracking-tight">Condiciones del Servicio Express:</h4>
-                <div className="grid sm:grid-cols-2 gap-x-12 gap-y-4">
-                  <ul className="text-sm text-gray-400 space-y-3">
-                    <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> <strong>Tolerancia:</strong> 10 min en puerta.</li>
-                    <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> <strong>Recargo lluvia:</strong> 50% sobre el valor.</li>
-                  </ul>
-                  <ul className="text-sm text-gray-400 space-y-3">
-                    <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> <strong>Bulto excedente:</strong> +$1.800 (5kg/40cm).</li>
-                    <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-primary" /> <strong>Anticipación:</strong> Mínimo 2 horas.</li>
-                  </ul>
-                </div>
-              </div>
+                  <div className="flex justify-center lg:justify-end">
+                     <Button
+                      asChild
+                      size="lg"
+                      className="bg-secondary hover:bg-[#d97706] text-black font-sans font-bold px-12 py-8 rounded-none transition-all uppercase tracking-tight h-auto text-xl w-full lg:w-auto shadow-lg"
+                    >
+                      <Link href="/cotizar/express">
+                        <Calculator className="w-6 h-6 mr-3" />
+                        IR AL COTIZADOR
+                      </Link>
+                    </Button>
+                  </div>
+               </div>
             </div>
-          </Card>
-        </motion.div>
+          </motion.div>
+
+          {/* Conditions Accordion */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="text-center mb-8">
+               <div className="inline-flex items-center justify-center w-12 h-12 rounded-none bg-primary/10 border border-primary/20 mb-4">
+                  <AlertTriangle className="h-6 w-6 text-primary" />
+               </div>
+               <h4 className="font-sans font-bold text-white text-xl uppercase tracking-tight">Condiciones del Servicio Express</h4>
+            </div>
+
+            <Accordion type="single" collapsible className="w-full bg-slate-900 border border-slate-800">
+              <AccordionItem value="item-1" className="border-slate-800 px-6">
+                <AccordionTrigger className="text-white hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
+                  Tiempos y Tolerancia
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-400 font-sans leading-relaxed pb-6">
+                  Contamos con una tolerancia de 10 minutos en puerta. Es fundamental que el receptor esté disponible para asegurar la eficiencia del servicio.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2" className="border-slate-800 px-6">
+                <AccordionTrigger className="text-white hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
+                  Recargos por Clima
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-400 font-sans leading-relaxed pb-6">
+                  En días de lluvia, se aplica un recargo del 50% sobre el valor del envío para garantizar la seguridad de nuestros repartidores y la protección de tu carga.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3" className="border-slate-800 px-6">
+                <AccordionTrigger className="text-white hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
+                  Bultos y Pesos
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-400 font-sans leading-relaxed pb-6">
+                  El servicio estándar incluye un bulto de hasta 5kg/40cm. Cada bulto excedente tiene un costo adicional de $1.800.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-4" className="border-slate-800 px-6 last:border-0">
+                <AccordionTrigger className="text-white hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
+                  Anticipación Requerida
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-400 font-sans leading-relaxed pb-6">
+                  Para coordinar un envío express con éxito, solicitamos una anticipación mínima de 2 horas.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

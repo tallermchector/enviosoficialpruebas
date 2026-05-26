@@ -10,7 +10,7 @@ export function ExpressHero() {
       title={
         <>
           ENVÍOS EXPRESS <br />
-          <span className="text-primary">INMEDIATOS</span>
+          <span className="text-primary italic">INMEDIATOS</span>
         </>
       }
       description="La solución premium para operaciones de alta criticidad horaria. Vos tenés el control total: elegí el rango exacto de entrega con certeza absoluta."
@@ -24,7 +24,6 @@ export function ExpressHero() {
       visualElement={
         <div className="relative w-full max-w-[450px] aspect-[1.6/1]">
            <RotatingCard className="w-full h-full" />
-           <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-10 bg-black/40 blur-3xl rounded-full" />
         </div>
       }
     />
