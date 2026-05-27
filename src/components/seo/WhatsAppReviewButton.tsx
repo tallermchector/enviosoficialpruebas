@@ -13,9 +13,9 @@ export const WhatsAppReviewButton = () => {
 
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
+  // TODO: Reemplazar con el link real de Google Business Profile
   return (
     <a
-      {/* TODO: Reemplazar con el link real de Google Business Profile */}
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
