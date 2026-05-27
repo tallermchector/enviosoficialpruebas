@@ -102,7 +102,40 @@ const generatePagePromptFlow = ai.defineFlow(
     outputSchema: GeneratePagePromptOutputSchema,
   },
   async (input) => {
-    const { output } = await promptTemplate(input);
-    return output!;
+    // Generate prompt completely offline using high-fidelity local template compilation
+    const componentsList = input.components.map(comp => 
+      `- **Componente Original:** ${comp.name}\n  - **Ubicación Actual:** \`${comp.path}\`\n  - **Instrucción:** Proponer un nuevo nombre de archivo en español (ej: \`${comp.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-principal.tsx\`) y refactorizar su código interno al español, traduciendo variables y lógica visual.`
+    ).join('\n');
+
+    const promptText = `Escribí código de alta calidad en base a las siguientes especificaciones:
+
+**Rol y Objetivo:**
+Eres un desarrollador Full-Stack experto. Tu objetivo es reestructurar la página '${input.pageName}' y sus componentes, traduciendo nombres de archivos y variables al español, y aplicando las mejores prácticas de Next.js y Tailwind CSS.
+
+**Stack Tecnológico Requerido:**
+- Next.js 16+ (App Router)
+- React 19 / TypeScript (Modo estricto, sin 'any')
+- Tailwind CSS (Diseño adaptable, elástico y mobile-first)
+- Componentes de ShadCN UI para elementos interactivos
+- Estilo premium según Stitch Design System (glassmorphism, gradientes sutiles y micro-animaciones)
+
+**Directorio de Destino:**
+Crea un nuevo directorio para los componentes de esta página. El nombre del directorio debe estar en español y ser coherente con la página (ej: \`src/components/${input.pageName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}/\`).
+
+**Plan de Reestructuración de Componentes:**
+${componentsList}
+
+**Consideraciones de Backend (Supabase):**
+Si alguno de los componentes requiere lógica de backend (acceso a base de datos, autenticación), esta debe ser implementada utilizando Supabase.
+Utiliza la configuración global del proyecto ubicada en:
+- \`src/lib/supabase-types.ts\` (para los tipos generados de la DB).
+- \`src/lib/supabase/client.ts\` (cliente en componentes de cliente).
+- \`src/lib/supabase/server.ts\` (cliente en componentes de servidor o Server Actions).
+
+**Buenas Prácticas de Codificación:**
+- Todo el código debe ser limpio, modular, reutilizable y adaptable.
+- Conserva la lógica original de negocio e interactividad, pero traduce el copy y las variables internas relevantes al español de Mar del Plata ("voseo" para contenido visible).`;
+
+    return { prompt: promptText };
   }
 );

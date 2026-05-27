@@ -10,6 +10,7 @@
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
+import { withExponentialBackoff } from '@/ai/utils/retry';
 
 const GenerateImagePromptInputSchema = z.object({
   sectionType: z.string().describe("El tipo de sección de la página donde se usará la imagen (ej: Hero, Card, Banner)."),
@@ -86,7 +87,7 @@ const generateImagePromptFlow = ai.defineFlow(
     outputSchema: GenerateImagePromptOutputSchema,
   },
   async (input) => {
-    const { output } = await promptTemplate(input);
+    const { output } = await withExponentialBackoff(() => promptTemplate(input));
     return output!;
   }
 );

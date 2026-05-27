@@ -74,7 +74,44 @@ const generateComponentPromptFlow = ai.defineFlow(
     outputSchema: GenerateComponentPromptOutputSchema,
   },
   async (input) => {
-    const { output } = await promptTemplate(input);
-    return output!;
+    // Generate prompt completely offline using high-fidelity local template compilation
+    const promptText = `Escribí el código para un componente interactivo de alta fidelidad según la siguiente especificación:
+
+**Rol y Objetivo:**
+Eres un desarrollador Frontend experto. Tu objetivo es generar el código del componente '${input.componentName}' para la página '${input.pageName}'.
+
+**Stack Tecnológico Requerido:**
+- React 19 / TypeScript (modo estricto)
+- Tailwind CSS con un diseño responsive, mobile-first y elástico
+- Framer Motion para micro-animaciones fluidas
+- Lucide React para iconos modernos
+- Componentes de ShadCN UI integrados de forma premium
+
+**Diseño y Estructura Visual (Estilo Premium):**
+- Layout utilizando flexbox/grid dinámico.
+- Paleta de colores principal de Envios DosRuedas: Azul primario (similar a #3B82F6) y Amarillo secundario (similar a #FBBF24).
+- Tipografía del proyecto: "Orbitron" para títulos llamativos y "Roboto" para textos descriptivos y de cuerpo.
+- Efectos modernos: Glassmorphism sutil, bordes limpios, sombras elegantes, y contrastes de color armónicos.
+
+**Interactividad y Animaciones:**
+- Efectos de hover interactivos con Framer Motion (por ejemplo, elevar sutilmente con una animación de resorte tipo 'spring').
+- Menús, sliders, acordeones y botones con estados interactivos claros y feedback visual inmediato.
+
+**Contenido y Textos:**
+- Todo el contenido visible debe estar escrito en español con tono amigable y profesional.
+- Si el componente contiene textos para el público general, utiliza el voseo argentino (ej: "Cotizá", "Envía", "Hacé tu pedido").
+
+**Imágenes y Recursos:**
+- Si el componente requiere imágenes, utiliza rutas relativas desde la carpeta \`public/\` (ej. \`src="/bannerenvios.webp"\` o \`src="/hero/delante.webp"\`).
+
+**Referencia del Componente Original:**
+- **Página:** ${input.pageName}
+- **Componente:** ${input.componentName}
+- **Ubicación de Referencia:** \`${input.componentPath}\`
+
+**Dependencias del Componente:**
+Inspecciona el código en la ubicación original y asegúrate de importar/utilizar los mismos componentes UI base del proyecto (como \`src/components/ui/button.tsx\`, etc.) si son requeridos.`;
+
+    return { prompt: promptText };
   }
 );
