@@ -51,6 +51,8 @@ async function main() {
       { id: 20, serviceType: "LOW_COST", distanciaMinKm: 5.0, distanciaMaxKm: 8.99, precioRango: 4000.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.519Z"), updatedAt: new Date("2025-06-21T06:23:23.724Z") },
       { id: 21, serviceType: "LOW_COST", distanciaMinKm: 9.0, distanciaMaxKm: 12.99, precioRango: 5800.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.702Z"), updatedAt: new Date("2025-06-21T06:23:23.903Z") },
       { id: 22, serviceType: "LOW_COST", distanciaMinKm: 13.01, distanciaMaxKm: 20.0, precioRango: 8200.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.882Z"), updatedAt: new Date("2025-06-21T06:23:24.074Z") },
+      { id: 23, serviceType: "EXPRESS", distanciaMinKm: 10.0, distanciaMaxKm: 99999.0, precioRango: 1000.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.882Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
+      { id: 24, serviceType: "LOW_COST", distanciaMinKm: 10.0, distanciaMaxKm: 99999.0, precioRango: 700.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.882Z"), updatedAt: new Date("2025-06-21T06:23:24.074Z") },
     ];
 
     for (const data of priceRangeData) {

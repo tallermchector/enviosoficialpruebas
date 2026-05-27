@@ -136,7 +136,13 @@ export function EditablePriceTable({ initialData, serviceType }: EditablePriceTa
             {data.map((pr) => (
               <TableRow key={pr.id} className={changes[pr.id] !== undefined ? 'bg-yellow-100/50' : ''}>
                 <TableCell className="font-medium">{pr.id}</TableCell>
-                <TableCell>{`${pr.distanciaMinKm.toFixed(2)} - ${pr.distanciaMaxKm.toFixed(2)}`}</TableCell>
+                <TableCell>
+                  {pr.distanciaMaxKm >= 9999 ? (
+                    <span className="font-semibold text-primary">Precio por Km adicional (&gt; 10 km)</span>
+                  ) : (
+                    `${pr.distanciaMinKm.toFixed(2)} - ${pr.distanciaMaxKm.toFixed(2)}`
+                  )}
+                </TableCell>
                 <TableCell className="text-right">
                   <Input
                     type="number"

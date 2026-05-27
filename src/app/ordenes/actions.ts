@@ -151,17 +151,49 @@ export async function quoteShipment(input: QuoteShipmentInput): Promise<QuoteShi
     const durationMins = Math.round(route.duration / 60);
     durationText = `${durationMins} min`;
     
-    // Fetch price from database
-    const priceRangeRecord = await prisma.priceRange.findFirst({
-        where: {
-          distanciaMinKm: { lte: new Prisma.Decimal(distanceKm.toFixed(2)) },
-          distanciaMaxKm: { gte: new Prisma.Decimal(distanceKm.toFixed(2)) },
-          serviceType: validatedData.serviceType,
-          isActive: true,
-        },
-    });
+    let price: number | null = null;
 
-    const price = priceRangeRecord ? priceRangeRecord.precioRango.toNumber() : null;
+    if (distanceKm <= 10.00) {
+      // Fetch standard range from database
+      const priceRangeRecord = await prisma.priceRange.findFirst({
+          where: {
+            distanciaMinKm: { lte: new Prisma.Decimal(distanceKm.toFixed(2)) },
+            distanciaMaxKm: { gte: new Prisma.Decimal(distanceKm.toFixed(2)) },
+            serviceType: validatedData.serviceType,
+            isActive: true,
+          },
+      });
+      price = priceRangeRecord ? priceRangeRecord.precioRango.toNumber() : null;
+    } else {
+      // Distance > 10 km: calculate base + extra per-km rate
+      // 1. Get base price of the last standard range (7.00 to 10.00 km)
+      const baseRangeRecord = await prisma.priceRange.findFirst({
+          where: {
+            distanciaMinKm: { gte: 7.00 },
+            distanciaMaxKm: { lte: 10.00 },
+            serviceType: validatedData.serviceType,
+            isActive: true,
+          },
+      });
+
+      // 2. Get the extra km price from the special range starting at 10.00 and going up to 99999.00
+      const extraKmRecord = await prisma.priceRange.findFirst({
+          where: {
+            distanciaMinKm: { gte: 10.00 },
+            distanciaMaxKm: { gte: 9999.00 },
+            serviceType: validatedData.serviceType,
+            isActive: true,
+          },
+      });
+
+      const basePrice = baseRangeRecord ? baseRangeRecord.precioRango.toNumber() : (validatedData.serviceType === PrismaServiceTypeEnum.EXPRESS ? 15300 : 7000);
+      const extraPricePerKm = extraKmRecord ? extraKmRecord.precioRango.toNumber() : (validatedData.serviceType === PrismaServiceTypeEnum.EXPRESS ? 1000 : 700);
+      const extraKm = Math.max(0, distanceKm - 10.00);
+
+      price = basePrice + extraKm * extraPricePerKm;
+      // Round to 2 decimals
+      price = Math.round(price * 100) / 100;
+    }
 
     return {
       success: true,
