@@ -115,7 +115,7 @@ DATABASE_URL="postgresql://usuario:contraseña@localhost:5432/envios_dos_ruedas"
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY="tu_google_maps_api_key_aqui"
 
 # API Key para Genkit (si usas las funcionalidades de IA)
-GEMINI_API_KEY="tu_gemini_api_key_aqui"
+GEMINIENLACE="tu_GEMINIENLACE_aqui"
 ```
 
 ### 4. Sincronizar la Base de Datos
