@@ -2,7 +2,6 @@
 import {
   LayoutDashboard,
   Ticket,
-  PlusSquare,
   Wand2,
   type LucideIcon,
   ListOrdered,
@@ -11,7 +10,7 @@ import {
   Settings,
   BookImage,
   Bike,
-  FileText,
+  UserSearch,
 } from "lucide-react";
 
 export interface AdminNavItem {
@@ -24,10 +23,10 @@ export interface AdminNavItem {
 }
 
 export interface AdminNavGroup {
-    label: string;
-    icon: LucideIcon;
-    description: string;
-    items: AdminNavItem[];
+  label: string;
+  icon: LucideIcon;
+  description: string;
+  items: AdminNavItem[];
 }
 
 export const adminNavItems: (AdminNavItem | AdminNavGroup)[] = [
@@ -44,38 +43,46 @@ export const adminNavItems: (AdminNavItem | AdminNavGroup)[] = [
     icon: Settings,
     description: "Administra los componentes clave del negocio.",
     items: [
-        {
-            href: "/admin/ordenes",
-            label: "Órdenes",
-            icon: ListOrdered,
-            description: "Visualiza, crea y modifica las órdenes de envío.",
-            color: "text-blue-500",
-            bgColor: "bg-blue-50",
-        },
-        {
-            href: "/admin/clientes",
-            label: "Clientes",
-            icon: Users,
-            description: "Administra la base de datos de clientes.",
-            color: "text-cyan-500",
-            bgColor: "bg-cyan-50",
-        },
-        {
-            href: "/admin/repartidores",
-            label: "Repartidores",
-            icon: Bike,
-            description: "Gestiona la flota y las hojas de ruta.",
-            color: "text-fuchsia-500",
-            bgColor: "bg-fuchsia-50",
-        },
-        {
-            href: "/admin/cotizaciones",
-            label: "Tarifas",
-            icon: BarChart2,
-            description: "Administra los rangos de precios para los servicios.",
-            color: "text-green-500",
-            bgColor: "bg-green-50",
-        },
+      {
+        href: "/admin/ordenes",
+        label: "Órdenes",
+        icon: ListOrdered,
+        description: "Visualiza, crea y modifica las órdenes de envío.",
+        color: "text-blue-500",
+        bgColor: "bg-blue-50",
+      },
+      {
+        href: "/admin/clientes",
+        label: "Clientes",
+        icon: Users,
+        description: "Administra la base de datos de clientes.",
+        color: "text-cyan-500",
+        bgColor: "bg-cyan-50",
+      },
+      {
+        href: "/admin/clientes/portal",
+        label: "Portal Cliente",
+        icon: UserSearch,
+        description: "Busca un cliente y ve su historial de envíos.",
+        color: "text-sky-500",
+        bgColor: "bg-sky-50",
+      },
+      {
+        href: "/admin/repartidores",
+        label: "Repartidores",
+        icon: Bike,
+        description: "Gestiona la flota y las hojas de ruta.",
+        color: "text-fuchsia-500",
+        bgColor: "bg-fuchsia-50",
+      },
+      {
+        href: "/admin/cotizaciones",
+        label: "Tarifas",
+        icon: BarChart2,
+        description: "Administra los rangos de precios para los servicios.",
+        color: "text-green-500",
+        bgColor: "bg-green-50",
+      },
     ],
   },
   {
@@ -87,34 +94,18 @@ export const adminNavItems: (AdminNavItem | AdminNavGroup)[] = [
     bgColor: "bg-orange-50",
   },
   {
-    label: "Contenido e IA",
+    label: "Publicaciones",
     icon: BookImage,
-    description: "Gestiona el contenido social y las herramientas de IA.",
+    description: "Gestiona el contenido visual y social de la marca.",
     items: [
-       {
-        href: "/admin/add-post",
-        label: "Agregar Publicación",
-        icon: PlusSquare,
-        description: "Añade nuevos posts al feed de redes sociales.",
-        color: "text-purple-500",
-        bgColor: "bg-purple-50",
-      },
       {
         href: "/admin/crea-imagenes",
-        label: "Prompts de Imagen",
+        label: "Prompts IMG",
         icon: Wand2,
         description: "Crea prompts para generar imágenes de marca.",
         color: "text-teal-500",
         bgColor: "bg-teal-50",
       },
-       {
-        href: "/admin/prompts",
-        label: "Generador de Prompts",
-        icon: FileText,
-        description: "Genera prompts para replicar páginas.",
-        color: "text-rose-500",
-        bgColor: "bg-rose-50",
-      },
     ],
-  }
+  },
 ];

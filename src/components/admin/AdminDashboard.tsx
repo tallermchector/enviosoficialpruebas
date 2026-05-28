@@ -3,11 +3,11 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { adminNavItems } from "@/lib/navigation-admin";
 
 
-const containerVariants: Variants = {
+const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -17,27 +17,27 @@ const containerVariants: Variants = {
   },
 };
 
-const itemVariants: Variants = {
+const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: {
-        type: 'spring' as const,
-        stiffness: 100,
+      type: 'spring' as const,
+      stiffness: 100,
     }
   },
 };
 
 export function AdminDashboard() {
   const flattenedNavItems = adminNavItems.flatMap(item => 'href' in item ? item : item.items);
-  
+
   return (
-    <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
     >
       {flattenedNavItems.map((section) => {
         // We only want to display direct links in the dashboard for now.
@@ -52,10 +52,10 @@ export function AdminDashboard() {
                 <CardHeader>
                   <div className="flex items-center gap-4">
                     <div className={`p-3 rounded-lg ${section.bgColor}`}>
-                        <Icon className={`h-8 w-8 ${section.color}`} />
+                      <Icon className={`h-8 w-8 ${section.color}`} />
                     </div>
                     <CardTitle className="text-xl font-bold font-display text-foreground group-hover:text-primary transition-colors">
-                        {section.label}
+                      {section.label}
                     </CardTitle>
                   </div>
                 </CardHeader>
