@@ -12,7 +12,6 @@ import {
   generateServiceImagePromptAction,
 } from '@/app/admin/crea-imagenes/servicios/actions';
 import type { GenerateServiceImagePromptState } from '@/app/admin/crea-imagenes/servicios/actions';
-import { navGroups } from '@/lib/navigation';
 
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from '@/components/ui/form';
@@ -24,11 +23,14 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Checkbox } from '@/components/ui/checkbox';
 
 
-const serviceOptions = navGroups.flatMap(group =>
-  group.items
-    .filter(item => item.label !== "Envíos LowCost") // Example filter if needed
-    .map(item => item.label)
-);
+const serviceOptions = [
+  'Envíos Express',
+  'Envíos Low Cost',
+  'Envíos Flex MercadoLibre',
+  'Moto Fija para Negocios',
+  'Plan Emprendedores',
+  'Delivery Gastronómico'
+];
 
 const visualStyleOptions = [
     'Fotografía Urbana y Cinematográfica',
@@ -47,6 +49,7 @@ const serviceImagePromptSchema = z.object({
   contentDetails: z.string().min(1, 'Los detalles del contenido son requeridos.'),
   includeText: z.boolean().default(true),
   includeBrand: z.boolean().default(false),
+  additionalDetails: z.string().optional(),
 });
 
 type ServiceImagePromptValues = z.infer<typeof serviceImagePromptSchema>;
@@ -237,8 +240,24 @@ export function ServiceImagePromptGenerator() {
               />
             </div>
 
+            <div className="md:col-span-2 space-y-2">
+                <FormField
+                    control={form.control as any}
+                    name="additionalDetails"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>6. Detalles Adicionales (Opcional)</FormLabel>
+                            <FormControl>
+                                <Textarea placeholder="Añade cualquier otro detalle o requerimiento específico (ej. 'quiero que se vea el mar de fondo')..." rows={3} {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+             </div>
+
             <div className="md:col-span-2 space-y-4">
-                <FormLabel>6. Opciones de Texto y Marca</FormLabel>
+                <FormLabel>7. Opciones de Texto y Marca</FormLabel>
                  <FormField
                     control={form.control as any}
                     name="includeText"
@@ -267,7 +286,7 @@ export function ServiceImagePromptGenerator() {
                         <div className="space-y-1 leading-none">
                             <FormLabel>Incluir Marca y Contacto</FormLabel>
                             <FormDescription>
-                                {"Superpone el nombre 'Envios DosRuedas' y el teléfono en la imagen."}
+                                {"Superpone el nombre 'Envíos DosRuedas' y el teléfono en la imagen."}
                             </FormDescription>
                         </div>
                         </FormItem>
