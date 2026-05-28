@@ -2,7 +2,6 @@
 import {
   LayoutDashboard,
   Ticket,
-  PlusSquare,
   Wand2,
   type LucideIcon,
   ListOrdered,

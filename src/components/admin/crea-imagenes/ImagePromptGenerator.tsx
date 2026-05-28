@@ -27,7 +27,6 @@ interface ImageProfile {
   tags: string[];
 }
 
-const services = navGroups.flatMap(group => group.items.map(item => item.label));
 const sections = ['Hero', 'Card', 'Banner', 'General', 'Ilustración'];
 const aspectRatios = ['16:9 (Panorámica)', '1:1 (Cuadrada)', '9:16 (Vertical)'];
 const styles = ['Fotografía Realista', 'Ilustración Digital', 'Arte 3D', 'Estilo Cinematográfico', 'Minimalista'];
