@@ -6,10 +6,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useToast } from '@/hooks/use-toast';
-import { generateImagePromptAction, suggestImageParamsAction } from '@/app/admin/crea-imagenes/actions';
+import { generateImagePromptAction, suggestImageParamsAction } from '@/app/admin/crea-imagenes/generales/actions';
 import { summarizeServicePage } from '@/ai/flows/summarize-service-page';
-import type { GenerateImagePromptState } from '@/app/admin/crea-imagenes/actions';
-import imageProfiles from '@/lib/imagenes.json';
+import type { GenerateImagePromptState } from '@/app/admin/crea-imagenes/generales/actions';
 import { navGroups } from '@/lib/navigation';
 
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
@@ -21,6 +20,14 @@ import { Button } from '@/components/ui/button';
 import { Loader2, Wand2, Sparkles, Copy, Check, Image as ImageIcon, Pilcrow, BookText, Info } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
+interface ImageProfile {
+  name: string;
+  alt_text: string;
+  description: string;
+  tags: string[];
+}
+
+const services = navGroups.flatMap(group => group.items.map(item => item.label));
 const sections = ['Hero', 'Card', 'Banner', 'General', 'Ilustración'];
 const aspectRatios = ['16:9 (Panorámica)', '1:1 (Cuadrada)', '9:16 (Vertical)'];
 const styles = ['Fotografía Realista', 'Ilustración Digital', 'Arte 3D', 'Estilo Cinematográfico', 'Minimalista'];
@@ -64,9 +71,28 @@ export function ImagePromptGenerator() {
   const [isPending, startTransition] = useTransition();
   const [isSuggesting, setIsSuggesting] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [serviceContextContent, setServiceContextContent] = useState('');
   const [isContextLoading, setIsContextLoading] = useState(false);
+  const [imageProfiles, setImageProfiles] = useState<ImageProfile[]>([]);
 
   const { toast } = useToast();
+
+  useEffect(() => {
+    async function fetchImageProfiles() {
+      try {
+        const response = await fetch('/api/images');
+        if (!response.ok) {
+          throw new Error('Failed to fetch image profiles');
+        }
+        const data = await response.json();
+        setImageProfiles(data.image_profiles);
+      } catch (error) {
+        console.error("Error fetching image profiles:", error);
+        toast({ title: 'Error', description: 'No se pudieron cargar los perfiles de imagen.', variant: 'destructive'});
+      }
+    }
+    fetchImageProfiles();
+  }, [toast]);
 
   const form = useForm<PromptGeneratorFormValues>({
     resolver: zodResolver(promptGeneratorSchema),
@@ -82,17 +108,20 @@ export function ImagePromptGenerator() {
   const loadServiceContext = useCallback(async (serviceName: string) => {
     const path = serviceToPathMap[serviceName];
     if (!path) {
+      setServiceContextContent('');
       form.setValue('serviceContext', '');
       return;
     }
     setIsContextLoading(true);
     try {
       const result = await summarizeServicePage({ relativePath: path });
+      setServiceContextContent(result.summary);
       form.setValue('serviceContext', result.summary);
     } catch (error) {
       console.error("Failed to load service context:", error);
+      setServiceContextContent('');
       form.setValue('serviceContext', '');
-      toast({ title: 'Error', description: `No se pudo cargar el contexto para ${serviceName}.`, variant: 'destructive' });
+      toast({ title: 'Error', description: `No se pudo cargar el contexto para ${serviceName}.`, variant: 'destructive'});
     } finally {
       setIsContextLoading(false);
     }
@@ -103,44 +132,68 @@ export function ImagePromptGenerator() {
     if (selectedService && selectedService !== 'General') {
       loadServiceContext(selectedService);
     } else {
+      setServiceContextContent('');
       form.setValue('serviceContext', '');
     }
-  }, [selectedService, loadServiceContext, form]);
+  }, [selectedService, loadServiceContext]);
 
   useEffect(() => {
     if (state.error) {
       toast({ title: 'Error al Generar', description: state.error, variant: 'destructive' });
     }
   }, [state, toast]);
-
+  
   const handleInspirationChange = async (imageName: string) => {
     form.setValue('inspirationImageName', imageName);
     if (imageName === 'none') {
-      form.reset({
-        sectionType: 'General', service: 'General', aspectRatio: '16:9 (Panorámica)',
-        style: 'Fotografía Realista', background: '', details: '', inspirationImageName: 'none', textToInclude: '',
-      });
-      return;
+        form.reset({
+            sectionType: 'General', service: 'General', aspectRatio: '16:9 (Panorámica)',
+            style: 'Fotografía Realista', background: '', details: '', inspirationImageName: 'none', textToInclude: '',
+        });
+        setServiceContextContent('');
+        return;
     };
-
+    
     setIsSuggesting(true);
-    toast({ title: 'Obteniendo sugerencias con IA...', description: 'Analizando la imagen de inspiración.' });
+    toast({ title: 'Obteniendo sugerencias con IA...', description: 'Analizando la imagen de inspiración.'});
 
     const result = await suggestImageParamsAction(imageName);
-
+    
     if (result.success && result.data) {
-      form.setValue('sectionType', result.data.sectionType);
-      form.setValue('service', result.data.serviceName);
-      form.setValue('aspectRatio', result.data.aspectRatio);
-      form.setValue('style', result.data.style);
-      form.setValue('background', result.data.background);
-      form.setValue('details', result.data.details);
-      if (result.data.serviceName && result.data.serviceName !== 'General') {
-        await loadServiceContext(result.data.serviceName);
-      }
-      toast({ title: 'Sugerencias aplicadas', description: 'El formulario se ha autocompletado.', className: 'bg-green-100 border-green-300' });
+        form.setValue('sectionType', result.data.sectionType);
+        form.setValue('service', result.data.serviceName);
+        form.setValue('aspectRatio', result.data.aspectRatio);
+        form.setValue('style', result.data.style);
+        form.setValue('background', result.data.background);
+        form.setValue('details', result.data.details);
+        if (result.data.serviceName && result.data.serviceName !== 'General') {
+            await loadServiceContext(result.data.serviceName);
+        }
+        toast({ title: 'Sugerencias aplicadas', description: 'El formulario se ha autocompletado.', className: 'bg-green-100 border-green-300' });
     } else {
-      toast({ title: 'Error en Sugerencias', description: result.error, variant: 'destructive' });
+        toast({ title: 'Error en Sugerencias', description: result.error, variant: 'destructive'});
+    }
+    setIsSuggesting(false);
+  };
+  
+  const handleSuggestFromContext = async () => {
+    const context = form.getValues('serviceContext');
+    if (!context) {
+        toast({ title: 'Sin Contexto', description: 'Selecciona un servicio para cargar su contexto primero.', variant: 'destructive'});
+        return;
+    }
+    
+    setIsSuggesting(true);
+    toast({ title: 'Generando ideas con IA...', description: 'Usando el contexto del servicio para sugerir detalles.'});
+
+    const result = await suggestImageParamsAction('', context);
+    
+    if (result.success && result.data) {
+        form.setValue('background', result.data.background);
+        form.setValue('details', result.data.details);
+        toast({ title: 'Sugerencias aplicadas', description: 'Se han autocompletado los detalles y el fondo.', className: 'bg-green-100 border-green-300' });
+    } else {
+        toast({ title: 'Error en Sugerencias', description: result.error, variant: 'destructive'});
     }
     setIsSuggesting(false);
   };
@@ -162,7 +215,7 @@ export function ImagePromptGenerator() {
       setTimeout(() => setCopied(false), 2000);
     }
   };
-
+  
   const allServicesAndPages = navGroups.flatMap(g => g.items.map(i => i.label));
 
   return (
@@ -170,41 +223,41 @@ export function ImagePromptGenerator() {
       <Form {...form}>
         <form onSubmit={handleFormSubmit}>
           <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 relative">
-            {(isSuggesting || isContextLoading) && (
-              <div className="absolute inset-0 bg-white/70 dark:bg-gray-900/70 z-10 flex items-center justify-center">
-                <div className="flex items-center gap-2 text-primary">
-                  <Loader2 className="h-5 w-5 animate-spin" />
-                  <span>{isSuggesting ? 'Cargando sugerencias...' : 'Cargando contexto...'}</span>
+             {(isSuggesting || isContextLoading) && (
+                <div className="absolute inset-0 bg-white/70 dark:bg-gray-900/70 z-10 flex items-center justify-center">
+                    <div className="flex items-center gap-2 text-primary">
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                        <span>{isSuggesting ? 'Generando ideas...' : 'Cargando contexto...'}</span>
+                    </div>
                 </div>
-              </div>
-            )}
+             )}
             <div className="md:col-span-2">
-              <FormField
-                control={form.control}
-                name="inspirationImageName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className='flex items-center gap-2'><ImageIcon className='w-4 h-4' /> Usar Imagen de Inspiración (Opcional)</FormLabel>
-                    <Select onValueChange={handleInspirationChange} value={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Selecciona una imagen base..." />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="none">Ninguna (Crear desde cero)</SelectItem>
-                        {imageProfiles.image_profiles.map(img => (
-                          <SelectItem key={img.name} value={img.name}>{img.name} - {img.alt_text}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormDescription>La IA sugerirá parámetros y creará una versión mejorada basada en la imagen seleccionada.</FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+                 <FormField
+                    control={form.control}
+                    name="inspirationImageName"
+                    render={({ field }) => (
+                        <FormItem>
+                        <FormLabel className='flex items-center gap-2'><ImageIcon className='w-4 h-4' /> Usar Imagen de Inspiración (Opcional)</FormLabel>
+                        <Select onValueChange={handleInspirationChange} value={field.value}>
+                            <FormControl>
+                            <SelectTrigger>
+                                <SelectValue placeholder="Selecciona una imagen base..." />
+                            </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                                <SelectItem value="none">Ninguna (Crear desde cero)</SelectItem>
+                                {imageProfiles.map(img => (
+                                    <SelectItem key={img.name} value={img.name}>{img.name} - {img.alt_text}</SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                        <FormDescription>La IA sugerirá parámetros y creará una versión mejorada basada en la imagen seleccionada.</FormDescription>
+                        <FormMessage />
+                        </FormItem>
+                    )}
+                />
             </div>
-
+            
             <FormField
               control={form.control}
               name="service"
@@ -218,7 +271,7 @@ export function ImagePromptGenerator() {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="General">General / Ninguno</SelectItem>
+                       <SelectItem value="General">General / Ninguno</SelectItem>
                       {[...new Set(allServicesAndPages)].map(service => (
                         <SelectItem key={service} value={service}>{service}</SelectItem>
                       ))}
@@ -251,34 +304,34 @@ export function ImagePromptGenerator() {
                 </FormItem>
               )}
             />
+            
+             <div className="md:col-span-2">
+               <FormField
+                  control={form.control}
+                  name="serviceContext"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center gap-2"><BookText className="w-4 h-4 text-primary" /> Contexto del Servicio para la IA</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          readOnly
+                          rows={6}
+                          className="bg-muted/50 text-muted-foreground text-xs font-mono"
+                          placeholder="El contexto del servicio seleccionado aparecerá aquí..."
+                          {...field}
+                        />
+                      </FormControl>
+                       <FormDescription className="flex items-center gap-2">
+                        <Info className="w-3 h-3"/> Este texto se inyecta en el prompt para darle a la IA información precisa sobre el servicio.
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+             </div>
 
-            <div className="md:col-span-2">
-              <FormField
-                control={form.control}
-                name="serviceContext"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="flex items-center gap-2"><BookText className="w-4 h-4 text-primary" /> Contexto del Servicio para la IA</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        readOnly
-                        rows={6}
-                        className="bg-muted/50 text-muted-foreground text-xs font-mono"
-                        placeholder="El contexto del servicio seleccionado aparecerá aquí..."
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription className="flex items-center gap-2">
-                      <Info className="w-3 h-3" /> Este texto se inyecta en el prompt para darle a la IA información precisa sobre el servicio.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
 
-
-            <FormField
+             <FormField
               control={form.control}
               name="aspectRatio"
               render={({ field }) => (
@@ -310,22 +363,22 @@ export function ImagePromptGenerator() {
                 </FormItem>
               )}
             />
-            <div className="md:col-span-2">
-              <FormField
+             <div className="md:col-span-2 space-y-1">
+                <FormField
                 control={form.control}
                 name="background"
                 render={({ field }) => (
-                  <FormItem>
+                    <FormItem>
                     <FormLabel>Detalles del Fondo (Opcional)</FormLabel>
                     <FormControl>
-                      <Input placeholder="Ej: 'fondo de playa difuminado', 'interior de un taller moderno'" {...field} />
+                        <Input placeholder="Ej: 'fondo de playa difuminado', 'interior de un taller moderno'" {...field} />
                     </FormControl>
                     <FormMessage />
-                  </FormItem>
+                    </FormItem>
                 )}
-              />
+                />
             </div>
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 space-y-1">
               <FormField
                 control={form.control}
                 name="details"
@@ -339,34 +392,42 @@ export function ImagePromptGenerator() {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription>
-                      Añade cualquier detalle específico sobre la acción o los sujetos en la imagen.
-                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+               <Button 
+                type="button" 
+                variant="outline" 
+                size="sm" 
+                onClick={handleSuggestFromContext}
+                disabled={!serviceContextContent || isSuggesting}
+                className="w-full md:w-auto"
+               >
+                 <Sparkles className="w-4 h-4 mr-2" />
+                 Sugerir con IA (Basado en Contexto)
+               </Button>
             </div>
             <div className="md:col-span-2">
-              <FormField
+                <FormField
                 control={form.control}
                 name="textToInclude"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="flex items-center gap-2"><Pilcrow className="h-4 w-4" /> Texto a Incluir en la Imagen (Opcional)</FormLabel>
+                    <FormItem>
+                    <FormLabel className="flex items-center gap-2"><Pilcrow className="h-4 w-4"/> Texto a Incluir en la Imagen (Opcional)</FormLabel>
                     <FormControl>
-                      <Input placeholder="Ej: Envíos Express" {...field} list="text-suggestions" />
+                        <Input placeholder="Ej: Envíos Express" {...field} list="text-suggestions" />
                     </FormControl>
                     <datalist id="text-suggestions">
-                      {allServicesAndPages.map(item => <option key={item} value={item} />)}
+                        {allServicesAndPages.map(item => <option key={item} value={item} />)}
                     </datalist>
                     <FormDescription>
                       Deja vacío si no quieres texto en la imagen. Puedes usar los servicios como sugerencia.
                     </FormDescription>
                     <FormMessage />
-                  </FormItem>
+                    </FormItem>
                 )}
-              />
+                />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4 p-6">
@@ -377,15 +438,15 @@ export function ImagePromptGenerator() {
                 <AlertTitle className="text-blue-800 font-semibold">Prompt Generado</AlertTitle>
                 <AlertDescription className="text-blue-700 whitespace-pre-wrap font-mono text-sm relative pr-10">
                   {state.prompt}
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="absolute top-0 right-0 h-8 w-8 text-blue-600 hover:bg-blue-100"
-                    onClick={handleCopy}
-                    type="button"
-                  >
-                    {copied ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
-                  </Button>
+                   <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute top-0 right-0 h-8 w-8 text-blue-600 hover:bg-blue-100"
+                      onClick={handleCopy}
+                      type="button"
+                    >
+                      {copied ? <Check className="h-4 w-4 text-green-600" /> : <Copy className="h-4 w-4" />}
+                    </Button>
                 </AlertDescription>
               </Alert>
             )}

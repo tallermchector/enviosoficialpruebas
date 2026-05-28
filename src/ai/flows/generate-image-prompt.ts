@@ -1,105 +1,56 @@
-// src/ai/flows/generate-image-prompt.ts
-"use server";
+'use server';
 /**
  * @fileOverview Flow para generar prompts detallados para modelos de generación de imágenes.
  *
  * - generateImagePrompt - Genera un prompt para un modelo de imagen.
- * - GenerateImagePromptInput - El tipo de entrada para la función.
- * - GenerateImagePromptOutput - El tipo de salida de la función.
  */
 
-import { ai } from "@/ai/genkit";
-import { z } from "genkit";
-import companyProfile from "@/lib/empresa.json";
-import imageProfiles from "@/lib/imagenes.json";
+import { ai } from '@/ai/genkit';
+import { z } from 'genkit';
+import companyProfile from '@/lib/empresa.json';
+import imageProfiles from '@/lib/imagenes.json';
 
-export const GenerateImagePromptInputSchema = z.object({
-  sectionType: z
-    .string()
-    .describe(
-      "El tipo de sección de la página donde se usará la imagen (ej: Hero, Card, Banner).",
-    ),
-  serviceName: z
-    .string()
-    .describe(
-      "El nombre del servicio para el cual es la imagen (ej: Envíos Express, Plan Emprendedores).",
-    ),
-  serviceContext: z
-    .string()
-    .optional()
-    .describe(
-      "Información detallada sobre el servicio para dar contexto y enriquecer el prompt.",
-    ),
-  aspectRatio: z
-    .string()
-    .describe(
-      "La relación de aspecto de la imagen (ej: '16:9' para panorámica, '1:1' para cuadrada).",
-    ),
-  style: z
-    .string()
-    .describe(
-      "El estilo visual deseado para la imagen (ej: 'Fotografía Realista', 'Ilustración Digital').",
-    ),
-  background: z
-    .string()
-    .optional()
-    .describe("Descripción del fondo deseado para la imagen."),
-  additionalDetails: z
-    .string()
-    .optional()
-    .describe(
-      "Detalles adicionales o requerimientos específicos del usuario para la imagen.",
-    ),
-  inspirationImageName: z
-    .string()
-    .optional()
-    .describe(
-      "Nombre de una imagen existente en imagenes.json para usar como inspiración.",
-    ),
-  textToInclude: z
-    .string()
-    .optional()
-    .describe("Texto opcional para incluir en la imagen."),
+const GenerateImagePromptInputSchema = z.object({
+  sectionType: z.string().describe("El tipo de sección de la página donde se usará la imagen (ej: Hero, Card, Banner)."),
+  serviceName: z.string().describe("El nombre del servicio para el cual es la imagen (ej: Envíos Express, Plan Emprendedores)."),
+  serviceContext: z.string().optional().describe("Información detallada sobre el servicio para dar contexto y enriquecer el prompt."),
+  aspectRatio: z.string().describe("La relación de aspecto de la imagen (ej: '16:9' para panorámica, '1:1' para cuadrada)."),
+  style: z.string().describe("El estilo visual deseado para la imagen (ej: 'Fotografía Realista', 'Ilustración Digital')."),
+  background: z.string().optional().describe("Descripción del fondo deseado para la imagen."),
+  additionalDetails: z.string().optional().describe("Detalles adicionales o requerimientos específicos del usuario para la imagen."),
+  inspirationImageName: z.string().optional().describe("Nombre de una imagen existente en imagenes.json para usar como inspiración."),
+  textToInclude: z.string().optional().describe("Texto opcional para incluir en la imagen."),
 });
-export type GenerateImagePromptInput = z.infer<
-  typeof GenerateImagePromptInputSchema
->;
+type GenerateImagePromptInput = z.infer<typeof GenerateImagePromptInputSchema>;
 
 const GenerateImagePromptOutputSchema = z.object({
-  prompt: z
-    .string()
-    .describe(
-      "El prompt detallado y optimizado para ser usado en un modelo de generación de imágenes como Imagen o Nano Banana.",
-    ),
+  prompt: z.string().describe("El prompt detallado y optimizado para ser usado en un modelo de generación de imágenes como Imagen o Nano Banana."),
 });
-export type GenerateImagePromptOutput = z.infer<
-  typeof GenerateImagePromptOutputSchema
->;
+type GenerateImagePromptOutput = z.infer<typeof GenerateImagePromptOutputSchema>;
 
-export async function generateImagePrompt(
-  input: GenerateImagePromptInput,
-): Promise<GenerateImagePromptOutput> {
+export async function generateImagePrompt(input: GenerateImagePromptInput): Promise<GenerateImagePromptOutput> {
   const companyData = companyProfile.company_profile;
-
+  
   let inspirationImageData = null;
-  if (input.inspirationImageName && input.inspirationImageName !== "none") {
-    inspirationImageData =
-      imageProfiles.image_profiles.find(
-        (img) => img.name === input.inspirationImageName,
-      ) || null;
+  if (input.inspirationImageName && input.inspirationImageName !== 'none') {
+    inspirationImageData = imageProfiles.image_profiles.find(img => img.name === input.inspirationImageName) || null;
   }
 
   const flowInput = {
     ...input,
     company: companyData,
     inspirationImage: inspirationImageData,
+    isMercadoLibreFlex: input.serviceName === "Mercado Libre Flex",
+    isDeliveryGastronomico: input.serviceName === "Delivery Gastronómico",
+    isEnviosExpress: input.serviceName === "Envíos Express",
+    isEnviosLowCost: input.serviceName === "Envíos LowCost"
   };
 
   return generateImagePromptFlow(flowInput);
 }
 
 const promptTemplate = ai.definePrompt({
-  name: "generateImagePromptTemplate",
+  name: 'generateImagePromptTemplate',
   input: { schema: z.any() }, // Accept any since we augment it
   output: { schema: GenerateImagePromptOutputSchema },
   prompt: `
@@ -113,7 +64,10 @@ const promptTemplate = ai.definePrompt({
     - Paleta de colores principal: Azul primario (similar a {{company.branding.colors.theme_primary.hex}}) y Amarillo/Naranja secundario (similar a #FBBF24). Estos colores deben ser prominentes.
     - Regla de texto: 
       {{#if textToInclude}}
-        Incluye el siguiente texto de forma profesional y legible en la imagen: "{{textToInclude}}". El texto debe estar perfectamente integrado en el diseño, con una tipografía moderna y clara que complemente el estilo visual.
+        Incluye el siguiente texto de forma profesional y legible en la imagen: "{{textToInclude}}".
+        - **Tipografía:** Utiliza una fuente audaz, moderna y con estilo tecnológico, similar a la fuente 'Orbitron'.
+        - **Colores del Texto:** Aplica una combinación de colores blanco y amarillo/naranja a las palabras del texto. Por ejemplo, si el texto es "Envíos Express", la palabra "Envíos" podría ser blanca y "Express" amarilla, o alternar colores si hay más palabras. El objetivo es crear un contraste visual atractivo.
+        - **Integración:** El texto debe estar perfectamente integrado en el diseño, con buena legibilidad y complementando el estilo visual general.
       {{else}}
         NO incluyas ningún tipo de texto, letras, logos o tipografías en la imagen.
       {{/if}}
@@ -136,6 +90,20 @@ const promptTemplate = ai.definePrompt({
 
     **Requerimientos Específicos de la Solicitud:**
     - **Servicio Asociado:** "{{serviceName}}". Adapta la atmósfera y el concepto de la imagen a este servicio.
+    - **Guía de Contenido Específico por Servicio:**
+      {{#if isMercadoLibreFlex}}
+        - **Elementos Clave:** Incorpora elementos visuales de Mercado Libre. Esto puede incluir el logo de Mercado Libre en las cajas, el color amarillo característico de la marca, o el packaging oficial de Mercado Envíos. La escena debe reflejar la velocidad y eficiencia del servicio Flex.
+      {{/if}}
+      {{#if isDeliveryGastronomico}}
+        - **Elementos Clave:** La imagen debe centrarse en el delivery de comida. Incluye elementos como contenedores de comida para llevar, bolsas de papel de restaurantes, o un repartidor entregando un pedido a un cliente en la puerta de su casa. La atmósfera debe ser apetitosa y profesional.
+      {{/if}}
+      {{#if isEnviosExpress}}
+        - **Elementos Clave:** El concepto principal es la velocidad. Utiliza efectos visuales como estelas de luz, desenfoque de movimiento (motion blur) o una composición dinámica para transmitir urgencia y rapidez.
+      {{/if}}
+      {{#if isEnviosLowCost}}
+        - **Elementos Clave:** La imagen debe comunicar ahorro e inteligencia. Puedes incluir elementos como una alcancía (piggy bank) con el logo de la empresa, gráficos de flechas apuntando hacia abajo para simbolizar costos reducidos, o un repartidor en una ruta optimizada con varias paradas.
+      {{/if}}
+      
     {{#if serviceContext}}
       - **Contexto del Servicio:** Utiliza esta información para inspirar el concepto de la imagen. Por ejemplo, si el servicio es sobre "rapidez garantizada", la imagen debe ser dinámica. Si es sobre "ahorro", debe transmitir economía e inteligencia.
       '''
@@ -159,12 +127,12 @@ const promptTemplate = ai.definePrompt({
 
 const generateImagePromptFlow = ai.defineFlow(
   {
-    name: "generateImagePromptFlow",
+    name: 'generateImagePromptFlow',
     inputSchema: z.any(),
     outputSchema: GenerateImagePromptOutputSchema,
   },
   async (input) => {
     const { output } = await promptTemplate(input);
     return output!;
-  },
+  }
 );
