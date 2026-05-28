@@ -7,12 +7,9 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'zod';
-import { promises as fs } from 'fs';
-import path from 'path';
-import type { PageStructure, ComponentNode } from "@/components/admin/crea-imagenes/ui-optimizer/FileSelector";
+import { z } from 'genkit';
 
-const ReplicationPromptInputSchema = z.object({
+export const ReplicationPromptInputSchema = z.object({
   pagePath: z.string().describe("The path to the page being replicated."),
   componentPaths: z.array(z.string()).optional().describe("The specific components to generate a prompt for."),
   mainComponentContent: z.string().optional().describe("The source code of the main component."),
