@@ -1,5 +1,5 @@
 // src/ai/flows/generate-image-prompt.ts
-'use server';
+"use server";
 /**
  * @fileOverview Flow para generar prompts detallados para modelos de generación de imágenes.
  *
@@ -8,86 +8,163 @@
  * - GenerateImagePromptOutput - El tipo de salida de la función.
  */
 
-import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
-import { withExponentialBackoff } from '@/ai/utils/retry';
+import { ai } from "@/ai/genkit";
+import { z } from "genkit";
+import companyProfile from "@/lib/empresa.json";
+import imageProfiles from "@/lib/imagenes.json";
 
 const GenerateImagePromptInputSchema = z.object({
-  sectionType: z.string().describe("El tipo de sección de la página donde se usará la imagen (ej: Hero, Card, Banner)."),
-  serviceName: z.string().describe("El nombre del servicio para el cual es la imagen (ej: Envíos Express, Plan Emprendedores)."),
-  aspectRatio: z.string().describe("La relación de aspecto de la imagen (ej: '16:9' para panorámica, '1:1' para cuadrada)."),
-  style: z.string().describe("El estilo visual deseado para la imagen (ej: 'Fotografía Realista', 'Ilustración Digital')."),
-  background: z.string().optional().describe("Descripción del fondo deseado para la imagen."),
-  additionalDetails: z.string().optional().describe("Detalles adicionales o requerimientos específicos del usuario para la imagen."),
+  sectionType: z
+    .string()
+    .describe(
+      "El tipo de sección de la página donde se usará la imagen (ej: Hero, Card, Banner).",
+    ),
+  serviceName: z
+    .string()
+    .describe(
+      "El nombre del servicio para el cual es la imagen (ej: Envíos Express, Plan Emprendedores).",
+    ),
+  serviceContext: z
+    .string()
+    .optional()
+    .describe(
+      "Información detallada sobre el servicio para dar contexto y enriquecer el prompt.",
+    ),
+  aspectRatio: z
+    .string()
+    .describe(
+      "La relación de aspecto de la imagen (ej: '16:9' para panorámica, '1:1' para cuadrada).",
+    ),
+  style: z
+    .string()
+    .describe(
+      "El estilo visual deseado para la imagen (ej: 'Fotografía Realista', 'Ilustración Digital').",
+    ),
+  background: z
+    .string()
+    .optional()
+    .describe("Descripción del fondo deseado para la imagen."),
+  additionalDetails: z
+    .string()
+    .optional()
+    .describe(
+      "Detalles adicionales o requerimientos específicos del usuario para la imagen.",
+    ),
+  inspirationImageName: z
+    .string()
+    .optional()
+    .describe(
+      "Nombre de una imagen existente en imagenes.json para usar como inspiración.",
+    ),
+  textToInclude: z
+    .string()
+    .optional()
+    .describe("Texto opcional para incluir en la imagen."),
 });
-export type GenerateImagePromptInput = z.infer<typeof GenerateImagePromptInputSchema>;
+export type GenerateImagePromptInput = z.infer<
+  typeof GenerateImagePromptInputSchema
+>;
 
 const GenerateImagePromptOutputSchema = z.object({
-  prompt: z.string().describe("El prompt detallado y optimizado para ser usado en un modelo de generación de imágenes como Imagen o Nano Banana."),
+  prompt: z
+    .string()
+    .describe(
+      "El prompt detallado y optimizado para ser usado en un modelo de generación de imágenes como Imagen o Nano Banana.",
+    ),
 });
-export type GenerateImagePromptOutput = z.infer<typeof GenerateImagePromptOutputSchema>;
+export type GenerateImagePromptOutput = z.infer<
+  typeof GenerateImagePromptOutputSchema
+>;
 
-export async function generateImagePrompt(input: GenerateImagePromptInput): Promise<GenerateImagePromptOutput> {
-  return generateImagePromptFlow(input);
+export async function generateImagePrompt(
+  input: GenerateImagePromptInput,
+): Promise<GenerateImagePromptOutput> {
+  const companyData = companyProfile.company_profile;
+
+  let inspirationImageData = null;
+  if (input.inspirationImageName && input.inspirationImageName !== "none") {
+    inspirationImageData =
+      imageProfiles.image_profiles.find(
+        (img) => img.name === input.inspirationImageName,
+      ) || null;
+  }
+
+  const flowInput = {
+    ...input,
+    company: companyData,
+    inspirationImage: inspirationImageData,
+  };
+
+  return generateImagePromptFlow(flowInput);
 }
 
 const promptTemplate = ai.definePrompt({
-  name: 'generateImagePromptTemplate',
-  input: { schema: GenerateImagePromptInputSchema },
+  name: "generateImagePromptTemplate",
+  input: { schema: z.any() }, // Accept any since we augment it
   output: { schema: GenerateImagePromptOutputSchema },
   prompt: `
     Tu tarea es actuar como un experto en "prompt engineering" para modelos de generación de imágenes de Google (como Imagen o Nano Banana).
-    Debes crear un prompt detallado y efectivo en inglés, basado en la información proporcionada.
+    Debes crear un prompt detallado y efectivo en inglés, basado en la información proporcionada. El objetivo es generar una imagen profesional, de alta calidad y que se integre perfectamente con la identidad de marca del proyecto.
 
-    **Contexto del Proyecto:**
-    - Empresa: Envios DosRuedas, una empresa de mensajería y delivery en Mar del Plata, Argentina.
-    - Paleta de colores principal: Azul primario (similar a #3B82F6) y Amarillo secundario (similar a #FBBF24). Estos colores deben ser prominentes y representar la marca.
-    - Tipografía para títulos (si se solicita texto): "Orbitron", una fuente moderna y tecnológica.
-    - Tipografía para texto secundario (si se solicita texto): "Roboto", una fuente sans-serif limpia y legible.
+    **Contexto del Proyecto (Identidad de Marca):**
+    - Empresa: {{company.identity.name}}, una empresa de {{company.identity.slogan_principal}}.
     - Tono general: Profesional, confiable, moderno y amigable.
-    - Localización: Mar del Plata, Argentina. Si es posible, incluye sutilmente elementos que evoquen una ciudad costera como Mar del Plata (ej. rambla, lobos marinos, arquitectura, el mar de fondo).
+    - Localización: {{company.location_contact.primary_city}}, Argentina. Si es posible, incluye sutilmente elementos que evoquen una ciudad costera (ej. rambla, lobos marinos, arquitectura, el mar de fondo).
+    - Paleta de colores principal: Azul primario (similar a {{company.branding.colors.theme_primary.hex}}) y Amarillo/Naranja secundario (similar a #FBBF24). Estos colores deben ser prominentes.
+    - Regla de texto: 
+      {{#if textToInclude}}
+        Incluye el siguiente texto de forma profesional y legible en la imagen: "{{textToInclude}}". El texto debe estar perfectamente integrado en el diseño, con una tipografía moderna y clara que complemente el estilo visual.
+      {{else}}
+        NO incluyas ningún tipo de texto, letras, logos o tipografías en la imagen.
+      {{/if}}
 
     **Instrucciones para la generación del prompt:**
     1.  **Idioma:** El prompt final DEBE estar en inglés.
-    2.  **Estructura:** Comienza con una descripción clara de la escena, seguida de detalles de estilo, iluminación y composición.
-    3.  **Integración de Marca:** Incorpora la paleta de colores (azul y amarillo) de forma natural en la escena (uniformes, vehículos, paquetes, etc.).
-    4.  **Concepto Central:** El prompt debe reflejar el concepto del servicio y el tipo de sección.
-        -   **Servicio:** "{{serviceName}}". Adapta la atmósfera a este servicio (ej: 'Envíos Express' debe ser dinámico y rápido; 'Envíos Low Cost' debe ser planificado y económico; 'Envíos Flex' debe ser sobre e-commerce y MercadoLibre; 'Preguntas Frecuentes' debe ser sobre ayuda y claridad).
-        -   **Sección:** "{{sectionType}}". Ajusta la composición (ej: un 'Hero' debe ser panorámico e impactante; una 'Card' debe ser más enfocada y simple; un 'Banner' debe ser alargado).
-    5.  **Relación de Aspecto:** Asegúrate de que la descripción de la escena sea coherente con la relación de aspecto solicitada: "{{aspectRatio}}".
-    6.  **Estilo Visual:** Aplica el estilo visual solicitado: "{{style}}". Utiliza palabras clave adecuadas para lograr ese estilo (ej: para 'Fotografía Realista' usa "hyper-realistic, shot on DSLR"; para 'Ilustración Digital' usa "digital illustration, vibrant colors, clean lines").
-    7.  **Fondo:** Incorpora la descripción del fondo: "{{background}}". Si no se especifica, crea un fondo apropiado para el contexto.
-    8.  **Detalles Adicionales:** Incorpora los siguientes detalles del usuario: "{{additionalDetails}}".
-    9.  **Inclusión de Texto (si se solicita):** Si el usuario pide agregar texto, especifica claramente el texto a incluir, su ubicación, y que debe usar las tipografías del proyecto ("Orbitron" para títulos, "Roboto" para texto secundario).
-    10. **Calidad:** Añade siempre palabras clave que mejoren la calidad de la imagen, como "cinematic lighting", "sharp focus", "dynamic composition", "8k", "professional photography".
+    2.  **Estructura:** Comienza con el tipo de toma (ej: "Dynamic action shot", "Vibrant digital illustration", "Cinematic photo"). Describe la escena principal, luego los sujetos, el fondo, y finalmente, los detalles de estilo.
+    3.  **Integración de Marca:** Incorpora la paleta de colores (azul y amarillo/naranja) de forma natural en la escena (uniformes, vehículos, paquetes, elementos gráficos, etc.).
 
-    **Ejemplo de cómo pensarías:**
-    - **Solicitud:** Servicio 'Envíos Express', Sección 'Hero', Aspecto '16:9', Estilo 'Fotografía Realista', Fondo 'costa de mar del plata', Detalles 'que se vea veloz'.
-    - **Tu Proceso Mental:** Escena de acción. Repartidor en moto moderna, desenfoque de movimiento en una calle costera que recuerde a la rambla de Mar del Plata. Composición panorámica. Colores azul y amarillo en su equipo. Estilo hiperrealista.
-    - **Prompt Ejemplo:** "Dynamic action shot of a courier on a modern electric scooter, speeding along the scenic coastal road of Mar del Plata, Argentina. Aspect ratio 16:9. The rider wears a sleek blue helmet and a bright yellow delivery backpack. Motion blur on the background to convey speed and urgency. Cinematic lighting, sharp focus on the rider, sunny day with the sea in the background, 8k, hyper-realistic photography."
+    {{#if inspirationImage}}
+      **Instrucción Principal (Modo Inspiración):**
+      La solicitud se basa en una imagen existente. Tu objetivo es crear un prompt que genere una versión MEJORADA, MÁS PROFESIONAL y con mayor impacto visual de la imagen de inspiración, manteniendo su concepto central pero elevando la calidad.
+      - **Concepto de Inspiración:** {{inspirationImage.description}}
+      - **Tags de Inspiración:** {{inspirationImage.tags}}
+      - No copies el prompt antiguo. Reimagina la escena basándote en la descripción y los tags, aplicando tu experiencia para un resultado superior. Por ejemplo, si la descripción es "un fondo abstracto", crea un prompt para un fondo abstracto más dinámico, con mejor iluminación y composición.
+    {{else}}
+      **Instrucción Principal (Modo Creativo):**
+      Debes generar un prompt desde cero basado en los siguientes requerimientos.
+    {{/if}}
 
-    - **Solicitud:** Servicio 'Envíos Flex', Sección 'Card', Aspecto '1:1', Estilo 'Ilustración Digital', Fondo 'taller de emprendedor', Detalles 'vendedor preparando un paquete'.
-    - **Tu Proceso Mental:** Escena de e-commerce. Un emprendedor sonriendo mientras empaca un producto. Composición cuadrada. Estilo de ilustración con colores vibrantes.
-    - **Prompt Ejemplo:** "Vibrant digital illustration of a friendly entrepreneur in their workshop, carefully placing a product into a cardboard box with a Mercado Libre Flex logo. Aspect ratio 1:1. The packing tape is blue and yellow. The scene is well-lit, with a clean and organized background showing shelves with products. Clean lines, soft shadows, cheerful atmosphere."
+    **Requerimientos Específicos de la Solicitud:**
+    - **Servicio Asociado:** "{{serviceName}}". Adapta la atmósfera y el concepto de la imagen a este servicio.
+    {{#if serviceContext}}
+      - **Contexto del Servicio:** Utiliza esta información para inspirar el concepto de la imagen. Por ejemplo, si el servicio es sobre "rapidez garantizada", la imagen debe ser dinámica. Si es sobre "ahorro", debe transmitir economía e inteligencia.
+      '''
+      {{serviceContext}}
+      '''
+    {{/if}}
+    - **Tipo de Sección/Uso:** "{{sectionType}}". Ajusta la composición (ej: un 'Hero' debe ser panorámico e impactante; una 'Card' debe ser más enfocada y simple).
+    - **Relación de Aspecto:** La composición debe ser coherente con "{{aspectRatio}}".
+    - **Estilo Visual:** Aplica el estilo "{{style}}". Usa palabras clave expertas para lograrlo (ej: para 'Fotografía Realista' usa "hyper-realistic, photorealistic, cinematic lighting, shot on DSLR, 8k"; para 'Ilustración Digital' usa "digital illustration, vibrant colors, clean lines, graphic novel style").
+    - **Fondo:** {{#if background}}"{{background}}"{{else}}Crea un fondo apropiado para el contexto.{{/if}}
+    - **Detalles Adicionales:** "{{additionalDetails}}".
 
-    Ahora, genera el prompt para la siguiente solicitud:
-    - Servicio: {{serviceName}}
-    - Tipo de Sección: {{sectionType}}
-    - Relación de Aspecto: {{aspectRatio}}
-    - Estilo Visual: {{style}}
-    - Fondo: {{background}}
-    - Detalles Adicionales: {{additionalDetails}}
+    **Optimización Final (Siempre aplicar):**
+    - Añade siempre términos que mejoren la calidad: "hyper-detailed", "cinematic lighting", "sharp focus", "dynamic composition", "8k", "professional photography", "Unreal Engine render" (si es 3D).
+    - Sé específico en los detalles. En lugar de "un hombre", di "a friendly male courier in his 20s".
+    - Utiliza adjetivos potentes para describir la atmósfera (ej: "dynamic", "serene", "professional", "vibrant").
+
+    Genera el prompt final en inglés a continuación.
   `,
 });
 
 const generateImagePromptFlow = ai.defineFlow(
   {
-    name: 'generateImagePromptFlow',
-    inputSchema: GenerateImagePromptInputSchema,
+    name: "generateImagePromptFlow",
+    inputSchema: z.any(),
     outputSchema: GenerateImagePromptOutputSchema,
   },
   async (input) => {
-    const { output } = await withExponentialBackoff(() => promptTemplate(input));
+    const { output } = await promptTemplate(input);
     return output!;
-  }
+  },
 );
