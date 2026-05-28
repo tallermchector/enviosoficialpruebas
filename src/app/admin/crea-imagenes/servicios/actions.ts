@@ -52,6 +52,7 @@ const generateServiceImagePromptSchema = z.object({
   contentDetails: z.string(),
   includeText: z.boolean(),
   includeBrand: z.boolean(),
+  additionalDetails: z.string().optional(),
 });
 
 export interface GenerateServiceImagePromptState {
@@ -72,6 +73,7 @@ export async function generateServiceImagePromptAction(
         contentDetails: formData.get('contentDetails'),
         includeText: formData.get('includeText') === 'true',
         includeBrand: formData.get('includeBrand') === 'true',
+        additionalDetails: formData.get('additionalDetails') || undefined,
     };
 
   const validatedFields = generateServiceImagePromptSchema.safeParse(rawData);

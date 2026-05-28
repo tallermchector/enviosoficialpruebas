@@ -54,74 +54,58 @@ const promptTemplate = ai.definePrompt({
   input: { schema: z.any() }, // Accept any since we augment it
   output: { schema: GenerateImagePromptOutputSchema },
   prompt: `
-    Tu tarea es actuar como un experto en "prompt engineering" para modelos de generación de imágenes de Google (como Imagen o Nano Banana).
-    Debes crear un prompt detallado y efectivo en inglés, basado en la información proporcionada. El objetivo es generar una imagen profesional, de alta calidad y que se integre perfectamente con la identidad de marca del proyecto.
+    You are a world-class expert in "prompt engineering" for Google's most advanced image generation models (like Imagen, Google Flow, or Nano Banana Pro).
+    Your task is to create a highly detailed, effective, and professional prompt in English based on the specific creative direction provided.
 
-    **Contexto del Proyecto (Identidad de Marca):**
-    - Empresa: {{company.identity.name}}, una empresa de {{company.identity.slogan_principal}}.
-    - Tono general: Profesional, confiable, moderno y amigable.
-    - Localización: {{company.location_contact.primary_city}}, Argentina. Si es posible, incluye sutilmente elementos que evoquen una ciudad costera (ej. rambla, lobos marinos, arquitectura, el mar de fondo).
-    - Paleta de colores principal: Azul primario (similar a {{company.branding.colors.theme_primary.hex}}) y Amarillo/Naranja secundario (similar a #FBBF24). Estos colores deben ser prominentes.
-    - Regla de texto: 
-      {{#if textToInclude}}
-        Incluye el siguiente texto de forma profesional y legible en la imagen: "{{textToInclude}}".
-        - **Tipografía:** Utiliza una fuente audaz, moderna y con estilo tecnológico, similar a la fuente 'Orbitron'.
-        - **Colores del Texto:** Aplica una combinación de colores blanco y amarillo/naranja a las palabras del texto. Por ejemplo, si el texto es "Envíos Express", la palabra "Envíos" podría ser blanca y "Express" amarilla, o alternar colores si hay más palabras. El objetivo es crear un contraste visual atractivo.
-        - **Integración:** El texto debe estar perfectamente integrado en el diseño, con buena legibilidad y complementando el estilo visual general.
-      {{else}}
-        NO incluyas ningún tipo de texto, letras, logos o tipografías en la imagen.
-      {{/if}}
+    **MANDATORY FORMULA (The 5 Pillars):**
+    You MUST structure your final prompt EXACTLY according to this formula:
+    [Subject + Adjectives] doing [Action] in [Location/Context]. [Composition/Camera Angle]. [Lighting/Atmosphere]. [Style/Medium]. [Text Constraint/Specific Details].
 
-    **Instrucciones para la generación del prompt:**
-    1.  **Idioma:** El prompt final DEBE estar en inglés.
-    2.  **Estructura:** Comienza con el tipo de toma (ej: "Dynamic action shot", "Vibrant digital illustration", "Cinematic photo"). Describe la escena principal, luego los sujetos, el fondo, y finalmente, los detalles de estilo.
-    3.  **Integración de Marca:** Incorpora la paleta de colores (azul y amarillo/naranja) de forma natural en la escena (uniformes, vehículos, paquetes, elementos gráficos, etc.).
+    **Brand Identity & Context:**
+    - The company name is strictly "Envíos DosRuedas".
+    - Company Location: {{company.location_contact.primary_city}}, Argentina.
+    - Vibe: Professional, trustworthy, modern, and friendly.
+    - Location Pillar: Must subtly evoke a coastal city like {{company.location_contact.primary_city}} (e.g., coastal roads, sea in the background). {{#if background}} Focus background on: "{{background}}".{{/if}}
+    - Color Palette: The scene must prominently and naturally feature the brand's colors: a primary blue (like {{company.branding.colors.theme_primary.hex}}) and a secondary vibrant yellow/orange (like #FBBF24).
+
+    **Pillar Breakdown Instructions:**
+    1. **[Subject + Adjectives] & [Action]:**
+       - Concept heavily revolves around "{{serviceName}}" for a "{{sectionType}}" section.
+       - Integrate brand elements appropriately (e.g., uniforms, vehicles).
+       - {{#if isMercadoLibreFlex}} Incorporate Mercado Libre elements (yellow color, cardboard boxes). {{/if}}
+       - {{#if isDeliveryGastronomico}} Focus on food delivery (thermal bags, food containers). {{/if}}
+       - {{#if isEnviosExpress}} Focus on high speed and motion blur. {{/if}}
+       - {{#if isEnviosLowCost}} Focus on smart routing and economy. {{/if}}
+       - Use this context: "{{serviceContext}}".
+    2. **[Location/Context]:**
+       - Combine the coastal vibe with any additional details: "{{additionalDetails}}".
+    3. **[Composition/Camera Angle]:**
+       - Optimized for "{{aspectRatio}}".
+       - E.g., "Wide panoramic shot" (for Hero 16:9), "Macro close-up" (for Card 1:1).
+    4. **[Lighting/Atmosphere]:**
+       - Based on the mood of the service. E.g., "Cinematic lighting", "Studio lighting".
+    5. **[Style/Medium]:**
+       - Based on "{{style}}":
+         - For 'Fotografía Realista': "Photorealistic 8k render, professional photography, DSLR".
+         - For 'Ilustración Digital': "Vibrant digital illustration, clean lines, graphic novel style".
+         - For 'Arte 3D': "3D render, hyper-detailed, Unreal Engine 5".
+    6. **[Text Constraint/Specific Details]:**
+       {{#if textToInclude}}
+       - The sign clearly reads "{{textToInclude}}" in bold, modern sans-serif font (like Orbitron). The colors of the text should mix white and yellow/orange.
+       {{/if}}
+       {{#unless textToInclude}}
+       - Do NOT include any text, letters, logos, or writing of any kind.
+       {{/unless}}
 
     {{#if inspirationImage}}
-      **Instrucción Principal (Modo Inspiración):**
-      La solicitud se basa en una imagen existente. Tu objetivo es crear un prompt que genere una versión MEJORADA, MÁS PROFESIONAL y con mayor impacto visual de la imagen de inspiración, manteniendo su concepto central pero elevando la calidad.
-      - **Concepto de Inspiración:** {{inspirationImage.description}}
-      - **Tags de Inspiración:** {{inspirationImage.tags}}
-      - No copies el prompt antiguo. Reimagina la escena basándote en la descripción y los tags, aplicando tu experiencia para un resultado superior. Por ejemplo, si la descripción es "un fondo abstracto", crea un prompt para un fondo abstracto más dinámico, con mejor iluminación y composición.
-    {{else}}
-      **Instrucción Principal (Modo Creativo):**
-      Debes generar un prompt desde cero basado en los siguientes requerimientos.
+    **Inspiration Override:**
+    Use this existing image concept to heavily influence the [Subject], [Action], and [Location] pillars, but upgrade the [Composition], [Lighting], and [Style] to be vastly superior:
+    - Concept: {{inspirationImage.description}}
+    - Tags: {{inspirationImage.tags}}
     {{/if}}
 
-    **Requerimientos Específicos de la Solicitud:**
-    - **Servicio Asociado:** "{{serviceName}}". Adapta la atmósfera y el concepto de la imagen a este servicio.
-    - **Guía de Contenido Específico por Servicio:**
-      {{#if isMercadoLibreFlex}}
-        - **Elementos Clave:** Incorpora elementos visuales de Mercado Libre. Esto puede incluir el logo de Mercado Libre en las cajas, el color amarillo característico de la marca, o el packaging oficial de Mercado Envíos. La escena debe reflejar la velocidad y eficiencia del servicio Flex.
-      {{/if}}
-      {{#if isDeliveryGastronomico}}
-        - **Elementos Clave:** La imagen debe centrarse en el delivery de comida. Incluye elementos como contenedores de comida para llevar, bolsas de papel de restaurantes, o un repartidor entregando un pedido a un cliente en la puerta de su casa. La atmósfera debe ser apetitosa y profesional.
-      {{/if}}
-      {{#if isEnviosExpress}}
-        - **Elementos Clave:** El concepto principal es la velocidad. Utiliza efectos visuales como estelas de luz, desenfoque de movimiento (motion blur) o una composición dinámica para transmitir urgencia y rapidez.
-      {{/if}}
-      {{#if isEnviosLowCost}}
-        - **Elementos Clave:** La imagen debe comunicar ahorro e inteligencia. Puedes incluir elementos como una alcancía (piggy bank) con el logo de la empresa, gráficos de flechas apuntando hacia abajo para simbolizar costos reducidos, o un repartidor en una ruta optimizada con varias paradas.
-      {{/if}}
-      
-    {{#if serviceContext}}
-      - **Contexto del Servicio:** Utiliza esta información para inspirar el concepto de la imagen. Por ejemplo, si el servicio es sobre "rapidez garantizada", la imagen debe ser dinámica. Si es sobre "ahorro", debe transmitir economía e inteligencia.
-      '''
-      {{serviceContext}}
-      '''
-    {{/if}}
-    - **Tipo de Sección/Uso:** "{{sectionType}}". Ajusta la composición (ej: un 'Hero' debe ser panorámico e impactante; una 'Card' debe ser más enfocada y simple).
-    - **Relación de Aspecto:** La composición debe ser coherente con "{{aspectRatio}}".
-    - **Estilo Visual:** Aplica el estilo "{{style}}". Usa palabras clave expertas para lograrlo (ej: para 'Fotografía Realista' usa "hyper-realistic, photorealistic, cinematic lighting, shot on DSLR, 8k"; para 'Ilustración Digital' usa "digital illustration, vibrant colors, clean lines, graphic novel style").
-    - **Fondo:** {{#if background}}"{{background}}"{{else}}Crea un fondo apropiado para el contexto.{{/if}}
-    - **Detalles Adicionales:** "{{additionalDetails}}".
-
-    **Optimización Final (Siempre aplicar):**
-    - Añade siempre términos que mejoren la calidad: "hyper-detailed", "cinematic lighting", "sharp focus", "dynamic composition", "8k", "professional photography", "Unreal Engine render" (si es 3D).
-    - Sé específico en los detalles. En lugar de "un hombre", di "a friendly male courier in his 20s".
-    - Utiliza adjetivos potentes para describir la atmósfera (ej: "dynamic", "serene", "professional", "vibrant").
-
-    Genera el prompt final en inglés a continuación.
+    **OUTPUT RULE:**
+    Do not output conversational text. Output ONLY the final image prompt following the 5 Pillars formula.
   `,
 });
 

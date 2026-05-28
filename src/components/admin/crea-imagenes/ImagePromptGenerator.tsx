@@ -9,7 +9,6 @@ import { useToast } from '@/hooks/use-toast';
 import { generateImagePromptAction, suggestImageParamsAction } from '@/app/admin/crea-imagenes/generales/actions';
 import { summarizeServicePage } from '@/ai/flows/summarize-service-page';
 import type { GenerateImagePromptState } from '@/app/admin/crea-imagenes/generales/actions';
-import { navGroups } from '@/lib/navigation';
 
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from '@/components/ui/form';
@@ -33,11 +32,11 @@ const styles = ['Fotografía Realista', 'Ilustración Digital', 'Arte 3D', 'Esti
 
 const serviceToPathMap: Record<string, string> = {
   "Envíos Express": "src/app/servicios/envios-express/page.tsx",
-  "Envíos LowCost": "src/app/servicios/envios-lowcost/page.tsx",
-  "Moto Fija": "src/app/servicios/moto-fija/page.tsx",
+  "Envíos Low Cost": "src/app/servicios/envios-lowcost/page.tsx",
+  "Moto Fija para Negocios": "src/app/servicios/moto-fija/page.tsx",
   "Delivery Gastronómico": "src/app/servicios/delivery-gastronomico/page.tsx",
   "Plan Emprendedores": "src/app/servicios/plan-emprendedores/page.tsx",
-  "Mercado Libre Flex": "src/app/servicios/enviosflex/page.tsx",
+  "Envíos Flex MercadoLibre": "src/app/servicios/enviosflex/page.tsx",
 };
 
 const promptGeneratorSchema = z.object({
@@ -210,7 +209,14 @@ export function ImagePromptGenerator() {
     }
   };
   
-  const allServicesAndPages = navGroups.flatMap(g => g.items.map(i => i.label));
+  const allServicesAndPages = [
+  'Envíos Express',
+  'Envíos Low Cost',
+  'Envíos Flex MercadoLibre',
+  'Moto Fija para Negocios',
+  'Plan Emprendedores',
+  'Delivery Gastronómico'
+];
 
   return (
     <Card className="max-w-4xl mx-auto shadow-lg">
@@ -266,7 +272,7 @@ export function ImagePromptGenerator() {
                     </FormControl>
                     <SelectContent>
                        <SelectItem value="General">General / Ninguno</SelectItem>
-                      {[...new Set(allServicesAndPages)].map(service => (
+                      {allServicesAndPages.map(service => (
                         <SelectItem key={service} value={service}>{service}</SelectItem>
                       ))}
                     </SelectContent>

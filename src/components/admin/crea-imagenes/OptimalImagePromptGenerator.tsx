@@ -12,7 +12,6 @@ import {
   generateOptimalImagePromptAction,
 } from '@/app/admin/crea-imagenes/optimas/actions';
 import type { GenerateOptimalImagePromptState } from '@/app/admin/crea-imagenes/optimas/actions';
-import { navGroups } from '@/lib/navigation';
 
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -23,10 +22,17 @@ import { Loader2, Wand2, Sparkles, Copy, Check, Bot, Pilcrow } from 'lucide-reac
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 
-const serviceOptions = navGroups.flatMap(group => group.items.map(item => item.label));
+const serviceOptions = [
+  'Envíos Express',
+  'Envíos Low Cost',
+  'Envíos Flex MercadoLibre',
+  'Moto Fija para Negocios',
+  'Plan Emprendedores',
+  'Delivery Gastronómico'
+];
+
 const visualStyleOptions = [
     'Fotografía Urbana y Cinematográfica', 'Ilustración Vectorial Infográfica', 'Render 3D Promocional', 'Fotografía Humanizada (con Enfoque Minimalista)'
 ];
