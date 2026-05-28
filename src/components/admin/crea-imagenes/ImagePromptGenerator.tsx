@@ -70,7 +70,6 @@ export function ImagePromptGenerator() {
   const [isPending, startTransition] = useTransition();
   const [isSuggesting, setIsSuggesting] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [serviceContextContent, setServiceContextContent] = useState('');
   const [isContextLoading, setIsContextLoading] = useState(false);
   const [imageProfiles, setImageProfiles] = useState<ImageProfile[]>([]);
 
@@ -103,6 +102,7 @@ export function ImagePromptGenerator() {
   });
 
   const selectedService = form.watch('service');
+  const serviceContext = form.watch('serviceContext');
 
   const loadServiceContext = useCallback(async (serviceName: string) => {
     const path = serviceToPathMap[serviceName];
@@ -395,7 +395,7 @@ export function ImagePromptGenerator() {
                 variant="outline" 
                 size="sm" 
                 onClick={handleSuggestFromContext}
-                disabled={!serviceContextContent || isSuggesting}
+                disabled={!serviceContext || isSuggesting}
                 className="w-full md:w-auto"
                >
                  <Sparkles className="w-4 h-4 mr-2" />

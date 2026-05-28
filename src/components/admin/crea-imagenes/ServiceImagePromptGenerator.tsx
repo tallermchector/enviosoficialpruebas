@@ -14,12 +14,12 @@ import {
 import type { GenerateServiceImagePromptState } from '@/app/admin/crea-imagenes/servicios/actions';
 import { navGroups } from '@/lib/navigation';
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Loader2, Wand2, Sparkles, Copy, Check, BookText, Info, Bot } from 'lucide-react';
+import { Loader2, Wand2, Sparkles, Copy, Check, Bot } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Checkbox } from '@/components/ui/checkbox';
 
@@ -250,7 +250,7 @@ export function ServiceImagePromptGenerator() {
                         <div className="space-y-1 leading-none">
                             <FormLabel>Incluir Nombre del Servicio</FormLabel>
                             <FormDescription>
-                                Añade el nombre del servicio (ej. "Envíos Express") en la imagen con la tipografía y colores de la marca.
+                                {"Añade el nombre del servicio (ej. 'Envíos Express') en la imagen con la tipografía y colores de la marca."}
                             </FormDescription>
                         </div>
                         </FormItem>
@@ -267,7 +267,7 @@ export function ServiceImagePromptGenerator() {
                         <div className="space-y-1 leading-none">
                             <FormLabel>Incluir Marca y Contacto</FormLabel>
                             <FormDescription>
-                                Superpone el nombre "Envios DosRuedas" y el teléfono en la imagen.
+                                {"Superpone el nombre 'Envios DosRuedas' y el teléfono en la imagen."}
                             </FormDescription>
                         </div>
                         </FormItem>
