@@ -28,7 +28,7 @@ export async function generatePagePrompt(input: GeneratePagePromptInput): Promis
   return generatePagePromptFlow(input);
 }
 
-const promptTemplate = ai.definePrompt({
+ai.definePrompt({
   name: 'generatePagePromptTemplate',
   input: { schema: GeneratePagePromptInputSchema },
   output: { schema: GeneratePagePromptOutputSchema },

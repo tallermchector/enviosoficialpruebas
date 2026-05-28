@@ -27,7 +27,7 @@ export async function generateComponentPrompt(input: GenerateComponentPromptInpu
   return generateComponentPromptFlow(input);
 }
 
-const promptTemplate = ai.definePrompt({
+ai.definePrompt({
   name: 'generateComponentPromptTemplate',
   input: { schema: GenerateComponentPromptInputSchema },
   output: { schema: GenerateComponentPromptOutputSchema },

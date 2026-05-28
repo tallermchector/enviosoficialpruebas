@@ -13,7 +13,7 @@ import { z } from "genkit";
 import companyProfile from "@/lib/empresa.json";
 import imageProfiles from "@/lib/imagenes.json";
 
-const GenerateImagePromptInputSchema = z.object({
+export const GenerateImagePromptInputSchema = z.object({
   sectionType: z
     .string()
     .describe(
