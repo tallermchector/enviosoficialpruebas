@@ -71,7 +71,7 @@ export function OptimalImagePromptGenerator() {
   const { toast } = useToast();
 
   const form = useForm<OptimalImagePromptValues>({
-    resolver: zodResolver(optimalImagePromptSchema),
+    resolver: zodResolver(optimalImagePromptSchema) as any,
     defaultValues: {
       serviceName: '', sectionType: 'Banner Web (16:9)', visualStyle: 'Fotografía Urbana y Cinematográfica',
       backgroundDetailsOption: '', customBackgroundDetails: '', contentDetailsOption: '', customContentDetails: '',
@@ -164,7 +164,7 @@ export function OptimalImagePromptGenerator() {
             
             <div className="md:col-span-2">
               <FormField
-                control={form.control} name="serviceName" render={({ field }) => (
+                control={form.control as any} name="serviceName" render={({ field }) => (
                   <FormItem>
                     <FormLabel className='text-base'>1. Selecciona el Servicio</FormLabel>
                     <Select onValueChange={handleServiceChange} value={field.value}><FormControl><SelectTrigger className="h-12"><SelectValue placeholder="Elige un servicio para empezar..." /></SelectTrigger></FormControl>
@@ -175,12 +175,12 @@ export function OptimalImagePromptGenerator() {
                 )} />
             </div>
             
-            <FormField control={form.control} name="sectionType" render={({ field }) => (<FormItem><FormLabel>2. Tipo de Sección</FormLabel><Select onValueChange={field.onChange} value={field.value}><FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl><SelectContent>{sectionTypeOptions.map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}</SelectContent></Select><FormMessage /></FormItem>)} />
-            <FormField control={form.control} name="visualStyle" render={({ field }) => (<FormItem><FormLabel>3. Estilo Visual</FormLabel><Select onValueChange={field.onChange} value={field.value}><FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl><SelectContent>{visualStyleOptions.map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}</SelectContent></Select><FormMessage /></FormItem>)} />
+            <FormField control={form.control as any} name="sectionType" render={({ field }) => (<FormItem><FormLabel>2. Tipo de Sección</FormLabel><Select onValueChange={field.onChange} value={field.value}><FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl><SelectContent>{sectionTypeOptions.map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}</SelectContent></Select><FormMessage /></FormItem>)} />
+            <FormField control={form.control as any} name="visualStyle" render={({ field }) => (<FormItem><FormLabel>3. Estilo Visual</FormLabel><Select onValueChange={field.onChange} value={field.value}><FormControl><SelectTrigger><SelectValue /></SelectTrigger></FormControl><SelectContent>{visualStyleOptions.map(opt => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}</SelectContent></Select><FormMessage /></FormItem>)} />
             
             <div className="md:col-span-2 space-y-2">
                 <FormField
-                    control={form.control} name="backgroundDetailsOption" render={({ field }) => (
+                    control={form.control as any} name="backgroundDetailsOption" render={({ field }) => (
                     <FormItem className="space-y-3">
                         <FormLabel className="flex items-center gap-2"><Bot className="w-4 h-4 text-primary"/> 4. Elige un Fondo (Sugerido por IA)</FormLabel>
                         <FormControl>
@@ -200,12 +200,12 @@ export function OptimalImagePromptGenerator() {
                         <FormMessage />
                     </FormItem>
                 )}/>
-                {backgroundChoice === CUSTOM_OPTION_VALUE && <FormField control={form.control} name="customBackgroundDetails" render={({ field }) => (<FormItem><FormControl><Input placeholder="Escribe tu detalle de fondo personalizado..." {...field} /></FormControl><FormMessage /></FormItem>)}/>}
+                {backgroundChoice === CUSTOM_OPTION_VALUE && <FormField control={form.control as any} name="customBackgroundDetails" render={({ field }) => (<FormItem><FormControl><Input placeholder="Escribe tu detalle de fondo personalizado..." {...field} /></FormControl><FormMessage /></FormItem>)}/>}
             </div>
 
              <div className="md:col-span-2 space-y-2">
                 <FormField
-                    control={form.control} name="contentDetailsOption" render={({ field }) => (
+                    control={form.control as any} name="contentDetailsOption" render={({ field }) => (
                     <FormItem className="space-y-3">
                         <FormLabel className="flex items-center gap-2"><Bot className="w-4 h-4 text-primary"/> 5. Elige un Contenido (Sugerido por IA)</FormLabel>
                         <FormControl>
@@ -225,15 +225,15 @@ export function OptimalImagePromptGenerator() {
                         <FormMessage />
                     </FormItem>
                 )}/>
-                {contentChoice === CUSTOM_OPTION_VALUE && <FormField control={form.control} name="customContentDetails" render={({ field }) => (<FormItem><FormControl><Textarea placeholder="Escribe tu contenido principal personalizado..." {...field} /></FormControl><FormMessage /></FormItem>)}/>}
+                {contentChoice === CUSTOM_OPTION_VALUE && <FormField control={form.control as any} name="customContentDetails" render={({ field }) => (<FormItem><FormControl><Textarea placeholder="Escribe tu contenido principal personalizado..." {...field} /></FormControl><FormMessage /></FormItem>)}/>}
             </div>
             
             <div className="md:col-span-2 space-y-4">
                 <FormLabel>6. Opciones de Texto y Marca</FormLabel>
-                <FormField control={form.control} name="includeText" render={({ field }) => (<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm"><div className="space-y-0.5"><FormLabel>Incluir Nombre del Servicio</FormLabel></div><FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl></FormItem>)} />
-                <FormField control={form.control} name="includeBrand" render={({ field }) => (<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm"><div className="space-y-0.5"><FormLabel>Incluir Marca y Contacto</FormLabel></div><FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl></FormItem>)} />
+                <FormField control={form.control as any} name="includeText" render={({ field }) => (<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm"><div className="space-y-0.5"><FormLabel>Incluir Nombre del Servicio</FormLabel></div><FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl></FormItem>)} />
+                <FormField control={form.control as any} name="includeBrand" render={({ field }) => (<FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 shadow-sm"><div className="space-y-0.5"><FormLabel>Incluir Marca y Contacto</FormLabel></div><FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange} /></FormControl></FormItem>)} />
                  <FormField
-                    control={form.control}
+                    control={form.control as any}
                     name="fontToInclude"
                     render={({ field }) => (
                         <FormItem>
@@ -258,7 +258,7 @@ export function OptimalImagePromptGenerator() {
             </div>
              <div className="md:col-span-2">
                 <FormField
-                    control={form.control}
+                    control={form.control as any}
                     name="additionalDetails"
                     render={({ field }) => (
                         <FormItem>

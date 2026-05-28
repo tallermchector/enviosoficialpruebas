@@ -62,7 +62,7 @@ export function ServiceImagePromptGenerator() {
   const { toast } = useToast();
 
   const form = useForm<ServiceImagePromptValues>({
-    resolver: zodResolver(serviceImagePromptSchema),
+    resolver: zodResolver(serviceImagePromptSchema) as any,
     defaultValues: {
       serviceName: '',
       serviceContext: '',
@@ -149,7 +149,7 @@ export function ServiceImagePromptGenerator() {
             
             <div className="md:col-span-2">
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="serviceName"
                 render={({ field }) => (
                   <FormItem>
@@ -172,7 +172,7 @@ export function ServiceImagePromptGenerator() {
             </div>
             
             <FormField
-              control={form.control}
+              control={form.control as any}
               name="sectionType"
               render={({ field }) => (
                 <FormItem>
@@ -189,7 +189,7 @@ export function ServiceImagePromptGenerator() {
             />
             
             <FormField
-              control={form.control}
+              control={form.control as any}
               name="visualStyle"
               render={({ field }) => (
                 <FormItem>
@@ -207,7 +207,7 @@ export function ServiceImagePromptGenerator() {
             
             <div className="md:col-span-2 space-y-2">
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="backgroundDetails"
                 render={({ field }) => (
                   <FormItem>
@@ -223,7 +223,7 @@ export function ServiceImagePromptGenerator() {
 
             <div className="md:col-span-2 space-y-2">
               <FormField
-                control={form.control}
+                control={form.control as any}
                 name="contentDetails"
                 render={({ field }) => (
                   <FormItem>
@@ -240,7 +240,7 @@ export function ServiceImagePromptGenerator() {
             <div className="md:col-span-2 space-y-4">
                 <FormLabel>6. Opciones de Texto y Marca</FormLabel>
                  <FormField
-                    control={form.control}
+                    control={form.control as any}
                     name="includeText"
                     render={({ field }) => (
                         <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
@@ -257,7 +257,7 @@ export function ServiceImagePromptGenerator() {
                     )}
                 />
                  <FormField
-                    control={form.control}
+                    control={form.control as any}
                     name="includeBrand"
                     render={({ field }) => (
                         <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">

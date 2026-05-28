@@ -2,7 +2,9 @@
 'use server';
 
 import { z } from 'zod';
-import { generatePagePrompt } from '@/ai/flows/generate-page-prompt';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { generateReplicationPrompt } from '@/ai/flows/generate-replication-prompt';
 import { generateComponentPrompt } from '@/ai/flows/generate-component-prompt';
 
 // Schema for Page Prompt Generation
@@ -33,11 +35,15 @@ export async function generatePagePromptAction(
 
   try {
     const components = JSON.parse(validatedFields.data.components);
-    const result = await generatePagePrompt({ 
-      pageName: validatedFields.data.pageName,
-      components: components
+    const componentsData = components.map((comp: any) => ({
+      name: comp.name || comp.label || '',
+      path: comp.path || comp.href || '',
+    }));
+    const result = await generateReplicationPrompt({ 
+      pagePath: validatedFields.data.pageName,
+      componentsData: componentsData,
     });
-    return { prompt: result.prompt };
+    return { prompt: result.structurePrompt || result.componentPrompt || "Error: No se pudo generar el prompt." };
   } catch (e: unknown) {
     console.error("Error generating page prompt:", e);
     const errorMessage = e instanceof Error ? e.message : 'Error desconocido.';
@@ -76,12 +82,17 @@ export async function generateComponentPromptAction(
     }
 
     try {
+        const fullPath = path.resolve(validatedFields.data.componentPath);
+        const content = await fs.readFile(fullPath, 'utf-8');
         const result = await generateComponentPrompt({ 
-            pageName: validatedFields.data.pageName,
-            componentName: validatedFields.data.componentName,
-            componentPath: validatedFields.data.componentPath,
+            pagePath: validatedFields.data.componentPath,
+            filesContent: [{
+                path: validatedFields.data.componentPath,
+                content: content,
+                name: validatedFields.data.componentName,
+            }]
         });
-        return { prompt: result.prompt };
+        return { prompt: result.componentPrompt };
     } catch (e: unknown) {
         console.error("Error generating component prompt:", e);
         const errorMessage = e instanceof Error ? e.message : 'Error desconocido.';

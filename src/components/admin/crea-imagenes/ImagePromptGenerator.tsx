@@ -107,18 +107,15 @@ export function ImagePromptGenerator() {
   const loadServiceContext = useCallback(async (serviceName: string) => {
     const path = serviceToPathMap[serviceName];
     if (!path) {
-      setServiceContextContent('');
       form.setValue('serviceContext', '');
       return;
     }
     setIsContextLoading(true);
     try {
       const result = await summarizeServicePage({ relativePath: path });
-      setServiceContextContent(result.summary);
       form.setValue('serviceContext', result.summary);
     } catch (error) {
       console.error("Failed to load service context:", error);
-      setServiceContextContent('');
       form.setValue('serviceContext', '');
       toast({ title: 'Error', description: `No se pudo cargar el contexto para ${serviceName}.`, variant: 'destructive'});
     } finally {
@@ -131,10 +128,9 @@ export function ImagePromptGenerator() {
     if (selectedService && selectedService !== 'General') {
       loadServiceContext(selectedService);
     } else {
-      setServiceContextContent('');
       form.setValue('serviceContext', '');
     }
-  }, [selectedService, loadServiceContext]);
+  }, [selectedService, loadServiceContext, form]);
 
   useEffect(() => {
     if (state.error) {
@@ -149,7 +145,6 @@ export function ImagePromptGenerator() {
             sectionType: 'General', service: 'General', aspectRatio: '16:9 (Panorámica)',
             style: 'Fotografía Realista', background: '', details: '', inspirationImageName: 'none', textToInclude: '',
         });
-        setServiceContextContent('');
         return;
     };
     
