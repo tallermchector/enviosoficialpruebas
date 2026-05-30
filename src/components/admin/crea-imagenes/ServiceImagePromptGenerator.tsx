@@ -2,7 +2,7 @@
 'use client';
 
 import { useActionState, useEffect, useState, useTransition, useCallback } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useToast } from '@/hooks/use-toast';
@@ -78,7 +78,7 @@ export function ServiceImagePromptGenerator() {
     },
   });
 
-  const selectedService = form.watch('serviceName');
+  const selectedService = useWatch({ control: form.control, name: 'serviceName' });
 
   const handleServiceChange = useCallback(async (serviceName: string) => {
     form.setValue('serviceName', serviceName);
