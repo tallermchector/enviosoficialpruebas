@@ -48,7 +48,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
   ];
 
   return (
-    <section className="py-32 px-4 bg-[#050810] relative">
+    <section className="py-32 px-4 bg-background relative">
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-24">
           <motion.div
@@ -75,13 +75,13 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="relative bg-slate-900 border-slate-800 hover:border-primary/50 transition-all duration-300 rounded-none overflow-hidden h-full flex flex-col group shadow-xl">
+              <Card className="relative bg-card border-border hover:border-primary/50 transition-all duration-300 rounded-none overflow-hidden h-full flex flex-col group shadow-xl">
                 <Badge className="absolute top-0 right-0 bg-primary text-white border-none py-1 px-4 rounded-none text-[10px] font-bold uppercase tracking-widest">
                   Tarifa 2026
                 </Badge>
 
                 <CardHeader className="text-center pt-16 pb-8">
-                  <div className="w-16 h-16 bg-slate-800 rounded-none flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors border border-slate-700">
+                  <div className="w-16 h-16 bg-muted rounded-none flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors border border-border">
                     <MapPin className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="font-sans text-2xl font-bold text-white uppercase tracking-tight">
@@ -120,7 +120,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="bg-slate-900 border border-slate-800 rounded-none overflow-hidden p-8 md:p-16 shadow-2xl relative">
+            <div className="bg-card border border-border rounded-none overflow-hidden p-8 md:p-16 shadow-2xl relative">
                <div className="grid lg:grid-cols-3 gap-12 items-center">
                   <div className="lg:col-span-2">
                     <div className="inline-flex items-center gap-2 px-4 py-1 bg-secondary text-black text-[10px] font-bold tracking-widest mb-6 uppercase">
@@ -137,7 +137,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
                      <Button
                       asChild
                       size="lg"
-                      className="bg-secondary hover:bg-[#d97706] text-black font-sans font-bold px-12 py-8 rounded-none transition-all uppercase tracking-tight h-auto text-xl w-full lg:w-auto shadow-lg"
+                      className="bg-secondary hover:bg-secondary/90 text-black font-sans font-bold px-12 py-8 rounded-none transition-all uppercase tracking-tight h-auto text-xl w-full lg:w-auto shadow-lg"
                     >
                       <Link href="/cotizar/express">
                         <Calculator className="w-6 h-6 mr-3" />
@@ -163,8 +163,8 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
                <h4 className="font-sans font-bold text-white text-xl uppercase tracking-tight">Condiciones del Servicio Express</h4>
             </div>
 
-            <Accordion type="single" collapsible className="w-full bg-slate-900 border border-slate-800">
-              <AccordionItem value="item-1" className="border-slate-800 px-6">
+            <Accordion type="single" collapsible className="w-full bg-card border border-border">
+              <AccordionItem value="item-1" className="border-border px-6">
                 <AccordionTrigger className="text-white hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
                   Tiempos y Tolerancia
                 </AccordionTrigger>
@@ -172,7 +172,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
                   Contamos con una tolerancia de 10 minutos en puerta. Es fundamental que el receptor esté disponible para asegurar la eficiencia del servicio.
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-2" className="border-slate-800 px-6">
+              <AccordionItem value="item-2" className="border-border px-6">
                 <AccordionTrigger className="text-white hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
                   Recargos por Clima
                 </AccordionTrigger>
@@ -180,7 +180,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
                   En días de lluvia, se aplica un recargo del 50% sobre el valor del envío para garantizar la seguridad de nuestros repartidores y la protección de tu carga.
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-3" className="border-slate-800 px-6">
+              <AccordionItem value="item-3" className="border-border px-6">
                 <AccordionTrigger className="text-white hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
                   Bultos y Pesos
                 </AccordionTrigger>
@@ -188,7 +188,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
                   El servicio estándar incluye un bulto de hasta 5kg/40cm. Cada bulto excedente tiene un costo adicional de $1.800.
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-4" className="border-slate-800 px-6 last:border-0">
+              <AccordionItem value="item-4" className="border-border px-6 last:border-0">
                 <AccordionTrigger className="text-white hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
                   Anticipación Requerida
                 </AccordionTrigger>

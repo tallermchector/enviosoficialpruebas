@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 export function EntrepreneurCta() {
   return (
-    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+    <section className="py-24 px-4 bg-background relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
         <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />

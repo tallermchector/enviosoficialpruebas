@@ -104,7 +104,7 @@ export function EntrepreneurSolutions() {
                     className="group relative h-full rounded-xl"
                     style={{ transformStyle: "preserve-3d" }}
                   >
-                    <div className="absolute inset-0 bg-slate-900 rounded-xl shadow-lg" />
+                    <div className="absolute inset-0 bg-card rounded-xl shadow-lg" />
 
                     <div className="absolute inset-0 bg-gradient-radial from-yellow-500/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
@@ -114,7 +114,7 @@ export function EntrepreneurSolutions() {
                       </div>
 
                       <h3 className="text-xl md:text-2xl font-bold font-heading mb-4 text-center text-slate-50">{solution.title}</h3>
-                      <p className="text-sm md:text-base text-slate-400 mb-6 text-center leading-relaxed flex-grow">{solution.description}</p>
+                      <p className="text-sm md:text-base text-muted-foreground mb-6 text-center leading-relaxed flex-grow">{solution.description}</p>
 
                       <ul className="space-y-3 mb-8">
                         {solution.features.map((feature, featureIndex) => (

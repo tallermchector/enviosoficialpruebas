@@ -50,8 +50,8 @@ export function RepartidorDashboard({ repartidor, initialEtiquetas }: Repartidor
     };
 
     return (
-        <div className="min-h-screen bg-[#050810] text-slate-200 font-sans pb-24">
-            <header className="bg-[#2563EB] text-white shadow-xl sticky top-0 z-40 border-b border-blue-400/20">
+        <div className="min-h-screen bg-background text-foreground font-sans pb-24">
+            <header className="bg-primary text-white shadow-xl sticky top-0 z-40 border-b border-primary/20">
                 <div className="container mx-auto px-4 h-16 flex justify-between items-center">
                     <div className="flex items-center gap-3">
                         <div className="bg-white/10 p-1.5 border border-white/20">
@@ -81,26 +81,26 @@ export function RepartidorDashboard({ repartidor, initialEtiquetas }: Repartidor
                 <SheetTrigger asChild>
                     <Button
                         size="icon"
-                        className="fixed bottom-6 right-6 h-16 w-16 rounded-none bg-[#E89A17] hover:bg-[#d97706] text-white shadow-[0_0_20px_rgba(232,154,23,0.3)] border-2 border-white/10 z-50 group transition-all active:scale-95"
+                        className="fixed bottom-6 right-6 h-16 w-16 rounded-none bg-secondary hover:bg-secondary/90 text-white shadow-[0_0_20px_rgba(232,154,23,0.3)] border-2 border-white/10 z-50 group transition-all active:scale-95"
                     >
                         <Plus className="h-8 w-8 group-hover:rotate-90 transition-transform duration-300" />
                     </Button>
                 </SheetTrigger>
-                <SheetContent side="bottom" className="h-[auto] bg-[#050810] border-t border-slate-800 rounded-none p-0 overflow-hidden">
+                <SheetContent side="bottom" className="h-[auto] bg-background border-t border-border rounded-none p-0 overflow-hidden">
                     <div className="p-6">
                         <SheetHeader className="mb-6">
                             <div className="flex items-center gap-3 mb-2">
-                                <div className="bg-[#2563EB] p-2 border border-blue-400/20">
+                                <div className="bg-primary p-2 border border-primary/20">
                                     <ScanBarcode className="h-6 w-6 text-white" />
                                 </div>
                                 <SheetTitle className="text-xl font-display font-bold text-white uppercase">Asignar Entrega</SheetTitle>
                             </div>
-                            <SheetDescription className="text-slate-400">
+                            <SheetDescription className="text-muted-foreground">
                                 Escaneá el código o ingresá el número de orden para agregarla a tu ruta de hoy.
                             </SheetDescription>
                         </SheetHeader>
 
-                        <div className="bg-slate-900/50 border border-slate-800 p-1">
+                        <div className="bg-card/50 border border-border p-1">
                             <AssignEtiqueta
                                 repartidorId={repartidor.id}
                                 onEtiquetaAssigned={handleEtiquetaAssigned}

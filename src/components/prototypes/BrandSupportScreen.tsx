@@ -39,9 +39,9 @@ const BrandSupportScreen = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0f1e] text-slate-100 font-sans pb-28">
+    <div className="min-h-screen bg-background text-slate-100 font-sans pb-28">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#0a0f1e]/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between">
         <button className="p-2 -ml-2 text-white">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -61,7 +61,7 @@ const BrandSupportScreen = () => {
             <h1 className="text-3xl font-black font-display italic uppercase tracking-wider">Sobre Nosotros</h1>
             <div className="w-16 h-1 bg-primary mx-auto rounded-full shadow-[0_0_10px_rgba(37,99,235,0.6)]"></div>
           </div>
-          <p className="text-slate-400 leading-relaxed max-w-sm mx-auto">
+          <p className="text-muted-foreground leading-relaxed max-w-sm mx-auto">
             Nuestra misión es revolucionar la logística urbana con eficiencia, velocidad y tecnología punta, conectando negocios y personas en tiempo real.
           </p>
           <div className="space-y-4 pt-4">
@@ -73,7 +73,7 @@ const BrandSupportScreen = () => {
                 transition={{ delay: i * 0.1 }}
                 className="flex items-center gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm group hover:border-primary/30 transition-all"
               >
-                <div className={`p-3 rounded-xl bg-slate-900 shadow-inner ${v.color}`}>
+                <div className={`p-3 rounded-xl bg-card shadow-inner ${v.color}`}>
                   {v.icon}
                 </div>
                 <div className="text-left">
@@ -108,7 +108,7 @@ const BrandSupportScreen = () => {
                       exit={{ height: 0, opacity: 0 }}
                       className="px-5 pb-5 overflow-hidden"
                     >
-                      <p className="text-sm text-slate-400 leading-relaxed border-t border-white/5 pt-4">
+                      <p className="text-sm text-muted-foreground leading-relaxed border-t border-white/5 pt-4">
                         {faq.a}
                       </p>
                     </motion.div>
@@ -129,7 +129,7 @@ const BrandSupportScreen = () => {
                 <input
                   type="text"
                   placeholder="Tu nombre"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                  className="w-full bg-card border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
                 />
               </div>
               <div className="space-y-2">
@@ -137,7 +137,7 @@ const BrandSupportScreen = () => {
                 <input
                   type="email"
                   placeholder="email@ejemplo.com"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                  className="w-full bg-card border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors"
                 />
               </div>
               <div className="space-y-2">
@@ -145,10 +145,10 @@ const BrandSupportScreen = () => {
                 <textarea
                   rows={4}
                   placeholder="¿En qué podemos ayudarte?"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors resize-none"
+                  className="w-full bg-card border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors resize-none"
                 />
               </div>
-              <button className="w-full py-4 bg-primary hover:bg-blue-500 text-white font-bold font-display rounded-xl shadow-[0_4px_15px_rgba(37,99,235,0.3)] flex items-center justify-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-sm italic">
+              <button className="w-full py-4 bg-primary hover:bg-primary text-white font-bold font-display rounded-xl shadow-[0_4px_15px_rgba(37,99,235,0.3)] flex items-center justify-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-sm italic">
                 <Send size={18} />
                 Enviar Mensaje
               </button>
@@ -170,7 +170,7 @@ const BrandSupportScreen = () => {
           <h2 className="text-2xl font-black font-display italic uppercase tracking-wider">Nuestras Redes</h2>
           <div className="grid grid-cols-2 gap-4">
             {posts.map((post) => (
-              <div key={post.id} className="group relative aspect-square rounded-2xl overflow-hidden border border-white/10 bg-slate-900">
+              <div key={post.id} className="group relative aspect-square rounded-2xl overflow-hidden border border-white/10 bg-card">
                 <img
                   src={post.image}
                   alt={post.tag}
@@ -195,7 +195,7 @@ const BrandSupportScreen = () => {
       </main>
 
       {/* Bottom Nav */}
-      <nav className="fixed bottom-0 left-0 right-0 p-4 pb-8 bg-[#0a0f1e]/80 backdrop-blur-2xl border-t border-white/5 z-50">
+      <nav className="fixed bottom-0 left-0 right-0 p-4 pb-8 bg-background/80 backdrop-blur-2xl border-t border-white/5 z-50">
         <div className="flex justify-around items-center max-w-lg mx-auto">
           {[
             { label: 'Inicio', icon: <Home size={22} />, active: false },

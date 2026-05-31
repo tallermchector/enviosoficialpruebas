@@ -360,7 +360,7 @@ export function EnhancedHero() {
               }}
             />
             <motion.div
-              className="absolute inset-2 rounded-full border border-blue-400/30"
+              className="absolute inset-2 rounded-full border border-primary/30"
               animate={{
                 rotate: -360,
                 scale: [1, 0.95, 1],

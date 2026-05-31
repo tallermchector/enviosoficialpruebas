@@ -65,7 +65,7 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
 
   return (
     <>
-      <div className="p-4 bg-[#050810]">
+      <div className="p-4 bg-background">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -78,14 +78,14 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
                       <FormControl>
                         <Input
                             placeholder="EXP-1722..."
-                            className="h-14 bg-slate-900 border-slate-800 rounded-none text-white focus:ring-[#2563EB]"
+                            className="h-14 bg-card border-border rounded-none text-white focus:ring-primary"
                             {...field}
                         />
                       </FormControl>
                       <Button
                         type="button"
                         variant="outline"
-                        className="h-14 w-14 rounded-none border-slate-800 bg-slate-800 text-white hover:bg-[#2563EB]"
+                        className="h-14 w-14 rounded-none border-border bg-muted text-white hover:bg-primary"
                         onClick={() => setIsScannerOpen(true)}
                         title="Escanear Código de Barras"
                       >
@@ -98,7 +98,7 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
               />
               <Button
                 type="submit"
-                className="w-full h-14 rounded-none bg-[#2563EB] hover:bg-[#1e40af] text-white font-bold text-lg"
+                className="w-full h-14 rounded-none bg-primary hover:bg-primary/90 text-white font-bold text-lg"
                 disabled={isPending}
               >
                 {isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Search className="mr-2 h-5 w-5" />}
@@ -109,18 +109,18 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
       </div>
       
       <Dialog open={isScannerOpen} onOpenChange={setIsScannerOpen}>
-        <DialogContent className="sm:max-w-[425px] bg-[#050810] border-slate-800 rounded-none text-white p-0 overflow-hidden">
-          <DialogHeader className="p-6 border-b border-slate-800">
+        <DialogContent className="sm:max-w-[425px] bg-background border-border rounded-none text-white p-0 overflow-hidden">
+          <DialogHeader className="p-6 border-b border-border">
             <DialogTitle className="font-display uppercase tracking-wider text-xl">Escáner de Barras</DialogTitle>
-            <DialogDescription className="text-slate-400">
+            <DialogDescription className="text-muted-foreground">
               Alineá el código de barras dentro del recuadro para escanear automáticamente.
             </DialogDescription>
           </DialogHeader>
           <div className="p-4">
              <BarcodeScanner onScan={handleBarcodeScanned} />
           </div>
-          <div className="p-4 bg-slate-900 flex justify-end">
-              <Button variant="ghost" className="rounded-none text-slate-400 hover:text-white" onClick={() => setIsScannerOpen(false)}>
+          <div className="p-4 bg-card flex justify-end">
+              <Button variant="ghost" className="rounded-none text-muted-foreground hover:text-white" onClick={() => setIsScannerOpen(false)}>
                   CANCELAR
               </Button>
           </div>
