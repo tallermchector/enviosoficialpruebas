@@ -5,145 +5,146 @@
 @layer base {
   :root {
     --font-sans: var(--font-inter);
-    --font-display: var(--font-sora);
+    --font-display: var(--font-hanken);
+    --font-mono: var(--font-mono);
 
-    --border: 231.0 9.1% 59%;
-    --input: 231.0 9.1% 59%;
-    --ring: 225.0 100% 84.9%;
+    --border: 225.0 6.5% 48.2%;
+    --input: 225.0 6.5% 48.2%;
+    --ring: 218.1 69.0% 36.7%;
     --radius: 0.25rem;
-    --popover: 228.0 16.7% 11.8%;
-    --popover-foreground: 235.0 25% 90.6%;
-    --card: 228.0 16.7% 11.8%;
-    --card-foreground: 235.0 25% 90.6%;
-    --muted: 227.0 12% 29.4%;
-    --muted-foreground: 231.0 20% 80.4%;
-    --accent: 49.0 100% 47.6%;
-    --accent-foreground: 48.0 100% 20.4%;
-    --destructive: 6.0 100% 83.5%;
-    --destructive-foreground: 357.0 100% 20.6%;
-    --foreground: 210.0 16.7% 97.6%;
-    --social-container: 0.0 0% 100%; /* For opacity 0.15 */
+    --popover: 0.0 0.0% 100.0%;
+    --popover-foreground: 195.0 7.4% 10.6%;
+    --card: 0.0 0.0% 100.0%;
+    --card-foreground: 195.0 7.4% 10.6%;
+    --muted: 210.0 7.1% 94.5%;
+    --muted-foreground: 227.1 9.5% 29.0%;
+    --accent: 43.9 98.2% 57.5%;
+    --accent-foreground: 44.7 100.0% 21.6%;
+    --destructive: 0.0 75.5% 41.6%;
+    --destructive-foreground: 0.0 0.0% 100.0%;
+    --foreground: 195.0 7.4% 10.6%;
+    --social-container: 0.0 0% 100%;
 
-    --surface: 228.0 22.7% 8.6%;
-    --surface-dim: 228.0 22.7% 8.6%;
-    --surface-bright: 228.0 8.3% 23.5%;
-    --surface-container-lowest: 227.0 27.3% 6.5%;
-    --surface-container-low: 228.0 16.7% 11.8%;
-    --surface-container: 228.0 14.7% 13.3%;
-    --surface-container-high: 228.0 11.1% 17.6%;
-    --surface-container-highest: 229.0 9.9% 21.8%;
-    --on-surface: 235.0 25% 90.6%;
-    --on-surface-variant: 231.0 20% 80.4%;
-    --inverse-surface: 235.0 25% 90.6%;
-    --inverse-on-surface: 228.0 9.8% 20%;
-    --outline: 231.0 9.1% 59%;
-    --outline-variant: 227.0 12% 29.4%;
-    --surface-tint: 225.0 100% 84.9%;
-    --primary: 225.0 100% 84.9%;
-    --on-primary: 218.0 100% 22.5%;
-    --primary-container: 219.0 77.5% 51.2%;
-    --on-primary-container: 231.0 100% 96.1%;
-    --inverse-primary: 216.0 100% 41.4%;
-    --secondary: 45.0 100% 80.8%;
-    --on-secondary: 48.0 100% 11.6%;
-    --secondary-container: 49.0 100% 47.6%;
-    --on-secondary-container: 48.0 100% 20.4%;
-    --tertiary: 18.0 100% 79.4%;
-    --on-tertiary: 20.0 100% 17.3%;
-    --tertiary-container: 23.0 100% 36.5%;
-    --on-tertiary-container: 16.0 100% 94.7%;
-    --error: 6.0 100% 83.5%;
-    --on-error: 357.0 100% 20.6%;
-    --error-container: 356.0 100% 28.8%;
-    --on-error-container: 6.0 100% 92%;
-    --primary-fixed: 227.0 100% 92.7%;
-    --primary-fixed-dim: 225.0 100% 84.9%;
-    --on-primary-fixed: 220.0 100% 14.1%;
-    --on-primary-fixed-variant: 216.0 100% 31.8%;
-    --secondary-fixed: 46.0 100% 74.7%;
-    --secondary-fixed-dim: 49.0 100% 46.5%;
-    --on-secondary-fixed: 46.0 100% 6.9%;
-    --on-secondary-fixed-variant: 48.0 100% 16.9%;
-    --tertiary-fixed: 17.0 100% 90.2%;
-    --tertiary-fixed-dim: 18.0 100% 79.4%;
-    --on-tertiary-fixed: 17.0 100% 10.6%;
-    --on-tertiary-fixed-variant: 22.0 100% 24.3%;
-    --background: 228.0 22.7% 8.6%;
-    --on-background: 235.0 25% 90.6%;
-    --surface-variant: 229.0 9.9% 21.8%;
-    --header-blue: 220.0 73.6% 44.5%;
-    --text-secondary: 214.0 31.8% 91.4%;
-    --fab-icon: 0.0 0% 20%;
+    --surface: 210.0 16.7% 97.6%;
+    --surface-dim: 210.0 2.7% 85.5%;
+    --surface-bright: 210.0 16.7% 97.6%;
+    --surface-container-lowest: 0.0 0.0% 100.0%;
+    --surface-container-low: 210.0 9.1% 95.7%;
+    --surface-container: 210.0 5.9% 93.3%;
+    --surface-container-high: 210.0 4.3% 91.0%;
+    --surface-container-highest: 200.0 5.3% 88.8%;
+    --on-surface: 195.0 7.4% 10.6%;
+    --on-surface-variant: 227.1 9.5% 29.0%;
+    --inverse-surface: 195.0 4.2% 18.8%;
+    --inverse-on-surface: 210.0 7.1% 94.5%;
+    --outline: 225.0 6.5% 48.2%;
+    --outline-variant: 228.7 15.4% 79.6%;
+    --surface-tint: 219.8 56.1% 43.7%;
+    --primary: 214.8 100.0% 24.7%;
+    --on-primary: 0.0 0.0% 100.0%;
+    --primary-container: 218.1 69.0% 36.7%;
+    --on-primary-container: 222.8 100.0% 82.9%;
+    --inverse-primary: 222.8 100.0% 84.3%;
+    --secondary: 45.0 100.0% 23.5%;
+    --on-secondary: 0.0 0.0% 100.0%;
+    --secondary-container: 43.9 98.2% 57.5%;
+    --on-secondary-container: 44.7 100.0% 21.6%;
+    --tertiary: 207.2 46.9% 22.2%;
+    --on-tertiary: 0.0 0.0% 100.0%;
+    --tertiary-container: 208.3 32.9% 31.6%;
+    --on-tertiary-container: 210.0 50.0% 77.3%;
+    --error: 0.0 75.5% 41.6%;
+    --on-error: 0.0 0.0% 100.0%;
+    --error-container: 5.9 100.0% 92.0%;
+    --on-error-container: 355.9 100.0% 28.8%;
+    --primary-fixed: 225.8 100.0% 92.5%;
+    --primary-fixed-dim: 222.8 100.0% 84.3%;
+    --on-primary-fixed: 217.9 100.0% 13.3%;
+    --on-primary-fixed-variant: 216.4 82.8% 32.0%;
+    --secondary-fixed: 40.6 100.0% 80.6%;
+    --secondary-fixed-dim: 44.0 93.0% 54.9%;
+    --on-secondary-fixed: 42.2 100.0% 7.3%;
+    --on-secondary-fixed-variant: 44.2 100.0% 17.8%;
+    --tertiary-fixed: 211.2 100.0% 90.2%;
+    --tertiary-fixed-dim: 210.0 54.7% 79.2%;
+    --on-tertiary-fixed: 205.2 100.0% 9.8%;
+    --on-tertiary-fixed-variant: 208.3 37.1% 28.0%;
+    --background: 210.0 16.7% 97.6%;
+    --on-background: 195.0 7.4% 10.6%;
+    --surface-variant: 200.0 5.3% 88.8%;
+    --header-blue: 214.8 100.0% 24.7%;
+    --text-secondary: 227.1 9.5% 29.0%;
+    --fab-icon: 44.7 100.0% 21.6%;
   }
 
   .dark {
-    /* Mirrored for single theme design */
-    --border: 231.0 9.1% 59%;
-    --input: 231.0 9.1% 59%;
-    --ring: 225.0 100% 84.9%;
-    --popover: 228.0 16.7% 11.8%;
-    --popover-foreground: 235.0 25% 90.6%;
-    --card: 228.0 16.7% 11.8%;
-    --card-foreground: 235.0 25% 90.6%;
-    --muted: 227.0 12% 29.4%;
-    --muted-foreground: 231.0 20% 80.4%;
-    --accent: 49.0 100% 47.6%;
-    --accent-foreground: 48.0 100% 20.4%;
-    --destructive: 6.0 100% 83.5%;
-    --destructive-foreground: 357.0 100% 20.6%;
-    --foreground: 210.0 16.7% 97.6%;
-    --social-container: 0.0 0% 100%; /* For opacity 0.15 */
+    --border: 225.0 6.5% 48.2%;
+    --input: 225.0 6.5% 48.2%;
+    --ring: 218.1 69.0% 36.7%;
+    --radius: 0.25rem;
+    --popover: 0.0 0.0% 100.0%;
+    --popover-foreground: 195.0 7.4% 10.6%;
+    --card: 0.0 0.0% 100.0%;
+    --card-foreground: 195.0 7.4% 10.6%;
+    --muted: 210.0 7.1% 94.5%;
+    --muted-foreground: 227.1 9.5% 29.0%;
+    --accent: 43.9 98.2% 57.5%;
+    --accent-foreground: 44.7 100.0% 21.6%;
+    --destructive: 0.0 75.5% 41.6%;
+    --destructive-foreground: 0.0 0.0% 100.0%;
+    --foreground: 195.0 7.4% 10.6%;
+    --social-container: 0.0 0% 100%;
 
-    --surface: 228.0 22.7% 8.6%;
-    --surface-dim: 228.0 22.7% 8.6%;
-    --surface-bright: 228.0 8.3% 23.5%;
-    --surface-container-lowest: 227.0 27.3% 6.5%;
-    --surface-container-low: 228.0 16.7% 11.8%;
-    --surface-container: 228.0 14.7% 13.3%;
-    --surface-container-high: 228.0 11.1% 17.6%;
-    --surface-container-highest: 229.0 9.9% 21.8%;
-    --on-surface: 235.0 25% 90.6%;
-    --on-surface-variant: 231.0 20% 80.4%;
-    --inverse-surface: 235.0 25% 90.6%;
-    --inverse-on-surface: 228.0 9.8% 20%;
-    --outline: 231.0 9.1% 59%;
-    --outline-variant: 227.0 12% 29.4%;
-    --surface-tint: 225.0 100% 84.9%;
-    --primary: 225.0 100% 84.9%;
-    --on-primary: 218.0 100% 22.5%;
-    --primary-container: 219.0 77.5% 51.2%;
-    --on-primary-container: 231.0 100% 96.1%;
-    --inverse-primary: 216.0 100% 41.4%;
-    --secondary: 45.0 100% 80.8%;
-    --on-secondary: 48.0 100% 11.6%;
-    --secondary-container: 49.0 100% 47.6%;
-    --on-secondary-container: 48.0 100% 20.4%;
-    --tertiary: 18.0 100% 79.4%;
-    --on-tertiary: 20.0 100% 17.3%;
-    --tertiary-container: 23.0 100% 36.5%;
-    --on-tertiary-container: 16.0 100% 94.7%;
-    --error: 6.0 100% 83.5%;
-    --on-error: 357.0 100% 20.6%;
-    --error-container: 356.0 100% 28.8%;
-    --on-error-container: 6.0 100% 92%;
-    --primary-fixed: 227.0 100% 92.7%;
-    --primary-fixed-dim: 225.0 100% 84.9%;
-    --on-primary-fixed: 220.0 100% 14.1%;
-    --on-primary-fixed-variant: 216.0 100% 31.8%;
-    --secondary-fixed: 46.0 100% 74.7%;
-    --secondary-fixed-dim: 49.0 100% 46.5%;
-    --on-secondary-fixed: 46.0 100% 6.9%;
-    --on-secondary-fixed-variant: 48.0 100% 16.9%;
-    --tertiary-fixed: 17.0 100% 90.2%;
-    --tertiary-fixed-dim: 18.0 100% 79.4%;
-    --on-tertiary-fixed: 17.0 100% 10.6%;
-    --on-tertiary-fixed-variant: 22.0 100% 24.3%;
-    --background: 228.0 22.7% 8.6%;
-    --on-background: 235.0 25% 90.6%;
-    --surface-variant: 229.0 9.9% 21.8%;
-    --header-blue: 220.0 73.6% 44.5%;
-    --text-secondary: 214.0 31.8% 91.4%;
-    --fab-icon: 0.0 0% 20%;
+    --surface: 210.0 16.7% 97.6%;
+    --surface-dim: 210.0 2.7% 85.5%;
+    --surface-bright: 210.0 16.7% 97.6%;
+    --surface-container-lowest: 0.0 0.0% 100.0%;
+    --surface-container-low: 210.0 9.1% 95.7%;
+    --surface-container: 210.0 5.9% 93.3%;
+    --surface-container-high: 210.0 4.3% 91.0%;
+    --surface-container-highest: 200.0 5.3% 88.8%;
+    --on-surface: 195.0 7.4% 10.6%;
+    --on-surface-variant: 227.1 9.5% 29.0%;
+    --inverse-surface: 195.0 4.2% 18.8%;
+    --inverse-on-surface: 210.0 7.1% 94.5%;
+    --outline: 225.0 6.5% 48.2%;
+    --outline-variant: 228.7 15.4% 79.6%;
+    --surface-tint: 219.8 56.1% 43.7%;
+    --primary: 214.8 100.0% 24.7%;
+    --on-primary: 0.0 0.0% 100.0%;
+    --primary-container: 218.1 69.0% 36.7%;
+    --on-primary-container: 222.8 100.0% 82.9%;
+    --inverse-primary: 222.8 100.0% 84.3%;
+    --secondary: 45.0 100.0% 23.5%;
+    --on-secondary: 0.0 0.0% 100.0%;
+    --secondary-container: 43.9 98.2% 57.5%;
+    --on-secondary-container: 44.7 100.0% 21.6%;
+    --tertiary: 207.2 46.9% 22.2%;
+    --on-tertiary: 0.0 0.0% 100.0%;
+    --tertiary-container: 208.3 32.9% 31.6%;
+    --on-tertiary-container: 210.0 50.0% 77.3%;
+    --error: 0.0 75.5% 41.6%;
+    --on-error: 0.0 0.0% 100.0%;
+    --error-container: 5.9 100.0% 92.0%;
+    --on-error-container: 355.9 100.0% 28.8%;
+    --primary-fixed: 225.8 100.0% 92.5%;
+    --primary-fixed-dim: 222.8 100.0% 84.3%;
+    --on-primary-fixed: 217.9 100.0% 13.3%;
+    --on-primary-fixed-variant: 216.4 82.8% 32.0%;
+    --secondary-fixed: 40.6 100.0% 80.6%;
+    --secondary-fixed-dim: 44.0 93.0% 54.9%;
+    --on-secondary-fixed: 42.2 100.0% 7.3%;
+    --on-secondary-fixed-variant: 44.2 100.0% 17.8%;
+    --tertiary-fixed: 211.2 100.0% 90.2%;
+    --tertiary-fixed-dim: 210.0 54.7% 79.2%;
+    --on-tertiary-fixed: 205.2 100.0% 9.8%;
+    --on-tertiary-fixed-variant: 208.3 37.1% 28.0%;
+    --background: 210.0 16.7% 97.6%;
+    --on-background: 195.0 7.4% 10.6%;
+    --surface-variant: 200.0 5.3% 88.8%;
+    --header-blue: 214.8 100.0% 24.7%;
+    --text-secondary: 227.1 9.5% 29.0%;
+    --fab-icon: 44.7 100.0% 21.6%;
   }
 
   body {
@@ -230,31 +231,63 @@ html {
 }
 
 @layer utilities {
+  .text-display-lg {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: -0.02em;
+  }
+  .text-headline-lg {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+  }
+  .text-headline-lg-mobile {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  .text-headline-md {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+  .text-title-lg {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  .text-body-lg {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  .text-body-md {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  .text-label-md {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Retaining original classes to prevent broken UI if hardcoded somewhere else, but mapping them to new tokens */
   .text-logo {
-    font-family: var(--font-sora);
+    font-family: var(--font-display);
     font-size: 32px;
     font-weight: 800;
     line-height: 40px;
     letter-spacing: 0.05em;
-  }
-  .text-headline-lg {
-    font-family: var(--font-sora);
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-    letter-spacing: 0.02em;
-  }
-  .text-body-md {
-    font-family: var(--font-inter);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0.01em;
-  }
-  .text-label-md {
-    font-family: var(--font-inter);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
   }
 }
