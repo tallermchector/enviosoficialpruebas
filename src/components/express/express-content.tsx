@@ -20,7 +20,7 @@ export function ExpressContent() {
   ]
 
   return (
-    <section className="py-32 px-4 bg-[#050810] relative overflow-hidden border-t border-slate-900">
+    <section className="py-32 px-4 bg-background relative overflow-hidden border-t border-slate-900">
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left Content */}
@@ -43,7 +43,7 @@ export function ExpressContent() {
                   key={index} 
                   className="flex items-start"
                 >
-                  <div className="w-8 h-8 bg-slate-900 border border-slate-800 flex items-center justify-center mr-6 flex-shrink-0 mt-1">
+                  <div className="w-8 h-8 bg-card border border-border flex items-center justify-center mr-6 flex-shrink-0 mt-1">
                     <Check className="w-4 h-4 text-primary" />
                   </div>
                   <div>
@@ -59,7 +59,7 @@ export function ExpressContent() {
               <Button
                 asChild
                 size="lg"
-                className="bg-secondary hover:bg-[#d97706] text-black font-sans font-bold px-10 py-6 rounded-none transition-all uppercase tracking-tight h-auto text-lg shadow-lg"
+                className="bg-secondary hover:bg-secondary/90 text-black font-sans font-bold px-10 py-6 rounded-none transition-all uppercase tracking-tight h-auto text-lg shadow-lg"
               >
                 <Link href="/cotizar/express">Cotizá tu Envío</Link>
               </Button>

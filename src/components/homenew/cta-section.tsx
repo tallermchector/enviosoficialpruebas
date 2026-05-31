@@ -22,7 +22,7 @@ export const CtaSection = () => {
 
         {/* Static Background Highlight (Performance) */}
         <div
-          className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 blur-[150px] rounded-full"
+          className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 blur-[150px] rounded-full"
         />
 
         {/* Tech grid overlay */}
@@ -71,7 +71,7 @@ export const CtaSection = () => {
 
               <Link
                 href="/tarifas"
-                className="w-full sm:w-auto px-12 py-6 bg-blue-500/20 hover:bg-blue-500/30 border border-white/20 text-white font-display text-orbitron font-bold rounded-2xl transition-all backdrop-blur-md flex items-center justify-center gap-4 uppercase tracking-widest text-xs"
+                className="w-full sm:w-auto px-12 py-6 bg-primary/20 hover:bg-primary/30 border border-white/20 text-white font-display text-orbitron font-bold rounded-2xl transition-all backdrop-blur-md flex items-center justify-center gap-4 uppercase tracking-widest text-xs"
               >
                 Ver Tarifas 2026 <Calculator size={22} />
               </Link>

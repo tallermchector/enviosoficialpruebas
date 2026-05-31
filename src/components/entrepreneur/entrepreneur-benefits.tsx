@@ -69,7 +69,7 @@ export function EntrepreneurBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+    <section className="py-24 px-4 bg-background relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">

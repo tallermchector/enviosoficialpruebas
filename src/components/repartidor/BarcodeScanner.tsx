@@ -49,11 +49,11 @@ export function BarcodeScanner({ onScan }: BarcodeScannerProps) {
 
   if (error) {
      return (
-        <div className="flex flex-col items-center justify-center h-64 text-center p-6 bg-slate-900 border border-rose-500/50">
+        <div className="flex flex-col items-center justify-center h-64 text-center p-6 bg-card border border-rose-500/50">
             <CameraOff className="h-12 w-12 text-rose-500 mb-4" />
             <div className="space-y-2">
                 <h3 className="text-white font-bold uppercase tracking-tight">Error de Cámara</h3>
-                <p className="text-slate-400 text-sm">
+                <p className="text-muted-foreground text-sm">
                   {error.message.includes('permission') 
                     ? 'Permiso denegado. Habilitá la cámara en la configuración del sitio.'
                     : 'No se pudo acceder al dispositivo de captura.'
@@ -65,11 +65,11 @@ export function BarcodeScanner({ onScan }: BarcodeScannerProps) {
   }
 
   return (
-    <div className="relative w-full aspect-square md:aspect-video rounded-none overflow-hidden border-2 border-slate-800 bg-black">
+    <div className="relative w-full aspect-square md:aspect-video rounded-none overflow-hidden border-2 border-border bg-black">
        <video ref={ref as any} className="w-full h-full object-cover opacity-70" />
         {isProcessing && (
-            <div className="absolute inset-0 bg-[#050810]/90 flex flex-col items-center justify-center z-20">
-                <Loader2 className="h-10 w-10 animate-spin text-[#2563EB]" />
+            <div className="absolute inset-0 bg-background/90 flex flex-col items-center justify-center z-20">
+                <Loader2 className="h-10 w-10 animate-spin text-primary" />
                 <p className="mt-4 text-xs font-display font-bold text-white uppercase tracking-widest">Procesando...</p>
             </div>
         )}

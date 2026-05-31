@@ -86,7 +86,7 @@ export function ContactInfo() {
             viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
           >
-            <Card className="mb-8 sm:mb-10 shadow-lg border-primary/20 backdrop-blur-sm bg-white/50 dark:bg-slate-900/50">
+            <Card className="mb-8 sm:mb-10 shadow-lg border-primary/20 backdrop-blur-sm bg-white/50 dark:bg-card/50">
               <CardContent className="p-6 sm:p-8 text-center">
                 <div className="flex items-center justify-center mb-2 sm:mb-3">
                     <Home className="w-7 h-7 sm:w-8 sm:h-8 text-primary mr-2 sm:mr-3" />
