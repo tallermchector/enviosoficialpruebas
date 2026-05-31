@@ -54,8 +54,13 @@ async function getRepartidorData(id: string): Promise<{ repartidor: Repartidor; 
     return { repartidor, etiquetas: formattedEtiquetas };
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const data = await getRepartidorData(params.id);
+type Props = {
+  params: Promise<{ id: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const data = await getRepartidorData(id);
   return {
     title: `Panel de ${data?.repartidor.name || 'Repartidor'}`,
     description: `Hoja de ruta y gestión de entregas para ${data?.repartidor.name}.`,
@@ -67,8 +72,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 }
 
 
-export default async function RepartidorPage({ params }: { params: { id: string } }) {
-    const data = await getRepartidorData(params.id);
+export default async function RepartidorPage({ params }: Props) {
+    const { id } = await params;
+    const data = await getRepartidorData(id);
 
     if (!data) {
         notFound();

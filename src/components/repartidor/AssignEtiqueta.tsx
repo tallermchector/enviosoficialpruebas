@@ -8,12 +8,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { assignEtiquetaByOrderNumber } from '@/app/admin/repartidores/actions';
 import type { FormattedEtiqueta } from '@/types';
 
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { ScanBarcode, Loader2, Search, Camera } from 'lucide-react';
+import { Loader2, Search, Camera } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { BarcodeScanner } from './BarcodeScanner';
 
@@ -34,7 +33,7 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
   const [isScannerOpen, setIsScannerOpen] = useState(false);
 
   const form = useForm<AssignFormValues>({
-    resolver: zodResolver(assignSchema) as any,
+    resolver: zodResolver(assignSchema),
     defaultValues: { orderNumber: '' },
   });
 
@@ -66,55 +65,65 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
 
   return (
     <>
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <ScanBarcode className="w-6 h-6 text-primary" />
-            Asignar Nuevas Entregas
-          </CardTitle>
-          <CardDescription>
-            Ingresa el número de orden o escanéalo para añadir una entrega a tu hoja de ruta.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+      <div className="p-4 bg-[#050810]">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit as any)} className="flex items-end gap-2">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
-                control={form.control as any}
+                control={form.control}
                 name="orderNumber"
                 render={({ field }) => (
-                  <FormItem className="flex-grow">
-                    <FormLabel>Número de Orden</FormLabel>
+                  <FormItem>
+                    <FormLabel className="text-xs uppercase tracking-widest text-slate-500 font-bold">Número de Orden</FormLabel>
                     <div className="flex gap-2">
                       <FormControl>
-                        <Input placeholder="Ej: EXP-1722..." {...field} />
+                        <Input
+                            placeholder="EXP-1722..."
+                            className="h-14 bg-slate-900 border-slate-800 rounded-none text-white focus:ring-[#2563EB]"
+                            {...field}
+                        />
                       </FormControl>
-                      <Button type="button" variant="outline" size="icon" onClick={() => setIsScannerOpen(true)} title="Escanear Código de Barras">
-                        <Camera className="h-5 w-5" />
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="h-14 w-14 rounded-none border-slate-800 bg-slate-800 text-white hover:bg-[#2563EB]"
+                        onClick={() => setIsScannerOpen(true)}
+                        title="Escanear Código de Barras"
+                      >
+                        <Camera className="h-6 w-6" />
                       </Button>
                     </div>
-                    <FormMessage />
+                    <FormMessage className="text-rose-500 text-xs" />
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isPending}>
-                {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Search className="mr-2 h-4 w-4" />}
-                {isPending ? 'Buscando...' : 'Asignar'}
+              <Button
+                type="submit"
+                className="w-full h-14 rounded-none bg-[#2563EB] hover:bg-[#1e40af] text-white font-bold text-lg"
+                disabled={isPending}
+              >
+                {isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Search className="mr-2 h-5 w-5" />}
+                {isPending ? 'BUSCANDO...' : 'ASIGNAR A MI RUTA'}
               </Button>
             </form>
           </Form>
-        </CardContent>
-      </Card>
+      </div>
       
       <Dialog open={isScannerOpen} onOpenChange={setIsScannerOpen}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Escanear Código de Barras</DialogTitle>
-            <DialogDescription>
-              Apunta la cámara al código de barras de la etiqueta.
+        <DialogContent className="sm:max-w-[425px] bg-[#050810] border-slate-800 rounded-none text-white p-0 overflow-hidden">
+          <DialogHeader className="p-6 border-b border-slate-800">
+            <DialogTitle className="font-display uppercase tracking-wider text-xl">Escáner de Barras</DialogTitle>
+            <DialogDescription className="text-slate-400">
+              Alineá el código de barras dentro del recuadro para escanear automáticamente.
             </DialogDescription>
           </DialogHeader>
-          <BarcodeScanner onScan={handleBarcodeScanned} />
+          <div className="p-4">
+             <BarcodeScanner onScan={handleBarcodeScanned} />
+          </div>
+          <div className="p-4 bg-slate-900 flex justify-end">
+              <Button variant="ghost" className="rounded-none text-slate-400 hover:text-white" onClick={() => setIsScannerOpen(false)}>
+                  CANCELAR
+              </Button>
+          </div>
         </DialogContent>
       </Dialog>
     </>
