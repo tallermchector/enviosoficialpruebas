@@ -1,209 +1,170 @@
 ---
-design_tokens:
-  colors:
-    primary_foundation:
-      core_background: '#2264E3'
-      header_surface_blue: '#1E56C5'
-    accent_interactive:
-      primary_brand_accent: '#F8CC0B'
-      fab_background: '#F8CC0B'
-      fab_icon: '#333333'
-    typography_text_hierarchy:
-      primary_headers: '#F8CC0B'
-      section_headers: '#FFFFFF'
-      body_content: '#FFFFFF'
-      secondary_text: '#E2E8F0'
-    functional_states:
-      social_containers: rgba(255, 255, 255, 0.15)
-      section_dividers: '#F8CC0B'
-  typography:
-    hierarchy_weights:
-      logo_branding: Wide-set, geometric Sans-Serif, heavy weight, uppercase-leaning
-      section_titles: Geometric Sans-Serif, ~24px, bold weight
-      body_text: Modern, neutral Sans-Serif (Inter, Roboto, Helvetica), ~16px, regular
-        weight
-      icon_labels: Medium weight Sans-Serif
-    spacing_principles:
-      line_height: 1.5rem
-      letter_spacing: Increased tracking on headers
-  components:
-    buttons:
-      social_media: Circular, ~48px diameter, subtle stroke or low-opacity fill
-      fab: 56px circular, bottom-right position
-    cards_containers:
-      service_lists: Non-bordered, transparent, fixed-width icon area left, text right
-      header: Full-width, subtle shadow
-    navigation:
-      mobile_menu: 3-bar hamburger, white, top-right
-      contextual_anchors: Left-aligned text links
-    domain_specific:
-      service_icons: Minimalist line-art/glyph, Yellow
-      section_underline: ~40px wide, 3px tall, placed beneath first word of section
-        headers
-  layout:
-    grid_structure:
-      mobile_first: Centered vertical stack, ~24px side margins
-      vertical_rhythm: 40px-60px vertical gaps between major sections
-    whitespace_strategy:
-      negative_space: Heavily reliant on blue background voids to contrast yellow/white
-      internal_padding: 16px horizontal padding between icons and labels
-    alignment_balance:
-      text_alignment: Left-aligned almost entirely (F-pattern)
-      asymmetric_balance: Left-aligned text balanced by right-aligned menu and FAB
-name: Envíos DosRuedas
+name: Kinetic Logistics
 colors:
-  surface: '#11131b'
-  surface-dim: '#11131b'
-  surface-bright: '#373941'
-  surface-container-lowest: '#0c0e15'
-  surface-container-low: '#191b23'
-  surface-container: '#1d1f27'
-  surface-container-high: '#282a32'
-  surface-container-highest: '#32343d'
-  on-surface: '#e1e2ed'
-  on-surface-variant: '#c3c6d7'
-  inverse-surface: '#e1e2ed'
-  inverse-on-surface: '#2e3038'
-  outline: '#8d90a0'
-  outline-variant: '#424654'
-  surface-tint: '#b2c5ff'
-  primary: '#b2c5ff'
-  on-primary: '#002b73'
-  primary-container: '#2264e3'
-  on-primary-container: '#ebeeff'
-  inverse-primary: '#0055d3'
-  secondary: '#ffe79d'
-  on-secondary: '#3b2f00'
-  secondary-container: '#f3c800'
-  on-secondary-container: '#685400'
-  tertiary: '#ffb596'
-  on-tertiary: '#581e00'
-  tertiary-container: '#ba4800'
-  on-tertiary-container: '#ffebe4'
-  error: '#ffb4ab'
-  on-error: '#690005'
-  error-container: '#93000a'
-  on-error-container: '#ffdad6'
-  primary-fixed: '#dae2ff'
-  primary-fixed-dim: '#b2c5ff'
-  on-primary-fixed: '#001848'
-  on-primary-fixed-variant: '#0040a2'
-  secondary-fixed: '#ffe07e'
-  secondary-fixed-dim: '#edc200'
-  on-secondary-fixed: '#231b00'
-  on-secondary-fixed-variant: '#564500'
-  tertiary-fixed: '#ffdbcd'
-  tertiary-fixed-dim: '#ffb596'
-  on-tertiary-fixed: '#360f00'
-  on-tertiary-fixed-variant: '#7c2e00'
-  background: '#11131b'
-  on-background: '#e1e2ed'
-  surface-variant: '#32343d'
-  header-blue: '#1E56C5'
-  text-secondary: '#E2E8F0'
-  social-container: rgba(255, 255, 255, 0.15)
-  fab-icon: '#333333'
+  surface: '#f8f9fa'
+  surface-dim: '#d9dadb'
+  surface-bright: '#f8f9fa'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#f3f4f5'
+  surface-container: '#edeeef'
+  surface-container-high: '#e7e8e9'
+  surface-container-highest: '#e1e3e4'
+  on-surface: '#191c1d'
+  on-surface-variant: '#434651'
+  inverse-surface: '#2e3132'
+  inverse-on-surface: '#f0f1f2'
+  outline: '#737783'
+  outline-variant: '#c3c6d3'
+  surface-tint: '#315bae'
+  primary: '#00357e'
+  on-primary: '#ffffff'
+  primary-container: '#1d4c9e'
+  on-primary-container: '#a8c1ff'
+  inverse-primary: '#afc6ff'
+  secondary: '#785a00'
+  on-secondary: '#ffffff'
+  secondary-container: '#fdc428'
+  on-secondary-container: '#6e5200'
+  tertiary: '#1e3b53'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#36526b'
+  on-tertiary-container: '#a8c5e2'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#d9e2ff'
+  primary-fixed-dim: '#afc6ff'
+  on-primary-fixed: '#001944'
+  on-primary-fixed-variant: '#0e4395'
+  secondary-fixed: '#ffdf9c'
+  secondary-fixed-dim: '#f7be21'
+  on-secondary-fixed: '#251a00'
+  on-secondary-fixed-variant: '#5b4300'
+  tertiary-fixed: '#cde5ff'
+  tertiary-fixed-dim: '#adcae7'
+  on-tertiary-fixed: '#001d32'
+  on-tertiary-fixed-variant: '#2d4962'
+  background: '#f8f9fa'
+  on-background: '#191c1d'
+  surface-variant: '#e1e3e4'
 typography:
-  logo:
-    fontFamily: Sora
-    fontSize: 32px
-    fontWeight: '800'
-    lineHeight: 40px
-    letterSpacing: 0.05em
-  headline-lg:
-    fontFamily: Sora
-    fontSize: 24px
+  display-lg:
+    fontFamily: Hanken Grotesk
+    fontSize: 48px
     fontWeight: '700'
+    lineHeight: 56px
+    letterSpacing: -0.02em
+  headline-lg:
+    fontFamily: Hanken Grotesk
+    fontSize: 32px
+    fontWeight: '600'
+    lineHeight: 40px
+  headline-lg-mobile:
+    fontFamily: Hanken Grotesk
+    fontSize: 24px
+    fontWeight: '600'
     lineHeight: 32px
-    letterSpacing: 0.02em
-  body-md:
+  headline-md:
+    fontFamily: Hanken Grotesk
+    fontSize: 24px
+    fontWeight: '600'
+    lineHeight: 32px
+  title-lg:
+    fontFamily: Inter
+    fontSize: 18px
+    fontWeight: '600'
+    lineHeight: 24px
+  body-lg:
     fontFamily: Inter
     fontSize: 16px
     fontWeight: '400'
     lineHeight: 24px
-    letterSpacing: 0.01em
-  label-md:
+  body-md:
     fontFamily: Inter
     fontSize: 14px
-    fontWeight: '500'
+    fontWeight: '400'
     lineHeight: 20px
+  label-md:
+    fontFamily: JetBrains Mono
+    fontSize: 12px
+    fontWeight: '500'
+    lineHeight: 16px
+    letterSpacing: 0.05em
 rounded:
-  sm: 0.5rem
-  DEFAULT: 1rem
-  md: 1.5rem
-  lg: 2rem
-  xl: 3rem
+  sm: 0.125rem
+  DEFAULT: 0.25rem
+  md: 0.375rem
+  lg: 0.5rem
+  xl: 0.75rem
   full: 9999px
 spacing:
-  margin-mobile: 1.5rem
-  gutter-icon: 1rem
-  section-gap-min: 2.5rem
-  section-gap-max: 3.75rem
+  base: 4px
+  xs: 4px
+  sm: 8px
+  md: 16px
+  lg: 24px
+  xl: 32px
+  gutter: 20px
+  margin-mobile: 16px
+  margin-desktop: 40px
 ---
 
-# Design System: Envíos DosRuedas
+## Brand & Style
+The brand personality is authoritative, efficient, and technologically advanced. It targets logistics managers and supply chain operators who require high-density information processed with speed and reliability.
 
-## 1. Visual Theme & Atmosphere
-The Envíos DosRuedas design system is built on a foundation of high-contrast, energetic utility. It adopts a "Logistics Tech" aesthetic, utilizing a vibrant royal blue and safety yellow palette that evokes speed, reliability, and automotive services. The atmosphere is professional yet urgent, designed to communicate efficiency to users looking for immediate delivery solutions in an urban environment.
+The design style is **Corporate / Modern** with a focus on high-utility density. It utilizes a structured, systematic approach inspired by industrial dashboards, ensuring every element serves a functional purpose. The aesthetic balances the weight of heavy industry with the precision of modern SaaS, using purposeful color accents to guide user attention through complex data environments.
 
-The design philosophy prioritizes legibility and rapid information scanning. By using a dark, saturated blue background, the white and yellow elements "pop" with high luminous contrast. The interface feels modern and mobile-centric, employing wide-track geometric typography for branding and clean, functional sans-serif for service details.
+## Colors
+This design system utilizes a high-contrast palette tailored for clarity in professional environments.
 
-## 2. Color Palette & Roles
-### Primary Foundation
-- **Core Background:** `#2264E3` (Vibrant Royal Blue). Used for the entire page canvas to establish brand identity and depth.
-- **Header/Surface Blue:** `#1E56C5` (Slightly darker blue). Used for the sticky header or subtle section separation.
+- **Steel Azure (#1D4C9E):** The core brand color. Used for primary surfaces, headers, and active states. It communicates stability and corporate trust.
+- **Sunflower Gold (#E7B008):** A functional accent. Reserved for high-priority interactive elements, status icons, and strategic underlines. It provides a sharp visual break from the blue-heavy environment.
+- **Yale Blue (#2F4B64):** Used for secondary navigation, muted containers, and depth-building layers. It offers a softer alternative to the primary blue for long-form reading or background grouping.
+- **Neutral:** A range of cool grays (from #F8F9FA to #212529) handles typography and layout boundaries, ensuring the brand colors remain impactful.
 
-### Accent & Interactive
-- **Primary Brand Accent:** `#F8CC0B` (Safety Yellow). Used for the main brand name, service icons, and primary action triggers.
-- **Floating Action Button (FAB):** `#F8CC0B` background with `#333333` icon for maximum visibility.
+Text on primary surfaces (Steel Azure) or secondary surfaces (Yale Blue) must always be white (#FFFFFF) to maintain AAA accessibility.
 
-### Typography & Text Hierarchy
-- **Primary Headers:** `#F8CC0B` (Yellow). Used for the main logo text.
-- **Section Headers:** `#FFFFFF` (White). Used for "Servicios" and "Cotizar" with a yellow underline.
-- **Body / Content:** `#FFFFFF` (White). High-readability white for service descriptions and list items.
-- **Secondary Text:** `#E2E8F0` (Light Gray/Blue). Used for sub-captions like "Tu Solución Confiable".
+## Typography
+The typography system prioritizes legibility and technical precision.
 
-### Functional States
-- **Social Containers:** `rgba(255, 255, 255, 0.15)` (Semi-transparent white/blue). Used for circular icon backdrops.
-- **Section Dividers:** `#F8CC0B` (Yellow). 2px thick horizontal rules under section titles.
+- **Hanken Grotesk** is used for headlines to provide a sharp, contemporary look that feels engineered.
+- **Inter** is the workhorse for body content and data entry, chosen for its exceptional readability at small sizes.
+- **JetBrains Mono** is utilized for labels, serial numbers, and technical metadata. Its monospaced nature ensures that alphanumeric logistics codes are easily scannable and vertically aligned in data tables.
 
-## 3. Typography Rules
-### Hierarchy & Weights
-- **Logo/Branding:** Wide-set, geometric Sans-Serif (reminiscent of industrial or racing fonts). Heavy weight, uppercase-leaning.
-- **Section Titles:** Similar geometric Sans-Serif. Large scale (~24px), bold weight.
-- **Body Text:** Modern, neutral Sans-Serif (e.g., Inter, Roboto, or Helvetica). Regular weight (~16px) with generous tracking for readability.
-- **Icon Labels:** Medium weight Sans-Serif, vertically centered with icons.
+Line heights are kept generous to prevent "wall of text" fatigue in data-rich views, while negative letter spacing is applied to large headlines to maintain a compact, "machine-like" feel.
 
-### Spacing Principles
-- **Line Height:** 1.5rem for body text to prevent density issues on mobile.
-- **Letter Spacing:** Increased tracking on headers to enhance the "tech" and "wide" aesthetic.
+## Layout & Spacing
+The layout follows a **Fixed Grid** philosophy for desktop to ensure dashboard widgets maintain consistent proportions, transitioning to a fluid model for mobile.
 
-## 4. Component Stylings
-### Buttons
-- **Social Media Buttons:** Circular, approximately 48px diameter. Features a subtle stroke or low-opacity fill to allow the background blue to bleed through.
-- **FAB (Floating Action Button):** 56px circular yellow button positioned in the bottom-right corner. Contains a dark chevron-up or action icon.
+- **Desktop:** 12-column grid, 1200px max-width, 20px gutters.
+- **Tablet:** 8-column grid, fluid width, 16px gutters.
+- **Mobile:** 4-column grid, fluid width, 12px gutters.
 
-### Cards & Containers
-- **Service Lists:** Non-bordered, transparent containers. Each item is a row consisting of a fixed-width icon area (left) and text (right).
-- **Header:** Full-width container with a subtle shadow to separate it from the scrolling content.
+Spacing is based on a **4px baseline grid**. All paddings and margins must be multiples of 4 (4, 8, 12, 16, 24, 32, 48, 64). Internal component spacing typically uses 8px (sm) or 16px (md) to maintain a dense but organized information architecture.
 
-### Navigation
-- **Mobile Menu:** "Hamburger" icon (3-bar) in white, positioned top-right.
-- **Contextual Anchors:** Left-aligned text links that function as service categories.
+## Elevation & Depth
+This design system uses **Tonal Layers** combined with **Low-Contrast Outlines** rather than heavy shadows.
 
-### Domain-Specific Components
-- **Service Icons:** Minimalist line-art or glyph-style icons in Yellow. Each icon represents a specific delivery type (Lightning bolt for Express, Dollar sign for LowCost, etc.).
-- **Section Underline:** A decorative yellow bar (approx. 40px wide, 3px tall) placed directly under the first word of section headers.
+- **Level 0 (Background):** Neutral Light (#F8F9FA).
+- **Level 1 (Cards/Containers):** Pure White (#FFFFFF) with a 1px border (#DEE2E6).
+- **Level 2 (Modals/Popovers):** Pure White with a subtle, 15% opacity Steel Azure ambient shadow (Blur: 12px, Y: 4px).
 
-## 5. Layout Principles
-### Grid & Structure
-- **Mobile-First Single Column:** A centered vertical stack with generous side margins (approx. 24px).
-- **Vertical Rhythm:** Large vertical gaps (40px-60px) between major sections ("Servicios" to "Cotizar") to provide breathing room.
+Depth is communicated through surface color shifts. Yale Blue (#2F4B64) is used for sidebars or "sunken" areas like footer summaries to provide clear structural hierarchy without relying on skeuomorphic effects.
 
-### Whitespace Strategy
-- **Negative Space:** The design leans heavily on the blue background to create "void" spaces, which focus the user's eye on the bright yellow and white text elements.
-- **Internal Padding:** Icons are given significant horizontal padding (16px) from their labels.
+## Shapes
+The shape language is **Soft (0.25rem)**. This slight rounding takes the edge off the industrial aesthetic, making the professional environment feel modern and accessible without becoming playful.
 
-### Alignment & Visual Balance
-- **Left-Alignment:** Almost all text and list elements are left-aligned to follow a natural reading F-pattern.
-- **Asymmetric Balance:** The heavy left-aligned text is balanced by the right-aligned hamburger menu and the bottom-right FAB.
+- **Buttons & Inputs:** 4px (0.25rem) radius.
+- **Cards & Dashboard Widgets:** 8px (0.5rem) radius.
+- **Status Badges:** 2px (0.125rem) radius or sharp for a more "tag-like" industrial feel.
+
+Interactive elements should maintain consistent corner radii to reinforce the systematic nature of the UI.
+
+## Components
+- **Buttons:** Primary buttons use Steel Azure with white text. "Action-critical" buttons (like 'Ship' or 'Confirm') may use Sunflower Gold with black text for maximum visibility. Ghost buttons use a 1px Steel Azure border.
+- **Input Fields:** Use 1px borders (#CED4DA) that transition to Steel Azure on focus. Labels use Inter (Bold, 12px) for clarity.
+- **Chips/Badges:** Small, rectangular tags with Yale Blue backgrounds for categories. Status badges use semantic colors (Green for delivered, Red for delayed) but maintain the system's typography.
+- **Cards:** White backgrounds, 1px light gray borders, and a Yale Blue "header strip" for internal grouping.
+- **Data Tables:** High-density, using JetBrains Mono for numeric columns. Row highlighting on hover uses a 5% opacity Steel Azure tint.
+- **Underlines:** Sunflower Gold is used as a 2px thick "accent bar" under active navigation items or header titles to provide a high-contrast focal point.
