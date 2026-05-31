@@ -23,10 +23,10 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, x: -20 },
   visible: { 
     opacity: 1, 
-    y: 0,
+    x: 0,
     transition: {
         type: 'spring' as const,
         stiffness: 100,
@@ -37,15 +37,19 @@ const itemVariants: Variants = {
 export function RepartidorSelection({ repartidores }: RepartidorSelectionProps) {
 
     return (
-        <Card className="w-full max-w-md shadow-2xl">
-            <CardHeader className="text-center">
-                <Bike className="mx-auto h-12 w-12 text-primary" />
-                <CardTitle className="text-2xl font-bold font-display mt-4">Acceso de Repartidor</CardTitle>
-                <CardDescription>Selecciona tu perfil para comenzar.</CardDescription>
+        <Card className="w-full max-w-md shadow-2xl rounded-none border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+            <CardHeader className="text-center border-b border-slate-800 mb-6 pb-6">
+                <Bike className="mx-auto h-12 w-12 text-[#2563EB]" />
+                <CardTitle className="text-2xl font-bold font-display mt-4 text-white uppercase tracking-tight">
+                    Acceso de Repartidor
+                </CardTitle>
+                <CardDescription className="text-slate-400 font-sans">
+                    Seleccioná tu perfil para comenzar a trabajar.
+                </CardDescription>
             </CardHeader>
             <CardContent>
                 {repartidores.length === 0 ? (
-                    <p className="text-center text-muted-foreground">No hay repartidores activos.</p>
+                    <p className="text-center text-slate-500 font-sans py-8">No hay repartidores activos en este momento.</p>
                 ) : (
                     <motion.div 
                         className="space-y-3"
@@ -55,13 +59,19 @@ export function RepartidorSelection({ repartidores }: RepartidorSelectionProps) 
                     >
                         {repartidores.map(r => (
                             <motion.div key={r.id} variants={itemVariants}>
-                                <Button asChild variant="outline" className="w-full justify-between h-14 text-lg">
+                                <Button
+                                    asChild
+                                    variant="outline"
+                                    className="w-full justify-between h-16 text-lg rounded-none border-slate-800 bg-slate-800/40 hover:bg-[#2563EB] hover:text-white hover:border-[#2563EB] transition-all group font-sans"
+                                >
                                     <Link href={`/repartidor/${r.id}`}>
-                                        <div className="flex items-center gap-3">
-                                            <User className="h-5 w-5 text-muted-foreground" />
-                                            <span>{r.name}</span>
+                                        <div className="flex items-center gap-4">
+                                            <div className="bg-slate-800 p-2 border border-slate-700 group-hover:bg-[#1e40af] transition-colors">
+                                                <User className="h-6 w-6 text-slate-300 group-hover:text-white" />
+                                            </div>
+                                            <span className="font-bold">{r.name}</span>
                                         </div>
-                                        <ArrowRight className="h-5 w-5 text-primary" />
+                                        <ArrowRight className="h-6 w-6 text-[#E89A17] group-hover:text-white group-hover:translate-x-1 transition-all" />
                                     </Link>
                                 </Button>
                             </motion.div>

@@ -6,11 +6,12 @@ import type { Repartidor } from '../../../generated/prisma/client/client';
 import type { FormattedEtiqueta } from "@/types";
 import { EtiquetaStatus } from '@/types';
 import { Button } from "@/components/ui/button";
-import { Bike, LogOut } from "lucide-react";
+import { Bike, LogOut, Plus, ScanBarcode } from "lucide-react";
 import Link from 'next/link';
 import { HojaDeRutaRepartidor } from './HojaDeRutaRepartidor';
 import { AssignEtiqueta } from './AssignEtiqueta';
 import { useToast } from '@/hooks/use-toast';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 interface RepartidorDashboardProps {
     repartidor: Repartidor;
@@ -19,6 +20,7 @@ interface RepartidorDashboardProps {
 
 export function RepartidorDashboard({ repartidor, initialEtiquetas }: RepartidorDashboardProps) {
     const [etiquetas, setEtiquetas] = useState(initialEtiquetas);
+    const [isSheetOpen, setIsSheetOpen] = useState(false);
     const { toast } = useToast();
 
     const handleStatusChange = (etiquetaId: number, newStatus: EtiquetaStatus) => {
@@ -37,6 +39,9 @@ export function RepartidorDashboard({ repartidor, initialEtiquetas }: Repartidor
                 return [newEtiqueta, ...prev];
             }
         });
+
+        setIsSheetOpen(false);
+
         toast({
             title: 'Etiqueta Asignada',
             description: `La etiqueta #${newEtiqueta.orderNumber} ha sido añadida a tu hoja de ruta.`,
@@ -45,16 +50,18 @@ export function RepartidorDashboard({ repartidor, initialEtiquetas }: Repartidor
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <header className="bg-primary text-primary-foreground shadow-md sticky top-0 z-40">
-                <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="min-h-screen bg-[#050810] text-slate-200 font-sans pb-24">
+            <header className="bg-[#2563EB] text-white shadow-xl sticky top-0 z-40 border-b border-blue-400/20">
+                <div className="container mx-auto px-4 h-16 flex justify-between items-center">
                     <div className="flex items-center gap-3">
-                        <Bike className="h-7 w-7" />
-                        <h1 className="text-xl font-bold font-display">
-                            Bienvenido, {repartidor.name.split(' ')[0]}
+                        <div className="bg-white/10 p-1.5 border border-white/20">
+                            <Bike className="h-6 w-6" />
+                        </div>
+                        <h1 className="text-lg font-bold font-display uppercase tracking-wider">
+                            {repartidor.name.split(' ')[0]}
                         </h1>
                     </div>
-                    <Button asChild variant="secondary" size="sm">
+                    <Button asChild variant="ghost" size="sm" className="hover:bg-white/10 text-white rounded-none border border-transparent hover:border-white/20">
                         <Link href="/repartidor">
                             <LogOut className="mr-2 h-4 w-4" /> Salir
                         </Link>
@@ -62,16 +69,46 @@ export function RepartidorDashboard({ repartidor, initialEtiquetas }: Repartidor
                 </div>
             </header>
 
-            <main className="container mx-auto px-4 py-8 space-y-8">
-                 <AssignEtiqueta 
-                    repartidorId={repartidor.id} 
-                    onEtiquetaAssigned={handleEtiquetaAssigned} 
-                 />
+            <main className="container mx-auto px-4 py-8">
                  <HojaDeRutaRepartidor 
                     etiquetas={etiquetas.filter(e => e.repartidorId === repartidor.id)}
                     onStatusChange={handleStatusChange}
                  />
             </main>
+
+            {/* Floating Action Button (FAB) */}
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+                <SheetTrigger asChild>
+                    <Button
+                        size="icon"
+                        className="fixed bottom-6 right-6 h-16 w-16 rounded-none bg-[#E89A17] hover:bg-[#d97706] text-white shadow-[0_0_20px_rgba(232,154,23,0.3)] border-2 border-white/10 z-50 group transition-all active:scale-95"
+                    >
+                        <Plus className="h-8 w-8 group-hover:rotate-90 transition-transform duration-300" />
+                    </Button>
+                </SheetTrigger>
+                <SheetContent side="bottom" className="h-[auto] bg-[#050810] border-t border-slate-800 rounded-none p-0 overflow-hidden">
+                    <div className="p-6">
+                        <SheetHeader className="mb-6">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="bg-[#2563EB] p-2 border border-blue-400/20">
+                                    <ScanBarcode className="h-6 w-6 text-white" />
+                                </div>
+                                <SheetTitle className="text-xl font-display font-bold text-white uppercase">Asignar Entrega</SheetTitle>
+                            </div>
+                            <SheetDescription className="text-slate-400">
+                                Escaneá el código o ingresá el número de orden para agregarla a tu ruta de hoy.
+                            </SheetDescription>
+                        </SheetHeader>
+
+                        <div className="bg-slate-900/50 border border-slate-800 p-1">
+                            <AssignEtiqueta
+                                repartidorId={repartidor.id}
+                                onEtiquetaAssigned={handleEtiquetaAssigned}
+                            />
+                        </div>
+                    </div>
+                </SheetContent>
+            </Sheet>
         </div>
     );
 }
