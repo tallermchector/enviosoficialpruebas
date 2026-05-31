@@ -2,53 +2,145 @@
 design_tokens:
   colors:
     primary_foundation:
-      core_background: "#2264E3"
-      header_surface_blue: "#1E56C5"
+      core_background: '#2264E3'
+      header_surface_blue: '#1E56C5'
     accent_interactive:
-      primary_brand_accent: "#F8CC0B"
-      fab_background: "#F8CC0B"
-      fab_icon: "#333333"
+      primary_brand_accent: '#F8CC0B'
+      fab_background: '#F8CC0B'
+      fab_icon: '#333333'
     typography_text_hierarchy:
-      primary_headers: "#F8CC0B"
-      section_headers: "#FFFFFF"
-      body_content: "#FFFFFF"
-      secondary_text: "#E2E8F0"
+      primary_headers: '#F8CC0B'
+      section_headers: '#FFFFFF'
+      body_content: '#FFFFFF'
+      secondary_text: '#E2E8F0'
     functional_states:
-      social_containers: "rgba(255, 255, 255, 0.15)"
-      section_dividers: "#F8CC0B"
+      social_containers: rgba(255, 255, 255, 0.15)
+      section_dividers: '#F8CC0B'
   typography:
     hierarchy_weights:
-      logo_branding: "Wide-set, geometric Sans-Serif, heavy weight, uppercase-leaning"
-      section_titles: "Geometric Sans-Serif, ~24px, bold weight"
-      body_text: "Modern, neutral Sans-Serif (Inter, Roboto, Helvetica), ~16px, regular weight"
-      icon_labels: "Medium weight Sans-Serif"
+      logo_branding: Wide-set, geometric Sans-Serif, heavy weight, uppercase-leaning
+      section_titles: Geometric Sans-Serif, ~24px, bold weight
+      body_text: Modern, neutral Sans-Serif (Inter, Roboto, Helvetica), ~16px, regular
+        weight
+      icon_labels: Medium weight Sans-Serif
     spacing_principles:
-      line_height: "1.5rem"
-      letter_spacing: "Increased tracking on headers"
+      line_height: 1.5rem
+      letter_spacing: Increased tracking on headers
   components:
     buttons:
-      social_media: "Circular, ~48px diameter, subtle stroke or low-opacity fill"
-      fab: "56px circular, bottom-right position"
+      social_media: Circular, ~48px diameter, subtle stroke or low-opacity fill
+      fab: 56px circular, bottom-right position
     cards_containers:
-      service_lists: "Non-bordered, transparent, fixed-width icon area left, text right"
-      header: "Full-width, subtle shadow"
+      service_lists: Non-bordered, transparent, fixed-width icon area left, text right
+      header: Full-width, subtle shadow
     navigation:
-      mobile_menu: "3-bar hamburger, white, top-right"
-      contextual_anchors: "Left-aligned text links"
+      mobile_menu: 3-bar hamburger, white, top-right
+      contextual_anchors: Left-aligned text links
     domain_specific:
-      service_icons: "Minimalist line-art/glyph, Yellow"
-      section_underline: "~40px wide, 3px tall, placed beneath first word of section headers"
+      service_icons: Minimalist line-art/glyph, Yellow
+      section_underline: ~40px wide, 3px tall, placed beneath first word of section
+        headers
   layout:
     grid_structure:
-      mobile_first: "Centered vertical stack, ~24px side margins"
-      vertical_rhythm: "40px-60px vertical gaps between major sections"
+      mobile_first: Centered vertical stack, ~24px side margins
+      vertical_rhythm: 40px-60px vertical gaps between major sections
     whitespace_strategy:
-      negative_space: "Heavily reliant on blue background voids to contrast yellow/white"
-      internal_padding: "16px horizontal padding between icons and labels"
+      negative_space: Heavily reliant on blue background voids to contrast yellow/white
+      internal_padding: 16px horizontal padding between icons and labels
     alignment_balance:
-      text_alignment: "Left-aligned almost entirely (F-pattern)"
-      asymmetric_balance: "Left-aligned text balanced by right-aligned menu and FAB"
+      text_alignment: Left-aligned almost entirely (F-pattern)
+      asymmetric_balance: Left-aligned text balanced by right-aligned menu and FAB
+name: Envíos DosRuedas
+colors:
+  surface: '#11131b'
+  surface-dim: '#11131b'
+  surface-bright: '#373941'
+  surface-container-lowest: '#0c0e15'
+  surface-container-low: '#191b23'
+  surface-container: '#1d1f27'
+  surface-container-high: '#282a32'
+  surface-container-highest: '#32343d'
+  on-surface: '#e1e2ed'
+  on-surface-variant: '#c3c6d7'
+  inverse-surface: '#e1e2ed'
+  inverse-on-surface: '#2e3038'
+  outline: '#8d90a0'
+  outline-variant: '#424654'
+  surface-tint: '#b2c5ff'
+  primary: '#b2c5ff'
+  on-primary: '#002b73'
+  primary-container: '#2264e3'
+  on-primary-container: '#ebeeff'
+  inverse-primary: '#0055d3'
+  secondary: '#ffe79d'
+  on-secondary: '#3b2f00'
+  secondary-container: '#f3c800'
+  on-secondary-container: '#685400'
+  tertiary: '#ffb596'
+  on-tertiary: '#581e00'
+  tertiary-container: '#ba4800'
+  on-tertiary-container: '#ffebe4'
+  error: '#ffb4ab'
+  on-error: '#690005'
+  error-container: '#93000a'
+  on-error-container: '#ffdad6'
+  primary-fixed: '#dae2ff'
+  primary-fixed-dim: '#b2c5ff'
+  on-primary-fixed: '#001848'
+  on-primary-fixed-variant: '#0040a2'
+  secondary-fixed: '#ffe07e'
+  secondary-fixed-dim: '#edc200'
+  on-secondary-fixed: '#231b00'
+  on-secondary-fixed-variant: '#564500'
+  tertiary-fixed: '#ffdbcd'
+  tertiary-fixed-dim: '#ffb596'
+  on-tertiary-fixed: '#360f00'
+  on-tertiary-fixed-variant: '#7c2e00'
+  background: '#11131b'
+  on-background: '#e1e2ed'
+  surface-variant: '#32343d'
+  header-blue: '#1E56C5'
+  text-secondary: '#E2E8F0'
+  social-container: rgba(255, 255, 255, 0.15)
+  fab-icon: '#333333'
+typography:
+  logo:
+    fontFamily: Sora
+    fontSize: 32px
+    fontWeight: '800'
+    lineHeight: 40px
+    letterSpacing: 0.05em
+  headline-lg:
+    fontFamily: Sora
+    fontSize: 24px
+    fontWeight: '700'
+    lineHeight: 32px
+    letterSpacing: 0.02em
+  body-md:
+    fontFamily: Inter
+    fontSize: 16px
+    fontWeight: '400'
+    lineHeight: 24px
+    letterSpacing: 0.01em
+  label-md:
+    fontFamily: Inter
+    fontSize: 14px
+    fontWeight: '500'
+    lineHeight: 20px
+rounded:
+  sm: 0.5rem
+  DEFAULT: 1rem
+  md: 1.5rem
+  lg: 2rem
+  xl: 3rem
+  full: 9999px
+spacing:
+  margin-mobile: 1.5rem
+  gutter-icon: 1rem
+  section-gap-min: 2.5rem
+  section-gap-max: 3.75rem
 ---
+
 # Design System: Envíos DosRuedas
 
 ## 1. Visual Theme & Atmosphere
@@ -115,22 +207,3 @@ The design philosophy prioritizes legibility and rapid information scanning. By 
 ### Alignment & Visual Balance
 - **Left-Alignment:** Almost all text and list elements are left-aligned to follow a natural reading F-pattern.
 - **Asymmetric Balance:** The heavy left-aligned text is balanced by the right-aligned hamburger menu and the bottom-right FAB.
-
-## 6. Design System Notes for Stitch Generation
-### Language to Use
-- When describing UI, use terms like "High-contrast," "Industrial-Geometric," "Safety-Yellow Accents," and "Mobile-Optimized Utility."
-
-### Color References
-- Use `bg-[#2264E3]` for the main background.
-- Use `text-[#F8CC0B]` for primary accents and icons.
-- Use `text-white` for primary body copy.
-
-### Component Prompts
-- "Create a service list item with a yellow [icon name] and white sans-serif text."
-- "Design a section header with a short, thick yellow underline directly beneath the text."
-- "Generate a circular yellow FAB with a dark arrow-up icon."
-
-### Incremental Iteration
-- Focus first on the background and typography hierarchy.
-- Add the decorative yellow underlines and circular social icons in the second pass.
-- Ensure the floating action button remains sticky in the bottom right corner for all views.

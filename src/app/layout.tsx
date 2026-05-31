@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Roboto, Orbitron } from "next/font/google";
+import { Inter, Sora } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { WhatsAppReviewButton } from "@/components/seo/WhatsAppReviewButton";
 import "./globals.css";
 
 
-const roboto = Roboto({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-roboto",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
   display: 'swap',
 })
 
-const orbitron = Orbitron({
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  variable: "--font-orbitron",
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-sora",
   display: 'swap',
 })
 
@@ -101,7 +101,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${roboto.variable} ${orbitron.variable} font-sans antialiased`}
+        className={`${inter.variable} ${sora.variable} font-sans antialiased`}
       >
         {children}
         <WhatsAppReviewButton />
