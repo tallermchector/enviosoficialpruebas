@@ -97,8 +97,14 @@ const config: Config = {
         'text-secondary': "hsl(var(--text-secondary))",
         'fab-icon': "hsl(var(--fab-icon))",
         'social-container': "hsla(var(--social-container) / 0.15)",
-
-
+        'brand-bg': '#030712',
+        'brand-surface': '#0B1329',
+        'brand-blue': '#2563EB',
+        'brand-yellow': '#FACC15',
+        'brand-border': 'rgba(30, 41, 59, 0.4)',
+      },
+      boxShadow: {
+        'neon-glow': '0 0 25px rgba(37, 99, 235, 0.25)',
       },
       spacing: {
         'base': "4px",
@@ -152,6 +158,8 @@ const config: Config = {
         sans: ["var(--font-inter)", "sans-serif"],
         display: ["var(--font-hanken)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
+        orbitron: ["var(--font-orbitron)", "sans-serif"],
+        roboto: ["var(--font-roboto)", "sans-serif"],
       }},
   },
   plugins: [require("tailwindcss-animate")],

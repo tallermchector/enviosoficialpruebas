@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Inter, Hanken_Grotesk, JetBrains_Mono, Orbitron, Roboto } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { WhatsAppReviewButton } from "@/components/seo/WhatsAppReviewButton";
 import "./globals.css";
@@ -22,6 +22,20 @@ const mono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-mono",
+  display: 'swap',
+})
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-orbitron",
+  display: 'swap',
+})
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+  variable: "--font-roboto",
   display: 'swap',
 })
 
@@ -105,7 +119,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${hanken.variable} ${mono.variable} font-sans antialiased`}
+        className={`${inter.variable} ${hanken.variable} ${mono.variable} ${orbitron.variable} ${roboto.variable} font-sans antialiased`}
       >
         {children}
         <WhatsAppReviewButton />
