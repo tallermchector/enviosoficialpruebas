@@ -6,7 +6,7 @@ import type { FormattedEtiqueta } from "@/types";
 import { EtiquetaStatus } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Printer, Search, Truck, Check, Loader2, Info, MapPin, Package, Clock, Phone, Navigation } from 'lucide-react';
 import { updateEtiquetaStatus } from '@/app/admin/etiquetas/actions';
@@ -84,33 +84,31 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
         <div className="space-y-6">
             <div className="flex flex-col gap-4">
                 <div className="flex justify-between items-center">
-                    <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tighter">Mi Hoja de Ruta</h2>
-                    <Button variant="outline" size="sm" className="rounded-none border-border bg-card/50 text-muted-foreground hover:text-white">
+                    <h2 className="text-2xl font-display font-bold text-primary uppercase tracking-tighter">Mi Hoja de Ruta</h2>
+                    <Button variant="outline" size="sm" className="rounded-none border-border bg-card/50 text-muted-foreground hover:text-primary">
                         <Printer className="mr-2 h-4 w-4" /> Imprimir
                     </Button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="space-y-3">
                     <div className="relative">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
                         <Input
                             placeholder="Buscar cliente o dirección..."
-                            className="pl-10 bg-card/50 border-border rounded-none text-white placeholder:text-slate-600 focus:ring-primary"
+                            className="pl-10 bg-card border-border rounded-none text-foreground placeholder:text-slate-400 focus:ring-primary"
                             value={searchTerm}
                             onChange={e => setSearchTerm(e.target.value)}
                         />
                     </div>
-                     <Select value={statusFilter} onValueChange={setStatusFilter}>
-                        <SelectTrigger className="bg-card/50 border-border rounded-none text-white focus:ring-primary">
-                            <SelectValue placeholder="Filtrar estado" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-card border-border text-white rounded-none">
-                            <SelectItem value="pendientes">POR SALIR</SelectItem>
-                            <SelectItem value="en_camino">EN CAMINO</SelectItem>
-                            <SelectItem value="entregadas">ENTREGADAS</SelectItem>
-                             <SelectItem value="todos">TODOS LOS ESTADOS</SelectItem>
-                        </SelectContent>
-                    </Select>
+
+                    <Tabs value={statusFilter} onValueChange={setStatusFilter} className="w-full">
+                        <TabsList className="grid grid-cols-4 w-full bg-card border border-border rounded-none h-12 p-1">
+                            <TabsTrigger value="pendientes" className="rounded-none data-[state=active]:bg-primary data-[state=active]:text-white text-[10px] font-bold uppercase tracking-tighter">Pend.</TabsTrigger>
+                            <TabsTrigger value="en_camino" className="rounded-none data-[state=active]:bg-primary data-[state=active]:text-white text-[10px] font-bold uppercase tracking-tighter">Ruta</TabsTrigger>
+                            <TabsTrigger value="entregadas" className="rounded-none data-[state=active]:bg-primary data-[state=active]:text-white text-[10px] font-bold uppercase tracking-tighter">Entr.</TabsTrigger>
+                            <TabsTrigger value="todos" className="rounded-none data-[state=active]:bg-primary data-[state=active]:text-white text-[10px] font-bold uppercase tracking-tighter">Todo</TabsTrigger>
+                        </TabsList>
+                    </Tabs>
                 </div>
             </div>
 
