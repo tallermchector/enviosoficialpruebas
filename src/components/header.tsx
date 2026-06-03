@@ -34,7 +34,7 @@ const mobileNavItemVariants = {
 
 const NavLink = ({ href, children, isActive }: { href: string, children: React.ReactNode, isActive: boolean }) => (
     <motion.div whileHover={{ scale: 1.05 }} className="relative">
-      <Button variant="ghost" size="sm" asChild className={cn("text-primary-foreground hover:bg-primary-foreground/20 hover:text-white", isActive && "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:text-secondary-foreground")}>
+      <Button variant="ghost" size="sm" asChild className={cn("text-primary-foreground hover:bg-primary-foreground/20 hover:text-slate-900", isActive && "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:text-secondary-foreground")}>
         <Link href={href}>
           {children}
         </Link>
@@ -135,7 +135,7 @@ export function Header() {
                 <motion.div key={group.label} whileHover={{ scale: 1.05 }} className="relative">
                     <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="sm" className={cn("text-primary-foreground hover:bg-primary-foreground/20 hover:text-white", isGroupActive(group) && "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:text-secondary-foreground")}>
+                        <Button variant="ghost" size="sm" className={cn("text-primary-foreground hover:bg-primary-foreground/20 hover:text-slate-900", isGroupActive(group) && "bg-secondary text-secondary-foreground hover:bg-secondary/80 hover:text-secondary-foreground")}>
                         <group.icon className="w-4 h-4 mr-1.5" />
                         {group.label}
                         <ChevronDown className="w-4 h-4 ml-1 opacity-70" />

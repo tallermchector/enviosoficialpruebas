@@ -20,15 +20,15 @@ export function ExpressContent() {
   ]
 
   return (
-    <section className="py-32 px-4 bg-[#050810] relative overflow-hidden border-t border-slate-900">
+    <section className="py-32 px-4 bg-surface-light relative overflow-hidden border-t border-slate-900">
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left Content */}
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-1 bg-primary text-white text-[10px] font-bold tracking-widest mb-8 uppercase">
+            <div className="inline-flex items-center gap-2 px-4 py-1 bg-primary text-slate-900 text-xxs font-bold tracking-widest mb-8 uppercase">
               SOLUCIONES PREMIUM
             </div>
-            <h2 className="font-display text-4xl md:text-6xl font-black leading-[1] mb-10 uppercase text-white tracking-tighter">
+            <h2 className="font-display text-4xl md:text-6xl font-black leading-[1] mb-10 uppercase text-slate-900 tracking-tighter">
               ENTREGAS RÁPIDAS Y <br />
               <span className="text-primary italic">EFICIENTES</span>
             </h2>
@@ -47,7 +47,7 @@ export function ExpressContent() {
                     <Check className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2 font-sans uppercase tracking-tight">{feature.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 font-sans uppercase tracking-tight">{feature.title}</h3>
                     <p className="text-gray-400 text-base leading-relaxed font-sans">{feature.description}</p>
                   </div>
                 </div>
@@ -71,7 +71,7 @@ export function ExpressContent() {
           <div className="flex justify-center lg:justify-end mt-12 lg:mt-0">
             <div className="text-center lg:text-right select-none opacity-10">
               <div className="space-y-4">
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-white font-display tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-slate-900 font-display tracking-tighter leading-none">
                   ENVIOS
                 </div>
                 <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-display tracking-tighter leading-none">

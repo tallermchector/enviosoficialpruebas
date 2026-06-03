@@ -66,7 +66,7 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
     };
 
     return (
-        <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+        <section className="py-24 px-4 bg-surface-light relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto max-w-7xl relative z-10">
@@ -76,7 +76,7 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+                        <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
                             NIVELES Y <span className="text-primary">TARIFAS FLEX</span>
                         </h2>
                         <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
@@ -97,7 +97,7 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
                                 transition={{ delay: index * 0.1 }}
                             >
                                 <Card className="relative bg-white/5 border-white/10 backdrop-blur-md hover:border-primary/50 transition-all duration-300 rounded-3xl overflow-hidden h-full flex flex-col group">
-                                    <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                                    <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-full text-xxs font-bold uppercase tracking-widest">
                                         {tier.badgeText}
                                     </Badge>
 
@@ -105,13 +105,13 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
                                         <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                                             <Coins className="w-8 h-8 text-primary" />
                                         </div>
-                                        <CardTitle className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-white uppercase tracking-tight">
+                                        <CardTitle className="font-[family-name:var(--font-orbitron)] text-2xl font-bold text-slate-900 uppercase tracking-tight">
                                             {tier.name}
                                         </CardTitle>
                                         <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1">
                                             {tier.distanceRange}
                                         </p>
-                                        <div className="text-4xl font-black text-white mt-6 font-[family-name:var(--font-orbitron)] italic tracking-tighter">
+                                        <div className="text-4xl font-black text-slate-900 mt-6 font-[family-name:var(--font-orbitron)] italic tracking-tighter">
                                             {tier.price}
                                         </div>
                                     </CardHeader>
@@ -144,10 +144,10 @@ export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
                     <Card className="bg-gradient-to-r from-primary/10 to-secondary/5 border-white/10 backdrop-blur-md rounded-3xl overflow-hidden p-8 md:p-12">
                          <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
-                              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-[10px] font-bold tracking-widest mb-6 uppercase">
+                              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-bold tracking-widest mb-6 uppercase">
                                 BENEFICIO CLIMA
                               </div>
-                              <h3 className="font-[family-name:var(--font-orbitron)] text-3xl font-black text-white uppercase tracking-tighter mb-4 italic">
+                              <h3 className="font-[family-name:var(--font-orbitron)] text-3xl font-black text-slate-900 uppercase tracking-tighter mb-4 italic">
                                 RECARGO POR LLUVIA: <span className="text-secondary">SOLO 30%</span>
                               </h3>
                               <p className="text-gray-400 font-[family-name:var(--font-roboto)] leading-relaxed">

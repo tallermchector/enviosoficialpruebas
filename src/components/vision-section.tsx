@@ -7,7 +7,7 @@ export function VisionSection() {
         {/* Decorative line */}
         <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
 
-        <p className="text-lg text-white/90 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-lg text-slate-900/90 max-w-4xl mx-auto leading-relaxed">
           Datos que respaldan nuestra calidad y compromiso. ¡Descubre por qué somos la solución confiable para tus
           envíos!
         </p>

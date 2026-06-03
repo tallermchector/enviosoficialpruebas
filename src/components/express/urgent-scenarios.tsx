@@ -44,7 +44,7 @@ export function UrgentScenarios() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
               ¿CUÁNDO NECESITAS <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">EXPRESS?</span>
             </h2>
             <div className="w-24 h-2 bg-secondary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
@@ -65,7 +65,7 @@ export function UrgentScenarios() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-[#0f172a] border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm group hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all h-full relative">
+                <Card className="bg-surface-light border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm group hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all h-full relative">
                   <div className="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <CardContent className="p-8">
                     <div className="flex items-start mb-6">
@@ -73,12 +73,12 @@ export function UrgentScenarios() {
                         <IconComponent className="w-7 h-7 text-secondary group-hover:drop-shadow-[0_0_8px_rgba(234,179,8,0.8)] transition-all" />
                       </div>
                       <div>
-                        <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-3 uppercase text-white tracking-tight">{scenario.title}</h3>
+                        <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-3 uppercase text-slate-900 tracking-tight">{scenario.title}</h3>
                         <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{scenario.description}</p>
                       </div>
                     </div>
                     <div className="ml-20">
-                      <h4 className="font-[family-name:var(--font-orbitron)] text-xs font-bold text-white/50 mb-4 uppercase tracking-widest">Ejemplos comunes:</h4>
+                      <h4 className="font-[family-name:var(--font-orbitron)] text-xs font-bold text-slate-900/50 mb-4 uppercase tracking-widest">Ejemplos comunes:</h4>
                       <ul className="space-y-3 font-[family-name:var(--font-roboto)]">
                         {scenario.examples.map((example, exampleIndex) => (
                           <li key={exampleIndex} className="text-sm text-gray-400 flex items-center">

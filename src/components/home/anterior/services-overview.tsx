@@ -81,7 +81,7 @@ export function ServicesOverview() {
                 }}
                 transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] as any }}
               >
-                <h3 className="text-2xl font-bold text-white mb-2 font-heading">{service.title}</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2 font-heading">{service.title}</h3>
                 
                 <motion.div
                   variants={{

@@ -69,7 +69,7 @@ export function EntrepreneurBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+    <section className="py-24 px-4 bg-surface-light relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -80,7 +80,7 @@ export function EntrepreneurBenefits() {
             viewport={{ once: true }}
           >
             <SuccessMetrics />
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
               BENEFICIOS <span className="text-primary">PARA NEGOCIOS</span>
             </h2>
             <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
@@ -109,7 +109,7 @@ export function EntrepreneurBenefits() {
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
                       <IconComponent className="w-8 h-8 text-primary" />
                     </div>
-                    <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
+                    <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-slate-900 tracking-tight">{benefit.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{benefit.description}</p>
                   </CardContent>
                 </Card>

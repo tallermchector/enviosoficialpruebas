@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --font-sans: var(--font-roboto);
-    --font-display: var(--font-orbitron);
+    --font-sans: var(--font-sans-fallback);
+    --font-display: var(--font-display-fallback);
 
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -13,9 +13,11 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
+    /* Primary: #2563eb */
     --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
-    --secondary: 45 93% 47%;
+    /* Secondary/Accent: #fbc107 */
+    --secondary: 45.8 96.6% 50.6%;
     --secondary-foreground: 26 83% 14%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -30,11 +32,11 @@
   }
 
   .dark {
-    --background: 222% 84% 4.9%;
-    --foreground: 210% 40% 98%;
-    --card: 222% 84% 4.9%;
-    --card-foreground: 210% 40% 98%;
-    --popover: 222% 84% 4.9%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
     --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;

@@ -23,6 +23,8 @@
 	},
 	"dependencies": {
 		"@ducanh2912/next-pwa": "^10.2.9",
+		"@fontsource/montserrat": "^5.2.8",
+		"@fontsource/sora": "^5.2.8",
 		"@genkit-ai/google-genai": "^1.35.0",
 		"@genkit-ai/next": "^1.35.0",
 		"@hookform/resolvers": "^5.4.0",

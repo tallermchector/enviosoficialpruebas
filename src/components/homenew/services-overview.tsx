@@ -21,23 +21,23 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-gradient-to-br from-zinc-900/90 to-black border-red-500/20 hover:border-red-500/40 backdrop-blur-md",
+    card: "bg-gradient-to-br from-white/90 to-slate-50 border-red-500/20 hover:border-red-500/40 backdrop-blur-md",
     icon: "bg-red-500/10 border border-red-500/20 text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]",
     accent: "text-red-500",
-    text: "text-white",
-    desc: "text-gray-400 [&>span]:text-gray-200",
-    button: "text-white group-hover:text-red-500",
+    text: "text-slate-900",
+    desc: "text-slate-600 [&>span]:text-slate-800",
+    button: "text-slate-900 group-hover:text-red-500",
     badge: "bg-red-500/20 text-red-500 border-red-500/30",
     accentColor: "red-500",
     glowColor: "rgba(239,68,68,0.2)"
   },
   lowcost: {
-    card: "bg-gradient-to-br from-slate-900/90 to-slate-950/90 border-cyan-500/20 hover:border-cyan-500/40 backdrop-blur-md",
+    card: "bg-gradient-to-br from-white/90 to-slate-50 border-cyan-500/20 hover:border-cyan-500/40 backdrop-blur-md",
     icon: "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]",
     accent: "text-cyan-400",
-    text: "text-white",
-    desc: "text-gray-400 [&>span]:text-gray-200",
-    button: "text-white group-hover:text-cyan-400",
+    text: "text-slate-900",
+    desc: "text-slate-600 [&>span]:text-slate-800",
+    button: "text-slate-900 group-hover:text-cyan-400",
     badge: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
     accentColor: "cyan-400",
     glowColor: "rgba(6,182,212,0.15)"
@@ -146,10 +146,10 @@ export const ServicesOverview = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full glass-card border border-primary/20 text-blue-400 text-[10px] font-black tracking-[0.2em] mb-8 uppercase">
+            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full glass-card border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.2em] mb-8 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Nuestros Servicios
             </div>
-            <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black italic uppercase text-white tracking-tighter leading-[0.9]">
+            <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black italic uppercase text-slate-900 tracking-tighter leading-[0.9]">
               Soluciones <br />
               <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logísticas</span>
             </h2>
@@ -162,7 +162,7 @@ export const ServicesOverview = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="max-w-md lg:border-l lg:border-white/10 lg:pl-10"
           >
-            <p className="text-gray-400 text-lg md:text-xl font-[family-name:var(--font-roboto)] font-light leading-relaxed">
+            <p className="text-slate-600 text-lg md:text-xl font-[family-name:var(--font-roboto)] font-light leading-relaxed">
               Infraestructura moderna para negocios que no se detienen. Inteligencia aplicada a cada kilómetro.
             </p>
           </motion.div>
@@ -205,7 +205,7 @@ export const ServicesOverview = () => {
                   <h3 className={cn("font-display text-orbitron text-xl md:text-2xl lg:text-3xl font-black mb-1 uppercase tracking-tight leading-tight", theme.text)}>
                     {service.title}
                   </h3>
-                  <p className={cn("text-[10px] font-black uppercase tracking-[0.2em] mb-4", theme.accent)}>
+                  <p className={cn("text-xxs font-black uppercase tracking-[0.2em] mb-4", theme.accent)}>
                     {service.bajada}
                   </p>
                   <div className={cn("text-xs md:text-sm lg:text-base leading-relaxed mb-6 font-[family-name:var(--font-roboto)] font-light max-w-[320px]", theme.desc)}>
@@ -216,7 +216,7 @@ export const ServicesOverview = () => {
                 <div className="relative z-10 flex items-center justify-between">
                   <Link
                     href={service.href}
-                    className={cn("flex items-center gap-3 font-display text-orbitron text-[10px] font-black uppercase tracking-[0.2em] transition-all", theme.button)}
+                    className={cn("flex items-center gap-3 font-display text-orbitron text-xxs font-black uppercase tracking-[0.2em] transition-all", theme.button)}
                   >
                     {service.buttonText} <ChevronRight size={16} />
                   </Link>
@@ -234,7 +234,7 @@ export const ServicesOverview = () => {
                 {/* Specific Visual for the first card */}
                 {idx === 0 && (
                   <div className="absolute top-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity" aria-hidden="true">
-                    <MousePointer2 size={120} className="rotate-12 text-white" />
+                    <MousePointer2 size={120} className="rotate-12 text-slate-900" />
                   </div>
                 )}
               </motion.div>

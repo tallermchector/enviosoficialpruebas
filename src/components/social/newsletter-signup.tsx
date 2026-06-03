@@ -32,10 +32,10 @@ export function NewsletterSignup() {
         <Card className="bg-white/10 backdrop-blur-md border-white/20 shadow-2xl rounded-[2.5rem] overflow-hidden">
           <CardContent className="p-10 md:p-16 text-center">
             {isSubscribed ? (
-              <div className="text-white animate-in zoom-in duration-500">
+              <div className="text-slate-900 animate-in zoom-in duration-500">
                 <CheckCircle className="w-20 h-20 mx-auto mb-6 text-secondary" />
                 <h3 className="text-3xl font-bold mb-4 font-display">¡Bienvenido a la Comunidad!</h3>
-                <p className="text-xl font-sans text-white/80">Te has suscrito correctamente. Pronto recibirás nuestras mejores novedades.</p>
+                <p className="text-xl font-sans text-slate-900/80">Te has suscrito correctamente. Pronto recibirás nuestras mejores novedades.</p>
               </div>
             ) : (
               <>
@@ -43,8 +43,8 @@ export function NewsletterSignup() {
                   <Mail className="w-10 h-10 text-primary-foreground" />
                 </div>
 
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-display uppercase tracking-tight">Newsletter Exclusivo</h2>
-                <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto font-sans">
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 font-display uppercase tracking-tight">Newsletter Exclusivo</h2>
+                <p className="text-xl text-slate-900/80 mb-12 max-w-2xl mx-auto font-sans">
                   Recibe promociones relámpago, noticias del sector y actualizaciones directamente en tu bandeja de entrada.
                 </p>
 
@@ -55,7 +55,7 @@ export function NewsletterSignup() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="flex-1 h-16 bg-white/10 border-white/30 text-white placeholder:text-white/50 rounded-2xl text-lg px-6 focus:bg-white/20 transition-all font-sans"
+                    className="flex-1 h-16 bg-white/10 border-white/30 text-slate-900 placeholder:text-slate-900/50 rounded-2xl text-lg px-6 focus:bg-white/20 transition-all font-sans"
                   />
                   <Button
                     type="submit"
@@ -73,7 +73,7 @@ export function NewsletterSignup() {
                   </Button>
                 </form>
 
-                <p className="text-sm text-white/50 mt-8 font-sans">
+                <p className="text-sm text-slate-900/50 mt-8 font-sans">
                   Garantizamos la privacidad de tus datos. Puedes darte de baja con un solo clic en cualquier momento.
                 </p>
               </>

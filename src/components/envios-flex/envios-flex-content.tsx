@@ -43,10 +43,10 @@ export function EnviosFlexContent() {
         >
           {/* Left Content */}
           <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-[10px] font-bold tracking-widest mb-6 uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xxs font-bold tracking-widest mb-6 uppercase">
               MERCADOLIBRE EXPERTS
             </div>
-            <h2 className="font-[family-name:var(--font-orbitron)] text-3xl md:text-5xl font-black leading-[1] mb-8 uppercase text-white tracking-tighter">
+            <h2 className="font-[family-name:var(--font-orbitron)] text-3xl md:text-5xl font-black leading-[1] mb-8 uppercase text-slate-900 tracking-tighter">
               DOMINA TUS VENTAS <br />
               <span className="text-primary italic">CON ENVÍOS FLEX</span>
             </h2>
@@ -67,7 +67,7 @@ export function EnviosFlexContent() {
                     <Check className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2 font-[family-name:var(--font-orbitron)] uppercase tracking-tight">{feature.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 font-[family-name:var(--font-orbitron)] uppercase tracking-tight">{feature.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{feature.description}</p>
                   </div>
                 </motion.div>
@@ -82,7 +82,7 @@ export function EnviosFlexContent() {
           >
             <div className="text-center lg:text-right select-none opacity-20">
               <div className="space-y-2">
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-white font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-slate-900 font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
                   FLEX
                 </div>
                 <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">

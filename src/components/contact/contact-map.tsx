@@ -49,7 +49,7 @@ export function ContactMap() {
           ></iframe>
         </motion.div>
         <div className="text-center mt-8">
-          <Button onClick={openInOSM} variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-white font-sans">
+          <Button onClick={openInOSM} variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-slate-900 font-sans">
             <ExternalLink className="mr-2 h-4 w-4" />
             Ver en OpenStreetMap
           </Button>

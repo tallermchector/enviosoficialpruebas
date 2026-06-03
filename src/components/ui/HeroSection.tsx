@@ -73,13 +73,13 @@ export function HeroSection({
   description,
   ctaButtons,
   backgroundType = 'image',
-  backgroundColor = 'bg-[#050810]',
+  backgroundColor = 'bg-surface-light',
   backgroundGradient = 'bg-gradient-to-br from-primary to-primary/80',
   backgroundImageUrl = '/bannerenvios.webp',
   backgroundImageAlt = 'Hero background image',
   backgroundOverlayOpacity = 0.2,
-  textColorClassName = 'text-white',
-  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-display',
+  textColorClassName = 'text-slate-900',
+  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-slate-900 font-display',
   descriptionClassName = 'text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-sans',
   visualElement,
   layout = 'center-stacked',
@@ -94,7 +94,7 @@ export function HeroSection({
   let bgClasses = '';
   if (backgroundType === 'color') bgClasses = backgroundColor;
   else if (backgroundType === 'gradient') bgClasses = backgroundGradient;
-  else if (backgroundType === 'image') bgClasses = 'bg-[#050810]';
+  else if (backgroundType === 'image') bgClasses = 'bg-surface-light';
 
   const sectionClasses = cn(
     'relative flex items-center overflow-hidden pt-24 pb-12 md:pt-32 md:pb-20 px-6',
@@ -115,7 +115,7 @@ export function HeroSection({
       {preTitle && (
         <div className="mb-8">
           {typeof preTitle === 'string' ? (
-             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-xs font-bold tracking-widest uppercase">
+             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-slate-900 text-xs font-bold tracking-widest uppercase">
                 <div className="w-2 h-2 bg-white animate-pulse" />
                 {preTitle}
              </div>
@@ -166,7 +166,7 @@ export function HeroSection({
                     'px-10 py-5 font-sans font-bold rounded-none transition-all uppercase tracking-tight h-auto',
                     isYellowButton
                       ? "bg-secondary hover:bg-[#d97706] text-black shadow-lg"
-                      : "bg-slate-900 border border-slate-800 text-white hover:bg-slate-800",
+                      : "bg-slate-900 border border-slate-800 text-slate-900 hover:bg-slate-800",
                     button.className
                   )}
                 >
@@ -195,7 +195,7 @@ export function HeroSection({
             className="object-cover opacity-10"
             priority={priority}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050810] via-transparent to-[#050810]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-surface-light via-transparent to-surface-light" />
         </div>
       )}
 

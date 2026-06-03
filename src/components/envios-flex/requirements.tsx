@@ -29,7 +29,7 @@ export function Requirements() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-[#050810] relative overflow-hidden">
+    <section className="py-24 px-4 bg-surface-light relative overflow-hidden">
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -39,7 +39,7 @@ export function Requirements() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
               ¿QUÉ <span className="text-primary">NECESITAS?</span>
             </h2>
             <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
@@ -62,7 +62,7 @@ export function Requirements() {
               <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                  <req.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-[family-name:var(--font-orbitron)] text-lg font-bold mb-3 uppercase text-white tracking-tight">{req.title}</h3>
+              <h3 className="font-[family-name:var(--font-orbitron)] text-lg font-bold mb-3 uppercase text-slate-900 tracking-tight">{req.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{req.desc}</p>
             </motion.div>
           ))}

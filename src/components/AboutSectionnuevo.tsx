@@ -60,7 +60,7 @@ export default function AboutSection() {
                   viewport={{ once: true }}
                 >
                   <div className="flex items-center mb-2">
-                    <div className="mr-2 text-white">{achievement.icon}</div>
+                    <div className="mr-2 text-slate-900">{achievement.icon}</div>
                     <div className="text-2xl font-bold">{achievement.value}</div>
                   </div>
                   <div className="text-sm text-zinc-400">{achievement.label}</div>

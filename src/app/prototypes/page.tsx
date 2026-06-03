@@ -26,10 +26,10 @@ const PrototypePreview = () => {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap ${
+            className={`px-4 py-2 rounded-full text-xxs font-black uppercase tracking-widest transition-all whitespace-nowrap ${
               activeTab === tab.id
-                ? 'bg-blue-600 text-white'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-blue-600 text-slate-900'
+                : 'text-slate-500 hover:text-slate-900'
             }`}
           >
             {tab.label}

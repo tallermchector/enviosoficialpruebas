@@ -110,15 +110,15 @@ export function EntrepreneurSolutions() {
                     
                     <div className="relative transform-gpu [transform:translateZ(40px)] p-6 md:p-8 flex flex-col h-full text-slate-100">
                       <div className={`w-14 h-14 md:w-16 md:h-16 bg-gradient-to-r ${solution.color} rounded-lg flex items-center justify-center mx-auto mb-6 shadow-lg`}>
-                        <IconComponent className="w-7 h-7 md:w-8 md:h-8 text-white" />
+                        <IconComponent className="w-7 h-7 md:w-8 md:h-8 text-slate-900" />
                       </div>
 
                       <h3 className="text-xl md:text-2xl font-bold font-heading mb-4 text-center text-slate-50">{solution.title}</h3>
-                      <p className="text-sm md:text-base text-slate-400 mb-6 text-center leading-relaxed flex-grow">{solution.description}</p>
+                      <p className="text-sm md:text-base text-slate-500 mb-6 text-center leading-relaxed flex-grow">{solution.description}</p>
 
                       <ul className="space-y-3 mb-8">
                         {solution.features.map((feature, featureIndex) => (
-                          <li key={featureIndex} className="flex items-center text-sm text-slate-300">
+                          <li key={featureIndex} className="flex items-center text-sm text-slate-600">
                             <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-3"></div>
                             {feature}
                           </li>

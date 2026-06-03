@@ -22,7 +22,7 @@ export function HeroBackground() {
           className="object-cover opacity-[0.15]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050810] via-transparent to-[#050810]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-surface-light via-transparent to-surface-light" />
       </motion.div>
 
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">

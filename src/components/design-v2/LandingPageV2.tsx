@@ -49,7 +49,7 @@ const LandingPageV2: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-1.5 mb-6 text-[10px] font-bold tracking-[0.2em] uppercase bg-primary/10 border border-primary/20 text-primary rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-6 text-xxs font-bold tracking-[0.2em] uppercase bg-primary/10 border border-primary/20 text-primary rounded-full">
               LOGÍSTICA DE ALTA VELOCIDAD
             </span>
             <h1 className="font-display text-5xl md:text-8xl font-black mb-8 leading-tight tracking-tighter uppercase">
@@ -179,7 +179,7 @@ const LandingPageV2: React.FC = () => {
 
             {/* Growth Plan - Featured */}
             <div className="p-8 rounded-2xl border-2 border-primary bg-primary/5 flex flex-col text-left relative transform scale-105 shadow-2xl">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-[10px] font-black px-4 py-1 rounded-full uppercase">POPULAR</div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground text-xxs font-black px-4 py-1 rounded-full uppercase">POPULAR</div>
               <span className="text-xs font-bold text-primary uppercase mb-4">GROWTH</span>
               <div className="flex items-baseline gap-1 mb-8">
                 <span className="text-4xl font-bold">$4.990</span>
@@ -283,7 +283,7 @@ const LandingPageV2: React.FC = () => {
               </ul>
             </div>
           </div>
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-muted-foreground uppercase font-bold tracking-widest">
+          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-xxs text-muted-foreground uppercase font-bold tracking-widest">
             <p>© 2024 ENVIOS DOSRUEDAS. TODOS LOS DERECHOS RESERVADOS.</p>
             <div className="flex gap-8">
               <a href="#" className="hover:text-foreground">Términos y Condiciones</a>

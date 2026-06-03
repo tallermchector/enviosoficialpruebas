@@ -42,7 +42,7 @@ const BrandSupportScreen = () => {
     <div className="min-h-screen bg-[#0a0f1e] text-slate-100 font-sans pb-28">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-[#0a0f1e]/80 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between">
-        <button className="p-2 -ml-2 text-white">
+        <button className="p-2 -ml-2 text-slate-900">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
@@ -61,7 +61,7 @@ const BrandSupportScreen = () => {
             <h1 className="text-3xl font-black font-display italic uppercase tracking-wider">Sobre Nosotros</h1>
             <div className="w-16 h-1 bg-primary mx-auto rounded-full shadow-[0_0_10px_rgba(37,99,235,0.6)]"></div>
           </div>
-          <p className="text-slate-400 leading-relaxed max-w-sm mx-auto">
+          <p className="text-slate-500 leading-relaxed max-w-sm mx-auto">
             Nuestra misión es revolucionar la logística urbana con eficiencia, velocidad y tecnología punta, conectando negocios y personas en tiempo real.
           </p>
           <div className="space-y-4 pt-4">
@@ -108,7 +108,7 @@ const BrandSupportScreen = () => {
                       exit={{ height: 0, opacity: 0 }}
                       className="px-5 pb-5 overflow-hidden"
                     >
-                      <p className="text-sm text-slate-400 leading-relaxed border-t border-white/5 pt-4">
+                      <p className="text-sm text-slate-500 leading-relaxed border-t border-white/5 pt-4">
                         {faq.a}
                       </p>
                     </motion.div>
@@ -125,7 +125,7 @@ const BrandSupportScreen = () => {
           <div className="space-y-4">
             <div className="space-y-4 bg-white/5 p-6 rounded-3xl border border-white/10 backdrop-blur-sm">
               <div className="space-y-2">
-                <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] ml-1">Nombre</label>
+                <label className="text-xxs font-bold text-primary uppercase tracking-[0.2em] ml-1">Nombre</label>
                 <input
                   type="text"
                   placeholder="Tu nombre"
@@ -133,7 +133,7 @@ const BrandSupportScreen = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] ml-1">Email</label>
+                <label className="text-xxs font-bold text-primary uppercase tracking-[0.2em] ml-1">Email</label>
                 <input
                   type="email"
                   placeholder="email@ejemplo.com"
@@ -141,24 +141,24 @@ const BrandSupportScreen = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em] ml-1">Mensaje</label>
+                <label className="text-xxs font-bold text-primary uppercase tracking-[0.2em] ml-1">Mensaje</label>
                 <textarea
                   rows={4}
                   placeholder="¿En qué podemos ayudarte?"
                   className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors resize-none"
                 />
               </div>
-              <button className="w-full py-4 bg-primary hover:bg-blue-500 text-white font-bold font-display rounded-xl shadow-[0_4px_15px_rgba(37,99,235,0.3)] flex items-center justify-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-sm italic">
+              <button className="w-full py-4 bg-primary hover:bg-blue-500 text-slate-900 font-bold font-display rounded-xl shadow-[0_4px_15px_rgba(37,99,235,0.3)] flex items-center justify-center gap-2 transition-all active:scale-95 uppercase tracking-widest text-sm italic">
                 <Send size={18} />
                 Enviar Mensaje
               </button>
             </div>
 
             <div className="flex justify-center gap-4 pt-2">
-              <a href="#" className="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 via-red-500 to-yellow-500 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform">
+              <a href="#" className="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 via-red-500 to-yellow-500 flex items-center justify-center text-slate-900 shadow-lg hover:scale-110 transition-transform">
                 <Instagram size={28} />
               </a>
-              <a href="#" className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform">
+              <a href="#" className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center text-slate-900 shadow-lg hover:scale-110 transition-transform">
                 <MessageCircle size={28} />
               </a>
             </div>
@@ -178,8 +178,8 @@ const BrandSupportScreen = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-secondary">{post.tag}</span>
-                  <div className="flex items-center gap-1 text-[10px] font-bold">
+                  <span className="text-xxs font-bold text-secondary">{post.tag}</span>
+                  <div className="flex items-center gap-1 text-xxs font-bold">
                     <Heart size={12} className="text-red-500 fill-red-500" />
                     {post.likes}
                   </div>
@@ -203,7 +203,7 @@ const BrandSupportScreen = () => {
             { label: 'Soporte', icon: <HelpCircle size={22} />, active: true },
             { label: 'Perfil', icon: <User size={22} />, active: false }
           ].map((item, i) => (
-            <button key={i} className={`flex flex-col items-center gap-1.5 transition-all ${item.active ? 'text-primary' : 'text-slate-500 hover:text-slate-300'}`}>
+            <button key={i} className={`flex flex-col items-center gap-1.5 transition-all ${item.active ? 'text-primary' : 'text-slate-500 hover:text-slate-600'}`}>
               <div className={`p-2 rounded-2xl transition-all ${item.active ? 'bg-primary/10 shadow-[0_0_20px_rgba(37,99,235,0.2)]' : ''}`}>
                 {item.icon}
               </div>
