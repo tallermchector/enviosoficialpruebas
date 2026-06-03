@@ -89,7 +89,7 @@ export function ExpressBenefits() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="h-full"
               >
-                <Card className="h-full bg-card border-white/10 hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all duration-300 group backdrop-blur-sm rounded-3xl overflow-hidden relative">
+                <Card className="h-full bg-[#0f172a] border-white/10 hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all duration-300 group backdrop-blur-sm rounded-3xl overflow-hidden relative">
                    <div className="absolute top-0 left-0 w-full h-1 bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <CardContent className="p-10 relative">
                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-secondary/5 transition-colors duration-300" />

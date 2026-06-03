@@ -133,7 +133,7 @@ export const ServicesOverview = () => {
     <section className="relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-transparent overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[160px] pointer-events-none opacity-50" />
-
+      
       {/* Section Transition Lines */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -147,7 +147,7 @@ export const ServicesOverview = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full glass-card border border-primary/20 text-blue-400 text-[10px] font-black tracking-[0.2em] mb-8 uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Nuestros Servicios
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Nuestros Servicios
             </div>
             <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black italic uppercase text-white tracking-tighter leading-[0.9]">
               Soluciones <br />
@@ -189,8 +189,8 @@ export const ServicesOverview = () => {
                 )}
               >
                 {/* Background Highlight on Hover */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
                   style={{ background: `radial-gradient(circle at top right, ${theme.glowColor}, transparent)` }}
                 />
 
@@ -244,4 +244,4 @@ export const ServicesOverview = () => {
       </div>
     </section>
   );
-};
+};

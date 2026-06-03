@@ -39,7 +39,7 @@ export const VisionSection = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card border border-primary/20 text-blue-400 text-[10px] font-black tracking-[0.3em] mb-10 uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Partner Logístico Especializado
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Partner Logístico Especializado
             </div>
 
             <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black leading-[0.9] mb-10 uppercase text-white tracking-tighter">
@@ -110,7 +110,7 @@ export const VisionSection = () => {
               <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
               {/* Floating Interactive Hub */}
-              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-[40px] bg-background/40 backdrop-blur-3xl border border-white/10 flex items-center justify-between group-hover:bg-background/60 transition-all duration-700 shadow-2xl">
+              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-[40px] bg-[#050810]/40 backdrop-blur-3xl border border-white/10 flex items-center justify-between group-hover:bg-[#050810]/60 transition-all duration-700 shadow-2xl">
                 <div>
                   <h3 className="font-display text-orbitron text-2xl font-black text-white uppercase tracking-tight mb-2">Conocé más sobre nosotros</h3>
                   <div className="flex items-center gap-3 text-[10px] text-blue-400 font-black tracking-[0.2em] uppercase">
@@ -121,7 +121,7 @@ export const VisionSection = () => {
                   whileHover={{ scale: 1.1, rotate: 12 }}
                   whileTap={{ scale: 0.9 }}
                   aria-label="Ir a página sobre nosotros"
-                  className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shadow-[0_10px_30px_-5px_rgba(37,99,235,0.6)] hover:bg-primary transition-all border border-primary/30"
+                  className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shadow-[0_10px_30px_-5px_rgba(37,99,235,0.6)] hover:bg-blue-500 transition-all border border-blue-400/30"
                   onClick={() => window.location.href = '/nosotros/sobre-nosotros'}
                 >
                   <Play size={24} fill="currentColor" className="ml-1" aria-hidden="true" />
@@ -130,7 +130,7 @@ export const VisionSection = () => {
 
               {/* Holographic Status */}
               <div className="absolute top-10 right-10 flex flex-col items-end gap-3">
-                <div className="px-3 py-1.5 rounded-lg bg-primary/20 backdrop-blur-md border border-blue-500/40 text-[9px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-2">
+                <div className="px-3 py-1.5 rounded-lg bg-blue-500/20 backdrop-blur-md border border-blue-500/40 text-[9px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping" />
                   EN LÍNEA
                 </div>
@@ -139,7 +139,7 @@ export const VisionSection = () => {
             </div>
 
             {/* Background Light Leaks */}
-            <div className="absolute -z-10 -bottom-20 -right-20 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-50" />
+            <div className="absolute -z-10 -bottom-20 -right-20 w-[400px] h-[400px] bg-blue-600/20 rounded-full blur-[120px] mix-blend-screen opacity-50" />
             <div className="absolute -z-10 -top-20 -left-20 w-[300px] h-[300px] bg-yellow-500/10 rounded-full blur-[100px] mix-blend-screen opacity-30" />
           </motion.div>
         </div>

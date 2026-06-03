@@ -45,7 +45,7 @@ export default async function EnviosExpressPage() {
   const priceRanges = await getPriceRanges();
 
   return (
-    <div className="min-h-screen bg-background text-white selection:bg-primary/30">
+    <div className="min-h-screen bg-[#050810] text-white selection:bg-blue-500/30">
       <OptimizedHeader />
       <main>
         <ExpressPageClient priceRanges={priceRanges} />

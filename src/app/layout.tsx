@@ -1,65 +1,46 @@
 import type { Metadata } from "next";
-import { Inter, Hanken_Grotesk, JetBrains_Mono, Orbitron, Roboto } from "next/font/google";
+import { Roboto, Orbitron } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { WhatsAppReviewButton } from "@/components/seo/WhatsAppReviewButton";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-  display: 'swap',
-})
 
-const hanken = Hanken_Grotesk({
+const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-  variable: "--font-hanken",
-  display: 'swap',
-})
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-mono",
+  weight: ["400", "700"],
+  variable: "--font-roboto",
   display: 'swap',
 })
 
 const orbitron = Orbitron({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "700", "900"],
   variable: "--font-orbitron",
   display: 'swap',
 })
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
-  variable: "--font-roboto",
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
-  title: 'Kinetic Logistics | Your reliable logistics solution',
-  description: 'Reliable motorcycle messaging and delivery service. Express and low-cost shipping for e-commerce and SMEs.',
-  keywords: 'logistics, delivery, kinetic logistics',
+  title: 'Envíos DosRuedas | Tu solución confiable',
+  description: 'Servicio confiable de mensajería y delivery en moto. Envíos express y low-cost para e-commerce, pymes y Mercado Libre Flex en Mar del Plata. Cotizá online.',
+  keywords: 'mensajeria mar del plata, delivery mar del plata, envios en moto, cadeteria mar del plata, envios flex, envios low cost, mensajeria express, envios dos ruedas',
   alternates: {
-    canonical: 'https://www.kineticlogistics.com',
+    canonical: 'https://www.enviosdosruedas.com',
   },
   openGraph: {
-    title: 'Kinetic Logistics | Your reliable logistics solution',
-    description: 'Reliable motorcycle messaging and delivery service. Express and low-cost shipping for e-commerce and SMEs.',
-    url: 'https://www.kineticlogistics.com',
+    title: 'Mensajería y Logística E-Commerce en Mar del Plata | Envíos DosRuedas',
+    description: 'Envíos express, low-cost, para emprendedores y Mercado Libre Flex. Cotiza online en Mar del Plata.',
+    url: 'https://www.enviosdosruedas.com',
     images: [
       {
-        url: 'https://www.kineticlogistics.com/icons/icon-512x512.png',
+        url: 'https://www.enviosdosruedas.com/icons/icon-512x512.png',
         width: 512,
         height: 512,
-        alt: 'Logo de Kinetic Logistics',
+        alt: 'Logo de Envios DosRuedas',
       },
     ],
     type: 'website',
-    locale: 'en_US',
+    locale: 'es_AR',
   },
   manifest: "/manifest.json",
   icons: {
@@ -67,8 +48,9 @@ export const metadata: Metadata = {
   },
 };
 
+
 export const viewport = {
-  themeColor: "#1D4C9E",
+  themeColor: "#1E40AF",
   width: 'device-width',
   initialScale: 1,
 }
@@ -78,12 +60,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+    const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Kinetic Logistics',
-    image: 'https://www.kineticlogistics.com/icons/icon-512x512.png',
-    url: 'https://www.kineticlogistics.com',
+    name: 'EnviosDosRuedas',
+    image: 'https://www.enviosdosruedas.com/icons/icon-512x512.png',
+    url: 'https://www.enviosdosruedas.com',
     telephone: '+542236602699',
     priceRange: '$$',
     address: {
@@ -119,7 +101,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${hanken.variable} ${mono.variable} ${orbitron.variable} ${roboto.variable} font-sans antialiased`}
+        className={`${roboto.variable} ${orbitron.variable} font-sans antialiased`}
       >
         {children}
         <WhatsAppReviewButton />

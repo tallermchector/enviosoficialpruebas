@@ -70,7 +70,7 @@ export const CarruselRedes = () => {
   }
 
   return (
-    <section className="py-32 px-6 bg-background overflow-hidden relative">
+    <section className="py-32 px-6 bg-[#050810] overflow-hidden relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-primary/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -129,7 +129,7 @@ export const CarruselRedes = () => {
                   aria-label={`Ver publicación ${item.id} en ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
                 >
                   <img src={item.image} alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-6 p-8">
+                  <div className="absolute inset-0 bg-[#050810]/80 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-6 p-8">
                     <div className="w-16 h-16 rounded-2xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-white">
                       {item.type === 'ig' && <Instagram size={32} />}
                       {item.type === 'fb' && <Facebook size={32} />}

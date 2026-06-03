@@ -73,7 +73,7 @@ export function HeroSection({
   description,
   ctaButtons,
   backgroundType = 'image',
-  backgroundColor = 'bg-background',
+  backgroundColor = 'bg-[#050810]',
   backgroundGradient = 'bg-gradient-to-br from-primary to-primary/80',
   backgroundImageUrl = '/bannerenvios.webp',
   backgroundImageAlt = 'Hero background image',
@@ -94,7 +94,7 @@ export function HeroSection({
   let bgClasses = '';
   if (backgroundType === 'color') bgClasses = backgroundColor;
   else if (backgroundType === 'gradient') bgClasses = backgroundGradient;
-  else if (backgroundType === 'image') bgClasses = 'bg-background';
+  else if (backgroundType === 'image') bgClasses = 'bg-[#050810]';
 
   const sectionClasses = cn(
     'relative flex items-center overflow-hidden pt-24 pb-12 md:pt-32 md:pb-20 px-6',
@@ -165,8 +165,8 @@ export function HeroSection({
                   className={cn(
                     'px-10 py-5 font-sans font-bold rounded-none transition-all uppercase tracking-tight h-auto',
                     isYellowButton
-                      ? "bg-secondary hover:bg-secondary/90 text-black shadow-lg"
-                      : "bg-card border border-border text-white hover:bg-muted",
+                      ? "bg-secondary hover:bg-[#d97706] text-black shadow-lg"
+                      : "bg-slate-900 border border-slate-800 text-white hover:bg-slate-800",
                     button.className
                   )}
                 >
@@ -195,7 +195,7 @@ export function HeroSection({
             className="object-cover opacity-10"
             priority={priority}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050810] via-transparent to-[#050810]" />
         </div>
       )}
 

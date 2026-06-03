@@ -4,147 +4,51 @@
 
 @layer base {
   :root {
-    --font-sans: var(--font-inter);
-    --font-display: var(--font-hanken);
-    --font-mono: var(--font-mono);
+    --font-sans: var(--font-roboto);
+    --font-display: var(--font-orbitron);
 
-    --border: 225.0 6.5% 48.2%;
-    --input: 225.0 6.5% 48.2%;
-    --ring: 218.1 69.0% 36.7%;
-    --radius: 0.25rem;
-    --popover: 0.0 0.0% 100.0%;
-    --popover-foreground: 195.0 7.4% 10.6%;
-    --card: 0.0 0.0% 100.0%;
-    --card-foreground: 195.0 7.4% 10.6%;
-    --muted: 210.0 7.1% 94.5%;
-    --muted-foreground: 227.1 9.5% 29.0%;
-    --accent: 43.9 98.2% 57.5%;
-    --accent-foreground: 44.7 100.0% 21.6%;
-    --destructive: 0.0 75.5% 41.6%;
-    --destructive-foreground: 0.0 0.0% 100.0%;
-    --foreground: 195.0 7.4% 10.6%;
-    --social-container: 0.0 0% 100%;
-
-    --surface: 210.0 16.7% 97.6%;
-    --surface-dim: 210.0 2.7% 85.5%;
-    --surface-bright: 210.0 16.7% 97.6%;
-    --surface-container-lowest: 0.0 0.0% 100.0%;
-    --surface-container-low: 210.0 9.1% 95.7%;
-    --surface-container: 210.0 5.9% 93.3%;
-    --surface-container-high: 210.0 4.3% 91.0%;
-    --surface-container-highest: 200.0 5.3% 88.8%;
-    --on-surface: 195.0 7.4% 10.6%;
-    --on-surface-variant: 227.1 9.5% 29.0%;
-    --inverse-surface: 195.0 4.2% 18.8%;
-    --inverse-on-surface: 210.0 7.1% 94.5%;
-    --outline: 225.0 6.5% 48.2%;
-    --outline-variant: 228.7 15.4% 79.6%;
-    --surface-tint: 219.8 56.1% 43.7%;
-    --primary: 214.8 100.0% 24.7%;
-    --on-primary: 0.0 0.0% 100.0%;
-    --primary-container: 218.1 69.0% 36.7%;
-    --on-primary-container: 222.8 100.0% 82.9%;
-    --inverse-primary: 222.8 100.0% 84.3%;
-    --secondary: 45.0 100.0% 23.5%;
-    --on-secondary: 0.0 0.0% 100.0%;
-    --secondary-container: 43.9 98.2% 57.5%;
-    --on-secondary-container: 44.7 100.0% 21.6%;
-    --tertiary: 207.2 46.9% 22.2%;
-    --on-tertiary: 0.0 0.0% 100.0%;
-    --tertiary-container: 208.3 32.9% 31.6%;
-    --on-tertiary-container: 210.0 50.0% 77.3%;
-    --error: 0.0 75.5% 41.6%;
-    --on-error: 0.0 0.0% 100.0%;
-    --error-container: 5.9 100.0% 92.0%;
-    --on-error-container: 355.9 100.0% 28.8%;
-    --primary-fixed: 225.8 100.0% 92.5%;
-    --primary-fixed-dim: 222.8 100.0% 84.3%;
-    --on-primary-fixed: 217.9 100.0% 13.3%;
-    --on-primary-fixed-variant: 216.4 82.8% 32.0%;
-    --secondary-fixed: 40.6 100.0% 80.6%;
-    --secondary-fixed-dim: 44.0 93.0% 54.9%;
-    --on-secondary-fixed: 42.2 100.0% 7.3%;
-    --on-secondary-fixed-variant: 44.2 100.0% 17.8%;
-    --tertiary-fixed: 211.2 100.0% 90.2%;
-    --tertiary-fixed-dim: 210.0 54.7% 79.2%;
-    --on-tertiary-fixed: 205.2 100.0% 9.8%;
-    --on-tertiary-fixed-variant: 208.3 37.1% 28.0%;
-    --background: 210.0 16.7% 97.6%;
-    --on-background: 195.0 7.4% 10.6%;
-    --surface-variant: 200.0 5.3% 88.8%;
-    --header-blue: 214.8 100.0% 24.7%;
-    --text-secondary: 227.1 9.5% 29.0%;
-    --fab-icon: 44.7 100.0% 21.6%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 26 83% 14%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --border: 225.0 6.5% 48.2%;
-    --input: 225.0 6.5% 48.2%;
-    --ring: 218.1 69.0% 36.7%;
-    --radius: 0.25rem;
-    --popover: 0.0 0.0% 100.0%;
-    --popover-foreground: 195.0 7.4% 10.6%;
-    --card: 0.0 0.0% 100.0%;
-    --card-foreground: 195.0 7.4% 10.6%;
-    --muted: 210.0 7.1% 94.5%;
-    --muted-foreground: 227.1 9.5% 29.0%;
-    --accent: 43.9 98.2% 57.5%;
-    --accent-foreground: 44.7 100.0% 21.6%;
-    --destructive: 0.0 75.5% 41.6%;
-    --destructive-foreground: 0.0 0.0% 100.0%;
-    --foreground: 195.0 7.4% 10.6%;
-    --social-container: 0.0 0% 100%;
-
-    --surface: 210.0 16.7% 97.6%;
-    --surface-dim: 210.0 2.7% 85.5%;
-    --surface-bright: 210.0 16.7% 97.6%;
-    --surface-container-lowest: 0.0 0.0% 100.0%;
-    --surface-container-low: 210.0 9.1% 95.7%;
-    --surface-container: 210.0 5.9% 93.3%;
-    --surface-container-high: 210.0 4.3% 91.0%;
-    --surface-container-highest: 200.0 5.3% 88.8%;
-    --on-surface: 195.0 7.4% 10.6%;
-    --on-surface-variant: 227.1 9.5% 29.0%;
-    --inverse-surface: 195.0 4.2% 18.8%;
-    --inverse-on-surface: 210.0 7.1% 94.5%;
-    --outline: 225.0 6.5% 48.2%;
-    --outline-variant: 228.7 15.4% 79.6%;
-    --surface-tint: 219.8 56.1% 43.7%;
-    --primary: 214.8 100.0% 24.7%;
-    --on-primary: 0.0 0.0% 100.0%;
-    --primary-container: 218.1 69.0% 36.7%;
-    --on-primary-container: 222.8 100.0% 82.9%;
-    --inverse-primary: 222.8 100.0% 84.3%;
-    --secondary: 45.0 100.0% 23.5%;
-    --on-secondary: 0.0 0.0% 100.0%;
-    --secondary-container: 43.9 98.2% 57.5%;
-    --on-secondary-container: 44.7 100.0% 21.6%;
-    --tertiary: 207.2 46.9% 22.2%;
-    --on-tertiary: 0.0 0.0% 100.0%;
-    --tertiary-container: 208.3 32.9% 31.6%;
-    --on-tertiary-container: 210.0 50.0% 77.3%;
-    --error: 0.0 75.5% 41.6%;
-    --on-error: 0.0 0.0% 100.0%;
-    --error-container: 5.9 100.0% 92.0%;
-    --on-error-container: 355.9 100.0% 28.8%;
-    --primary-fixed: 225.8 100.0% 92.5%;
-    --primary-fixed-dim: 222.8 100.0% 84.3%;
-    --on-primary-fixed: 217.9 100.0% 13.3%;
-    --on-primary-fixed-variant: 216.4 82.8% 32.0%;
-    --secondary-fixed: 40.6 100.0% 80.6%;
-    --secondary-fixed-dim: 44.0 93.0% 54.9%;
-    --on-secondary-fixed: 42.2 100.0% 7.3%;
-    --on-secondary-fixed-variant: 44.2 100.0% 17.8%;
-    --tertiary-fixed: 211.2 100.0% 90.2%;
-    --tertiary-fixed-dim: 210.0 54.7% 79.2%;
-    --on-tertiary-fixed: 205.2 100.0% 9.8%;
-    --on-tertiary-fixed-variant: 208.3 37.1% 28.0%;
-    --background: 210.0 16.7% 97.6%;
-    --on-background: 195.0 7.4% 10.6%;
-    --surface-variant: 200.0 5.3% 88.8%;
-    --header-blue: 214.8 100.0% 24.7%;
-    --text-secondary: 227.1 9.5% 29.0%;
-    --fab-icon: 44.7 100.0% 21.6%;
+    --background: 222% 84% 4.9%;
+    --foreground: 210% 40% 98%;
+    --card: 222% 84% 4.9%;
+    --card-foreground: 210% 40% 98%;
+    --popover: 222% 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 26 83% 14%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 217.2 91.2% 59.8%;
   }
 
   body {
@@ -227,67 +131,5 @@ html {
       size: A4;
       margin: 10mm;
     }
-  }
-}
-
-@layer utilities {
-  .text-display-lg {
-    font-family: var(--font-display);
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 56px;
-    letter-spacing: -0.02em;
-  }
-  .text-headline-lg {
-    font-family: var(--font-display);
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 40px;
-  }
-  .text-headline-lg-mobile {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 32px;
-  }
-  .text-headline-md {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 600;
-    line-height: 32px;
-  }
-  .text-title-lg {
-    font-family: var(--font-sans);
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 24px;
-  }
-  .text-body-lg {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-  }
-  .text-body-md {
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-  }
-  .text-label-md {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    letter-spacing: 0.05em;
-  }
-
-  /* Retaining original classes to prevent broken UI if hardcoded somewhere else, but mapping them to new tokens */
-  .text-logo {
-    font-family: var(--font-display);
-    font-size: 32px;
-    font-weight: 800;
-    line-height: 40px;
-    letter-spacing: 0.05em;
   }
 }

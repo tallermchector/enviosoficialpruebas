@@ -61,7 +61,7 @@ export function WhoWeAre() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="mt-12 p-8 bg-card border border-primary/20 rounded-none text-left"
+              className="mt-12 p-8 bg-slate-900 border border-primary/20 rounded-none text-left"
             >
               <h3 className="text-2xl font-bold text-primary mb-4 font-display uppercase tracking-tight">Nuestra Ventaja Injusta</h3>
               <p className="text-gray-300 leading-relaxed font-sans mb-4">

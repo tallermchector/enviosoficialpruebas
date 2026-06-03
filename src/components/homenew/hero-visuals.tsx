@@ -75,7 +75,7 @@ export function HeroVisuals() {
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
               className="absolute -top-8 -right-8 px-5 py-4 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-blue-400 border border-blue-500/20">
+              <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/20">
                 <MousePointer2 size={24} />
               </div>
               <div>

@@ -51,7 +51,7 @@ const services = [
 
 export default function SliderServicios() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 bg-background overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 bg-[#0a0d16] overflow-hidden">
       {/* Tech lines background */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full tech-grid-overlay" />

@@ -34,7 +34,7 @@ export function UrgentScenarios() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-card relative overflow-hidden">
+    <section className="py-24 px-4 bg-slate-900 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -65,7 +65,7 @@ export function UrgentScenarios() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-card border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm group hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all h-full relative">
+                <Card className="bg-[#0f172a] border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm group hover:border-secondary/50 hover:shadow-[0_0_30px_rgba(234,179,8,0.15)] transition-all h-full relative">
                   <div className="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <CardContent className="p-8">
                     <div className="flex items-start mb-6">

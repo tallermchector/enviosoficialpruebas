@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export function CtaSection() {
   return (
-    <section id="cta" className="py-20 md:py-24 bg-slate-100 dark:bg-card">
+    <section id="cta" className="py-20 md:py-24 bg-slate-100 dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

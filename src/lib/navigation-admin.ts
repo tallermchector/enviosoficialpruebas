@@ -55,7 +55,7 @@ export const adminNavItems: (AdminNavItem | AdminNavGroup)[] = [
             label: "Órdenes",
             icon: ListOrdered,
             description: "Visualiza, crea y modifica las órdenes de envío.",
-            color: "text-primary",
+            color: "text-blue-500",
             bgColor: "bg-blue-50",
         },
         {

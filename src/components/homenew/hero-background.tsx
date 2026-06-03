@@ -22,11 +22,11 @@ export function HeroBackground() {
           className="object-cover opacity-[0.15]"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050810] via-transparent to-[#050810]" />
       </motion.div>
 
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-[10%] -left-[5%] w-[50%] h-[50%] bg-primary/20 rounded-full blur-[100px]" />
+        <div className="absolute -top-[10%] -left-[5%] w-[50%] h-[50%] bg-blue-600/20 rounded-full blur-[100px]" />
         <div className="absolute -bottom-[10%] -right-[5%] w-[40%] h-[40%] bg-yellow-500/10 rounded-full blur-[100px]" />
         <svg className="absolute inset-0 w-full h-full opacity-10">
           <pattern id="grid-dots" width="40" height="40" patternUnits="userSpaceOnUse">
