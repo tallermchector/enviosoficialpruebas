@@ -16,7 +16,7 @@ export function FaqContactCta() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button asChild size="lg" className="bg-[#25D366] hover:bg-[#25D366]/90 text-white font-sans h-14 px-8 text-lg rounded-full">
+              <Button asChild size="lg" className="bg-[#25D366] hover:bg-[#25D366]/90 text-slate-900 font-sans h-14 px-8 text-lg rounded-full">
                 <a
                   href="https://wa.me/5492236602699?text=Hola, tengo una consulta que no encontré en las FAQ"
                   target="_blank"
@@ -31,7 +31,7 @@ export function FaqContactCta() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white/30 text-white hover:bg-white hover:text-primary font-sans h-14 px-8 text-lg rounded-full backdrop-blur-sm"
+                className="border-white/30 text-slate-900 hover:bg-white hover:text-primary font-sans h-14 px-8 text-lg rounded-full backdrop-blur-sm"
               >
                 <Link href="/contacto">
                   <Mail className="w-6 h-6 mr-2" />

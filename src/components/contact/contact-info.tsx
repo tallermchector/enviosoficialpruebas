@@ -48,7 +48,7 @@ export function ContactInfo() {
       description: "Para consultas detalladas o corporativas.",
       actionText: "Enviar Email",
       href: "mailto:matiascejas@enviosdosruedas.com",
-      colorClasses: "border-secondary text-secondary hover:bg-secondary hover:text-white",
+      colorClasses: "border-secondary text-secondary hover:bg-secondary hover:text-slate-900",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
     },
@@ -58,7 +58,7 @@ export function ContactInfo() {
       description: "Síguenos para novedades y promociones.",
       actionText: "Ir a Facebook",
       href: "https://facebook.com/enviosdosruedas",
-      colorClasses: "border-primary text-primary hover:bg-primary hover:text-white",
+      colorClasses: "border-primary text-primary hover:bg-primary hover:text-slate-900",
       iconBg: "bg-primary/10",
       iconColor: "text-primary",
     },
@@ -68,7 +68,7 @@ export function ContactInfo() {
       description: "Mira nuestro día a día y ofertas visuales.",
       actionText: "Ir a Instagram",
       href: "https://instagram.com/enviosdosruedas",
-      colorClasses: "border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white",
+      colorClasses: "border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-slate-900",
       iconBg: "bg-pink-100",
       iconColor: "text-pink-500",
     },
@@ -101,7 +101,7 @@ export function ContactInfo() {
 
                 <Button
                   onClick={handleWhatsAppClick}
-                  className="bg-[#25D366] hover:bg-[#25D366]/90 text-white px-4 py-2 text-sm sm:px-6 sm:py-2.5 sm:text-base font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-sans"
+                  className="bg-[#25D366] hover:bg-[#25D366]/90 text-slate-900 px-4 py-2 text-sm sm:px-6 sm:py-2.5 sm:text-base font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-sans"
                 >
                   <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                   Contactar por WhatsApp

@@ -37,8 +37,8 @@ export function ServicesPreview() {
                   <div className="w-16 h-16 bg-yellow-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
                     <IconComponent className="w-8 h-8 text-yellow-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
-                  <p className="text-white/80">{service.description}</p>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">{service.title}</h3>
+                  <p className="text-slate-900/80">{service.description}</p>
                 </CardContent>
               </Card>
             )

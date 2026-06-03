@@ -164,13 +164,13 @@ export function EntrepreneurSolutions() {
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
-                  <div className="relative z-10 p-6 flex flex-col h-full justify-end text-white">
+                  <div className="relative z-10 p-6 flex flex-col h-full justify-end text-slate-900">
                     <div className="flex justify-between items-start mb-4">
                       <span className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-black/30 backdrop-blur-md shadow-lg border border-white/20">
                         {solution.badge}
                       </span>
                       <div className="w-12 h-12 bg-black/30 backdrop-blur-md rounded-xl flex items-center justify-center shadow-lg border border-white/20">
-                        <IconComponent className="w-6 h-6 text-white" />
+                        <IconComponent className="w-6 h-6 text-slate-900" />
                       </div>
                     </div>
 
@@ -200,7 +200,7 @@ export function EntrepreneurSolutions() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 text-white font-bold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+              className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80 text-slate-900 font-bold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <Link href="/contacto" className="flex items-center gap-3">
                 Hablemos de tu proyecto

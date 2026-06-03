@@ -270,7 +270,7 @@ export function NeuralHorizonHero() {
                             Cotizar Envío
                         </Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary/10 hover:text-white font-bold shadow-lg transform hover:scale-105 transition-transform">
+                    <Button asChild size="lg" variant="outline" className="border-secondary text-secondary hover:bg-secondary/10 hover:text-slate-900 font-bold shadow-lg transform hover:scale-105 transition-transform">
                         <Link href="/contacto">
                             <Mail className="mr-2 h-5 w-5" />
                             Contacto

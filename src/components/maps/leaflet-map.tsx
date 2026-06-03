@@ -55,7 +55,7 @@ export default function LeafletMap({ origin, destination, routeGeometry }: Leafl
       <MapContainer
         center={[MAR_DEL_PLATA.lat, MAR_DEL_PLATA.lng]}
         zoom={INITIAL_ZOOM}
-        style={{ height: '100%', width: '100%' }}
+        className="h-full w-full"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

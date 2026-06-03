@@ -44,7 +44,7 @@ export function SuccessStories() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
               HISTORIAS DE <span className="text-primary">ÉXITO</span>
             </h2>
             <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
@@ -72,7 +72,7 @@ export function SuccessStories() {
                       <Star className="w-8 h-8 fill-primary" />
                     </div>
                     <div>
-                      <h4 className="font-[family-name:var(--font-orbitron)] font-bold text-white uppercase tracking-tight">{testimonial.name}</h4>
+                      <h4 className="font-[family-name:var(--font-orbitron)] font-bold text-slate-900 uppercase tracking-tight">{testimonial.name}</h4>
                       <p className="text-xs text-primary font-bold uppercase tracking-widest">{testimonial.business}</p>
                       <div className="flex items-center mt-2">
                         {[...Array(testimonial.rating)].map((_, i) => (

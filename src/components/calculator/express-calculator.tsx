@@ -170,7 +170,7 @@ export default function ExpressCalculator() {
                 <CardFooter className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-4 md:pt-6">
                   <Button 
                     size="lg" 
-                    className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white text-sm md:text-base font-sans" 
+                    className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-slate-900 text-sm md:text-base font-sans"
                     disabled={quoteDetails.price === null}
                     onClick={() => alert('Funcionalidad "Confirmar Envío" pendiente de implementación.')}
                   >

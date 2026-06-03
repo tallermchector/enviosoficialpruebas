@@ -18,7 +18,13 @@ const config: Config = {
       },
     },
     extend: {
+      fontSize: {
+        'xxs': '0.625rem', // 10px
+      },
+      backgroundImage: {
+        },
       colors: {
+        'surface-light': '#f8fafc',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -88,8 +94,8 @@ const config: Config = {
         "spin-slow": "spin-slow 8s linear infinite",
       },
       fontFamily: {
-        sans: ["var(--font-roboto)", "sans-serif"],
-        display: ["var(--font-orbitron)", "monospace"],
+        sans: ["var(--font-sans-fallback)", "sans-serif"],
+        display: ["var(--font-display-fallback)", "sans-serif"],
       },
     },
   },

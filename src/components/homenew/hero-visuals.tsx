@@ -80,7 +80,7 @@ export function HeroVisuals() {
               </div>
               <div>
                 <div className="text-[9px] text-gray-400 uppercase font-black tracking-[0.2em] mb-0.5">ESTADO REAL</div>
-                <div className="text-sm font-black text-white uppercase italic font-display text-orbitron">EN TRÁNSITO</div>
+                <div className="text-sm font-black text-slate-900 uppercase italic font-display text-orbitron">EN TRÁNSITO</div>
               </div>
             </motion.div>
 
@@ -94,7 +94,7 @@ export function HeroVisuals() {
               </div>
               <div>
                 <div className="text-[9px] text-gray-400 uppercase font-black tracking-[0.2em] mb-0.5">SEGURIDAD</div>
-                <div className="text-sm font-black text-white uppercase italic font-display text-orbitron">VERIFICADO</div>
+                <div className="text-sm font-black text-slate-900 uppercase italic font-display text-orbitron">VERIFICADO</div>
               </div>
             </motion.div>
           </motion.div>

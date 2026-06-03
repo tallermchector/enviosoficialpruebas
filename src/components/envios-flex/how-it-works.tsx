@@ -39,7 +39,7 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
               LOGÍSTICA <span className="text-primary">SIN FRICCIONES</span>
             </h2>
             <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
@@ -62,7 +62,7 @@ export function HowItWorks() {
               <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                  <step.icon className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="font-[family-name:var(--font-orbitron)] text-xl font-bold mb-4 uppercase text-white tracking-tight">{step.title}</h3>
+              <h3 className="font-[family-name:var(--font-orbitron)] text-xl font-bold mb-4 uppercase text-slate-900 tracking-tight">{step.title}</h3>
               <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{step.description}</p>
             </motion.div>
           ))}

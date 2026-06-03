@@ -62,12 +62,12 @@ export function SocialFeed({ posts }: SocialFeedProps) {
                       height={48}
                       className="rounded-full border-2 border-primary/20"
                     />
-                    <div className={cn("absolute -bottom-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-white border-2 border-background shadow-sm", platformColors[post.platform])}>
+                    <div className={cn("absolute -bottom-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-slate-900 border-2 border-background shadow-sm", platformColors[post.platform])}>
                       <PlatformIcon platform={post.platform} />
                     </div>
                   </div>
                 ) : (
-                  <div className={cn("w-12 h-12 rounded-full flex items-center justify-center text-white shadow-md", platformColors[post.platform])}>
+                  <div className={cn("w-12 h-12 rounded-full flex items-center justify-center text-slate-900 shadow-md", platformColors[post.platform])}>
                     <PlatformIcon platform={post.platform} />
                   </div>
                 )}
@@ -103,7 +103,7 @@ export function SocialFeed({ posts }: SocialFeedProps) {
 
                 {post.platform === 'whatsapp' && (
                    <div className="px-6 pb-6">
-                    <Button asChild className={cn("w-full h-12 text-white font-bold rounded-xl", platformColors[post.platform])}>
+                    <Button asChild className={cn("w-full h-12 text-slate-900 font-bold rounded-xl", platformColors[post.platform])}>
                       <a href={post.postUrl} target="_blank" rel="noopener noreferrer">
                         <MessageSquare className="mr-2 h-5 w-5" /> Iniciar Chat Web
                       </a>

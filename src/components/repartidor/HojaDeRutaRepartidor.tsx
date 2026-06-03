@@ -41,7 +41,7 @@ const statusConfig = {
     },
     [EtiquetaStatus.PENDIENTE]: {
         text: 'PENDIENTE',
-        color: 'bg-slate-800 text-slate-400 border-slate-700',
+        color: 'bg-slate-800 text-slate-500 border-slate-700',
         icon: <Clock className="h-4 w-4" />
     },
 };
@@ -84,8 +84,8 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
         <div className="space-y-6">
             <div className="flex flex-col gap-4">
                 <div className="flex justify-between items-center">
-                    <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tighter">Mi Hoja de Ruta</h2>
-                    <Button variant="outline" size="sm" className="rounded-none border-slate-800 bg-slate-900/50 text-slate-400 hover:text-white">
+                    <h2 className="text-2xl font-display font-bold text-slate-900 uppercase tracking-tighter">Mi Hoja de Ruta</h2>
+                    <Button variant="outline" size="sm" className="rounded-none border-slate-800 bg-slate-900/50 text-slate-500 hover:text-slate-900">
                         <Printer className="mr-2 h-4 w-4" /> Imprimir
                     </Button>
                 </div>
@@ -95,16 +95,16 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
                         <Input
                             placeholder="Buscar cliente o dirección..."
-                            className="pl-10 bg-slate-900/50 border-slate-800 rounded-none text-white placeholder:text-slate-600 focus:ring-[#2563EB]"
+                            className="pl-10 bg-slate-900/50 border-slate-800 rounded-none text-slate-900 placeholder:text-slate-600 focus:ring-[#2563EB]"
                             value={searchTerm}
                             onChange={e => setSearchTerm(e.target.value)}
                         />
                     </div>
                      <Select value={statusFilter} onValueChange={setStatusFilter}>
-                        <SelectTrigger className="bg-slate-900/50 border-slate-800 rounded-none text-white focus:ring-[#2563EB]">
+                        <SelectTrigger className="bg-slate-900/50 border-slate-800 rounded-none text-slate-900 focus:ring-[#2563EB]">
                             <SelectValue placeholder="Filtrar estado" />
                         </SelectTrigger>
-                        <SelectContent className="bg-slate-900 border-slate-800 text-white rounded-none">
+                        <SelectContent className="bg-slate-900 border-slate-800 text-slate-900 rounded-none">
                             <SelectItem value="pendientes">POR SALIR</SelectItem>
                             <SelectItem value="en_camino">EN CAMINO</SelectItem>
                             <SelectItem value="entregadas">ENTREGADAS</SelectItem>
@@ -139,12 +139,12 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                     <div className="flex justify-between items-start">
                                         <div className="space-y-1">
                                             <div className="flex items-center gap-2">
-                                                <Badge variant="outline" className={`rounded-none px-2 py-0.5 text-[10px] font-bold ${statusConfig[e.status]?.color}`}>
+                                                <Badge variant="outline" className={`rounded-none px-2 py-0.5 text-xxs font-bold ${statusConfig[e.status]?.color}`}>
                                                     {statusConfig[e.status]?.text}
                                                 </Badge>
                                                 <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">{e.orderNumber}</span>
                                             </div>
-                                            <h3 className="text-lg font-bold text-white uppercase leading-tight mt-1">{e.destinatarioNombre}</h3>
+                                            <h3 className="text-lg font-bold text-slate-900 uppercase leading-tight mt-1">{e.destinatarioNombre}</h3>
                                         </div>
                                         <div className="text-right">
                                             <div className="text-xs text-slate-500 font-sans uppercase">A Cobrar</div>
@@ -157,16 +157,16 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                     <div className="space-y-3 pt-2 border-t border-slate-800/50">
                                         <div className="flex items-start gap-3">
                                             <MapPin className="h-5 w-5 text-[#2563EB] shrink-0 mt-0.5" />
-                                            <div className="text-slate-300 text-sm font-sans">
+                                            <div className="text-slate-600 text-sm font-sans">
                                                 {e.destinatarioDireccion}
-                                                <div className="text-[10px] text-slate-500 uppercase mt-0.5">Mar del Plata, Argentina</div>
+                                                <div className="text-xxs text-slate-500 uppercase mt-0.5">Mar del Plata, Argentina</div>
                                             </div>
                                         </div>
 
                                         {e.destinatarioTelefono && (
                                              <div className="flex items-center gap-3">
                                                 <Phone className="h-4 w-4 text-slate-500 shrink-0" />
-                                                <a href={`tel:${e.destinatarioTelefono}`} className="text-slate-400 text-sm hover:text-[#2563EB] transition-colors">
+                                                <a href={`tel:${e.destinatarioTelefono}`} className="text-slate-500 text-sm hover:text-[#2563EB] transition-colors">
                                                     {e.destinatarioTelefono}
                                                 </a>
                                             </div>
@@ -176,7 +176,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                     <div className="flex gap-2 pt-2">
                                         {e.status === EtiquetaStatus.IMPRESA && (
                                             <Button
-                                                className="flex-1 rounded-none bg-[#2563EB] hover:bg-[#1e40af] text-white font-bold h-12"
+                                                className="flex-1 rounded-none bg-[#2563EB] hover:bg-[#1e40af] text-slate-900 font-bold h-12"
                                                 onClick={() => handleUpdateStatus(e.id, EtiquetaStatus.EN_CAMINO)}
                                                 disabled={isPending}
                                             >
@@ -186,7 +186,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                         {e.status === EtiquetaStatus.EN_CAMINO && (
                                             <>
                                                 <Button
-                                                    className="flex-1 rounded-none bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-12"
+                                                    className="flex-1 rounded-none bg-emerald-600 hover:bg-emerald-700 text-slate-900 font-bold h-12"
                                                     onClick={() => handleUpdateStatus(e.id, EtiquetaStatus.ENTREGADA)}
                                                     disabled={isPending}
                                                 >
@@ -194,7 +194,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                                 </Button>
                                                 <Button
                                                     variant="outline"
-                                                    className="rounded-none border-slate-700 bg-slate-800 text-white font-bold h-12 px-4"
+                                                    className="rounded-none border-slate-700 bg-slate-800 text-slate-900 font-bold h-12 px-4"
                                                     asChild
                                                 >
                                                     <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(e.destinatarioDireccion + ', Mar del Plata')}`} target="_blank" rel="noopener noreferrer">

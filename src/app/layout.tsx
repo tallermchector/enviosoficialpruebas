@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Roboto, Orbitron } from "next/font/google";
+import { Montserrat, Sora } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { WhatsAppReviewButton } from "@/components/seo/WhatsAppReviewButton";
 import "./globals.css";
 
 
-const roboto = Roboto({
+const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "700"],
-  variable: "--font-roboto",
+  variable: "--font-sans-fallback",
   display: 'swap',
 })
 
-const orbitron = Orbitron({
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  variable: "--font-orbitron",
+  weight: ["400", "700", "800"],
+  variable: "--font-display-fallback",
   display: 'swap',
 })
 
@@ -101,7 +101,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${roboto.variable} ${orbitron.variable} font-sans antialiased`}
+        className={`${montserrat.variable} ${sora.variable} font-sans antialiased`}
       >
         {children}
         <WhatsAppReviewButton />

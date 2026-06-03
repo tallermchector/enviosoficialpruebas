@@ -20,7 +20,7 @@ export const WhatsAppReviewButton = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Solicitar reseña por WhatsApp"
-      className="fixed bottom-24 right-6 z-40 p-3 bg-green-500 text-white rounded-full shadow-lg opacity-20 hover:opacity-100 transition-opacity duration-300 md:bottom-32"
+      className="fixed bottom-24 right-6 z-40 p-3 bg-green-500 text-slate-900 rounded-full shadow-lg opacity-20 hover:opacity-100 transition-opacity duration-300 md:bottom-32"
       title="Enviar solicitud de reseña (Uso Interno)"
     >
       <MessageCircle size={24} />

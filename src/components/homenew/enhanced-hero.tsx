@@ -327,7 +327,7 @@ export function EnhancedHero() {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-20 flex flex-col items-center text-center p-6 text-white max-w-5xl mx-auto"
+        className="relative z-20 flex flex-col items-center text-center p-6 text-slate-900 max-w-5xl mx-auto"
         style={{ y, opacity }}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 50 }}
@@ -433,7 +433,7 @@ export function EnhancedHero() {
             whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
           >
             <Sparkles className="w-4 h-4 text-yellow-400" />
-            <span className="text-sm font-medium text-white/90">Tu Solución Confiable</span>
+            <span className="text-sm font-medium text-slate-800">Tu Solución Confiable</span>
             <Zap className="w-4 h-4 text-blue-400" />
           </motion.div>
 
@@ -457,7 +457,7 @@ export function EnhancedHero() {
 
         {/* Description */}
         <motion.p
-          className="max-w-3xl text-lg md:text-xl text-gray-200 leading-relaxed mb-10 font-light"
+          className="max-w-3xl text-lg md:text-xl text-slate-700 leading-relaxed mb-10 font-light"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -497,7 +497,7 @@ export function EnhancedHero() {
               asChild
               size="lg"
               variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 hover:text-white font-bold shadow-2xl px-8 py-4 text-lg rounded-full backdrop-blur-sm transition-all duration-300 bg-transparent"
+              className="border-2 border-slate-300 text-slate-900 hover:bg-slate-100 hover:text-slate-900 font-bold shadow-2xl px-8 py-4 text-lg rounded-full backdrop-blur-sm transition-all duration-300 bg-transparent"
             >
               <Link href="/contacto" className="flex items-center gap-3">
                 <Mail className="w-5 h-5" />
@@ -509,7 +509,7 @@ export function EnhancedHero() {
 
         {/* Scroll Indicator */}
         <motion.div
-          className="flex flex-col items-center gap-2 text-white/60"
+          className="flex flex-col items-center gap-2 text-slate-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}

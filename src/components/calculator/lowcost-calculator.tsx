@@ -170,7 +170,7 @@ export default function LowCostCalculator() {
                 <CardFooter className="flex flex-col sm:flex-row gap-3 pt-6 font-sans">
                   <Button 
                     size="lg" 
-                    className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white" 
+                    className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-slate-900"
                     disabled={quoteDetails.price === null}
                     onClick={() => alert('Funcionalidad "Confirmar Envío Low Cost" pendiente de implementación.')}
                   >

@@ -158,7 +158,7 @@ export default function HeroGeometric({
             </div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-white/[0.08]">
               <Sparkles className="w-4 h-4 text-secondary" />
-              <span className="text-sm font-medium text-white/90">{badge}</span>
+              <span className="text-sm font-medium text-slate-800">{badge}</span>
               <Zap className="w-4 h-4 text-primary" />
             </div>
           </motion.div>
@@ -174,7 +174,7 @@ export default function HeroGeometric({
           </motion.div>
 
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <p className="text-base sm:text-lg md:text-xl text-white/60 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4 font-sans">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4 font-sans">
               Somos tu solución confiable en servicios de mensajería y delivery en Mar del Plata. Ofrecemos soluciones
               rápidas, seguras y económicas para todas tus necesidades de envío.
             </p>

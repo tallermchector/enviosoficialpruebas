@@ -54,7 +54,7 @@ export function SocialConnect() {
                   <div className={cn("w-20 h-20 rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg relative", network.color)}>
                     <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
                     {IconComponent ? (
-                      <IconComponent className="w-10 h-10 text-white relative z-10" />
+                      <IconComponent className="w-10 h-10 text-slate-900 relative z-10" />
                     ) : (
                       <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp" width={40} height={40} className="w-10 h-10 relative z-10" />
                     )}
@@ -67,7 +67,7 @@ export function SocialConnect() {
 
                   <p className="text-muted-foreground mb-8 leading-relaxed font-sans text-lg flex-grow">{network.description}</p>
 
-                  <Button asChild size="lg" className={cn("w-full text-white font-bold h-14 rounded-2xl text-lg shadow-md hover:shadow-xl transition-all relative overflow-hidden group/btn", network.color)}>
+                  <Button asChild size="lg" className={cn("w-full text-slate-900 font-bold h-14 rounded-2xl text-lg shadow-md hover:shadow-xl transition-all relative overflow-hidden group/btn", network.color)}>
                     <a href={network.url} target="_blank" rel="noopener noreferrer">
                       <span className="relative z-10">
                         {network.name === "WhatsApp" ? "Atención Directa" : `Ir a ${network.name}`}
