@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Sora } from "next/font/google";
+import { Roboto, Orbitron } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { WhatsAppReviewButton } from "@/components/seo/WhatsAppReviewButton";
 import "./globals.css";
 
 
-const hankenGrotesk = Hanken_Grotesk({
+const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-sans-fallback",
+  weight: ["400", "500", "700"],
+  variable: "--font-roboto",
   display: 'swap',
 })
 
-const sora = Sora({
+const orbitron = Orbitron({
   subsets: ["latin"],
-  weight: ["400", "700", "800"],
-  variable: "--font-display-fallback",
+  weight: ["400", "700", "900"],
+  variable: "--font-orbitron",
   display: 'swap',
 })
 
@@ -101,7 +101,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${hankenGrotesk.variable} ${sora.variable} font-sans antialiased`}
+        className={`${roboto.variable} ${orbitron.variable} font-sans antialiased`}
       >
         {children}
         <WhatsAppReviewButton />

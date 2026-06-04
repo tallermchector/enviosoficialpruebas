@@ -40,22 +40,35 @@ La paleta está restringida intencionalmente para maximizar el contraste funcion
 
 El sistema emplea una estrategia de doble fuente para equilibrar el carácter de la marca con la utilidad operativa:
 
-*   **Display (Headers)**: `Sora` (Variable: `--font-display-fallback`).
-    *   **Uso**: Títulos principales de sección, encabezados Hero y logotipos. Su estructura geométrica y postura ancha brindan una apariencia técnica y futurista. Deben renderizarse preferentemente en amarillo sobre fondos oscuros.
-*   **Sans (Body & Labels)**: `Hanken Grotesk` / `Montserrat` (Variable: `--font-sans-fallback`).
+*   **Display (Headers & Tracking)**: `Orbitron` (Variable: `--font-orbitron`).
+    *   **Uso**: Títulos principales de sección, encabezados Hero, logotipos y códigos de seguimiento. Su estructura geométrica y postura ancha brindan una apariencia técnica, de urgencia y futurista. Deben renderizarse preferentemente en amarillo o blanco.
+    *   **Clases**:
+        *   `text-display-lg`: Orbitron 48px | Weight 900 | LH 1.1 | LS -0.02em
+        *   `text-display-md`: Orbitron 32px | Weight 700 | LH 1.2 | LS -0.01em
+        *   `text-headline-lg`: Orbitron 24px | Weight 700 | LH 1.3 | LS 0.02em
+        *   `text-headline-lg-mobile`: Orbitron 20px | Weight 700 | LH 1.3
+        *   `text-code-tracking`: Orbitron 16px | Weight 400 | LH 1.0 | LS 0.1em
+*   **Sans (Body & Labels)**: `Roboto` (Variable: `--font-roboto`).
     *   **Uso**: Párrafos, formularios, etiquetas de botones, tablas e información de métricas. Su legibilidad es excelente incluso en tamaños pequeños. El texto de cuerpo debe permanecer en blanco o plata claro (`text-gray-300`).
+    *   **Clases**:
+        *   `text-body-lg`: Roboto 18px | Weight 400 | LH 1.6
+        *   `text-body-md`: Roboto 16px | Weight 400 | LH 1.5
+        *   `text-label-md`: Roboto 14px | Weight 700 | LH 1.2 | LS 0.05em
+        *   `text-label-sm`: Roboto 12px | Weight 400 | LH 1.2 | LS 0.1em
 
 ---
 
 ## 4. Layout, Espaciado y Grilla
 
 *   **Grilla**: 12 columnas fluidas para escritorio (desktop) y 4 columnas para móvil.
-*   **Espaciado**: Basado en una escala rítmica de 8px:
-    *   `xs`: 4px | `base`: 8px | `sm`: 12px | `md`: 24px | `lg`: 48px | `xl`: 80px.
-*   **Márgenes y Canaletas (Gutters)**:
-    *   **Móvil**: Margen de 16px.
-    *   **Tablet**: Margen de 32px.
-    *   **Escritorio**: Margen de 64px, con canaletas estándar `md` (24px) entre tarjetas para mantener la estructura limpia.
+*   **Espaciado**: Basado en una escala rítmica de espaciado adaptado al Stitch Design System:
+    *   `xs` / `base`: 4px
+    *   `sm`: 8px
+    *   `md` / `gutter` / `margin-mobile`: 16px
+    *   `lg` / `margin-desktop`: 32px
+    *   `xl`: 64px
+    *   `container-max`: 1400px
+*   **Clases de Tailwind**: Se extienden los tokens nativos de Tailwind (`p-xs`, `gap-sm`, `m-md`, `w-container-max`, etc.) para permitir el uso directo de la escala en toda la aplicación.
 
 ---
 
@@ -70,10 +83,16 @@ Establecemos la jerarquía visual utilizando capas de color en lugar de sombras 
 
 ---
 
-## 6. Formas y Bordes (Bordes Suaves - Level 1)
+## 6. Formas y Bordes
 
-*   **Radio de Bordes**: Redondeado sutil de `0.25rem` (4px) para botones, campos de texto y tarjetas operativas. Las tarjetas de landing pages pueden subir a radios mayores (`12px` / `0.75rem`), pero los elementos de control del dashboard deben ser de 4px para mantener el estilo técnico.
-*   **Botones**: Evitar formas de píldora completas (`rounded-full`) para mantener la alineación con la grilla y el aspecto técnico de logística.
+*   **Radio de Bordes**: Sistema de radios de borde estandarizado:
+    *   `rounded-sm`: 0.25rem (4px) para pequeños elementos interactivos.
+    *   `rounded` (DEFAULT): 0.5rem (8px) para botones y controles del dashboard.
+    *   `rounded-md`: 0.75rem (12px) para componentes medianos.
+    *   `rounded-lg`: 1rem (16px) para tarjetas operativas estándar.
+    *   `rounded-xl`: 1.5rem (24px) para grandes paneles contenedores y landing sections.
+    *   `rounded-full`: 9999px para círculos o avatares.
+*   **Botones**: Evitar formas de píldora completas (`rounded-full`) para mantener la alineaición con la grilla y el aspecto técnico de logística.
 
 ---
 

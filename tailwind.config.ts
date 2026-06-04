@@ -54,9 +54,24 @@ const config: Config = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        xl: "1.5rem",
+        lg: "1rem",
+        md: "0.75rem",
+        DEFAULT: "0.5rem",
+        sm: "0.25rem",
+        full: "9999px",
+      },
+      spacing: {
+        base: "4px",
+        xs: "4px",
+        sm: "8px",
+        md: "16px",
+        lg: "32px",
+        xl: "64px",
+        gutter: "16px",
+        "margin-mobile": "16px",
+        "margin-desktop": "32px",
+        "container-max": "1400px",
       },
       keyframes: {
         "accordion-down": {
