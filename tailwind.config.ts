@@ -26,7 +26,7 @@ const config: Config = {
         'modern-card': 'linear-gradient(135deg, var(--card-gradient-start) 0%, var(--card-gradient-end) 100%)',
       },
       colors: {
-        'surface-light': '#f8fafc',
+        'surface-light': '#93c2f1ff',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
