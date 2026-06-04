@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { VariantProps } from 'class-variance-authority';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { MeshGradientBackground } from '@/components/ui/MeshGradientBackground';
 import {
   ArrowRight,
   Mail,
@@ -48,7 +49,7 @@ export interface HeroSectionProps {
   preTitle?: React.ReactNode;
   description?: string | React.ReactNode;
   ctaButtons?: CtaButtonProps[];
-  backgroundType?: 'color' | 'gradient' | 'image';
+  backgroundType?: 'color' | 'gradient' | 'image' | 'shader';
   backgroundColor?: string;
   backgroundGradient?: string;
   backgroundImageUrl?: string;
@@ -72,7 +73,7 @@ export function HeroSection({
   preTitle,
   description,
   ctaButtons,
-  backgroundType = 'image',
+  backgroundType = 'shader',
   backgroundColor = 'bg-surface-light',
   backgroundGradient = 'bg-gradient-to-br from-primary to-primary/80',
   backgroundImageUrl = '/bannerenvios.webp',
@@ -185,6 +186,9 @@ export function HeroSection({
 
   return (
     <section className={sectionClasses}>
+      {/* Mesh Gradient Shader Background */}
+      {backgroundType === 'shader' && <MeshGradientBackground />}
+
       {/* Background Image with Overlay */}
       {backgroundType === 'image' && backgroundImageUrl && (
         <div className="absolute inset-0 z-0">
