@@ -90,7 +90,7 @@ export function LowcostBenefits() {
                         <CheckCircle2 className="w-6 h-6 text-green-500/80 drop-shadow-[0_0_5px_rgba(34,197,94,0.5)]" />
                       </motion.div>
                     </div>
-                    <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-slate-900 tracking-tight">{benefit.title}</h3>
+                    <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-white tracking-tight">{benefit.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{benefit.description}</p>
                   </CardContent>
                 </Card>
