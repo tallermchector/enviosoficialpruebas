@@ -50,8 +50,8 @@ export function LowcostBenefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
-              BENEFICIOS <span className="text-primary drop-shadow-[0_0_15px_rgba(37,99,235,0.4)]">LOWCOST</span>
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
+              BENEFICIOS <span className="text-secondary drop-shadow-[0_0_15px_rgba(255,230,0,0.35)]">LOWCOST</span>
             </h2>
             <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full shadow-[0_0_10px_rgba(37,99,235,0.4)]" />
             <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">

@@ -79,7 +79,7 @@ export const CarruselRedes = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-yellow-500 text-xxs font-bold tracking-widest mb-6 uppercase">
               <Heart size={12} className="fill-yellow-500" /> CONECTA CON NOSOTROS
             </div>
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tighter">
+            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter">
               SIGUE NUESTRO <span className="text-secondary">MOVIMIENTO</span>
             </h2>
             <p className="text-gray-400 text-lg mt-4 font-[family-name:var(--font-roboto)] max-w-xl">
