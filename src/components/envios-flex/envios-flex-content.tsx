@@ -30,8 +30,8 @@ export function EnviosFlexContent() {
   };
 
   return (
-    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-24 px-4 bg-background relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#FFF159]/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <motion.div
@@ -43,15 +43,15 @@ export function EnviosFlexContent() {
         >
           {/* Left Content */}
           <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xxs font-bold tracking-widest mb-6 uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFF159]/10 border border-[#FFF159]/20 text-[#FFF159] text-label-sm font-bold tracking-widest mb-6 uppercase">
               MERCADOLIBRE EXPERTS
             </div>
-            <h2 className="font-[family-name:var(--font-orbitron)] text-3xl md:text-5xl font-black leading-[1] mb-8 uppercase text-slate-900 tracking-tighter">
-              DOMINA TUS VENTAS <br />
-              <span className="text-primary italic">CON ENVÍOS FLEX</span>
+            <h2 className="font-display text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
+              DOMINÁ TUS VENTAS <br />
+              <span className="text-[#FFF159] italic">CON ENVÍOS FLEX</span>
             </h2>
-            <p className="text-gray-400 text-lg mb-10 leading-relaxed font-[family-name:var(--font-roboto)] max-w-xl">
-              Somos el aliado estratégico para vendedores de MercadoLibre con Cobertura MDP total. Optimizamos tus Envíos Same-Day Mar del Plata para que tú solo te preocupes por vender más.
+            <p className="text-gray-400 text-body-lg mb-10 leading-relaxed font-sans max-w-xl">
+              Somos el aliado estratégico para vendedores de MercadoLibre con Cobertura MDP total. Optimizamos tus Envíos Same-Day Mar del Plata para que vos solo te preocupes por vender más.
             </p>
 
             {/* Features */}
@@ -63,12 +63,12 @@ export function EnviosFlexContent() {
                   custom={index}
                   variants={itemVariants}
                 >
-                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-primary/30">
-                    <Check className="w-3.5 h-3.5 text-primary" />
+                  <div className="w-6 h-6 bg-[#FFF159]/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-[#FFF159]/30">
+                    <Check className="w-3.5 h-3.5 text-[#FFF159]" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2 font-[family-name:var(--font-orbitron)] uppercase tracking-tight">{feature.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{feature.description}</p>
+                    <h3 className="text-headline-lg-mobile font-bold text-foreground mb-2 font-display uppercase tracking-tight">{feature.title}</h3>
+                    <p className="text-gray-400 text-body-md leading-relaxed font-sans">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -82,10 +82,10 @@ export function EnviosFlexContent() {
           >
             <div className="text-center lg:text-right select-none opacity-20">
               <div className="space-y-2">
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-slate-900 font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-display tracking-tighter leading-none">
                   FLEX
                 </div>
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-[#FFF159] font-display tracking-tighter leading-none">
                   SAME-DAY
                 </div>
               </div>

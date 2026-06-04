@@ -22,7 +22,7 @@ export default async function SocialNetworksPage() {
   const posts = await getAllPosts();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="dark min-h-screen flex flex-col bg-background text-foreground selection:bg-primary/30">
       <OptimizedHeader />
       <main className="flex-grow">
         <SocialHero />

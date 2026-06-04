@@ -51,7 +51,7 @@ async function getPriceRanges(): Promise<PriceRangeClient[]> {
 export default async function EnviosLowCostPage() {
   const priceRanges = await getPriceRanges();
   return (
-    <div className="min-h-screen bg-surface-light text-slate-900 selection:bg-blue-500/30">
+    <div className="dark min-h-screen flex flex-col bg-background text-foreground selection:bg-primary/30">
       <OptimizedHeader />
       <main>
         <LowcostHero />
