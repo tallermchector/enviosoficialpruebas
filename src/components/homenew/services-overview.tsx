@@ -149,7 +149,7 @@ export const ServicesOverview = () => {
             <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full glass-card border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.2em] mb-8 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Nuestros Servicios
             </div>
-            <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black italic uppercase text-slate-900 tracking-tighter leading-[0.9]">
+            <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black italic uppercase text-white tracking-tighter leading-[0.9]">
               Soluciones <br />
               <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logísticas</span>
             </h2>
@@ -162,7 +162,7 @@ export const ServicesOverview = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="max-w-md lg:border-l lg:border-white/10 lg:pl-10"
           >
-            <p className="text-slate-600 text-lg md:text-xl font-[family-name:var(--font-roboto)] font-light leading-relaxed">
+            <p className="text-gray-400 text-lg md:text-xl font-[family-name:var(--font-roboto)] font-light leading-relaxed">
               Infraestructura moderna para negocios que no se detienen. Inteligencia aplicada a cada kilómetro.
             </p>
           </motion.div>
@@ -244,4 +244,4 @@ export const ServicesOverview = () => {
       </div>
     </section>
   );
-};
+};

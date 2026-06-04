@@ -21,8 +21,8 @@ export default function HeroAnimado() {
             Tu Solución Confiable
           </div>
 
-          <h1 className="font-display text-orbitron text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black italic tracking-tighter leading-[0.9] mb-4 xl:mb-6 uppercase text-slate-900 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
-            Mensajería y <span className="text-primary drop-shadow-[0_0_25px_rgba(37,99,235,0.4)]">Logística E-Commerce</span> en <span className="text-secondary italic drop-shadow-[0_0_20px_rgba(234,179,8,0.2)]">Mar del Plata</span>
+          <h1 className="font-display text-orbitron text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black italic tracking-tighter leading-[0.9] mb-4 xl:mb-6 uppercase text-white animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
+            Mensajería y <span className="text-blue-400 drop-shadow-[0_0_25px_rgba(96,165,250,0.4)]">Logística E-Commerce</span> en <span className="text-secondary italic drop-shadow-[0_0_20px_rgba(234,179,8,0.2)]">Mar del Plata</span>
           </h1>
 
           <p className="text-gray-400 text-base lg:text-lg xl:text-xl mb-8 xl:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-[family-name:var(--font-roboto)] font-light animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">
@@ -44,23 +44,23 @@ export default function HeroAnimado() {
             <Link
               href="/servicios/envios-express"
               aria-label="Ver todos los servicios de envíos"
-              className="flex items-center gap-4 group text-slate-900 font-display text-orbitron font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors py-2"
+              className="flex items-center gap-4 group text-white font-display text-orbitron font-bold uppercase tracking-[0.2em] hover:text-primary transition-colors py-2"
             >
               <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all group-hover:scale-110 shadow-xl backdrop-blur-sm" aria-hidden="true">
-                <Play className="fill-white text-slate-900 ml-1" size={18} />
+                <Play className="fill-white text-white ml-1" size={18} />
               </div>
               <span className="text-xs">Ver Servicios</span>
             </Link>
           </div>
 
           <div className="mt-10 lg:mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-1000 fill-mode-both">
-            <div className="flex items-center gap-2 text-xxs font-black tracking-[0.3em] uppercase text-slate-900/40">
+            <div className="flex items-center gap-2 text-xxs font-black tracking-[0.3em] uppercase text-white/40">
               <ShieldCheck size={14} className="text-primary" /> 100% SEGURO
             </div>
-            <div className="flex items-center gap-2 text-xxs font-black tracking-[0.3em] uppercase text-slate-900/40">
+            <div className="flex items-center gap-2 text-xxs font-black tracking-[0.3em] uppercase text-white/40">
               <Zap size={14} className="text-secondary" /> ULTRA RÁPIDO
             </div>
-            <div className="flex items-center gap-2 text-xxs font-black tracking-[0.3em] uppercase text-slate-900/40">
+            <div className="flex items-center gap-2 text-xxs font-black tracking-[0.3em] uppercase text-white/40">
               <Globe size={14} className="text-blue-400" /> COBERTURA TOTAL
             </div>
           </div>

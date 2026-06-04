@@ -42,13 +42,13 @@ export const VisionSection = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Partner Logístico Especializado
             </div>
 
-            <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black leading-[0.9] mb-10 uppercase text-slate-900 tracking-tighter">
+            <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black leading-[0.9] mb-10 uppercase text-white tracking-tighter">
               Nuestra Visión <br />
               <span className="text-primary italic drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logística</span>
             </h2>
 
             <p className="text-gray-400 text-lg md:text-xl mb-12 leading-relaxed font-[family-name:var(--font-roboto)] font-light max-w-2xl">
-              Transformamos <span className="font-bold text-gray-300">tus costos fijos en soluciones flexibles</span> que acompañan el crecimiento de tu negocio.
+              Transformamos <span className="font-bold text-gray-300">tus costos fijos en solutions flexibles</span> que acompañan el crecimiento de tu negocio.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-16">
@@ -63,7 +63,7 @@ export const VisionSection = () => {
                     {React.cloneElement(item.icon, { size: 28 })}
                   </div>
                   <div>
-                    <h3 className="font-display text-orbitron text-sm font-black text-slate-900 uppercase tracking-wider mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                    <h3 className="font-display text-orbitron text-sm font-black text-white uppercase tracking-wider mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
                     <p className="text-gray-400 text-xs font-[family-name:var(--font-roboto)] leading-relaxed font-light">{item.text}</p>
                   </div>
                 </motion.div>
@@ -84,7 +84,7 @@ export const VisionSection = () => {
 
               <motion.div
                 whileHover={{ rotate: 90 }}
-                className="hidden md:flex ml-auto w-16 h-16 rounded-full border border-white/10 items-center justify-center text-slate-900/20 opacity-40"
+                className="hidden md:flex ml-auto w-16 h-16 rounded-full border border-white/10 items-center justify-center text-white/10 opacity-40"
               >
                 <Globe size={24} />
               </motion.div>
@@ -104,15 +104,15 @@ export const VisionSection = () => {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition-transform duration-[3000ms] group-hover:scale-110 filter brightness-90 contrast-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-surface-light via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0d16] via-transparent to-transparent opacity-90" />
 
               {/* Animated Inner Glow */}
               <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
               {/* Floating Interactive Hub */}
-              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-[40px] bg-surface-light/40 backdrop-blur-3xl border border-white/10 flex items-center justify-between group-hover:bg-surface-light/60 transition-all duration-700 shadow-2xl">
+              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-[40px] bg-[#0a0d16]/40 backdrop-blur-3xl border border-white/10 flex items-center justify-between group-hover:bg-[#0a0d16]/60 transition-all duration-700 shadow-2xl">
                 <div>
-                  <h3 className="font-display text-orbitron text-2xl font-black text-slate-900 uppercase tracking-tight mb-2">Conocé más sobre nosotros</h3>
+                  <h3 className="font-display text-orbitron text-2xl font-black text-white uppercase tracking-tight mb-2">Conocé más sobre nosotros</h3>
                   <div className="flex items-center gap-3 text-xxs text-blue-400 font-black tracking-[0.2em] uppercase">
                     <CheckCircle2 size={14} className="animate-pulse" aria-hidden="true" /> ¿Listo para formar parte de nuestra familia de clientes satisfechos?
                   </div>
@@ -121,7 +121,7 @@ export const VisionSection = () => {
                   whileHover={{ scale: 1.1, rotate: 12 }}
                   whileTap={{ scale: 0.9 }}
                   aria-label="Ir a página sobre nosotros"
-                  className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-slate-900 shadow-[0_10px_30px_-5px_rgba(37,99,235,0.6)] hover:bg-blue-500 transition-all border border-blue-400/30"
+                  className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shadow-[0_10px_30px_-5px_rgba(37,99,235,0.6)] hover:bg-blue-500 transition-all border border-blue-400/30"
                   onClick={() => window.location.href = '/nosotros/sobre-nosotros'}
                 >
                   <Play size={24} fill="currentColor" className="ml-1" aria-hidden="true" />

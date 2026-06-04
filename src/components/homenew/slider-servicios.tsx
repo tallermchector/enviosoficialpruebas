@@ -69,7 +69,7 @@ export default function SliderServicios() {
             <div className="tag-primary">
               <LayoutGrid size={16} className="text-primary" /> CAPACIDADES DINÁMICAS
             </div>
-            <h2 className="font-display text-orbitron heading-xl italic">
+            <h2 className="font-display text-orbitron heading-xl italic text-white">
               SOLUCIONES A <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">MEDIDA</span>
             </h2>
           </motion.div>
@@ -110,10 +110,10 @@ export default function SliderServicios() {
 
               <div className="mb-auto">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[9px] font-black text-slate-900/30 uppercase tracking-[0.3em]">{service.badge}</span>
+                  <span className="text-[9px] font-black text-white/40 uppercase tracking-[0.3em]">{service.badge}</span>
                   <div className="h-px w-6 bg-white/10" />
                 </div>
-                <h3 className="font-display text-orbitron text-2xl font-black text-slate-900 mb-1 uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
+                <h3 className="font-display text-orbitron text-2xl font-black text-white mb-1 uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
                   {service.title}
                 </h3>
                 <p className="text-primary text-[9px] font-black uppercase tracking-[0.2em] mb-4">
@@ -126,7 +126,7 @@ export default function SliderServicios() {
 
               <Link
                 href={service.href}
-                className="flex items-center gap-4 text-slate-900 font-display text-orbitron text-xxs font-black uppercase tracking-[0.3em] opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all group-hover:gap-6 pt-10 mt-auto border-t border-white/5"
+                className="flex items-center gap-4 text-white font-display text-orbitron text-xxs font-black uppercase tracking-[0.3em] opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all group-hover:gap-6 pt-10 mt-auto border-t border-white/5"
               >
                 {service.buttonText} <ChevronRight size={18} />
               </Link>
@@ -137,7 +137,7 @@ export default function SliderServicios() {
               {/* Specific Visual for certain cards */}
               {idx === 0 && (
                 <div className="absolute bottom-20 right-10 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <Zap size={100} className="text-slate-900" />
+                  <Zap size={100} className="text-white/10" />
                 </div>
               )}
             </motion.div>
@@ -152,17 +152,17 @@ export default function SliderServicios() {
           className="mt-24 flex flex-col items-center gap-8 py-12 border-t border-white/5"
         >
           <div className="flex items-center gap-10">
-            <div className="flex items-center gap-3 text-slate-900/20">
+            <div className="flex items-center gap-3 text-white/20">
               <Zap size={14} />
               <span className="text-[9px] font-black tracking-[0.5em] uppercase">MÁXIMO PODER</span>
             </div>
             <div className="w-2 h-2 rounded-full bg-primary/20" />
-            <div className="flex items-center gap-3 text-slate-900/20">
+            <div className="flex items-center gap-3 text-white/20">
               <Globe size={14} />
               <span className="text-[9px] font-black tracking-[0.5em] uppercase">INFRAESTRUCTURA TOTAL</span>
             </div>
           </div>
-          <p className="text-gray-800 text-[8px] font-black uppercase tracking-[1em] text-center max-w-lg leading-loose opacity-50">
+          <p className="text-gray-400 text-[8px] font-black uppercase tracking-[1em] text-center max-w-lg leading-loose opacity-50">
             ENGINEERING LOGISTICS FOR THE MODERN ERA OF COMMERCE IN MAR DEL PLATA
           </p>
         </motion.div>
