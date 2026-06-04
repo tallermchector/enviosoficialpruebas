@@ -1,6 +1,6 @@
 'use client';
 
-import { HeroSection } from "@/components/ui/HeroSection";
+import { ContactHero } from "@/components/contact/contact-hero";
 import { ContactInfo } from "@/components/contact/contact-info";
 import { ContactForm } from "@/components/contact/contact-form";
 import { BusinessHours } from "@/components/contact/business-hours";
@@ -24,16 +24,7 @@ const sectionVariants = {
 export function ContactPageClient() {
   return (
     <>
-      <HeroSection
-        title="Contacto Comercial"
-        description="¿Listo para escalar tu negocio? Hablá con un asesor logístico y diseñemos un esquema tarifario a tu medida."
-        backgroundImageUrl="/bannerenvios.png"
-        backgroundImageAlt="Banner contacto Envios DosRuedas"
-        backgroundType="image"
-        textColorClassName="text-white"
-        titleClassName="text-headline-lg-mobile md:text-display-lg italic uppercase text-white mb-8"
-        descriptionClassName="text-gray-400 text-body-lg mb-12 max-w-xl mx-auto leading-relaxed"
-      />
+      <ContactHero />
       <motion.div
         custom={1}
         initial="hidden"
