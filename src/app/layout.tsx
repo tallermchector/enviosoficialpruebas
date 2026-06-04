@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Montserrat, Sora } from "next/font/google";
+import { Hanken_Grotesk, Sora } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { WhatsAppReviewButton } from "@/components/seo/WhatsAppReviewButton";
 import "./globals.css";
 
 
-const montserrat = Montserrat({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans-fallback",
   display: 'swap',
 })
@@ -101,7 +101,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${montserrat.variable} ${sora.variable} font-sans antialiased`}
+        className={`${hankenGrotesk.variable} ${sora.variable} font-sans antialiased`}
       >
         {children}
         <WhatsAppReviewButton />

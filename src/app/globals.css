@@ -14,12 +14,12 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    /* Primary: #2563eb */
-    --primary: 221.2 83.2% 53.3%;
+    /* Primary: Cobalt Accent #0047AB */
+    --primary: 215 100% 33.5%;
     --primary-foreground: 210 40% 98%;
-    /* Secondary/Accent: #fbc107 */
-    --secondary: 45 93% 47%;
-    --secondary-foreground: 26 83% 14%;
+    /* Secondary: Action Yellow #FFE600 */
+    --secondary: 54 100% 50%;
+    --secondary-foreground: 220 100% 21%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96.1%;
@@ -28,8 +28,8 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.75rem;
+    --ring: 215 100% 33.5%;
+    --radius: 0.25rem;
 
     /* Gradient colors - Soft elegant blue gradients */
     --blue-gradient-start: #edf4fa;
@@ -40,31 +40,33 @@
 
   .dark {
     /* Dark Mode: Standard tokens from DESIGN.md */
-    --background: 222 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 45 93% 47%;
-    --secondary-foreground: 26 83% 14%;
-    --muted: 217.2 32.6% 17.5%;
+    --background: 225 57% 3.9%;
+    --foreground: 0 0% 100%;
+    --card: 225 57% 3.9%;
+    --card-foreground: 0 0% 100%;
+    --popover: 225 57% 3.9%;
+    --popover-foreground: 0 0% 100%;
+    /* Primary: Cobalt Accent #0047AB */
+    --primary: 215 100% 33.5%;
+    --primary-foreground: 210 40% 98%;
+    /* Secondary: Action Yellow #FFE600 */
+    --secondary: 54 100% 50%;
+    --secondary-foreground: 220 100% 21%;
+    --muted: 220 100% 15.1%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 100% 15.1%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 217.2 91.2% 59.8%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 100% 15.1%;
+    --input: 220 100% 15.1%;
+    --ring: 54 100% 50%;
 
     /* Gradient colors */
-    --blue-gradient-start: #091326;
+    --blue-gradient-start: #001A4D;
     --blue-gradient-end: #030710;
-    --card-gradient-start: #0c1a30;
-    --card-gradient-end: #060c18;
+    --card-gradient-start: #00246B;
+    --card-gradient-end: #001A4D;
   }
 
   body {

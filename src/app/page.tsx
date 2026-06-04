@@ -13,12 +13,12 @@ import HeroAnimado from "@/components/homenew/hero-animado"
 // Implementamos next/dynamic para componentes Below the Fold para reducir el Script Evaluation inicial.
 const VisionSection = dynamic(() => import("@/components/homenew/vision-section").then(mod => mod.VisionSection), {
   ssr: true,
-  loading: () => <div className="min-h-[400px] bg-surface-light" />
+  loading: () => <div className="min-h-[400px] bg-background" />
 })
 
 const ServicesOverview = dynamic(() => import("@/components/homenew/services-overview").then(mod => mod.ServicesOverview), {
   ssr: true,
-  loading: () => <div className="min-h-[400px] bg-surface-light" />
+  loading: () => <div className="min-h-[400px] bg-background" />
 })
 
 const CtaSection = dynamic(() => import("@/components/homenew/cta-section").then(mod => mod.CtaSection), {

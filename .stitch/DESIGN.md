@@ -1,99 +1,185 @@
-# Design System - Envios DosRuedas
+---
+name: Envios DosRuedas
+colors:
+  surface: '#121414'
+  surface-dim: '#121414'
+  surface-bright: '#37393a'
+  surface-container-lowest: '#0c0f0f'
+  surface-container-low: '#1a1c1c'
+  surface-container: '#1e2020'
+  surface-container-high: '#282a2b'
+  surface-container-highest: '#333535'
+  on-surface: '#e2e2e2'
+  on-surface-variant: '#cdc7aa'
+  inverse-surface: '#e2e2e2'
+  inverse-on-surface: '#2f3131'
+  outline: '#979177'
+  outline-variant: '#4b4731'
+  surface-tint: '#dec800'
+  primary: '#ffffff'
+  on-primary: '#373100'
+  primary-container: '#fde400'
+  on-primary-container: '#716500'
+  inverse-primary: '#6a5f00'
+  secondary: '#b4c5ff'
+  on-secondary: '#0b2b71'
+  secondary-container: '#2b458b'
+  on-secondary-container: '#a0b6ff'
+  tertiary: '#ffffff'
+  on-tertiary: '#002c70'
+  tertiary-container: '#dae2ff'
+  on-tertiary-container: '#2d60c4'
+  error: '#ffb4ab'
+  on-error: '#690005'
+  error-container: '#93000a'
+  on-error-container: '#ffdad6'
+  primary-fixed: '#fde400'
+  primary-fixed-dim: '#dec800'
+  on-primary-fixed: '#201c00'
+  on-primary-fixed-variant: '#504700'
+  secondary-fixed: '#dbe1ff'
+  secondary-fixed-dim: '#b4c5ff'
+  on-secondary-fixed: '#00174b'
+  on-secondary-fixed-variant: '#294389'
+  tertiary-fixed: '#dae2ff'
+  tertiary-fixed-dim: '#b1c5ff'
+  on-tertiary-fixed: '#001946'
+  on-tertiary-fixed-variant: '#00419e'
+  background: '#121414'
+  on-background: '#e2e2e2'
+  surface-variant: '#333535'
+typography:
+  display-lg:
+    fontFamily: Sora
+    fontSize: 48px
+    fontWeight: '800'
+    lineHeight: '1.1'
+    letterSpacing: -0.02em
+  headline-lg:
+    fontFamily: Sora
+    fontSize: 32px
+    fontWeight: '700'
+    lineHeight: '1.2'
+    letterSpacing: -0.01em
+  headline-lg-mobile:
+    fontFamily: Sora
+    fontSize: 24px
+    fontWeight: '700'
+    lineHeight: '1.2'
+  headline-md:
+    fontFamily: Sora
+    fontSize: 24px
+    fontWeight: '600'
+    lineHeight: '1.3'
+  body-lg:
+    fontFamily: Hanken Grotesk
+    fontSize: 18px
+    fontWeight: '400'
+    lineHeight: '1.6'
+  body-md:
+    fontFamily: Hanken Grotesk
+    fontSize: 16px
+    fontWeight: '400'
+    lineHeight: '1.5'
+  label-md:
+    fontFamily: Hanken Grotesk
+    fontSize: 14px
+    fontWeight: '600'
+    lineHeight: '1.2'
+    letterSpacing: 0.05em
+  label-sm:
+    fontFamily: Hanken Grotesk
+    fontSize: 12px
+    fontWeight: '500'
+    lineHeight: '1.2'
+rounded:
+  sm: 0.125rem
+  DEFAULT: 0.25rem
+  md: 0.375rem
+  lg: 0.5rem
+  xl: 0.75rem
+  full: 9999px
+spacing:
+  base: 8px
+  xs: 4px
+  sm: 12px
+  md: 24px
+  lg: 48px
+  xl: 80px
+  gutter: 24px
+  margin-mobile: 16px
+  margin-desktop: 64px
+---
 
-This document defines the design system for **Envios DosRuedas**, a last-mile logistics and messaging platform. It is derived from the implementation in `./src` and serves as a reference for maintaining visual and functional consistency.
+## Brand & Style
 
-## 1. Brand Identity
+This design system is built for a modern logistics and supply chain environment that prioritizes speed, clarity, and decisive action. The brand personality is **authoritative and energetic**, moving away from the sterile greys of traditional enterprise software toward a more saturated, high-contrast aesthetic.
 
-*   **Slogan**: "Tu Solución Confiable".
-*   **Pilares**: Rapidez, Seguridad, Modernidad y Confianza.
-*   **Voz**: Profesional, tecnológica, eficiente y cercana.
+The design style combines **Corporate Modernism** with **High-Contrast Boldness**. It utilizes a deep, immersive blue background to establish a sense of stable "night-mode" professional focus, punctuated by high-visibility yellow accents that mimic industrial hazard markings and priority signaling. The emotional response should be one of "controlled urgency"—the user should feel they are operating a high-performance engine where critical information is impossible to miss.
 
-## 2. Design Principles
+## Colors
 
-1.  **Visual Efficiency**: Users should find what they need quickly (tracking, quoting, management).
-2.  **Trust through Modernity**: Subtle gradients and glassmorphism effects to convey a technological and cutting-edge image.
-3.  **Accessibility**: High contrast in critical elements and clear legibility.
-4.  **Consistency**: Rigorous use of Tailwind tokens and components.
+The palette is intentionally restricted to maximize functional contrast. 
 
-## 3. Design Tokens
+- **Primary (Action Yellow):** A vibrant, saturated yellow (#FFE600) used exclusively for headings, primary call-to-actions, and mission-critical status indicators.
+- **Secondary (Deep Nautical):** The foundation of the system. This deep blue (#00246B) acts as the primary surface color, providing a professional and calming backdrop that reduces eye strain during long shifts.
+- **Tertiary (Cobalt Accent):** A brighter blue (#0047AB) used for interactive states, progress bars, and subtle layering to differentiate surfaces.
+- **Neutral (High-Vis White):** Pure white is reserved for body text and icon details to ensure maximum readability against the dark blue backgrounds.
 
-### 3.1 Colors (HSL)
+## Typography
 
-Defined in `src/app/globals.css` and `tailwind.config.ts`.
+This design system employs a dual-font strategy to balance character with utility.
 
-| Token | Light Mode | Dark Mode | Usage |
-| :--- | :--- | :--- | :--- |
-| `primary` | `221.2 83.2% 53.3%` | `217.2 91.2% 59.8%` | Main Blue. Primary buttons, accents. |
-| `secondary` | `45 93% 47%` | `45 93% 47%` | Yellow/Gold. CTAs, warnings. |
-| `background` | `0 0% 100%` | `222 84% 4.9%` | Main application background. |
-| `foreground` | `222.2 84% 4.9%` | `210 40% 98%` | Main text color. |
-| `accent` | `210 40% 96.1%` | `217.2 32.6% 17.5%` | Soft section backgrounds. |
-| `destructive` | `0 84.2% 60.2%` | `0 62.8% 30.6%` | Errors and dangerous actions. |
-| `muted` | `210 40% 96.1%` | `217.2 32.6% 17.5%` | Muted backgrounds and text. |
-| `border` | `214.3 31.8% 91.4%` | `217.2 32.6% 17.5%` | Component borders. |
+**Sora** is the display typeface. Its geometric structure and wide stance provide a technical, futuristic feel perfect for large-scale data and bold headers. All headers should be rendered in the primary yellow color to pop against the blue background.
 
-### 3.2 Typography
+**Hanken Grotesk** serves as the workhorse for body text and data labels. It is highly legible at small sizes and maintains a contemporary, professional look. Body text should remain white or a very light silver for secondary information. Use uppercase labels for metadata and technical specs to mimic industrial labeling conventions.
 
-*   **Display (Headers)**: `Orbitron` (Variable: `--font-orbitron`).
-    *   *Usage*: Section titles, text logos, hero headers. Futurist and technological feel.
-*   **Sans (Body)**: `Roboto` (Variable: `--font-roboto`).
-    *   *Usage*: Paragraphs, forms, button labels, tables. Clarity and professionalism.
+## Layout & Spacing
 
-### 3.3 Elevation and Shapes
+The layout philosophy follows a **strict functional grid** optimized for dashboard density. We utilize a 12-column fluid grid for desktop and a 4-column grid for mobile.
 
-*   **Border Radius**: Standardized to `0.75rem` (`var(--radius)`).
-*   **Shadows**: `shadow-sm` for cards, `shadow-2xl` for featured elements like the Hero.
+Spacing is based on an 8px rhythmic scale. For logistics-heavy screens, use "md" (24px) for gutter consistency between cards to maintain a structured, organized feel. Negative space is used strategically to group related data points, but density is prioritized over airiness to allow users to see more information at once.
 
-## 4. Layout and Spacing
+**Breakpoints:**
+- **Mobile:** < 600px (Margins: 16px)
+- **Tablet:** 600px - 1024px (Margins: 32px)
+- **Desktop:** > 1024px (Margins: 64px)
 
-*   **Container**: Max width of `1400px` (`2xl` in Tailwind).
-*   **Spacing**:
-    *   Section Padding: `2rem` (mobile) / `4rem` (desktop).
-    *   Card Gap: `1.5rem`.
-*   **Responsive Strategy**: Mobile-first approach using Flexbox and CSS Grid.
+## Elevation & Depth
 
-## 5. UI Patterns and Motion
+Depth in this design system is created through **Tonal Layering** rather than traditional shadows. Shadows are difficult to see on very dark backgrounds, so we use color shifts and borders to indicate hierarchy.
 
-### 5.1 Visual Treatments
+1.  **Floor (Level 0):** The deepest blue (#001A4D or similar dark navy) for the main application background.
+2.  **Surface (Level 1):** The primary blue (#00246B) for cards and main UI containers.
+3.  **Raised (Level 2):** A lighter cobalt (#0047AB) or a 1px inner stroke of white at 10% opacity to define edges.
+4.  **Interactive:** Hover states on cards should use a subtle glow or a 2px yellow left-border to indicate focus.
 
-*   **Glassmorphism**: `backdrop-blur-sm` combined with semi-transparent borders (e.g., `border-white/20`) for floating panels.
-*   **Gradients**:
-    *   *Hero Background*: `from-slate-900 via-blue-900 to-slate-800`.
-    *   *Primary Button (Yellow)*: `from-yellow-500 to-yellow-600`.
+Avoid heavy blurs; maintain crisp, clean lines to reflect precision in logistics.
 
-### 5.2 Animations (`tailwind.config.ts`)
+## Shapes
 
-*   `animate-float`: Smooth vertical movement (6s).
-*   `animate-spin-slow`: Slow rotation for background elements (8s).
-*   `animate-h-scroll`: Infinite horizontal scroll for logos/networks (45s).
-*   `animate-accordion-down/up`: Standard Radix accordion transitions.
+The shape language is **Soft (Level 1)**. This uses subtle 0.25rem (4px) corner radii. This approach maintains the professional, architectural feel of a logistics platform while removing the "harshness" of sharp 90-degree angles. 
 
-### 5.3 Framer Motion Patterns
+Buttons and input fields should follow this consistent 4px rounding. Avoid pill-shapes for buttons to maintain a structured, grid-aligned aesthetic that feels more like a dashboard and less like a social app.
 
-*   **Entradas**: `initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}`.
-*   **Hovers**: `whileHover={{ scale: 1.05 }}` for cards and main buttons.
+## Components
 
-## 6. Component Library (`src/components/ui/`)
+### Buttons
+- **Primary:** Background in Action Yellow (#FFE600), Text in Deep Blue (#00246B), Semi-bold.
+- **Secondary:** Transparent background with a 2px Action Yellow border.
+- **Ghost:** White text with no background, used for low-priority utility actions.
 
-The system uses **shadcn/ui** as its foundation. Key components include:
+### Input Fields
+Inputs should have a background slightly darker than the surface they sit on. The border should be a subtle 1px cobalt, turning into a 2px yellow stroke upon focus. Labels are always positioned above the field in `label-md` style.
 
-*   **Buttons**: Variants include `default` (primary blue), `secondary` (yellow), `destructive`, `outline`, `ghost`, and `link`.
-*   **Cards**: Standard `Card` with `shadow-sm` and `rounded-lg`.
-*   **Forms**: Consistent usage of `Label`, `Input`, `Select`, `Checkbox`, and `RadioGroup`.
-*   **Feedback**: `Toast` (via `sonner`), `Alert`, and `Progress` bars.
-*   **Navigation**: `NavigationMenu`, `Tabs`, and `Breadcrumb`.
+### Chips & Badges
+Used for status (e.g., "In Transit," "Delayed"). Status colors should be high-contrast:
+- **Warning:** Yellow background with Blue text.
+- **Critical:** Bright Red background with White text.
+- **Success:** Bright Mint background with Blue text.
 
-## 7. Developer Guidelines
+### Cards
+Cards are the primary container. They should use the "Surface" color with a clear hierarchy: Header (Sora, Yellow), Body (Hanken, White), and Footer (separated by a 1px Cobalt line).
 
-### ✅ Do's
-*   Use `cn()` for Tailwind class concatenation.
-*   Ensure text contrast on colored backgrounds.
-*   Maintain consistency across portals (Admin, Client, Courier).
-*   Explicitly implement `dark mode` for custom components.
-*   Use CSS variables for colors (e.g., `bg-primary` instead of hex codes).
-
-### ❌ Don'ts
-*   Avoid hardcoded colors (e.g., `bg-[#123456]`).
-*   Do not mix fonts; use `Roboto` for everything except headers.
-*   Never remove `focus-visible` styles from interactive elements.
-*   Avoid excessive animations that distract from core tasks.
+### Data Tables
+Tables are central to this design system. Use alternating row stripes (Level 1 Surface and a slightly lighter blue) to help the eye track across wide data sets. Headers should be sticky and use the `label-md` typography.
