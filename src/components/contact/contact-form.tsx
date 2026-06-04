@@ -35,7 +35,7 @@ const initialState: ContactFormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 text-base font-sans" size="lg">
+    <Button type="submit" disabled={pending} className="w-full bg-secondary hover:bg-yellow-400 text-black py-4 uppercase font-display font-black text-orbitron tracking-wider rounded-xl transition-all duration-300 transform active:scale-95 text-base h-auto" size="lg">
       {pending ? (
         <>
           <Loader2 className="mr-2 h-5 w-5 animate-spin" />
@@ -115,14 +115,8 @@ export function ContactForm() {
   }
 
   return (
-    <Card className="max-w-2xl mx-auto shadow-xl border-border bg-card/50 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 border-primary/10">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-2xl md:text-3xl font-bold text-center text-foreground font-display">¿Tenés alguna consulta?</CardTitle>
-        <CardDescription className="text-center text-sm sm:text-base text-muted-foreground font-sans">
-          Completá el formulario y te responderemos a la brevedad.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="pt-2 sm:pt-4">
+    <Card className="max-w-2xl mx-auto shadow-2xl border border-white/10 bg-[#0a0d16]/60 backdrop-blur-md hover:border-primary/30 transition-all duration-500 rounded-2xl">
+      <CardContent className="p-6 sm:p-8">
         <Form {...form}>
             <form action={formAction} className="space-y-5 sm:space-y-6">
             
@@ -131,9 +125,9 @@ export function ContactForm() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center font-sans"><User className="w-4 h-4 mr-2 text-primary"/>Nombre *</FormLabel>
+                    <FormLabel className="flex items-center text-label-md uppercase text-gray-300 font-bold mb-2"><User className="w-4 h-4 mr-2 text-primary"/>Nombre *</FormLabel>
                     <FormControl>
-                      <Input placeholder="Tu nombre" {...field} className="h-11 text-base bg-background/50 border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 font-sans"/>
+                      <Input placeholder="Tu nombre" {...field} className="h-11 text-base bg-[#030710]/50 border border-white/10 hover:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 text-white rounded-lg transition-all duration-300 font-sans"/>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -145,9 +139,9 @@ export function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center font-sans"><Mail className="w-4 h-4 mr-2 text-primary"/>Email *</FormLabel>
+                  <FormLabel className="flex items-center text-label-md uppercase text-gray-300 font-bold mb-2"><Mail className="w-4 h-4 mr-2 text-primary"/>Email *</FormLabel>
                   <FormControl>
-                    <Input type="email" placeholder="tu@email.com" {...field} className="h-11 text-base bg-background/50 border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 font-sans"/>
+                    <Input type="email" placeholder="tu@email.com" {...field} className="h-11 text-base bg-[#030710]/50 border border-white/10 hover:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 text-white rounded-lg transition-all duration-300 font-sans"/>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -159,13 +153,13 @@ export function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center font-sans"><MessageSquare className="w-4 h-4 mr-2 text-primary"/>Mensaje *</FormLabel>
+                  <FormLabel className="flex items-center text-label-md uppercase text-gray-300 font-bold mb-2"><MessageSquare className="w-4 h-4 mr-2 text-primary"/>Mensaje *</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Contanos sobre tu consulta o necesidad de envío..."
                       rows={5}
                       {...field}
-                      className="text-base bg-background/50 border-border/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 font-sans"
+                      className="text-base bg-[#030710]/50 border border-white/10 hover:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 text-white rounded-lg transition-all duration-300 font-sans"
                     />
                   </FormControl>
                   <FormMessage />

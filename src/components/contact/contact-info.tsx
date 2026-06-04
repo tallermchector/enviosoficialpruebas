@@ -48,7 +48,7 @@ export function ContactInfo() {
       description: "Para consultas detalladas o corporativas.",
       actionText: "Enviar Email",
       href: "mailto:matiascejas@enviosdosruedas.com",
-      colorClasses: "border-secondary text-secondary hover:bg-secondary hover:text-slate-900",
+      colorClasses: "border-secondary text-secondary hover:bg-secondary hover:text-[#00246B]",
       iconBg: "bg-secondary/10",
       iconColor: "text-secondary",
     },
@@ -68,14 +68,14 @@ export function ContactInfo() {
       description: "Mira nuestro día a día y ofertas visuales.",
       actionText: "Ir a Instagram",
       href: "https://instagram.com/enviosdosruedas",
-      colorClasses: "border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-slate-900",
-      iconBg: "bg-pink-100",
-      iconColor: "text-pink-500",
+      colorClasses: "border-pink-500 text-pink-400 hover:bg-pink-500 hover:text-slate-900",
+      iconBg: "bg-pink-500/10",
+      iconColor: "text-pink-400",
     },
   ];
 
   return (
-    <section className="py-12 md:py-16 px-4 bg-background">
+    <section className="py-12 md:py-16 px-4 bg-transparent">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           {/* Main Contact Card */}
@@ -86,22 +86,22 @@ export function ContactInfo() {
             viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
           >
-            <Card className="mb-8 sm:mb-10 shadow-lg border-primary/20 backdrop-blur-sm bg-white/50 dark:bg-slate-900/50">
+            <Card className="mb-8 sm:mb-10 shadow-2xl border border-white/10 backdrop-blur-md bg-[#0a0d16]/60 hover:border-primary/30 transition-all duration-500 rounded-2xl">
               <CardContent className="p-6 sm:p-8 text-center">
                 <div className="flex items-center justify-center mb-2 sm:mb-3">
                     <Home className="w-7 h-7 sm:w-8 sm:h-8 text-primary mr-2 sm:mr-3" />
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary font-display">Envios DosRuedas</h2>
+                    <h2 className="text-headline-lg-mobile sm:text-headline-lg md:text-display-md font-bold text-primary font-display uppercase tracking-wider mb-2">Envios DosRuedas</h2>
                 </div>
-                <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 font-sans">Mensajería y Delivery</p>
+                <p className="text-label-md text-gray-400 mb-4 sm:mb-6 uppercase">Mensajería y Delivery</p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-6 gap-2 sm:gap-3">
                   <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                  <span className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground font-display">223-660-2699</span>
+                  <span className="text-headline-lg-mobile sm:text-headline-lg md:text-display-md font-bold text-white font-display tracking-wider">223-660-2699</span>
                 </div>
 
                 <Button
                   onClick={handleWhatsAppClick}
-                  className="bg-[#25D366] hover:bg-[#25D366]/90 text-slate-900 px-4 py-2 text-sm sm:px-6 sm:py-2.5 sm:text-base font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 font-sans"
+                  className="bg-[#25D366] hover:bg-[#25D366]/90 text-slate-900 px-4 py-2 text-sm sm:px-6 sm:py-3 sm:text-base font-bold font-display text-orbitron tracking-wider rounded-xl shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 transform hover:scale-105 uppercase"
                 >
                   <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                   Contactar por WhatsApp
@@ -123,19 +123,19 @@ export function ContactInfo() {
                   viewport={{ once: true, amount: 0.2 }}
                   variants={cardVariants}
                 >
-                  <Card className="hover:shadow-xl transition-all duration-300 ease-in-out hover:-translate-y-1.5 h-full flex flex-col border-border/50 bg-card/50 backdrop-blur-sm">
+                  <Card className="hover:shadow-2xl hover:-translate-y-1.5 h-full flex flex-col border border-white/10 bg-[#0a0d16]/60 backdrop-blur-md hover:border-primary/30 rounded-2xl transition-all duration-500">
                     <CardContent className="p-6 text-center flex flex-col items-center flex-grow">
-                      <div className={cn("w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4 transform group-hover:scale-110 transition-transform duration-300", method.iconBg)}>
+                      <div className={cn("w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 transform group-hover:scale-110 transition-transform duration-300", method.iconBg)}>
                         {IconComponent && <IconComponent className={cn("w-7 h-7 sm:w-8 sm:h-8", method.iconColor)} />}
                       </div>
-                      <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1 font-display">{method.title}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground mb-4 flex-grow font-sans">{method.description}</p>
+                      <h3 className="text-headline-lg font-bold text-white mb-2 uppercase">{method.title}</h3>
+                      <p className="text-body-md text-gray-400 mb-6 flex-grow">{method.description}</p>
                       <Button
                         onClick={method.onClick}
                         asChild={!!method.href}
                         variant="outline"
                         size="sm"
-                        className={cn("mt-auto transition-all duration-300 w-full text-xs sm:text-sm font-sans", method.colorClasses)}
+                        className={cn("mt-auto transition-all duration-300 w-full text-xs sm:text-sm font-display text-orbitron font-bold tracking-wider rounded-xl uppercase py-2.5", method.colorClasses)}
                       >
                         {method.href ? (
                           <a href={method.href} target={method.href.startsWith("mailto:") ? "_self" : "_blank"} rel="noopener noreferrer">

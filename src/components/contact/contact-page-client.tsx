@@ -29,6 +29,10 @@ export function ContactPageClient() {
         description="¿Listo para escalar tu negocio? Hablá con un asesor logístico y diseñemos un esquema tarifario a tu medida."
         backgroundImageUrl="/bannerenvios.png"
         backgroundImageAlt="Banner contacto Envios DosRuedas"
+        backgroundType="image"
+        textColorClassName="text-white"
+        titleClassName="text-headline-lg-mobile md:text-display-lg italic uppercase text-white mb-8"
+        descriptionClassName="text-gray-400 text-body-lg mb-12 max-w-xl mx-auto leading-relaxed"
       />
       <motion.div
         custom={1}
@@ -45,12 +49,12 @@ export function ContactPageClient() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
         variants={sectionVariants}
-        className="py-12 md:py-16 px-4 bg-accent"
+        className="py-12 md:py-16 px-4 bg-transparent border-t border-white/5"
       >
         <div className="container mx-auto">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4 font-display">¿Tenés alguna consulta?</h2>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto font-sans">Completá el formulario y te responderemos a la brevedad.</p>
+            <h2 className="text-headline-lg-mobile md:text-display-md italic uppercase text-white mb-4">¿Tenés alguna consulta?</h2>
+            <p className="text-gray-400 text-body-lg max-w-xl mx-auto">Completá el formulario y te responderemos a la brevedad.</p>
           </div>
           <ContactForm />
         </div>

@@ -21,48 +21,48 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-gradient-to-br from-white/90 to-slate-50 border-red-500/20 hover:border-red-500/40 backdrop-blur-md",
-    icon: "bg-red-500/10 border border-red-500/20 text-red-500 drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]",
-    accent: "text-red-500",
-    text: "text-slate-900",
-    desc: "text-slate-600 [&>span]:text-slate-800",
-    button: "text-slate-900 group-hover:text-red-500",
-    badge: "bg-red-500/20 text-red-500 border-red-500/30",
-    accentColor: "red-500",
-    glowColor: "rgba(239,68,68,0.2)"
+    card: "bg-[#0a0d16]/80 border-red-500/20 hover:border-red-500/40 shadow-2xl backdrop-blur-md",
+    icon: "bg-red-500/10 border border-red-500/20 text-red-400 drop-shadow-[0_0_15px_rgba(239,68,68,0.4)]",
+    accent: "text-red-400",
+    text: "text-white",
+    desc: "text-gray-400 [&>span]:text-white",
+    button: "text-gray-300 hover:text-white group-hover:text-red-400",
+    badge: "bg-red-500/10 text-red-400 border-red-500/20",
+    accentColor: "red-400",
+    glowColor: "rgba(239,68,68,0.1)"
   },
   lowcost: {
-    card: "bg-gradient-to-br from-white/90 to-slate-50 border-cyan-500/20 hover:border-cyan-500/40 backdrop-blur-md",
+    card: "bg-[#0a0d16]/80 border-cyan-500/20 hover:border-cyan-500/40 shadow-2xl backdrop-blur-md",
     icon: "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]",
     accent: "text-cyan-400",
-    text: "text-slate-900",
-    desc: "text-slate-600 [&>span]:text-slate-800",
-    button: "text-slate-900 group-hover:text-cyan-400",
-    badge: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
+    text: "text-white",
+    desc: "text-gray-400 [&>span]:text-white",
+    button: "text-gray-300 hover:text-white group-hover:text-cyan-400",
+    badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
     accentColor: "cyan-400",
-    glowColor: "rgba(6,182,212,0.15)"
+    glowColor: "rgba(6,182,212,0.1)"
   },
   meli: {
-    card: "bg-gradient-to-br from-[#FFFDE7]/95 to-[#FFF9C4]/95 border-[#FFE600]/40 hover:border-[#2D3277]/40 shadow-xl shadow-yellow-500/5 backdrop-blur-md",
-    icon: "bg-[#2D3277]/10 border border-[#2D3277]/20 text-[#2D3277]",
-    accent: "text-[#2D3277]",
-    text: "text-[#2D3277]",
-    desc: "text-slate-700 [&>span]:text-slate-900",
-    button: "text-[#2D3277] group-hover:gap-6",
-    badge: "bg-[#2D3277]/10 text-[#2D3277] border-[#2D3277]/20",
-    accentColor: "[#2D3277]",
-    glowColor: "rgba(45,50,119,0.1)"
+    card: "bg-[#0a0d16]/80 border-yellow-500/20 hover:border-yellow-500/40 shadow-2xl backdrop-blur-md",
+    icon: "bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]",
+    accent: "text-yellow-400",
+    text: "text-white",
+    desc: "text-gray-400 [&>span]:text-yellow-400",
+    button: "text-gray-300 hover:text-white group-hover:text-yellow-400",
+    badge: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+    accentColor: "yellow-400",
+    glowColor: "rgba(234,179,8,0.1)"
   },
   ecommerce: {
-    card: "bg-gradient-to-br from-emerald-50/95 to-white/95 border-emerald-500/20 hover:border-emerald-500/40 backdrop-blur-md",
-    icon: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-600",
-    accent: "text-emerald-700",
-    text: "text-emerald-900",
-    desc: "text-emerald-800/80 [&>span]:text-emerald-900",
-    button: "text-emerald-700 group-hover:text-emerald-900",
-    badge: "bg-emerald-500/20 text-emerald-800 border-emerald-500/30",
+    card: "bg-[#0a0d16]/80 border-emerald-500/20 hover:border-emerald-500/40 shadow-2xl backdrop-blur-md",
+    icon: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]",
+    accent: "text-emerald-400",
+    text: "text-white",
+    desc: "text-gray-400 [&>span]:text-emerald-400",
+    button: "text-gray-300 hover:text-white group-hover:text-emerald-400",
+    badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
     accentColor: "emerald-500",
-    glowColor: "rgba(16,185,129,0.2)"
+    glowColor: "rgba(16,185,129,0.1)"
   }
 };
 
@@ -234,7 +234,7 @@ export const ServicesOverview = () => {
                 {/* Specific Visual for the first card */}
                 {idx === 0 && (
                   <div className="absolute top-10 right-10 opacity-5 group-hover:opacity-10 transition-opacity" aria-hidden="true">
-                    <MousePointer2 size={120} className="rotate-12 text-slate-900" />
+                    <MousePointer2 size={120} className="rotate-12 text-white" />
                   </div>
                 )}
               </motion.div>
