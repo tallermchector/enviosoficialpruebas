@@ -66,11 +66,11 @@ export default function SliderServicios() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="tag-primary">
-              <LayoutGrid size={16} className="text-primary" /> CAPACIDADES DINÁMICAS
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.25em] mb-8 uppercase font-sans">
+              <LayoutGrid size={12} className="text-primary animate-pulse" /> CAPACIDADES DINÁMICAS
             </div>
-            <h2 className="font-display text-orbitron heading-xl italic text-white">
-              SOLUCIONES A <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">MEDIDA</span>
+            <h2 className="font-display text-orbitron text-4xl md:text-5xl lg:text-6xl font-black italic text-white uppercase tracking-tighter mb-4">
+              SOLUCIONES A <span className="text-secondary drop-shadow-[0_0_20px_rgba(255,230,0,0.35)]">MEDIDA</span>
             </h2>
           </motion.div>
 
@@ -96,7 +96,7 @@ export default function SliderServicios() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -12, scale: 1.02 }}
-              className="group p-10 rounded-[40px] bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden flex flex-col h-[420px] backdrop-blur-xl shadow-2xl"
+              className="group p-6 md:p-10 rounded-[30px] md:rounded-[40px] bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden flex flex-col min-h-[440px] h-auto backdrop-blur-xl shadow-2xl"
             >
               {/* Internal Accent Light */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/[0.02] blur-[40px] rounded-full group-hover:bg-primary/10 transition-all duration-700" />
@@ -116,7 +116,7 @@ export default function SliderServicios() {
                 <h3 className="font-display text-orbitron text-2xl font-black text-white mb-1 uppercase tracking-tight group-hover:text-primary transition-colors leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-primary text-[9px] font-black uppercase tracking-[0.2em] mb-4">
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] mb-4" style={{ color: service.color }}>
                   {service.bajada}
                 </p>
                 <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)] font-light">
@@ -126,13 +126,13 @@ export default function SliderServicios() {
 
               <Link
                 href={service.href}
-                className="flex items-center gap-4 text-white font-display text-orbitron text-xxs font-black uppercase tracking-[0.3em] opacity-30 group-hover:opacity-100 group-hover:text-primary transition-all group-hover:gap-6 pt-10 mt-auto border-t border-white/5"
+                className="flex items-center gap-4 text-white font-display text-orbitron text-xxs font-black uppercase tracking-[0.3em] opacity-30 group-hover:opacity-100 group-hover:text-secondary transition-all group-hover:gap-6 pt-6 mt-auto border-t border-white/5"
               >
                 {service.buttonText} <ChevronRight size={18} />
               </Link>
 
               {/* Decorative Side Accent */}
-              <div className="absolute bottom-10 -right-1 w-[2px] h-20 bg-gradient-to-b from-transparent via-white/10 to-transparent group-hover:via-primary/50 transition-all" />
+              <div className="absolute bottom-10 -right-1 w-[2px] h-20 bg-gradient-to-b from-transparent via-white/10 to-transparent group-hover:via-secondary/50 transition-all" />
 
               {/* Specific Visual for certain cards */}
               {idx === 0 && (
