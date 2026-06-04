@@ -63,8 +63,8 @@ export function MercadoLibreBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-surface-light relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
+    <section className="py-24 px-4 bg-background relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#FFF159]/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-20">
@@ -74,11 +74,11 @@ export function MercadoLibreBenefits() {
             viewport={{ once: true }}
           >
             <ReputationThermometer />
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
-              BENEFICIOS <span className="text-primary">PARA VENDEDORES</span>
+            <h2 className="font-display text-display-md font-black italic mb-6 uppercase text-foreground tracking-tighter">
+              BENEFICIOS <span className="text-[#FFF159]">PARA VENDEDORES</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+            <div className="w-24 h-2 bg-[#FFF159] mx-auto mb-8 rounded-full" />
+            <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
               La solución definitiva para llevar tu tienda de MercadoLibre al siguiente nivel de competitividad.
             </p>
           </motion.div>
@@ -96,16 +96,16 @@ export function MercadoLibreBenefits() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <Card className="h-full bg-white/5 border-white/10 hover:border-[#FFE600]/50 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden relative">
-                   <div className="absolute top-0 left-0 w-full h-1 bg-[#FFE600] opacity-0 group-hover:opacity-100 transition-opacity" />
+                <Card className="h-full bg-[#0a0d16]/60 border-white/10 hover:border-[#FFF159]/50 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden relative">
+                   <div className="absolute top-0 left-0 w-full h-1 bg-[#FFF159] opacity-0 group-hover:opacity-100 transition-opacity" />
                   <CardContent className="p-10 relative">
-                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors" />
+                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-[#FFF159]/5 transition-colors" />
 
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
-                      <IconComponent className="w-8 h-8 text-primary" />
+                    <div className="w-16 h-16 rounded-2xl bg-[#FFF159]/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
+                      <IconComponent className="w-8 h-8 text-[#FFF159]" />
                     </div>
-                    <h3 className="font-[family-name:var(--font-orbitron)] text-2xl font-bold mb-4 uppercase text-slate-900 tracking-tight">{benefit.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{benefit.description}</p>
+                    <h3 className="font-display text-headline-lg font-bold mb-4 uppercase text-foreground tracking-tight">{benefit.title}</h3>
+                    <p className="text-gray-400 text-body-md leading-relaxed font-sans">{benefit.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>

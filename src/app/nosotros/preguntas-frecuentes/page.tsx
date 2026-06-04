@@ -38,7 +38,7 @@ export default function FaqPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="dark min-h-screen flex flex-col bg-background text-foreground selection:bg-primary/30">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

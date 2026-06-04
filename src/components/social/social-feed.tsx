@@ -31,28 +31,28 @@ const PlatformIcon = ({ platform }: { platform: SocialPost['platform'] }) => {
 export function SocialFeed({ posts }: SocialFeedProps) {
   if (!posts || posts.length === 0) {
     return (
-      <section className="py-20 px-4 bg-accent/20">
+      <section className="py-20 px-4 bg-[#030710]">
         <div className="container mx-auto text-center">
-          <p className="text-xl text-muted-foreground font-sans">Mantente atento a nuestras próximas publicaciones.</p>
+          <p className="text-body-lg text-muted-foreground font-sans">Mantenete atento a nuestras próximas publicaciones.</p>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="py-20 px-4 bg-accent/20">
+    <section className="py-20 px-4 bg-[#030710]">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 font-display uppercase tracking-tight">Publicaciones Recientes</h2>
-          <p className="text-xl text-muted-foreground font-sans max-w-2xl mx-auto">
+          <h2 className="text-display-md text-foreground mb-6 font-display uppercase tracking-tight">Publicaciones Recientes</h2>
+          <p className="text-body-lg text-muted-foreground font-sans max-w-2xl mx-auto">
             Lo que está pasando ahora mismo en nuestras redes sociales oficiales.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <Card key={post.id} className="overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col bg-background/80 backdrop-blur-sm rounded-3xl border-border/50">
-              <CardHeader className="flex flex-row items-center space-x-4 p-6 border-b border-border/50">
+            <Card key={post.id} className="overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col bg-[#0a0d16]/60 backdrop-blur-sm rounded-3xl border-white/10">
+              <CardHeader className="flex flex-row items-center space-x-4 p-6 border-b border-white/10">
                 {post.user.avatarUrl ? (
                   <div className="relative">
                     <Image
@@ -73,9 +73,9 @@ export function SocialFeed({ posts }: SocialFeedProps) {
                 )}
                 <div>
                   <a href={post.user.profileUrl || post.postUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                    <CardTitle className="text-lg font-bold font-display">{post.user.name}</CardTitle>
+                    <CardTitle className="text-body-lg font-bold font-display">{post.user.name}</CardTitle>
                   </a>
-                  <p className="text-xs text-muted-foreground font-sans uppercase tracking-wider">
+                  <p className="text-label-sm text-muted-foreground font-sans uppercase tracking-wider">
                     {new Date(post.timestamp).toLocaleDateString('es-AR', { month: 'short', day: 'numeric' })} • {post.platform}
                   </p>
                 </div>
@@ -96,14 +96,14 @@ export function SocialFeed({ posts }: SocialFeedProps) {
                 )}
                 
                 <div className="p-6">
-                  <p className="text-muted-foreground leading-relaxed text-base font-sans line-clamp-4">
+                  <p className="text-muted-foreground leading-relaxed text-body-md font-sans line-clamp-4">
                     {post.content}
                   </p>
                 </div>
 
                 {post.platform === 'whatsapp' && (
                    <div className="px-6 pb-6">
-                    <Button asChild className={cn("w-full h-12 text-slate-900 font-bold rounded-xl", platformColors[post.platform])}>
+                    <Button asChild className={cn("w-full h-12 text-slate-900 uppercase font-display text-label-md rounded-xl", platformColors[post.platform])}>
                       <a href={post.postUrl} target="_blank" rel="noopener noreferrer">
                         <MessageSquare className="mr-2 h-5 w-5" /> Iniciar Chat Web
                       </a>
@@ -113,7 +113,7 @@ export function SocialFeed({ posts }: SocialFeedProps) {
               </CardContent>
 
               {post.platform !== 'whatsapp' && (
-                <CardFooter className="p-6 border-t border-border/50 flex items-center justify-between bg-accent/5">
+                <CardFooter className="p-6 border-t border-white/10 flex items-center justify-between bg-white/5">
                   <div className="flex items-center space-x-4 text-muted-foreground font-sans font-bold text-sm">
                     {post.likes !== undefined && (
                       <span className="flex items-center hover:text-primary transition-colors cursor-pointer"><ThumbsUp className="w-4 h-4 mr-1.5" /> {post.likes}</span>
@@ -122,7 +122,7 @@ export function SocialFeed({ posts }: SocialFeedProps) {
                       <span className="flex items-center hover:text-primary transition-colors cursor-pointer"><MessageIcon className="w-4 h-4 mr-1.5" /> {post.comments}</span>
                     )}
                   </div>
-                  <Button variant="ghost" size="sm" asChild className="text-primary font-bold hover:bg-primary/10 rounded-full">
+                  <Button variant="ghost" size="sm" asChild className="text-primary font-bold hover:bg-primary/10 rounded-xl">
                     <a href={post.postUrl} target="_blank" rel="noopener noreferrer">
                       Ver Original <ExternalLink className="ml-1.5 w-4 h-4" />
                     </a>
@@ -134,7 +134,7 @@ export function SocialFeed({ posts }: SocialFeedProps) {
         </div>
 
         <div className="text-center mt-16">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-14 px-10 text-lg rounded-full shadow-xl hover:shadow-primary/20 transition-all">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground uppercase font-display text-label-md h-14 px-10 rounded-xl shadow-xl hover:shadow-primary/20 transition-all">
             Seguir todas nuestras cuentas <span className="ml-2 font-sans">→</span>
           </Button>
         </div>

@@ -125,7 +125,7 @@ export function FaqCategories() {
   const activeFaq = faqData.find((faq) => faq.category === activeCategory)
 
   return (
-    <section className="py-16 px-4 bg-accent/30">
+    <section className="py-16 px-4 bg-[#030710]">
       <div className="container mx-auto max-w-6xl">
         {/* Category Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
@@ -139,10 +139,10 @@ export function FaqCategories() {
                 onClick={() => setActiveCategory(category.id)}
                 variant={isActive ? "default" : "outline"}
                 className={cn(
-                  "h-auto p-6 flex flex-col items-center space-y-4 transition-all duration-300 font-display",
+                  "h-auto p-6 flex flex-col items-center space-y-4 transition-all duration-300 font-display rounded-xl",
                   isActive
                     ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl scale-105 border-primary"
-                    : "bg-background/50 backdrop-blur-sm border-border/50 hover:bg-accent/50 hover:border-primary/50 text-muted-foreground"
+                    : "bg-[#0a0d16]/60 backdrop-blur-sm border-white/10 hover:bg-white/5 hover:border-primary/50 text-muted-foreground"
                 )}
               >
                 <div className={cn(
@@ -160,7 +160,7 @@ export function FaqCategories() {
         {/* FAQ Items */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground font-display">
+            <h2 className="text-display-md text-foreground font-display">
               {categories.find((cat) => cat.id === activeCategory)?.label}
             </h2>
             <div className="w-16 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>

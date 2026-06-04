@@ -35,7 +35,7 @@ export function LowcostContent() {
   };
 
   return (
-    <section className="py-24 px-4 bg-[#0a0d16] relative overflow-hidden">
+    <section className="py-24 px-4 bg-background relative overflow-hidden">
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -56,10 +56,10 @@ export function LowcostContent() {
           >
             <div className="text-center lg:text-left select-none opacity-20">
               <div className="space-y-2">
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-slate-900 font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-display tracking-tighter leading-none">
                   ENVIOS
                 </div>
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-[family-name:var(--font-orbitron)] tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-display tracking-tighter leading-none">
                   LOWCOST
                 </div>
               </div>
@@ -68,14 +68,14 @@ export function LowcostContent() {
 
           {/* Right Content */}
           <motion.div className="order-1 lg:order-2" variants={itemVariants}>
-             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xxs font-bold tracking-widest mb-6 uppercase">
+             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-label-sm font-bold tracking-widest mb-6 uppercase">
               MÁXIMA RENTABILIDAD
             </div>
-            <h2 className="font-[family-name:var(--font-orbitron)] text-3xl md:text-5xl font-black leading-[1] mb-8 uppercase text-slate-900 tracking-tighter">
+            <h2 className="font-display text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
               ENVÍOS LOWCOST: <br />
               <span className="text-primary italic">MÁXIMA EFICIENCIA</span>
             </h2>
-            <p className="text-gray-400 text-lg mb-10 leading-relaxed font-[family-name:var(--font-roboto)] max-w-xl">
+            <p className="text-gray-400 text-body-lg mb-10 leading-relaxed font-sans max-w-xl">
               Nuestro servicio LowCost está diseñado para el ruteo diario masivo. Optimizamos nuestras rutas para ofrecer la tarifa más competitiva, garantizando la entrega en el día para pedidos ingresados antes del horario de corte.
             </p>
 
@@ -93,8 +93,8 @@ export function LowcostContent() {
                       <IconComponent className="w-7 h-7 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 mb-2 font-[family-name:var(--font-orbitron)] uppercase tracking-tight">{feature.title}</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{feature.description}</p>
+                      <h3 className="text-headline-lg-mobile font-bold text-foreground mb-2 font-display uppercase tracking-tight">{feature.title}</h3>
+                      <p className="text-gray-400 text-body-md leading-relaxed font-sans">{feature.description}</p>
                     </div>
                   </motion.div>
                 )
@@ -105,9 +105,9 @@ export function LowcostContent() {
             <Button
               asChild
               size="lg"
-              className="bg-secondary hover:bg-secondary/90 text-black font-[family-name:var(--font-orbitron)] font-black px-10 py-5 rounded-xl transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto"
+              className="bg-secondary hover:bg-yellow-400 text-black font-display font-black px-10 py-5 rounded-xl transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto text-label-md"
             >
-              <Link href="/cotizar/lowcost">Cotizar Envío Low Cost</Link>
+              <Link href="/cotizar/lowcost">Cotizá tu Envío Low Cost</Link>
             </Button>
           </motion.div>
         </motion.div>
