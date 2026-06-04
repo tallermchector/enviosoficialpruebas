@@ -51,12 +51,12 @@ export const CtaSection = () => {
               <Zap size={16} className="fill-yellow-400 text-yellow-400 animate-pulse" /> ¡Empezá Ahora!
             </motion.div>
 
-            <h2 className="font-display text-white text-4xl md:text-7xl lg:text-8xl font-black mb-10 tracking-tighter leading-[0.9] uppercase italic">
+            <h2 className="text-headline-lg-mobile md:text-display-lg text-white mb-10 uppercase italic">
               ¿Listo para escalar la <br />
               <span className="text-secondary drop-shadow-2xl">logística de tu E-Commerce?</span>
             </h2>
 
-            <p className="text-gray-300 text-lg md:text-2xl mb-16 max-w-4xl mx-auto leading-relaxed font-light opacity-80">
+            <p className="text-gray-300 text-body-lg mb-16 max-w-4xl mx-auto opacity-80">
               <span className="font-bold">Olvidate de la gestión de paquetes</span> y enfocate en vender más. Dejá la distribución urbana en manos de expertos.
             </p>
 
@@ -64,14 +64,14 @@ export const CtaSection = () => {
               <Link
                 href="https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
                 aria-label="Contactanos por WhatsApp para servicios logísticos"
-                className="group w-full sm:w-auto px-12 py-6 bg-secondary text-primary font-display font-black rounded-2xl transition-all shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 flex items-center justify-center gap-4 uppercase tracking-tighter text-sm"
+                className="group w-full sm:w-auto px-12 py-6 bg-secondary text-primary text-label-md rounded-2xl transition-all shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 flex items-center justify-center gap-4 uppercase"
               >
                 Contactanos por WhatsApp <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
                 href="/tarifas"
-                className="w-full sm:w-auto px-12 py-6 bg-white/5 border border-white/10 text-white font-display text-orbitron font-bold rounded-2xl transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:bg-white/10 uppercase tracking-widest text-xs"
+                className="w-full sm:w-auto px-12 py-6 bg-white/5 border border-white/10 text-white text-label-md rounded-2xl transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:bg-white/10 uppercase"
               >
                 Ver Tarifas 2026 <Calculator size={22} />
               </Link>
@@ -83,7 +83,7 @@ export const CtaSection = () => {
                 { icon: <ShieldCheck aria-hidden="true" />, text: "Innovación constante en última milla" },
                 { icon: <MousePointer2 aria-hidden="true" />, text: "Motocicletas dedicadas para máxima agilidad urbana" }
               ].map((item, i) => (
-                <div key={i} className="flex flex-col items-center gap-4 text-[9px] font-black text-blue-100/50 uppercase tracking-[0.3em]">
+                <div key={i} className="flex flex-col items-center gap-4 text-label-sm text-blue-100/50 uppercase">
                   <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-white transition-all">
                     {React.cloneElement(item.icon as React.ReactElement<{ size?: number; className?: string; fill?: string }>, { size: 18 })}
                   </div>

@@ -67,7 +67,7 @@ export const EmprendedoresHome = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="font-display text-orbitron text-5xl md:text-8xl font-black italic tracking-tighter leading-[0.85] text-white uppercase"
+              className="text-headline-lg-mobile md:text-display-lg italic text-white uppercase"
             >
               Potencia tu <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logística</span> <br />
               con <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]">DosRuedas</span>
@@ -80,17 +80,17 @@ export const EmprendedoresHome = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:border-l lg:border-white/10 lg:pl-12"
           >
-            <p className="font-[family-name:var(--font-roboto)] text-gray-400 text-lg md:text-2xl leading-relaxed font-light mb-10">
+            <p className="text-gray-400 text-body-lg mb-10">
               Transformamos la última milla de tu empresa con una flota ágil y especializada de alta precisión. Beneficios exclusivos para clientes corporativos.
             </p>
             <div className="flex gap-8">
               <div className="flex flex-col gap-1">
-                <span className="text-secondary font-display text-orbitron text-2xl font-black italic tracking-tighter uppercase">500+</span>
-                <span className="text-[9px] text-gray-500 uppercase tracking-widest font-black">Empresas</span>
+                <span className="text-secondary text-headline-md italic uppercase">500+</span>
+                <span className="text-label-sm text-gray-500 uppercase">Empresas</span>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="text-secondary font-display text-orbitron text-2xl font-black italic tracking-tighter uppercase">24/7</span>
-                <span className="text-[9px] text-gray-500 uppercase tracking-widest font-black">Operativa</span>
+                <span className="text-secondary text-headline-md italic uppercase">24/7</span>
+                <span className="text-label-sm text-gray-500 uppercase">Operativa</span>
               </div>
             </div>
           </motion.div>
@@ -127,28 +127,28 @@ export const EmprendedoresHome = () => {
                   <solution.icon size={32} />
                 </div>
 
-                <h3 className="font-display text-orbitron text-3xl font-black text-white mb-6 uppercase tracking-tight leading-tight">
+                <h3 className="text-headline-md text-white mb-6 uppercase">
                   {solution.title}
                 </h3>
 
-                <p className="text-gray-400 text-base mb-10 font-[family-name:var(--font-roboto)] leading-relaxed font-light">
+                <p className="text-gray-400 text-body-md mb-10">
                   {solution.description}
                 </p>
 
                 <div className="space-y-4 mb-12">
                   {solution.features.map((feature, fIdx) => (
-                    <div key={fIdx} className="flex items-center gap-4 text-xs text-gray-400 font-medium">
+                    <div key={fIdx} className="flex items-center gap-4 text-label-sm text-gray-400">
                       <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
                         <CheckCircle2 size={12} className="text-primary" />
                       </div>
-                      <span className="uppercase tracking-widest">{feature}</span>
+                      <span className="uppercase">{feature}</span>
                     </div>
                   ))}
                 </div>
 
                 <Link
                   href={solution.link}
-                  className="group/btn w-full py-6 rounded-2xl bg-white/5 border border-white/10 text-white font-display text-orbitron font-black text-xxs text-center flex items-center justify-center gap-4 hover:bg-white/10 hover:text-white transition-all duration-500 uppercase tracking-[0.3em] shadow-xl backdrop-blur-sm active:scale-95"
+                  className="group/btn w-full py-6 rounded-2xl bg-white/5 border border-white/10 text-white text-label-md text-center flex items-center justify-center gap-4 hover:bg-white/10 hover:text-white transition-all duration-500 uppercase shadow-xl backdrop-blur-sm active:scale-95"
                 >
                   CONFIGURAR PLAN <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
                 </Link>

@@ -42,12 +42,12 @@ export const VisionSection = () => {
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Partner Logístico Especializado
             </div>
 
-            <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black leading-[0.9] mb-10 uppercase text-white tracking-tighter">
+            <h2 className="text-headline-lg-mobile md:text-display-lg mb-10 uppercase text-white">
               Nuestra Visión <br />
               <span className="text-primary italic drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logística</span>
             </h2>
 
-            <p className="text-gray-400 text-lg md:text-xl mb-12 leading-relaxed font-[family-name:var(--font-roboto)] font-light max-w-2xl">
+            <p className="text-gray-400 text-body-lg mb-12 max-w-2xl">
               Transformamos <span className="font-bold text-gray-300">tus costos fijos en solutions flexibles</span> que acompañan el crecimiento de tu negocio.
             </p>
 
@@ -63,8 +63,8 @@ export const VisionSection = () => {
                     {React.cloneElement(item.icon, { size: 28 })}
                   </div>
                   <div>
-                    <h3 className="font-display text-orbitron text-sm font-black text-white uppercase tracking-wider mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                    <p className="text-gray-400 text-xs font-[family-name:var(--font-roboto)] leading-relaxed font-light">{item.text}</p>
+                    <h3 className="text-headline-md text-sm text-white uppercase mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
+                    <p className="text-gray-400 text-body-md text-xs">{item.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -73,10 +73,10 @@ export const VisionSection = () => {
             <div className="flex flex-wrap items-center gap-x-16 gap-y-10 pt-10 border-t border-white/10">
               {stats.map((stat, i) => (
                 <div key={i} className="flex flex-col max-w-[200px]">
-                  <span className={`text-4xl md:text-5xl font-black font-display text-orbitron ${stat.color} tracking-tighter italic drop-shadow-lg leading-tight`}>
+                  <span className={`text-headline-lg-mobile md:text-headline-lg ${stat.color} tracking-tighter italic drop-shadow-lg leading-tight`}>
                     {stat.value}
                   </span>
-                  <span className="text-xxs text-gray-400 uppercase tracking-[0.4em] font-black mt-2">
+                  <span className="text-label-sm text-gray-400 uppercase mt-2">
                     {stat.label}
                   </span>
                 </div>

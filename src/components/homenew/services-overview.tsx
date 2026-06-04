@@ -149,7 +149,7 @@ export const ServicesOverview = () => {
             <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full glass-card border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.2em] mb-8 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Nuestros Servicios
             </div>
-            <h2 className="font-display text-orbitron text-5xl md:text-7xl font-black italic uppercase text-white tracking-tighter leading-[0.9]">
+            <h2 className="text-headline-lg-mobile md:text-display-lg italic uppercase text-white">
               Soluciones <br />
               <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logísticas</span>
             </h2>
@@ -162,7 +162,7 @@ export const ServicesOverview = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="max-w-md lg:border-l lg:border-white/10 lg:pl-10"
           >
-            <p className="text-gray-400 text-lg md:text-xl font-[family-name:var(--font-roboto)] font-light leading-relaxed">
+            <p className="text-gray-400 text-body-lg">
               Infraestructura moderna para negocios que no se detienen. Inteligencia aplicada a cada kilómetro.
             </p>
           </motion.div>
@@ -202,13 +202,13 @@ export const ServicesOverview = () => {
                     {React.cloneElement(service.icon as React.ReactElement<any>, { size: 28 })}
                   </div>
 
-                  <h3 className={cn("font-display text-orbitron text-xl md:text-2xl lg:text-3xl font-black mb-1 uppercase tracking-tight leading-tight", theme.text)}>
+                  <h3 className={cn("text-headline-md mb-1 uppercase", theme.text)}>
                     {service.title}
                   </h3>
-                  <p className={cn("text-xxs font-black uppercase tracking-[0.2em] mb-4", theme.accent)}>
+                  <p className={cn("text-label-sm uppercase mb-4", theme.accent)}>
                     {service.bajada}
                   </p>
-                  <div className={cn("text-xs md:text-sm lg:text-base leading-relaxed mb-6 font-[family-name:var(--font-roboto)] font-light max-w-[320px]", theme.desc)}>
+                  <div className={cn("text-body-md mb-6 max-w-[320px]", theme.desc)}>
                     {service.desc}
                   </div>
                 </div>
@@ -216,7 +216,7 @@ export const ServicesOverview = () => {
                 <div className="relative z-10 flex items-center justify-between">
                   <Link
                     href={service.href}
-                    className={cn("flex items-center gap-3 font-display text-orbitron text-xxs font-black uppercase tracking-[0.2em] transition-all", theme.button)}
+                    className={cn("flex items-center gap-3 text-label-md transition-all", theme.button)}
                   >
                     {service.buttonText} <ChevronRight size={16} />
                   </Link>
