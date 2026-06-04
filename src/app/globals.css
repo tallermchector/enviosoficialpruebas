@@ -7,57 +7,57 @@
     --font-sans: var(--font-sans-fallback);
     --font-display: var(--font-display-fallback);
 
-    /* Light Mode: Modern soft blue-tinted background and cards */
-    --background: 215 60% 95.5%;
+    /* Light Mode: Standard tokens from DESIGN.md */
+    --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-    --card: 215 50% 99%;
+    --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-    --popover: 215 50% 99%;
+    --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
     /* Primary: #2563eb */
     --primary: 221.2 83.2% 53.3%;
     --primary-foreground: 210 40% 98%;
     /* Secondary/Accent: #fbc107 */
-    --secondary: 45.8 96.6% 50.6%;
+    --secondary: 45 93% 47%;
     --secondary-foreground: 26 83% 14%;
-    --muted: 215 30% 94%;
+    --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 215 40% 93%;
+    --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 215 30% 90%;
-    --input: 215 30% 90%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.75rem;
 
-    /* Gradient colors */
-    --blue-gradient-start: #83b5e0;
-    --blue-gradient-end: #5085cb;
-    --card-gradient-start: #68c9da;
-    --card-gradient-end: #93ebf5;
+    /* Gradient colors - Soft elegant blue gradients */
+    --blue-gradient-start: #edf4fa;
+    --blue-gradient-end: #dbeafe;
+    --card-gradient-start: #ffffff;
+    --card-gradient-end: #f1f7fe;
   }
 
   .dark {
-    /* Dark Mode: Deep elegant dark blue tones */
-    --background: 222.2 47% 6%;
+    /* Dark Mode: Standard tokens from DESIGN.md */
+    --background: 222 84% 4.9%;
     --foreground: 210 40% 98%;
-    --card: 222.2 47% 10%;
+    --card: 222 84% 4.9%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 47% 10%;
+    --popover: 222 84% 4.9%;
     --popover-foreground: 210 40% 98%;
     --primary: 217.2 91.2% 59.8%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 45 93% 47%;
     --secondary-foreground: 26 83% 14%;
-    --muted: 217.2 32% 12%;
+    --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32% 12%;
+    --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32% 16%;
-    --input: 217.2 32% 16%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
     --ring: 217.2 91.2% 59.8%;
 
     /* Gradient colors */
