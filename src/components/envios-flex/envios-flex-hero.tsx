@@ -9,7 +9,7 @@ export function EnviosFlexHero() {
       title={
         <>
           ENVÍOS FLEX MERCADOLIBRE: <br />
-          <span className="text-primary">POTENCIÁ TU REPUTACIÓN</span>
+          <span className="text-secondary">POTENCIÁ TU REPUTACIÓN</span>
         </>
       }
       description="Somos expertos en la logística de MercadoLibre. Optimizamos tus entregas Same-Day para que tu medidor siempre esté en verde y vos solo te enfoques en vender."

@@ -10,7 +10,7 @@ export function ExpressHero() {
       title={
         <>
           ENVÍOS EXPRESS <br />
-          <span className="text-primary italic">INMEDIATOS</span>
+          <span className="text-secondary italic">INMEDIATOS</span>
         </>
       }
       description="La solución premium para operaciones de alta criticidad horaria. Vos tenés el control total: elegí el rango exacto de entrega con certeza absoluta."

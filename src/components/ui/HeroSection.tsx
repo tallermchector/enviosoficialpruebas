@@ -79,9 +79,9 @@ export function HeroSection({
   backgroundImageUrl = '/bannerenvios.webp',
   backgroundImageAlt = 'Hero background image',
   backgroundOverlayOpacity = 0.2,
-  textColorClassName = 'text-slate-900',
-  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-slate-900 font-display',
-  descriptionClassName = 'text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-sans',
+  textColorClassName = 'text-white',
+  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-display',
+  descriptionClassName = 'text-gray-300 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-sans',
   visualElement,
   layout = 'center-stacked',
   minHeight = 'min-h-screen',
@@ -167,7 +167,7 @@ export function HeroSection({
                     'px-10 py-5 font-sans font-bold rounded-none transition-all uppercase tracking-tight h-auto',
                     isYellowButton
                       ? "bg-secondary hover:bg-[#d97706] text-black shadow-lg"
-                      : "bg-slate-900 border border-slate-800 text-slate-900 hover:bg-slate-800",
+                      : "bg-slate-900 border border-slate-800 text-white hover:bg-slate-800",
                     button.className
                   )}
                 >
@@ -186,8 +186,13 @@ export function HeroSection({
 
   return (
     <section className={sectionClasses}>
-      {/* Mesh Gradient Shader Background */}
-      {backgroundType === 'shader' && <MeshGradientBackground />}
+      {/* Mesh Gradient Shader Background with contrast overlay */}
+      {backgroundType === 'shader' && (
+        <>
+          <MeshGradientBackground />
+          <div className="absolute inset-0 bg-[#030710]/40 backdrop-blur-[1px] pointer-events-none z-0" />
+        </>
+      )}
 
       {/* Background Image with Overlay */}
       {backgroundType === 'image' && backgroundImageUrl && (

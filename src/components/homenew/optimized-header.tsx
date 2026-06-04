@@ -25,7 +25,7 @@ export const OptimizedHeader = () => {
           <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" priority sizes="(max-width: 768px) 32px, 40px" />
         </div>
         <span className="font-display text-orbitron font-black text-sm sm:text-lg md:text-2xl tracking-tighter text-white uppercase italic whitespace-nowrap">
-          Envíos<span className="text-primary drop-shadow-[0_0_10px_rgba(37,99,235,0.3)]">Dosruedas</span>
+          Envíos<span className="text-secondary drop-shadow-[0_0_10px_rgba(255,230,0,0.35)]">Dosruedas</span>
         </span>
       </Link>
 

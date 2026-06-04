@@ -9,7 +9,7 @@ export function EntrepreneurHero() {
       title={
         <>
           ALMACENAMIENTO Y <br />
-          <span className="text-primary">FULFILLMENT PARA PyMEs</span>
+          <span className="text-secondary">FULFILLMENT PARA PyMEs</span>
         </>
       }
       description="Solución integral de almacenamiento y fulfillment para PyMEs en Mar del Plata. Contamos con depósitos propios en la ciudad para garantizar el mejor servicio 3PL."

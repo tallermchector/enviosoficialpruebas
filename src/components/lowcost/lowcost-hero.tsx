@@ -9,7 +9,7 @@ export function LowcostHero() {
       title={
         <>
           ENVÍOS LOWCOST: <br />
-          <span className="text-primary">MÁXIMA RENTABILIDAD</span>
+          <span className="text-secondary">MÁXIMA RENTABILIDAD</span>
         </>
       }
       description="Variabilizá tus costos logísticos con nuestro servicio de ruteo masivo inteligente. La mejor tarifa de Mar del Plata sin sacrificar seguridad."
