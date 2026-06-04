@@ -22,7 +22,9 @@ const config: Config = {
         'xxs': '0.625rem', // 10px
       },
       backgroundImage: {
-        },
+        'modern-blue': 'linear-gradient(135deg, var(--blue-gradient-start) 0%, var(--blue-gradient-end) 100%)',
+        'modern-card': 'linear-gradient(135deg, var(--card-gradient-start) 0%, var(--card-gradient-end) 100%)',
+      },
       colors: {
         'surface-light': '#f8fafc',
         border: "hsl(var(--border))",
