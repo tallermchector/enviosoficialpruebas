@@ -11,6 +11,12 @@ importers:
       '@ducanh2912/next-pwa':
         specifier: ^10.2.9
         version: 10.2.9(next@16.2.4(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@playwright/test@1.60.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(webpack@5.107.2(postcss@8.5.15))
+      '@fontsource/montserrat':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource/sora':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@genkit-ai/google-genai':
         specifier: ^1.35.0
         version: 1.35.0(genkit@1.35.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.10.0))
@@ -1062,6 +1068,12 @@ packages:
 
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
+
+  '@fontsource/montserrat@5.2.8':
+    resolution: {integrity: sha512-xTjLxSbSfCycDB0pwmNsfNvdfWPaDaRQ2LC6yt/ZI7SdvXG52zHnzNYC/09mzuAuWNJyShkteutfCoDgym56hQ==}
+
+  '@fontsource/sora@5.2.8':
+    resolution: {integrity: sha512-1G6iTXUx8rcCKzi3mjaTQ1DE8PQz0OmW3Qnku+64S+bqRr1o/gGeiw8fxIQhhBU9ZP8ZofIqai7o00DNOPnlDw==}
 
   '@genkit-ai/ai@1.35.0':
     resolution: {integrity: sha512-P66XQgX4//2JhyoUwTGpEWzdH07ss/vKEeEpTlj0DkyUE+LvCYTxn6etBl6XITOp6LsmOKM2bqWgD/Xh5XsBQg==}
@@ -7864,6 +7876,10 @@ snapshots:
       react-dom: 19.2.6(react@19.2.6)
 
   '@floating-ui/utils@0.2.11': {}
+
+  '@fontsource/montserrat@5.2.8': {}
+
+  '@fontsource/sora@5.2.8': {}
 
   '@genkit-ai/ai@1.35.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.10.0)(genkit@1.35.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.10.0))':
     dependencies:
