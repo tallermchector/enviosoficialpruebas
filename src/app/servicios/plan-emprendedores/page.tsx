@@ -12,10 +12,15 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/entrepreneur/entrepreneur-pricing-ranges";
 
 export const metadata: Metadata = {
-  title: "Almacenamiento y Fulfillment para PyMEs en Mar del Plata | Logística 3PL",
-  description: "Ofrecemos almacenamiento, picking, packing y fulfillment para PyMEs en Mar del Plata con depósitos propios en la ciudad. Optimizamos tu logística e-commerce.",
-  keywords:
-    "ecommerce 3pl, fulfillment mar del plata, envios next day, cuenta corriente logistica, deposito ecommerce, picking y packing",
+  title: "Fulfillment y Logística 3PL para Emprendedores en Mar del Plata",
+  description: "Soluciones de almacenamiento, picking y fulfillment en Mar del Plata. Logística 3PL estratégica para marcas de Tiendanube, Shopify y ventas online.",
+  alternates: { canonical: 'https://www.enviosdosruedas.com/servicios/plan-emprendedores' },
+  openGraph: {
+    title: "Fulfillment y Logística 3PL para Emprendedores en Mar del Plata",
+    description: "Soluciones de almacenamiento, picking y fulfillment en Mar del Plata. Logística 3PL estratégica para marcas de Tiendanube, Shopify y ventas online.",
+    url: 'https://www.enviosdosruedas.com/servicios/plan-emprendedores',
+    images: [{ url: '/og-image.jpg' }],
+  },
 }
 
 // Disable prerendering during build to avoid database connection issues

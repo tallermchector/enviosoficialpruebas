@@ -7,10 +7,15 @@ import { Footer } from "@/components/homenew/footer"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Preguntas Frecuentes - Envios DosRuedas | FAQ Mensajería y Delivery",
-  description:
-    "Encuentra respuestas a las preguntas más frecuentes sobre nuestros servicios de mensajería y delivery en Mar del Plata. Tarifas, tiempos, cobertura y más.",
-  keywords: "preguntas frecuentes, faq, envios mar del plata, mensajeria, delivery, tarifas, tiempos entrega",
+  title: "Preguntas Frecuentes | Soporte y Cobertura en Mar del Plata",
+  description: "Resolvé tus dudas sobre horarios, zonas de cobertura en Mar del Plata y métodos de pago. Todo lo que necesitás saber para tus envíos DosRuedas.",
+  alternates: { canonical: 'https://www.enviosdosruedas.com/nosotros/preguntas-frecuentes' },
+  openGraph: {
+    title: "Preguntas Frecuentes | Soporte y Cobertura en Mar del Plata",
+    description: "Resolvé tus dudas sobre horarios, zonas de cobertura en Mar del Plata y métodos de pago. Todo lo que necesitás saber para tus envíos DosRuedas.",
+    url: 'https://www.enviosdosruedas.com/nosotros/preguntas-frecuentes',
+    images: [{ url: '/og-image.jpg' }],
+  },
 }
 
 export default function FaqPage() {

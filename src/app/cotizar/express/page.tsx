@@ -11,9 +11,15 @@ import CalculatorContact from '@/components/calculator/calculator-contact';
 import MapFeatures from '@/components/calculator/map-features';
 
 export const metadata: Metadata = {
-  title: 'Cotizador de Envíos Express - Envios DosRuedas',
-  description: 'Calcula el precio de tus envíos express en Mar del Plata de forma rápida y sencilla. Ingresa origen y destino para obtener tu cotización al instante.',
-  keywords: ['cotizador envíos', 'envíos express', 'delivery Mar del Plata', 'calcular precio envío', 'mensajería urgente'],
+  title: 'Cotizador de Mensajería Express Online | Mar del Plata',
+  description: 'Calculá en tiempo real el costo de tu envío express en Mar del Plata. Cotizador online de cadetería en moto para entregas rápidas y seguras.',
+  alternates: { canonical: 'https://www.enviosdosruedas.com/cotizar/express' },
+  openGraph: {
+    title: 'Cotizador de Mensajería Express Online | Mar del Plata',
+    description: 'Calculá en tiempo real el costo de tu envío express en Mar del Plata. Cotizador online de cadetería en moto para entregas rápidas y seguras.',
+    url: 'https://www.enviosdosruedas.com/cotizar/express',
+    images: [{ url: '/og-image.jpg' }],
+  },
 };
 
 export default function CotizarExpressPage() {

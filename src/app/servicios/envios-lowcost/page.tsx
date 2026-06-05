@@ -13,11 +13,15 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/lowcost/pricing-comparison";
 
 export const metadata: Metadata = {
-  title: "Envíos LowCost: Máxima Rentabilidad | Tu solución confiable",
-  description:
-    "Variabilizá tus costos logísticos con nuestro servicio de ruteo masivo inteligente. La mejor tarifa de Mar del Plata sin sacrificar seguridad.",
-  keywords:
-    "envios low cost, mensajeria economica, envios baratos, mar del plata, rutas optimizadas, envios programados",
+  title: "Envíos LowCost en Mar del Plata | Distribución de Paquetería",
+  description: "Envíos masivos programados para comercios en Mar del Plata. La tarifa más económica en distribución local de paquetería con logística inteligente.",
+  alternates: { canonical: 'https://www.enviosdosruedas.com/servicios/envios-lowcost' },
+  openGraph: {
+    title: "Envíos LowCost en Mar del Plata | Distribución de Paquetería",
+    description: "Envíos masivos programados para comercios en Mar del Plata. La tarifa más económica en distribución local de paquetería con logística inteligente.",
+    url: 'https://www.enviosdosruedas.com/servicios/envios-lowcost',
+    images: [{ url: '/og-image.jpg' }],
+  },
 }
 
 // Disable prerendering since it relies on Prisma DB

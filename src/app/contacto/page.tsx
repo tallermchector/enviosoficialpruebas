@@ -5,10 +5,15 @@ import { Footer } from "@/components/homenew/footer";
 import { ContactPageClient } from "@/components/contact/contact-page-client";
 
 export const metadata: Metadata = {
-  title: "Contacto",
-  description:
-    "Contáctanos para servicios de mensajería y delivery en Mar del Plata. Respuesta rápida y atención personalizada. WhatsApp, teléfono y email disponibles.",
-  keywords: "contacto, envios mar del plata, mensajeria, delivery, whatsapp, telefono, email",
+  title: "Contacto | WhatsApp y Atención Logística en Mar del Plata",
+  description: "Contactanos por WhatsApp o visitanos en Friuli 1972, Mar del Plata. Atención personalizada en logística y mensajería para PyMEs y emprendedores.",
+  alternates: { canonical: 'https://www.enviosdosruedas.com/contacto' },
+  openGraph: {
+    title: "Contacto | WhatsApp y Atención Logística en Mar del Plata",
+    description: "Contactanos por WhatsApp o visitanos en Friuli 1972, Mar del Plata. Atención personalizada en logística y mensajería para PyMEs y emprendedores.",
+    url: 'https://www.enviosdosruedas.com/contacto',
+    images: [{ url: '/og-image.jpg' }],
+  },
 };
 
 export default function ContactPage() {
