@@ -1,10 +1,11 @@
-
 import { MetadataRoute } from 'next'
- 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://enviosdosruedas.com';
 
-  const staticRoutes = [
+export default function sitemap(): MetadataRoute.Sitemap {
+  // Dominio de producción unificado (sin barra al final)
+  const baseUrl = 'https://enviosdosruedas.com'
+
+  // Rutas públicas optimizadas para indexación
+  const publicRoutes = [
     '/',
     '/contacto',
     '/cotizar/express',
@@ -16,23 +17,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/servicios/envios-lowcost',
     '/servicios/enviosflex',
     '/servicios/plan-emprendedores',
-    '/ordenes',
     '/seguimiento',
+  ]
+
+  // Rutas legales secundarias
+  const legalRoutes = [
     '/politica-de-privacidad',
     '/terminos-y-condiciones',
-    '/admin',
-    '/admin/login',
-    '/admin/ordenes',
-    '/admin/cotizaciones',
-    '/admin/etiquetas',
-    '/admin/add-post',
-    '/admin/crea-imagenes',
-  ];
- 
-  return staticRoutes.map((route) => ({
+  ]
+
+  // Mapeo y asignación lógica de prioridades SEO reales
+  const coreSitemap = publicRoutes.map((route) => {
+    let priority = 0.8
+    let changeFrequency: 'daily' | 'weekly' | 'monthly' = 'weekly'
+
+    if (route === '/') {
+      priority = 1.0
+      changeFrequency = 'daily' // La home cambia seguido por promociones
+    } else if (route.startsWith('/servicios') || route.startsWith('/cotizar')) {
+      priority = 0.9 // Páginas transaccionales de alto valor comercial
+      changeFrequency = 'weekly'
+    }
+
+    return {
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency,
+      priority,
+    }
+  })
+
+  const legalSitemap = legalRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: route === '/' ? 1 : (route.startsWith('/admin') ? 0.3 : 0.8),
-  }));
+    changeFrequency: 'monthly' as const,
+    priority: 0.3, // Baja prioridad para que no compitan con tus servicios
+  }))
+
+  return [...coreSitemap, ...legalSitemap]
 }
