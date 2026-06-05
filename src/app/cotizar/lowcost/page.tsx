@@ -11,9 +11,15 @@ import CalculatorTips from '@/components/calculator/calculator-tips';
 import CalculatorContact from '@/components/calculator/calculator-contact';
 
 export const metadata: Metadata = {
-  title: 'Cotizador de Envíos Low Cost - Envios DosRuedas',
-  description: 'Calcula el precio de tus envíos económicos y programados en Mar del Plata. La opción más conveniente para tus necesidades no urgentes.',
-  keywords: ['cotizador envíos low cost', 'envíos económicos', 'delivery Mar del Plata barato', 'calcular precio envío económico', 'mensajería programada'],
+  title: 'Presupuesto Logístico E-commerce | Envíos en Mar del Plata',
+  description: 'Solicitá tu presupuesto para envíos por volumen en Mar del Plata. Cotizá tu logística e-commerce con las mejores tarifas del mercado local hoy.',
+  alternates: { canonical: 'https://www.enviosdosruedas.com/cotizar/lowcost' },
+  openGraph: {
+    title: 'Presupuesto Logístico E-commerce | Envíos en Mar del Plata',
+    description: 'Solicitá tu presupuesto para envíos por volumen en Mar del Plata. Cotizá tu logística e-commerce con las mejores tarifas del mercado local hoy.',
+    url: 'https://www.enviosdosruedas.com/cotizar/lowcost',
+    images: [{ url: '/og-image.jpg' }],
+  },
 };
 
 export default function CotizarLowCostPage() {

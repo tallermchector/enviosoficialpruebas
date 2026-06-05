@@ -14,10 +14,15 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/envios-flex/flex-pricing-ranges";
 
 export const metadata: Metadata = {
-  title: "Envíos Flex MercadoLibre Mar del Plata | Cobertura MDP y Envíos Same-Day",
-  description: "Expertos en Envíos Flex MercadoLibre en Mar del Plata. Garantizamos Cobertura MDP y Envíos Same-Day para potenciar tu reputación y ventas.",
-  keywords:
-    "envios flex, mercadolibre, vendedores online, entregas rapidas, mar del plata, reputacion vendedor, envios mismo dia",
+  title: "Mercado Libre Flex Mar del Plata | Envíos en el Mismo Día",
+  description: "Logística certificada para Mercado Libre Flex en Mar del Plata. Asegurá tus entregas Same-Day y mejorá tu reputación con el líder en última milla.",
+  alternates: { canonical: 'https://www.enviosdosruedas.com/servicios/enviosflex' },
+  openGraph: {
+    title: "Mercado Libre Flex Mar del Plata | Envíos en el Mismo Día",
+    description: "Logística certificada para Mercado Libre Flex en Mar del Plata. Asegurá tus entregas Same-Day y mejorá tu reputación con el líder en última milla.",
+    url: 'https://www.enviosdosruedas.com/servicios/enviosflex',
+    images: [{ url: '/og-image.jpg' }],
+  },
 }
 
 // Disable prerendering during build to avoid database connection issues

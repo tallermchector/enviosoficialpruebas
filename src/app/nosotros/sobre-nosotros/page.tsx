@@ -10,10 +10,15 @@ import { Footer } from "@/components/homenew/footer"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Logística con Propósito en Mar del Plata | Sobre Envíos DosRuedas",
-  description:
-    "Conoce la historia de Envios DosRuedas, tu aliado confiable en mensajería y delivery en Mar del Plata. 4.9 estrellas en Google Reviews. Compromiso, rapidez y confiabilidad.",
-  keywords: "sobre nosotros, envios dosruedas, historia empresa, valores, equipo, mar del plata, mensajeria",
+  title: "Sobre Nosotros | Empresa de Logística Líder en Mar del Plata",
+  description: "Conocé nuestra infraestructura y valores como la empresa de logística local referente en Mar del Plata. Transparencia, flota propia y compromiso total.",
+  alternates: { canonical: 'https://www.enviosdosruedas.com/nosotros/sobre-nosotros' },
+  openGraph: {
+    title: "Sobre Nosotros | Empresa de Logística Líder en Mar del Plata",
+    description: "Conocé nuestra infraestructura y valores como la empresa de logística local referente en Mar del Plata. Transparencia, flota propia y compromiso total.",
+    url: 'https://www.enviosdosruedas.com/nosotros/sobre-nosotros',
+    images: [{ url: '/og-image.jpg' }],
+  },
 }
 
 export default function AboutPage() {

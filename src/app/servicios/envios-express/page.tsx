@@ -8,10 +8,15 @@ import { ServiceTypeEnum } from '../../../../generated/prisma/client/client';
 import type { PriceRangeClient } from "@/components/express/express-pricing-ranges";
 
 export const metadata: Metadata = {
-  title: "Envíos Express en Mar del Plata | Mensajería Urgente en Güemes, Chauvín y Puerto",
-  description:
-    "La solución premium para operaciones de alta criticidad horaria. Vos tenés el control total: elegí el rango exacto de entrega con certeza absoluta.",
-  keywords: "envios express mar del plata, mensajeria urgente, delivery rapido, entrega mismo dia, paqueteria express",
+  title: "Envíos Express y Cadetería en Mar del Plata | Entrega en 2hs",
+  description: "Mensajería urbana instantánea y cadetería en moto en Mar del Plata. Entregas urgentes en menos de 2 horas con seguimiento en tiempo real y seguridad.",
+  alternates: { canonical: 'https://www.enviosdosruedas.com/servicios/envios-express' },
+  openGraph: {
+    title: "Envíos Express y Cadetería en Mar del Plata | Entrega en 2hs",
+    description: "Mensajería urbana instantánea y cadetería en moto en Mar del Plata. Entregas urgentes en menos de 2 horas con seguimiento en tiempo real y seguridad.",
+    url: 'https://www.enviosdosruedas.com/servicios/envios-express',
+    images: [{ url: '/og-image.jpg' }],
+  },
 };
 
 // Disable prerendering since it relies on Prisma DB

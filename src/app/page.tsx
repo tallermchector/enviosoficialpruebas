@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mensajería y Logística E-Commerce en Mar del Plata | Envíos DosRuedas",
-  description: "Servicio líder de mensajería y logística e-commerce en Mar del Plata. Envíos express, flex y soluciones 3PL para empresas y emprendedores.",
+  title: "Mensajería y Logística E-commerce en Mar del Plata | Envíos DosRuedas",
+  description: "Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL para potenciar tu negocio local.",
+  alternates: { canonical: 'https://www.enviosdosruedas.com/' },
+  openGraph: {
+    title: "Mensajería y Logística E-commerce en Mar del Plata | Envíos DosRuedas",
+    description: "Especialistas en logística e-commerce y última milla en Mar del Plata. Envíos en el día, Flex y soluciones 3PL para potenciar tu negocio local.",
+    url: 'https://www.enviosdosruedas.com/',
+    images: [{ url: '/og-image.jpg' }],
+  },
 };
 
 import dynamic from "next/dynamic"

@@ -11,9 +11,15 @@ import type { Metadata } from "next";
 import { CarruselRedes } from "@/components/homenew/carrusel-redes";
 
 export const metadata: Metadata = {
-    title: "Conéctate en Redes Sociales",
-    description: "Sigue a Envios DosRuedas en Facebook e Instagram para enterarte de las últimas noticias, promociones exclusivas y consejos de envío en Mar del Plata.",
-    keywords: "redes sociales, facebook, instagram, whatsapp, promociones, noticias, envios mar del plata",
+    title: "Nuestras Redes | Comunidad de Emprendedores en Mar del Plata",
+    description: "Unite a la comunidad de Envíos DosRuedas. Seguinos en redes sociales para novedades logísticas, consejos para PyMEs y canales de contacto oficial.",
+    alternates: { canonical: 'https://www.enviosdosruedas.com/nosotros/nuestras-redes' },
+    openGraph: {
+        title: "Nuestras Redes | Comunidad de Emprendedores en Mar del Plata",
+        description: "Unite a la comunidad de Envíos DosRuedas. Seguinos en redes sociales para novedades logísticas, consejos para PyMEs y canales de contacto oficial.",
+        url: 'https://www.enviosdosruedas.com/nosotros/nuestras-redes',
+        images: [{ url: '/og-image.jpg' }],
+    },
 };
 
 export const revalidate = 0; // Disable prerendering during build to avoid database connection issues
