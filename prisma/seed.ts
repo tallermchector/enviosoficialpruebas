@@ -1,6 +1,8 @@
 import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
+import pg from "pg";
+import { PrismaPg } from "@prisma/adapter-pg";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,14 +10,13 @@ const __dirname = path.dirname(__filename);
 // Load .env from root
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
-// Force DATABASE_URL to be DIRECT_URL for this script to bypass accelerator
-if (process.env.DIRECT_URL) {
-  process.env.DATABASE_URL = process.env.DIRECT_URL;
-}
+const connectionString = process.env.DIRECT_URL || process.env.DATABASE_URL;
 
 import { PrismaClient } from "../generated/prisma/client/index.js";
 
-const prisma = new PrismaClient();
+const pool = new pg.Pool({ connectionString });
+const adapter = new PrismaPg(pool);
+const prisma = new PrismaClient({ adapter });
 
 async function main() {
   console.log("Iniciando el proceso de seeding...");
@@ -29,30 +30,16 @@ async function main() {
     // 2. Datos para PriceRange
     console.log("Insertando datos en PriceRange...");
     const priceRangeData = [
-      { id: 1, serviceType: "EXPRESS", distanciaMinKm: 0.0, distanciaMaxKm: 2.99, precioRango: 3000.0, isActive: true, createdAt: new Date("2025-06-21T05:44:15.923Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 2, serviceType: "EXPRESS", distanciaMinKm: 3.0, distanciaMaxKm: 4.99, precioRango: 3700.0, isActive: true, createdAt: new Date("2025-06-21T05:44:16.198Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 3, serviceType: "EXPRESS", distanciaMinKm: 5.0, distanciaMaxKm: 5.99, precioRango: 4500.0, isActive: true, createdAt: new Date("2025-06-21T05:44:16.394Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 4, serviceType: "EXPRESS", distanciaMinKm: 6.0, distanciaMaxKm: 6.99, precioRango: 5400.0, isActive: true, createdAt: new Date("2025-06-21T05:44:16.586Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 5, serviceType: "EXPRESS", distanciaMinKm: 7.0, distanciaMaxKm: 7.99, precioRango: 6200.0, isActive: true, createdAt: new Date("2025-06-21T05:44:16.767Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 6, serviceType: "EXPRESS", distanciaMinKm: 8.0, distanciaMaxKm: 8.99, precioRango: 7000.0, isActive: true, createdAt: new Date("2025-06-21T05:44:16.948Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 7, serviceType: "EXPRESS", distanciaMinKm: 9.0, distanciaMaxKm: 10.0, precioRango: 7800.0, isActive: true, createdAt: new Date("2025-06-21T05:44:17.136Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 8, serviceType: "EXPRESS", distanciaMinKm: 10.01, distanciaMaxKm: 11.0, precioRango: 8700.0, isActive: true, createdAt: new Date("2025-06-21T05:44:17.326Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 9, serviceType: "EXPRESS", distanciaMinKm: 11.01, distanciaMaxKm: 12.0, precioRango: 9500.0, isActive: true, createdAt: new Date("2025-06-21T05:44:17.510Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 10, serviceType: "EXPRESS", distanciaMinKm: 12.01, distanciaMaxKm: 13.0, precioRango: 10300.0, isActive: true, createdAt: new Date("2025-06-21T05:44:17.709Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 11, serviceType: "EXPRESS", distanciaMinKm: 13.01, distanciaMaxKm: 14.0, precioRango: 11100.0, isActive: true, createdAt: new Date("2025-06-21T05:44:17.882Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 12, serviceType: "EXPRESS", distanciaMinKm: 14.01, distanciaMaxKm: 15.0, precioRango: 11900.0, isActive: true, createdAt: new Date("2025-06-21T05:44:18.077Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 13, serviceType: "EXPRESS", distanciaMinKm: 15.01, distanciaMaxKm: 16.0, precioRango: 12700.0, isActive: true, createdAt: new Date("2025-06-21T05:44:18.261Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 14, serviceType: "EXPRESS", distanciaMinKm: 16.01, distanciaMaxKm: 17.0, precioRango: 13500.0, isActive: true, createdAt: new Date("2025-06-21T05:44:18.441Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 15, serviceType: "EXPRESS", distanciaMinKm: 17.01, distanciaMaxKm: 18.0, precioRango: 14300.0, isActive: true, createdAt: new Date("2025-06-21T05:44:18.619Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 16, serviceType: "EXPRESS", distanciaMinKm: 18.01, distanciaMaxKm: 19.0, precioRango: 15100.0, isActive: true, createdAt: new Date("2025-06-21T05:44:18.794Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 17, serviceType: "EXPRESS", distanciaMinKm: 19.01, distanciaMaxKm: 20.0, precioRango: 15900.0, isActive: true, createdAt: new Date("2025-06-21T05:44:18.975Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 18, serviceType: "LOW_COST", distanciaMinKm: 0.0, distanciaMaxKm: 2.99, precioRango: 2150.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.166Z"), updatedAt: new Date("2025-06-21T06:23:23.368Z") },
-      { id: 19, serviceType: "LOW_COST", distanciaMinKm: 3.0, distanciaMaxKm: 4.99, precioRango: 2900.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.341Z"), updatedAt: new Date("2025-06-21T06:23:23.550Z") },
-      { id: 20, serviceType: "LOW_COST", distanciaMinKm: 5.0, distanciaMaxKm: 8.99, precioRango: 4000.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.519Z"), updatedAt: new Date("2025-06-21T06:23:23.724Z") },
-      { id: 21, serviceType: "LOW_COST", distanciaMinKm: 9.0, distanciaMaxKm: 12.99, precioRango: 5800.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.702Z"), updatedAt: new Date("2025-06-21T06:23:23.903Z") },
-      { id: 22, serviceType: "LOW_COST", distanciaMinKm: 13.01, distanciaMaxKm: 20.0, precioRango: 8200.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.882Z"), updatedAt: new Date("2025-06-21T06:23:24.074Z") },
-      { id: 23, serviceType: "EXPRESS", distanciaMinKm: 10.0, distanciaMaxKm: 99999.0, precioRango: 1000.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.882Z"), updatedAt: new Date("2025-11-01T05:27:43.057Z") },
-      { id: 24, serviceType: "LOW_COST", distanciaMinKm: 10.0, distanciaMaxKm: 99999.0, precioRango: 700.0, isActive: true, createdAt: new Date("2025-06-21T05:44:19.882Z"), updatedAt: new Date("2025-06-21T06:23:24.074Z") },
+      { id: 1, serviceType: "EXPRESS", distanciaMinKm: 0.00, distanciaMaxKm: 2.99, precioRango: 3700.00, isActive: true, createdAt: new Date("2026-06-05T04:09:54.371Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
+      { id: 2, serviceType: "EXPRESS", distanciaMinKm: 3.00, distanciaMaxKm: 4.99, precioRango: 4600.00, isActive: true, createdAt: new Date("2026-06-05T04:10:54.005Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
+      { id: 3, serviceType: "EXPRESS", distanciaMinKm: 5.00, distanciaMaxKm: 6.99, precioRango: 6100.00, isActive: true, createdAt: new Date("2026-06-05T04:11:19.839Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
+      { id: 4, serviceType: "EXPRESS", distanciaMinKm: 7.00, distanciaMaxKm: 9.99, precioRango: 8200.00, isActive: true, createdAt: new Date("2026-06-05T04:11:46.278Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
+      { id: 5, serviceType: "EXPRESS", distanciaMinKm: 10.00, distanciaMaxKm: 9999.00, precioRango: 1000.00, isActive: true, createdAt: new Date("2026-06-05T04:14:07.352Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
+      { id: 6, serviceType: "LOW_COST", distanciaMinKm: 0.00, distanciaMaxKm: 2.99, precioRango: 3000.00, isActive: true, createdAt: new Date("2026-06-05T04:15:01.568Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
+      { id: 7, serviceType: "LOW_COST", distanciaMinKm: 3.00, distanciaMaxKm: 4.99, precioRango: 4000.00, isActive: true, createdAt: new Date("2026-06-05T04:15:27.461Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
+      { id: 8, serviceType: "LOW_COST", distanciaMinKm: 5.00, distanciaMaxKm: 6.99, precioRango: 5300.00, isActive: true, createdAt: new Date("2026-06-05T04:15:55.207Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
+      { id: 9, serviceType: "LOW_COST", distanciaMinKm: 7.00, distanciaMaxKm: 9.99, precioRango: 7000.00, isActive: true, createdAt: new Date("2026-06-05T04:16:14.314Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
+      { id: 10, serviceType: "LOW_COST", distanciaMinKm: 10.00, distanciaMaxKm: 9999.00, precioRango: 700.00, isActive: true, createdAt: new Date("2026-06-05T04:16:36.317Z"), updatedAt: new Date("1970-01-01T00:00:00.000Z") },
     ];
 
     for (const data of priceRangeData) {
@@ -150,6 +137,7 @@ async function main() {
     console.error("Error durante el seeding:", error);
   } finally {
     await prisma.$disconnect();
+    await pool.end();
   }
 }
 
