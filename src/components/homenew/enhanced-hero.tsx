@@ -373,7 +373,7 @@ export function EnhancedHero() {
 
             {/* Glow effect */}
             <motion.div
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/20 via-blue-400/20 to-purple-400/20 blur-xl"
+              className="absolute inset-0 rounded-md bg-gradient-to-r from-yellow-400/20 via-blue-400/20 to-purple-400/20 blur-xl"
               animate={{
                 opacity: [0.3, 0.8, 0.3],
                 scale: [1, 1.2, 1],
@@ -429,7 +429,7 @@ export function EnhancedHero() {
           transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-400/20 to-blue-400/20 border border-white/20 backdrop-blur-sm mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-yellow-400/20 to-blue-400/20 border border-white/20 backdrop-blur-sm mb-4"
             whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
           >
             <Sparkles className="w-4 h-4 text-yellow-400" />
@@ -438,7 +438,7 @@ export function EnhancedHero() {
           </motion.div>
 
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-blue-100 to-yellow-100 bg-clip-text text-transparent leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white via-blue-100 to-yellow-100 bg-clip-text text-transparent leading-[1.1] md:leading-tight"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -480,7 +480,7 @@ export function EnhancedHero() {
               asChild
               size="lg"
               variant="gradient"
-              className="px-8 py-4 text-lg rounded-full"
+              className="px-8 py-4 text-lg rounded-md"
             >
               <Link href="/cotizar/express" className="flex items-center gap-3">
                 <Calculator className="w-5 h-5" />
@@ -497,7 +497,7 @@ export function EnhancedHero() {
               asChild
               size="lg"
               variant="outline"
-              className="border-2 border-slate-300 text-slate-900 hover:bg-slate-100 hover:text-slate-900 font-bold shadow-2xl px-8 py-4 text-lg rounded-full backdrop-blur-sm transition-all duration-300 bg-transparent"
+              className="border-2 border-slate-300 text-slate-900 hover:bg-slate-100 hover:text-slate-900 font-bold shadow-2xl px-8 py-4 text-lg rounded-md backdrop-blur-sm transition-all duration-300 bg-transparent"
             >
               <Link href="/contacto" className="flex items-center gap-3">
                 <Mail className="w-5 h-5" />
