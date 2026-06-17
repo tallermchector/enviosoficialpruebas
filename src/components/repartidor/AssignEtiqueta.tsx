@@ -65,7 +65,7 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
 
   return (
     <>
-      <div className="p-4 bg-surface-light">
+      <div className="p-4 bg-surface">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -73,32 +73,32 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
                 name="orderNumber"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-xs uppercase tracking-widest text-slate-500 font-bold">Número de Orden</FormLabel>
+                    <FormLabel className="text-xs uppercase tracking-widest text-gray-400 font-bold">Número de Orden</FormLabel>
                     <div className="flex gap-2">
                       <FormControl>
                         <Input
                             placeholder="EXP-1722..."
-                            className="h-14 bg-slate-900 border-slate-800 rounded-none text-slate-900 focus:ring-[#2563EB]"
+                            className="h-14 bg-background border-white/10 rounded-md text-white focus:ring-[#2563EB]"
                             {...field}
                         />
                       </FormControl>
                       <Button
                         type="button"
                         variant="outline"
-                        className="h-14 w-14 rounded-none border-slate-800 bg-slate-800 text-slate-900 hover:bg-[#2563EB]"
+                        className="h-14 w-14 rounded-md border-white/10 bg-surface text-white hover:bg-primary/80"
                         onClick={() => setIsScannerOpen(true)}
                         title="Escanear Código de Barras"
                       >
                         <Camera className="h-6 w-6" />
                       </Button>
                     </div>
-                    <FormMessage className="text-rose-500 text-xs" />
+                    <FormMessage className="text-destructive text-xs" />
                   </FormItem>
                 )}
               />
               <Button
                 type="submit"
-                className="w-full h-14 rounded-none bg-[#2563EB] hover:bg-[#1e40af] text-slate-900 font-bold text-lg"
+                className="w-full h-14 rounded-md bg-[#2563EB] hover:bg-[#1e40af] text-white font-bold text-lg"
                 disabled={isPending}
               >
                 {isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Search className="mr-2 h-5 w-5" />}
@@ -109,18 +109,18 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
       </div>
       
       <Dialog open={isScannerOpen} onOpenChange={setIsScannerOpen}>
-        <DialogContent className="sm:max-w-[425px] bg-surface-light border-slate-800 rounded-none text-slate-900 p-0 overflow-hidden">
-          <DialogHeader className="p-6 border-b border-slate-800">
+        <DialogContent className="sm:max-w-[425px] bg-surface border-white/10 rounded-md text-white p-0 overflow-hidden">
+          <DialogHeader className="p-6 border-b border-white/10">
             <DialogTitle className="font-display uppercase tracking-wider text-xl">Escáner de Barras</DialogTitle>
-            <DialogDescription className="text-slate-500">
+            <DialogDescription className="text-gray-400">
               Alineá el código de barras dentro del recuadro para escanear automáticamente.
             </DialogDescription>
           </DialogHeader>
           <div className="p-4">
              <BarcodeScanner onScan={handleBarcodeScanned} />
           </div>
-          <div className="p-4 bg-slate-900 flex justify-end">
-              <Button variant="ghost" className="rounded-none text-slate-500 hover:text-slate-900" onClick={() => setIsScannerOpen(false)}>
+          <div className="p-4 bg-background flex justify-end">
+              <Button variant="ghost" className="rounded-md text-gray-400 hover:text-white" onClick={() => setIsScannerOpen(false)}>
                   CANCELAR
               </Button>
           </div>

@@ -24,7 +24,7 @@ export const OptimizedHeader = () => {
         <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all group-hover:rotate-6 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(37,99,235,0.4)]">
           <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" priority sizes="(max-width: 768px) 32px, 40px" />
         </div>
-        <span className="font-display text-orbitron font-black text-sm sm:text-lg md:text-2xl tracking-tighter text-white uppercase italic whitespace-nowrap">
+        <span className="font-display text-orbitron font-black text-[clamp(0.75rem,3vw,1.5rem)] tracking-tighter text-white uppercase italic whitespace-nowrap">
           Envíos<span className="text-secondary drop-shadow-[0_0_10px_rgba(255,230,0,0.35)]">Dosruedas</span>
         </span>
       </Link>

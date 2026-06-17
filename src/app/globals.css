@@ -51,6 +51,10 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 217.2 91.2% 59.8%;
+    --surface: 226 37% 6%;
+    --surface-foreground: 210 40% 98%;
+    --raised: 215 100% 34%;
+    --raised-foreground: 210 40% 98%;
   }
 
   body {
