@@ -6,7 +6,7 @@ import type { FormattedEtiqueta } from "@/types";
 import { EtiquetaStatus } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Printer, Search, Truck, Check, Loader2, Info, MapPin, Package, Clock, Phone, Navigation } from 'lucide-react';
 import { updateEtiquetaStatus } from '@/app/admin/etiquetas/actions';
@@ -31,7 +31,7 @@ const statusConfig = {
     },
     [EtiquetaStatus.ENTREGADA]: {
         text: 'ENTREGADA',
-        color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/50',
+        color: 'bg-emerald-500/20 text-green-400 border-emerald-500/50',
         icon: <Check className="h-4 w-4" />
     },
     [EtiquetaStatus.NO_ENTREGADA]: {
@@ -41,7 +41,7 @@ const statusConfig = {
     },
     [EtiquetaStatus.PENDIENTE]: {
         text: 'PENDIENTE',
-        color: 'bg-slate-800 text-slate-500 border-slate-700',
+        color: 'bg-slate-800 text-gray-400 border-slate-700',
         icon: <Clock className="h-4 w-4" />
     },
 };
@@ -84,33 +84,30 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
         <div className="space-y-6">
             <div className="flex flex-col gap-4">
                 <div className="flex justify-between items-center">
-                    <h2 className="text-2xl font-display font-bold text-slate-900 uppercase tracking-tighter">Mi Hoja de Ruta</h2>
-                    <Button variant="outline" size="sm" className="rounded-none border-slate-800 bg-slate-900/50 text-slate-500 hover:text-slate-900">
+                    <h2 className="text-2xl font-display font-bold text-white uppercase tracking-tighter">Mi Hoja de Ruta</h2>
+                    <Button variant="outline" size="sm" className="rounded-md border-white/10 bg-surface/50 text-gray-400 hover:text-white">
                         <Printer className="mr-2 h-4 w-4" /> Imprimir
                     </Button>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     <div className="relative">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                         <Input
                             placeholder="Buscar cliente o dirección..."
-                            className="pl-10 bg-slate-900/50 border-slate-800 rounded-none text-slate-900 placeholder:text-slate-600 focus:ring-[#2563EB]"
+                            className="pl-10 bg-surface/50 border-white/10 rounded-md text-white placeholder:text-gray-300 focus:ring-[#2563EB]"
                             value={searchTerm}
                             onChange={e => setSearchTerm(e.target.value)}
                         />
                     </div>
-                     <Select value={statusFilter} onValueChange={setStatusFilter}>
-                        <SelectTrigger className="bg-slate-900/50 border-slate-800 rounded-none text-slate-900 focus:ring-[#2563EB]">
-                            <SelectValue placeholder="Filtrar estado" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-slate-900 border-slate-800 text-slate-900 rounded-none">
-                            <SelectItem value="pendientes">POR SALIR</SelectItem>
-                            <SelectItem value="en_camino">EN CAMINO</SelectItem>
-                            <SelectItem value="entregadas">ENTREGADAS</SelectItem>
-                             <SelectItem value="todos">TODOS LOS ESTADOS</SelectItem>
-                        </SelectContent>
-                    </Select>
+                    <Tabs value={statusFilter} onValueChange={setStatusFilter} className="w-full">
+                        <TabsList className="grid grid-cols-4 w-full bg-surface/50 border border-white/10 rounded-md p-1 h-12">
+                            <TabsTrigger value="todos" className="text-[10px] uppercase font-bold tracking-tighter data-[state=active]:bg-primary data-[state=active]:text-white">TODOS</TabsTrigger>
+                            <TabsTrigger value="pendientes" className="text-[10px] uppercase font-bold tracking-tighter data-[state=active]:bg-primary data-[state=active]:text-white">SALIR</TabsTrigger>
+                            <TabsTrigger value="en_camino" className="text-[10px] uppercase font-bold tracking-tighter data-[state=active]:bg-primary data-[state=active]:text-white">RUTA</TabsTrigger>
+                            <TabsTrigger value="entregadas" className="text-[10px] uppercase font-bold tracking-tighter data-[state=active]:bg-primary data-[state=active]:text-white">FIN</TabsTrigger>
+                        </TabsList>
+                    </Tabs>
                 </div>
             </div>
 
@@ -120,10 +117,10 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            className="bg-slate-900/30 border border-dashed border-slate-800 p-12 text-center"
+                            className="bg-surface/30 border border-dashed border-white/10 p-12 text-center"
                         >
-                            <Info className="h-10 w-10 text-slate-700 mx-auto mb-4" />
-                            <p className="text-slate-500 font-sans">No hay entregas para los filtros seleccionados.</p>
+                            <Info className="h-10 w-10 text-gray-400 mx-auto mb-4" />
+                            <p className="text-gray-400 font-sans">No hay entregas para los filtros seleccionados.</p>
                         </motion.div>
                     ) : (
                         etiquetasFiltradas.map((e, index) => (
@@ -133,40 +130,40 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ delay: index * 0.05 }}
-                                className="bg-slate-900 border border-slate-800 rounded-none overflow-hidden group hover:border-[#2563EB]/50 transition-colors shadow-lg"
+                                className="bg-surface border border-white/10 rounded-md overflow-hidden group hover:border-[#2563EB]/50 transition-colors shadow-lg"
                             >
                                 <div className="p-4 flex flex-col gap-4">
                                     <div className="flex justify-between items-start">
                                         <div className="space-y-1">
                                             <div className="flex items-center gap-2">
-                                                <Badge variant="outline" className={`rounded-none px-2 py-0.5 text-xxs font-bold ${statusConfig[e.status]?.color}`}>
+                                                <Badge variant="outline" className={`rounded-md px-2 py-0.5 text-xxs font-bold ${statusConfig[e.status]?.color}`}>
                                                     {statusConfig[e.status]?.text}
                                                 </Badge>
-                                                <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">{e.orderNumber}</span>
+                                                <span className="text-xs font-mono text-gray-400 uppercase tracking-widest">{e.orderNumber}</span>
                                             </div>
-                                            <h3 className="text-lg font-bold text-slate-900 uppercase leading-tight mt-1">{e.destinatarioNombre}</h3>
+                                            <h3 className="text-lg font-bold text-white uppercase leading-tight mt-1">{e.destinatarioNombre}</h3>
                                         </div>
                                         <div className="text-right">
-                                            <div className="text-xs text-slate-500 font-sans uppercase">A Cobrar</div>
+                                            <div className="text-xs text-gray-400 font-sans uppercase">A Cobrar</div>
                                             <div className="text-xl font-display font-black text-[#E89A17]">
                                                 {e.montoACobrar ? `$${e.montoACobrar.toLocaleString('es-AR')}` : 'S/C'}
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-3 pt-2 border-t border-slate-800/50">
+                                    <div className="space-y-3 pt-2 border-t border-white/5">
                                         <div className="flex items-start gap-3">
                                             <MapPin className="h-5 w-5 text-[#2563EB] shrink-0 mt-0.5" />
-                                            <div className="text-slate-600 text-sm font-sans">
+                                            <div className="text-gray-300 text-sm font-sans">
                                                 {e.destinatarioDireccion}
-                                                <div className="text-xxs text-slate-500 uppercase mt-0.5">Mar del Plata, Argentina</div>
+                                                <div className="text-xxs text-gray-400 uppercase mt-0.5">Mar del Plata, Argentina</div>
                                             </div>
                                         </div>
 
                                         {e.destinatarioTelefono && (
                                              <div className="flex items-center gap-3">
-                                                <Phone className="h-4 w-4 text-slate-500 shrink-0" />
-                                                <a href={`tel:${e.destinatarioTelefono}`} className="text-slate-500 text-sm hover:text-[#2563EB] transition-colors">
+                                                <Phone className="h-4 w-4 text-gray-400 shrink-0" />
+                                                <a href={`tel:${e.destinatarioTelefono}`} className="text-gray-400 text-sm hover:text-[#2563EB] transition-colors">
                                                     {e.destinatarioTelefono}
                                                 </a>
                                             </div>
@@ -176,7 +173,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                     <div className="flex gap-2 pt-2">
                                         {e.status === EtiquetaStatus.IMPRESA && (
                                             <Button
-                                                className="flex-1 rounded-none bg-[#2563EB] hover:bg-[#1e40af] text-slate-900 font-bold h-12"
+                                                className="flex-1 rounded-md bg-[#2563EB] hover:bg-[#1e40af] text-white font-bold h-12"
                                                 onClick={() => handleUpdateStatus(e.id, EtiquetaStatus.EN_CAMINO)}
                                                 disabled={isPending}
                                             >
@@ -186,7 +183,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                         {e.status === EtiquetaStatus.EN_CAMINO && (
                                             <>
                                                 <Button
-                                                    className="flex-1 rounded-none bg-emerald-600 hover:bg-emerald-700 text-slate-900 font-bold h-12"
+                                                    className="flex-1 rounded-md bg-green-600 hover:bg-green-700 text-white font-bold h-12"
                                                     onClick={() => handleUpdateStatus(e.id, EtiquetaStatus.ENTREGADA)}
                                                     disabled={isPending}
                                                 >
@@ -194,7 +191,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                                 </Button>
                                                 <Button
                                                     variant="outline"
-                                                    className="rounded-none border-slate-700 bg-slate-800 text-slate-900 font-bold h-12 px-4"
+                                                    className="rounded-md border-white/10 bg-white/5 text-white font-bold h-12 px-4"
                                                     asChild
                                                 >
                                                     <a href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(e.destinatarioDireccion + ', Mar del Plata')}`} target="_blank" rel="noopener noreferrer">
@@ -204,7 +201,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                             </>
                                         )}
                                         {e.status === EtiquetaStatus.ENTREGADA && (
-                                            <div className="flex-1 h-12 flex items-center justify-center bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold uppercase text-xs tracking-widest">
+                                            <div className="flex-1 h-12 flex items-center justify-center bg-green-500/10 border border-green-500/20 text-green-400 font-bold uppercase text-xs tracking-widest">
                                                 Completado con éxito
                                             </div>
                                         )}
