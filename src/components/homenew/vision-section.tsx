@@ -38,7 +38,7 @@ export const VisionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.3em] mb-10 uppercase">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-none glass-card border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.3em] mb-10 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Partner Logístico Especializado
             </div>
 
@@ -59,7 +59,7 @@ export const VisionSection = () => {
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/[0.08] group-hover:border-primary/50 transition-all shadow-xl backdrop-blur-sm">
+                  <div className="w-14 h-14 rounded-none bg-white/[0.03] border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/[0.08] group-hover:border-primary/50 transition-all shadow-xl backdrop-blur-sm">
                     {React.cloneElement(item.icon, { size: 28 })}
                   </div>
                   <div>
@@ -96,7 +96,7 @@ export const VisionSection = () => {
             style={{ scale, y }}
           >
             {/* Visual Glass Frame */}
-            <div className="relative aspect-[4/5] rounded-[60px] overflow-hidden group border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]">
+            <div className="relative aspect-[4/5] rounded-none overflow-hidden group border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]">
               <Image
                 src="/hero/mapa_background.jpeg"
                 alt="Vanguardia Logística"
@@ -110,7 +110,7 @@ export const VisionSection = () => {
               <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
               {/* Floating Interactive Hub */}
-              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-[40px] bg-[#0a0d16]/40 backdrop-blur-3xl border border-white/10 flex items-center justify-between group-hover:bg-[#0a0d16]/60 transition-all duration-700 shadow-2xl">
+              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-none bg-[#0a0d16]/40 backdrop-blur-3xl border border-white/10 flex items-center justify-between group-hover:bg-[#0a0d16]/60 transition-all duration-700 shadow-2xl">
                 <div>
                   <h3 className="font-display text-orbitron text-2xl font-black text-white uppercase tracking-tight mb-2">Conocé más sobre nosotros</h3>
                   <div className="flex items-center gap-3 text-xxs text-blue-400 font-black tracking-[0.2em] uppercase">
@@ -130,7 +130,7 @@ export const VisionSection = () => {
 
               {/* Holographic Status */}
               <div className="absolute top-10 right-10 flex flex-col items-end gap-3">
-                <div className="px-3 py-1.5 rounded-lg bg-blue-500/20 backdrop-blur-md border border-blue-500/40 text-[9px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-2">
+                <div className="px-3 py-1.5 rounded-none bg-blue-500/20 backdrop-blur-md border border-blue-500/40 text-[9px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping" />
                   EN LÍNEA
                 </div>

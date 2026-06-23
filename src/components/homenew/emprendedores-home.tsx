@@ -58,7 +58,7 @@ export const EmprendedoresHome = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.4em] mb-10 uppercase backdrop-blur-md"
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-none bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-black tracking-[0.4em] mb-10 uppercase backdrop-blur-md"
             >
               <Building2 size={16} className="animate-pulse" /> Soluciones Corporativas y PyME
             </motion.div>
@@ -105,7 +105,7 @@ export const EmprendedoresHome = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -15, scale: 1.02 }}
-              className="group relative h-full rounded-[48px] overflow-hidden border border-white/5 bg-[#0a0d16] hover:border-primary/40 transition-all duration-700 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)]"
+              className="group relative h-full rounded-none overflow-hidden border border-white/5 bg-[#0a0d16] hover:border-primary/40 transition-all duration-700 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)]"
             >
               <Image
                 src={solution.image}
@@ -118,12 +118,12 @@ export const EmprendedoresHome = () => {
 
               <div className="absolute inset-0 p-12 flex flex-col justify-end">
                 <div className="flex justify-between items-start mb-auto">
-                  <span className="px-4 py-1.5 rounded-full bg-primary/20 backdrop-blur-md border border-primary/30 text-[9px] font-black text-primary uppercase tracking-[0.3em] shadow-lg">
+                  <span className="px-4 py-1.5 rounded-none bg-primary/20 backdrop-blur-md border border-primary/30 text-[9px] font-black text-primary uppercase tracking-[0.3em] shadow-lg">
                     {solution.badge}
                   </span>
                 </div>
 
-                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white mb-10 group-hover:bg-primary group-hover:text-slate-900 transition-all duration-500 group-hover:rotate-6 shadow-2xl backdrop-blur-sm">
+                <div className="w-16 h-16 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-white mb-10 group-hover:bg-primary group-hover:text-slate-900 transition-all duration-500 group-hover:rotate-6 shadow-2xl backdrop-blur-sm">
                   <solution.icon size={32} />
                 </div>
 
@@ -138,7 +138,7 @@ export const EmprendedoresHome = () => {
                 <div className="space-y-4 mb-12">
                   {solution.features.map((feature, fIdx) => (
                     <div key={fIdx} className="flex items-center gap-4 text-label-sm text-gray-400">
-                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                      <div className="w-5 h-5 rounded-none bg-primary/20 flex items-center justify-center shrink-0">
                         <CheckCircle2 size={12} className="text-primary" />
                       </div>
                       <span className="uppercase">{feature}</span>
@@ -148,7 +148,7 @@ export const EmprendedoresHome = () => {
 
                 <Link
                   href={solution.link}
-                  className="group/btn w-full py-6 rounded-2xl bg-white/5 border border-white/10 text-white text-label-md text-center flex items-center justify-center gap-4 hover:bg-white/10 hover:text-white transition-all duration-500 uppercase shadow-xl backdrop-blur-sm active:scale-95"
+                  className="group/btn w-full py-6 rounded-none bg-white/5 border border-white/10 text-white text-button-text text-center flex items-center justify-center gap-4 hover:bg-white/10 hover:text-white transition-all duration-500 uppercase shadow-xl backdrop-blur-sm active:scale-95"
                 >
                   CONFIGURAR PLAN <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
                 </Link>

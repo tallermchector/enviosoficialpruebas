@@ -12,7 +12,7 @@ const services = [
     bajada: "Prioridad absoluta y certeza total.",
     desc: "Diseñado para operaciones de alta criticidad horaria. Vos elegís el rango exacto de entrega con solo 2 horas de anticipación. Garantizamos precisión en el tiempo de tu cliente final.",
     icon: <Zap />,
-    color: "hsl(221.2, 83.2%, 53.3%)",
+    color: "hsl(222, 93%, 34%)", // Egyptian Blue
     href: "/servicios/envios-express",
     badge: "ALTA PRIORIDAD",
     buttonText: "Solicitar Express"
@@ -22,7 +22,7 @@ const services = [
     bajada: "Máxima rentabilidad y eficiencia en ruteo masivo.",
     desc: "Variabilizá tus costos logísticos. Ingresá tus pedidos antes de las 13:00 hs y te garantizamos la entrega en el día antes de las 19:00 hs.",
     icon: <Clock />,
-    color: "hsl(45, 93%, 47%)",
+    color: "hsl(56, 100%, 50%)", // Sunbeam Yellow
     href: "/servicios/envios-lowcost",
     badge: "RENTABILIDAD",
     buttonText: "Ahorrá con LowCost"
@@ -32,7 +32,7 @@ const services = [
     bajada: "Potenciá tu reputación al máximo.",
     desc: "Somos expertos en MercadoLibre. Despachá hasta las 15:00 hs y nosotros cumplimos tus acuerdos de nivel de servicio (SLAs) Same-Day para que tu termómetro siempre esté en verde.",
     icon: <Package />,
-    color: "hsl(221.2, 83.2%, 53.3%)",
+    color: "hsl(222, 93%, 34%)", // Egyptian Blue
     href: "/servicios/enviosflex",
     badge: "MERCADOLIBRE",
     buttonText: "Activar Envíos Flex"
@@ -42,7 +42,7 @@ const services = [
     bajada: "Tercerización integral y cuentas corrientes.",
     desc: "Más que un envío, somos tu depósito y tu equipo. Soluciones escalables para PyMEs y plataformas digitales, con facturación mensual centralizada.",
     icon: <Truck />,
-    color: "hsl(45, 93%, 47%)",
+    color: "hsl(56, 100%, 50%)", // Sunbeam Yellow
     href: "/servicios/plan-emprendedores",
     badge: "INTEGRAL",
     buttonText: "Hablar con un asesor"
@@ -66,7 +66,7 @@ export default function SliderServicios() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.25em] mb-8 uppercase font-sans">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-none bg-primary/10 border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.25em] mb-8 uppercase font-sans">
               <LayoutGrid size={12} className="text-primary animate-pulse" /> CAPACIDADES DINÁMICAS
             </div>
             <h2 className="font-display text-orbitron text-4xl md:text-5xl lg:text-6xl font-black italic text-white uppercase tracking-tighter mb-4">
@@ -96,13 +96,13 @@ export default function SliderServicios() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -12, scale: 1.02 }}
-              className="group p-6 md:p-10 rounded-[30px] md:rounded-[40px] bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden flex flex-col min-h-[440px] h-auto backdrop-blur-xl shadow-2xl"
+              className="group p-6 md:p-10 rounded-none bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden flex flex-col min-h-[440px] h-auto backdrop-blur-xl shadow-2xl"
             >
               {/* Internal Accent Light */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/[0.02] blur-[40px] rounded-full group-hover:bg-primary/10 transition-all duration-700" />
 
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-10 transition-all duration-700 group-hover:scale-110 group-hover:rotate-6 shadow-[0_15px_30px_-5px_rgba(0,0,0,0.5)]"
+                className="w-16 h-16 rounded-none flex items-center justify-center mb-10 transition-all duration-700 group-hover:scale-110 group-hover:rotate-6 shadow-[0_15px_30px_-5px_rgba(0,0,0,0.5)]"
                 style={{ backgroundColor: service.color, color: idx % 2 === 0 ? 'white' : 'black' }}
               >
                 {React.cloneElement(service.icon, { size: 32 })}
@@ -156,7 +156,7 @@ export default function SliderServicios() {
               <Zap size={14} />
               <span className="text-[9px] font-black tracking-[0.5em] uppercase">MÁXIMO PODER</span>
             </div>
-            <div className="w-2 h-2 rounded-full bg-primary/20" />
+            <div className="w-1.5 h-1.5 bg-primary/20" />
             <div className="flex items-center gap-3 text-white/20">
               <Globe size={14} />
               <span className="text-[9px] font-black tracking-[0.5em] uppercase">INFRAESTRUCTURA TOTAL</span>

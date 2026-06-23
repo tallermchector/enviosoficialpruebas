@@ -13,7 +13,7 @@ export default function HeroAnimado() {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
         <div className="lg:col-span-7 text-center lg:text-left">
           {/* Badge - Animation with CSS */}
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.03] backdrop-blur-md border border-white/10 text-blue-400 text-xxs font-black tracking-[0.3em] mb-8 uppercase animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-both">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-none bg-white/[0.03] backdrop-blur-md border border-white/10 text-blue-400 text-xxs font-black tracking-[0.3em] mb-8 uppercase animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-both">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -33,7 +33,7 @@ export default function HeroAnimado() {
             <Link
               href="/cotizar/express"
               aria-label="Solicitar Servicio de mensajería desde el héroe"
-              className="group relative px-10 py-5 bg-secondary hover:bg-yellow-400 text-black text-label-md rounded-2xl transition-all shadow-[0_10px_40px_-10px_rgba(234,179,8,0.4)] uppercase overflow-hidden active:scale-95"
+              className="group relative px-10 py-5 bg-secondary hover:bg-yellow-400 text-primary text-button-text rounded-none transition-all shadow-industrial-secondary hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none duration-100 uppercase overflow-hidden active:scale-95"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Solicitar Servicio <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

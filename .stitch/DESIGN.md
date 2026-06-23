@@ -1,185 +1,194 @@
 ---
 name: Envios DosRuedas
 colors:
-  surface: '#121414'
-  surface-dim: '#121414'
-  surface-bright: '#37393a'
-  surface-container-lowest: '#0c0f0f'
-  surface-container-low: '#1a1c1c'
-  surface-container: '#1e2020'
-  surface-container-high: '#282a2b'
-  surface-container-highest: '#333535'
-  on-surface: '#e2e2e2'
-  on-surface-variant: '#cdc7aa'
-  inverse-surface: '#e2e2e2'
-  inverse-on-surface: '#2f3131'
-  outline: '#979177'
-  outline-variant: '#4b4731'
-  surface-tint: '#dec800'
-  primary: '#ffffff'
-  on-primary: '#373100'
-  primary-container: '#fde400'
-  on-primary-container: '#716500'
-  inverse-primary: '#6a5f00'
-  secondary: '#b4c5ff'
-  on-secondary: '#0b2b71'
-  secondary-container: '#2b458b'
-  on-secondary-container: '#a0b6ff'
-  tertiary: '#ffffff'
-  on-tertiary: '#002c70'
-  tertiary-container: '#dae2ff'
-  on-tertiary-container: '#2d60c4'
-  error: '#ffb4ab'
-  on-error: '#690005'
-  error-container: '#93000a'
-  on-error-container: '#ffdad6'
-  primary-fixed: '#fde400'
-  primary-fixed-dim: '#dec800'
-  on-primary-fixed: '#201c00'
-  on-primary-fixed-variant: '#504700'
-  secondary-fixed: '#dbe1ff'
-  secondary-fixed-dim: '#b4c5ff'
-  on-secondary-fixed: '#00174b'
-  on-secondary-fixed-variant: '#294389'
-  tertiary-fixed: '#dae2ff'
-  tertiary-fixed-dim: '#b1c5ff'
-  on-tertiary-fixed: '#001946'
-  on-tertiary-fixed-variant: '#00419e'
-  background: '#121414'
-  on-background: '#e2e2e2'
-  surface-variant: '#333535'
+  surface: '#f8f9fa'
+  surface-dim: '#d9dadb'
+  surface-bright: '#f8f9fa'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#f3f4f5'
+  surface-container: '#edeeef'
+  surface-container-high: '#e7e8e9'
+  surface-container-highest: '#e1e3e4'
+  on-surface: '#191c1d'
+  on-surface-variant: '#444653'
+  inverse-surface: '#2e3132'
+  inverse-on-surface: '#f0f1f2'
+  outline: '#747684'
+  outline-variant: '#c4c5d5'
+  surface-tint: '#3456c3'
+  primary: '#002376'
+  on-primary: '#ffffff'
+  primary-container: '#0636a5'
+  on-primary-container: '#95aaff'
+  inverse-primary: '#b7c4ff'
+  secondary: '#686000'
+  on-secondary: '#ffffff'
+  secondary-container: '#f5e300'
+  on-secondary-container: '#6d6400'
+  tertiary: '#012473'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#223c8a'
+  on-tertiary-container: '#94aaff'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#dce1ff'
+  primary-fixed-dim: '#b7c4ff'
+  on-primary-fixed: '#001551'
+  on-primary-fixed-variant: '#123caa'
+  secondary-fixed: '#f8e600'
+  secondary-fixed-dim: '#dac900'
+  on-secondary-fixed: '#1f1c00'
+  on-secondary-fixed-variant: '#4e4800'
+  tertiary-fixed: '#dce1ff'
+  tertiary-fixed-dim: '#b6c4ff'
+  on-tertiary-fixed: '#00164f'
+  on-tertiary-fixed-variant: '#28418f'
+  background: '#f8f9fa'
+  on-background: '#191c1d'
+  surface-variant: '#e1e3e4'
+  egyptian-blue: '#0636A5'
+  sunbeam-yellow: '#FFEC01'
+  caution-orange: '#F37021'
+  asphalt-gray: '#333333'
 typography:
-  display-lg:
-    fontFamily: Sora
-    fontSize: 48px
-    fontWeight: '800'
-    lineHeight: '1.1'
-    letterSpacing: -0.02em
   headline-lg:
-    fontFamily: Sora
-    fontSize: 32px
-    fontWeight: '700'
-    lineHeight: '1.2'
-    letterSpacing: -0.01em
-  headline-lg-mobile:
-    fontFamily: Sora
-    fontSize: 24px
-    fontWeight: '700'
-    lineHeight: '1.2'
+    fontFamily: Anton
+    fontSize: 64px
+    fontWeight: '400'
+    lineHeight: '1.1'
+    letterSpacing: 0.05em
   headline-md:
-    fontFamily: Sora
+    fontFamily: Anton
+    fontSize: 48px
+    fontWeight: '400'
+    lineHeight: '1.1'
+    letterSpacing: 0.05em
+  headline-sm:
+    fontFamily: Anton
+    fontSize: 32px
+    fontWeight: '400'
+    lineHeight: '1.2'
+    letterSpacing: 0.05em
+  headline-lg-mobile:
+    fontFamily: Anton
+    fontSize: 40px
+    fontWeight: '400'
+    lineHeight: '1.1'
+    letterSpacing: 0.05em
+  subtitle-lg:
+    fontFamily: Bebas Neue
     fontSize: 24px
-    fontWeight: '600'
-    lineHeight: '1.3'
+    fontWeight: '400'
+    lineHeight: '1.2'
+    letterSpacing: 0.02em
+  button-text:
+    fontFamily: Bebas Neue
+    fontSize: 20px
+    fontWeight: '400'
+    lineHeight: '1'
+    letterSpacing: 0.03em
   body-lg:
-    fontFamily: Hanken Grotesk
+    fontFamily: Inter
     fontSize: 18px
     fontWeight: '400'
     lineHeight: '1.6'
   body-md:
-    fontFamily: Hanken Grotesk
+    fontFamily: Inter
     fontSize: 16px
     fontWeight: '400'
     lineHeight: '1.5'
-  label-md:
-    fontFamily: Hanken Grotesk
-    fontSize: 14px
-    fontWeight: '600'
-    lineHeight: '1.2'
-    letterSpacing: 0.05em
   label-sm:
-    fontFamily: Hanken Grotesk
+    fontFamily: Inter
     fontSize: 12px
-    fontWeight: '500'
-    lineHeight: '1.2'
-rounded:
-  sm: 0.125rem
-  DEFAULT: 0.25rem
-  md: 0.375rem
-  lg: 0.5rem
-  xl: 0.75rem
-  full: 9999px
+    fontWeight: '600'
+    lineHeight: '1'
+    letterSpacing: 0.05em
 spacing:
-  base: 8px
-  xs: 4px
-  sm: 12px
-  md: 24px
-  lg: 48px
-  xl: 80px
+  unit: 8px
   gutter: 24px
   margin-mobile: 16px
-  margin-desktop: 64px
+  margin-desktop: 48px
+  container-max: 1280px
 ---
 
 ## Brand & Style
 
-This design system is built for a modern logistics and supply chain environment that prioritizes speed, clarity, and decisive action. The brand personality is **authoritative and energetic**, moving away from the sterile greys of traditional enterprise software toward a more saturated, high-contrast aesthetic.
+The brand identity for this design system is built on "Envios DosRuedas"—a concept that balances the raw energy of urban logistics with the unwavering reliability of institutional security. It is designed to resonate with the Mar del Plata e-commerce sector, projecting a professional, industrial, and high-impact presence.
 
-The design style combines **Corporate Modernism** with **High-Contrast Boldness**. It utilizes a deep, immersive blue background to establish a sense of stable "night-mode" professional focus, punctuated by high-visibility yellow accents that mimic industrial hazard markings and priority signaling. The emotional response should be one of "controlled urgency"—the user should feel they are operating a high-performance engine where critical information is impossible to miss.
+The visual style is **High-Contrast / Industrial**. It avoids "tech-utopian" or futuristic aesthetics in favor of professional realism. The design utilizes heavy geometric forms, architectural grid lines, and physical depth through realistic shadows. The interface should feel like a piece of high-visibility equipment: utilitarian, durable, and impossible to ignore.
+
+Key visual pillars include:
+- **High-Contrast Visibility:** Aggressive use of primary colors to ensure legibility in high-speed urban environments.
+- **Structural Integrity:** Heavy use of rectangular containers and thick borders that mimic industrial crates and shipping containers.
+- **Physical Realism:** Use of shadows and depth that suggest physical weight rather than digital transparency.
 
 ## Colors
 
-The palette is intentionally restricted to maximize functional contrast. 
+The palette is dominated by **Egyptian Blue**, serving as the bedrock of the identity to convey authority and institutional trust. **Sunbeam Yellow** is reserved for high-impact interactions, alerts, and key branding elements, acting as a visual "siren" that cuts through the blue.
 
-- **Primary (Action Yellow):** A vibrant, saturated yellow (#FFE600) used exclusively for headings, primary call-to-actions, and mission-critical status indicators.
-- **Secondary (Deep Nautical):** The foundation of the system. This deep blue (#00246B) acts as the primary surface color, providing a professional and calming backdrop that reduces eye strain during long shifts.
-- **Tertiary (Cobalt Accent):** A brighter blue (#0047AB) used for interactive states, progress bars, and subtle layering to differentiate surfaces.
-- **Neutral (High-Vis White):** Pure white is reserved for body text and icon details to ensure maximum readability against the dark blue backgrounds.
+- **Primary (Egyptian Blue):** Used for large background surfaces, headers, and primary branding.
+- **Secondary (Sunbeam Yellow):** Strictly for CTAs, critical status indicators, and movement-related accents.
+- **Tertiary (Deep Navy):** Used for grid lines and subtle depth variations within blue surfaces.
+- **Neutral (Off-White/Asphalt):** High-legibility backgrounds for data-heavy sections and dark text for technical documentation.
+
+Color application should follow a 70/20/10 distribution to maintain the "Industrial" high-contrast look without overwhelming the user.
 
 ## Typography
 
-This design system employs a dual-font strategy to balance character with utility.
+The typographic system is built for instant recognition at high speeds. 
 
-**Sora** is the display typeface. Its geometric structure and wide stance provide a technical, futuristic feel perfect for large-scale data and bold headers. All headers should be rendered in the primary yellow color to pop against the blue background.
+**Anton** is the voice of the brand. It must always be rendered in **UPPERCASE** with a slight positive letter-spacing (0.05em) to maintain readability despite its heavy weight. It is used exclusively for slogans and primary section headers.
 
-**Hanken Grotesk** serves as the workhorse for body text and data labels. It is highly legible at small sizes and maintains a contemporary, professional look. Body text should remain white or a very light silver for secondary information. Use uppercase labels for metadata and technical specs to mimic industrial labeling conventions.
+**Bebas Neue** provides a condensed, technical contrast for secondary information and action-oriented elements. It excels in buttons and numerical data displays where vertical efficiency is required.
+
+**Inter** handles all utilitarian tasks. It is the workhorse for body copy, technical descriptions, and input labels, ensuring that the "Industrial" aesthetic doesn't compromise the clarity of complex logistics data.
 
 ## Layout & Spacing
 
-The layout philosophy follows a **strict functional grid** optimized for dashboard density. We utilize a 12-column fluid grid for desktop and a 4-column grid for mobile.
+This design system employs a **Fixed Grid** model on desktop to mimic the structured nature of shipping manifests and cargo loading. 
 
-Spacing is based on an 8px rhythmic scale. For logistics-heavy screens, use "md" (24px) for gutter consistency between cards to maintain a structured, organized feel. Negative space is used strategically to group related data points, but density is prioritized over airiness to allow users to see more information at once.
+- **The Grid:** A 12-column system with 24px gutters. Elements should align strictly to the grid to maintain a "built" rather than "flowed" feel.
+- **Rhythm:** An 8px base unit drives all padding and margin decisions. 
+- **Industrial Borders:** Instead of whitespace alone, use thin (1px) borders in high-contrast or subtle tonal variations to define zones, much like technical blueprints.
+- **Verticality:** Use vertical text anchors (rendered in low-opacity Anton) on the far edges of the layout to reinforce the "Envios DosRuedas" theme.
 
-**Breakpoints:**
-- **Mobile:** < 600px (Margins: 16px)
-- **Tablet:** 600px - 1024px (Margins: 32px)
-- **Desktop:** > 1024px (Margins: 64px)
+Across mobile, the layout collapses into a single column with 16px side margins, prioritizing large-scale touch targets for couriers and users on the move.
 
 ## Elevation & Depth
 
-Depth in this design system is created through **Tonal Layering** rather than traditional shadows. Shadows are difficult to see on very dark backgrounds, so we use color shifts and borders to indicate hierarchy.
+Elevation is conveyed through **Tonal Layers** and **Physical Shadows**, rejecting the ethereal blurs of modern SaaS apps in favor of structural weight.
 
-1.  **Floor (Level 0):** The deepest blue (#001A4D or similar dark navy) for the main application background.
-2.  **Surface (Level 1):** The primary blue (#00246B) for cards and main UI containers.
-3.  **Raised (Level 2):** A lighter cobalt (#0047AB) or a 1px inner stroke of white at 10% opacity to define edges.
-4.  **Interactive:** Hover states on cards should use a subtle glow or a 2px yellow left-border to indicate focus.
-
-Avoid heavy blurs; maintain crisp, clean lines to reflect precision in logistics.
+- **Stacking:** Use Egyptian Blue as the base level (Level 0). Cards and containers (Level 1) use slight tonal shifts or 1px solid borders.
+- **Physical Shadows:** When an element must "pop" (like a logistics crate or a CTA), use a crisp, directional shadow (e.g., 4px 4px 0px) or a diffused, low-position shadow with a slight blue tint.
+- **Geometric Depth:** Use 45-degree angled patterns or fine grid lines in the background to simulate the floor of a warehouse or the texture of the urban environment.
+- **Zero Transparency:** Avoid backdrop blurs. All surfaces should feel opaque and solid.
 
 ## Shapes
 
-The shape language is **Soft (Level 1)**. This uses subtle 0.25rem (4px) corner radii. This approach maintains the professional, architectural feel of a logistics platform while removing the "harshness" of sharp 90-degree angles. 
+The shape language is strictly **Sharp (0px roundedness)**. 
 
-Buttons and input fields should follow this consistent 4px rounding. Avoid pill-shapes for buttons to maintain a structured, grid-aligned aesthetic that feels more like a dashboard and less like a social app.
+To reflect the industrial realism of logistics—boxes, trucks, and shipping containers—every UI element features hard 90-degree corners. This reinforces the brand’s "structured" and "secure" identity.
+
+Large rectangular blocks should be used for all containers. If a visual "break" is needed, use 45-degree chamfered corners on specific accent elements (like status badges) rather than curves.
 
 ## Components
 
 ### Buttons
-- **Primary:** Background in Action Yellow (#FFE600), Text in Deep Blue (#00246B), Semi-bold.
-- **Secondary:** Transparent background with a 2px Action Yellow border.
-- **Ghost:** White text with no background, used for low-priority utility actions.
+Industrial scale is key. Buttons use **Bebas Neue**, are always rectangular (sharp corners), and feature high-contrast fills. The primary CTA is Sunbeam Yellow with Egyptian Blue text. On hover, apply a hard "pressed" effect (reducing shadow or shifting position by 2px) to simulate physical machinery.
+
+### Chips & Status Badges
+High-visibility markers for delivery status. Use a black background with Sunbeam Yellow text for "Urgent" or "In Transit." Use "Egyptian Blue" for "Delivered." They should look like physical labels slapped onto a box.
+
+### Lists & Data Grids
+Technical and dense. Use 1px borders between items. Headlines within lists use `label-sm` (Inter Bold, Uppercase) to denote data categories (e.g., TRACKING ID, DESTINATION).
 
 ### Input Fields
-Inputs should have a background slightly darker than the surface they sit on. The border should be a subtle 1px cobalt, turning into a 2px yellow stroke upon focus. Labels are always positioned above the field in `label-md` style.
-
-### Chips & Badges
-Used for status (e.g., "In Transit," "Delayed"). Status colors should be high-contrast:
-- **Warning:** Yellow background with Blue text.
-- **Critical:** Bright Red background with White text.
-- **Success:** Bright Mint background with Blue text.
+Large, bold outlines (2px) in Egyptian Blue. Labels are placed above the field in `label-sm`. Focus states should swap the border to Sunbeam Yellow for immediate visual feedback.
 
 ### Cards
-Cards are the primary container. They should use the "Surface" color with a clear hierarchy: Header (Sora, Yellow), Body (Hanken, White), and Footer (separated by a 1px Cobalt line).
+"Crate-style" containers. Cards should have a 1px border. For featured content, include a "Shadow" that is a solid block of color offset by 4px, giving it a 3D physical presence on the grid.
 
-### Data Tables
-Tables are central to this design system. Use alternating row stripes (Level 1 Surface and a slightly lighter blue) to help the eye track across wide data sets. Headers should be sticky and use the `label-md` typography.
+### Logistics Tracker
+A custom component featuring a thick linear path in Sunbeam Yellow, with sharp diamond-shaped nodes indicating progress. Use high-contrast icons for "Warehouse," "In Transit," and "Delivered."

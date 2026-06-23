@@ -1,21 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Roboto, Orbitron } from "next/font/google";
+import { Anton, Bebas_Neue, Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster";
 import { WhatsAppReviewButton } from "@/components/seo/WhatsAppReviewButton";
 import "./globals.css";
 
-const roboto = Roboto({
+const anton = Anton({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-roboto",
-  display: 'swap',
+  weight: ["400"],
+  variable: "--font-anton",
+  display: "swap",
 });
 
-const orbitron = Orbitron({
+const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  variable: "--font-orbitron",
-  display: 'swap',
+  weight: ["400"],
+  variable: "--font-bebas-neue",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -150,7 +156,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${roboto.variable} ${orbitron.variable} font-sans antialiased`}
+        className={`${inter.variable} ${anton.variable} ${bebasNeue.variable} font-sans antialiased`}
       >
         {children}
         <WhatsAppReviewButton />

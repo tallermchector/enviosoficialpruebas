@@ -35,7 +35,7 @@ export const CtaSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative p-12 md:p-24 rounded-[60px] primary-gradient-bg overflow-hidden glow-blue group border border-white/10"
+          className="relative p-12 md:p-24 rounded-none primary-gradient-bg overflow-hidden glow-blue group border border-white/10"
         >
           {/* Internal Glow Effects */}
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/10 blur-[80px] rounded-full group-hover:bg-white/20 transition-all duration-1000" />
@@ -46,7 +46,7 @@ export const CtaSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-card text-white text-xxs font-black tracking-[0.4em] mb-12 uppercase"
+              className="inline-flex items-center gap-3 px-5 py-2 rounded-none glass-card text-white text-xxs font-black tracking-[0.4em] mb-12 uppercase"
             >
               <Zap size={16} className="fill-yellow-400 text-yellow-400 animate-pulse" /> ¡Empezá Ahora!
             </motion.div>
@@ -64,14 +64,14 @@ export const CtaSection = () => {
               <Link
                 href="https://wa.me/5492236602699?text=Hola%20Envios%20DosRuedas,%20vengo%20desde%20la%20web."
                 aria-label="Contactanos por WhatsApp para servicios logísticos"
-                className="group w-full sm:w-auto px-12 py-6 bg-secondary text-primary text-label-md rounded-2xl transition-all shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 flex items-center justify-center gap-4 uppercase"
+                className="group w-full sm:w-auto px-12 py-6 bg-secondary text-primary text-button-text rounded-none transition-all shadow-industrial-secondary hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none duration-100 flex items-center justify-center gap-4 uppercase active:scale-95"
               >
                 Contactanos por WhatsApp <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
                 href="/tarifas"
-                className="w-full sm:w-auto px-12 py-6 bg-white/5 border border-white/10 text-white text-label-md rounded-2xl transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:bg-white/10 uppercase"
+                className="w-full sm:w-auto px-12 py-6 bg-white/5 border border-white/10 text-white text-button-text rounded-none transition-all shadow-crate hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none duration-100 flex items-center justify-center gap-4 hover:bg-white/10 uppercase active:scale-95"
               >
                 Ver Tarifas 2026 <Calculator size={22} />
               </Link>
@@ -84,7 +84,7 @@ export const CtaSection = () => {
                 { icon: <MousePointer2 aria-hidden="true" />, text: "Motocicletas dedicadas para máxima agilidad urbana" }
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center gap-4 text-label-sm text-blue-100/50 uppercase">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-white transition-all">
+                  <div className="w-10 h-10 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-white transition-all">
                     {React.cloneElement(item.icon as React.ReactElement<{ size?: number; className?: string; fill?: string }>, { size: 18 })}
                   </div>
                   {item.text}

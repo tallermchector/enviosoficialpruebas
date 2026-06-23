@@ -58,7 +58,7 @@ export function HeroVisuals() {
         }}
       >
         <div className="relative w-full max-w-[480px] aspect-[1.4/1] transform-gpu">
-          <div className="absolute inset-0 bg-primary/20 rounded-[40px] blur-[100px] scale-90 opacity-50" />
+          <div className="absolute inset-0 bg-primary/20 rounded-none blur-[100px] scale-90 opacity-50" />
 
           <motion.div
             className="w-full h-full relative z-10"
@@ -73,9 +73,9 @@ export function HeroVisuals() {
             <motion.div
               animate={{ y: [0, -15, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute -top-8 -right-8 px-5 py-4 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
+              className="absolute -top-8 -right-8 px-5 py-4 rounded-none bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
             >
-              <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/20">
+              <div className="w-12 h-12 rounded-none bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/20">
                 <MousePointer2 size={24} />
               </div>
               <div>
@@ -87,9 +87,9 @@ export function HeroVisuals() {
             <motion.div
               animate={{ y: [0, 15, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -bottom-10 -left-6 px-5 py-4 rounded-2xl bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
+              className="absolute -bottom-10 -left-6 px-5 py-4 rounded-none bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
             >
-              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center text-secondary border border-secondary/20">
+              <div className="w-12 h-12 rounded-none bg-secondary/20 flex items-center justify-center text-secondary border border-secondary/20">
                 <ShieldCheck size={24} />
               </div>
               <div>
