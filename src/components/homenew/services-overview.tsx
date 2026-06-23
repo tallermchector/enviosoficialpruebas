@@ -21,48 +21,48 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-[#0a0d16]/80 border-red-500/20 hover:border-red-500/40 shadow-2xl backdrop-blur-md",
-    icon: "bg-red-500/10 border border-red-500/20 text-red-400 drop-shadow-[0_0_15px_rgba(239,68,68,0.4)]",
-    accent: "text-red-400",
+    card: "bg-[#0a0d16]/80 border-primary/20 hover:border-primary/55 shadow-2xl backdrop-blur-md",
+    icon: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(6,53,166,0.4)]",
+    accent: "text-secondary",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
-    button: "text-gray-300 hover:text-white group-hover:text-red-400",
-    badge: "bg-red-500/10 text-red-400 border-red-500/20",
-    accentColor: "red-400",
-    glowColor: "rgba(239,68,68,0.1)"
+    button: "text-gray-300 hover:text-white group-hover:text-secondary",
+    badge: "bg-secondary/15 text-secondary border-secondary/20",
+    accentColor: "secondary",
+    glowColor: "rgba(6,53,166,0.15)"
   },
   lowcost: {
-    card: "bg-[#0a0d16]/80 border-cyan-500/20 hover:border-cyan-500/40 shadow-2xl backdrop-blur-md",
-    icon: "bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]",
-    accent: "text-cyan-400",
+    card: "bg-[#0a0d16]/80 border-white/10 hover:border-primary/40 shadow-2xl backdrop-blur-md",
+    icon: "bg-white/5 border border-white/10 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]",
+    accent: "text-gray-400",
     text: "text-white",
     desc: "text-gray-400 [&>span]:text-white",
-    button: "text-gray-300 hover:text-white group-hover:text-cyan-400",
-    badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
-    accentColor: "cyan-400",
-    glowColor: "rgba(6,182,212,0.1)"
+    button: "text-gray-300 hover:text-white group-hover:text-white",
+    badge: "bg-white/5 text-white border-white/10",
+    accentColor: "white",
+    glowColor: "rgba(255,255,255,0.05)"
   },
   meli: {
-    card: "bg-[#0a0d16]/80 border-yellow-500/20 hover:border-yellow-500/40 shadow-2xl backdrop-blur-md",
-    icon: "bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]",
-    accent: "text-yellow-400",
+    card: "bg-[#0a0d16]/80 border-secondary/20 hover:border-secondary/45 shadow-2xl backdrop-blur-md",
+    icon: "bg-secondary/10 border border-secondary/20 text-secondary drop-shadow-[0_0_15px_rgba(255,236,0,0.3)]",
+    accent: "text-secondary",
     text: "text-white",
-    desc: "text-gray-400 [&>span]:text-yellow-400",
-    button: "text-gray-300 hover:text-white group-hover:text-yellow-400",
-    badge: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
-    accentColor: "yellow-400",
-    glowColor: "rgba(234,179,8,0.1)"
+    desc: "text-gray-400 [&>span]:text-secondary",
+    button: "text-gray-300 hover:text-white group-hover:text-secondary",
+    badge: "bg-secondary/10 text-secondary border-secondary/20",
+    accentColor: "secondary",
+    glowColor: "rgba(255,236,0,0.1)"
   },
   ecommerce: {
-    card: "bg-[#0a0d16]/80 border-emerald-500/20 hover:border-emerald-500/40 shadow-2xl backdrop-blur-md",
-    icon: "bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]",
-    accent: "text-emerald-400",
+    card: "bg-[#0a0d16]/80 border-primary/20 hover:border-primary/45 shadow-2xl backdrop-blur-md",
+    icon: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(6,53,166,0.3)]",
+    accent: "text-primary",
     text: "text-white",
-    desc: "text-gray-400 [&>span]:text-emerald-400",
-    button: "text-gray-300 hover:text-white group-hover:text-emerald-400",
-    badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
-    accentColor: "emerald-500",
-    glowColor: "rgba(16,185,129,0.1)"
+    desc: "text-gray-400 [&>span]:text-primary",
+    button: "text-gray-300 hover:text-white group-hover:text-primary",
+    badge: "bg-primary/10 text-primary border-primary/20",
+    accentColor: "primary",
+    glowColor: "rgba(6,53,166,0.1)"
   }
 };
 
@@ -92,7 +92,7 @@ export const ServicesOverview = () => {
     {
       theme: "meli",
       title: "Envíos Flex (MercadoLibre)",
-      bajada: "Potenciá tu reputación al máximo.",
+      bajada: "Tus ventas en las mejores manos.",
       desc: <>Somos expertos en MercadoLibre. Cumplimos tus <span className="font-bold">acuerdos de nivel de servicio (SLAs) Same-Day</span> para que tu termómetro esté en verde.</>,
       icon: <Package />,
       href: "/servicios/enviosflex",
@@ -102,7 +102,7 @@ export const ServicesOverview = () => {
     {
       theme: "ecommerce",
       title: "E-Commerce & 3PL",
-      bajada: "Tercerización y cuentas corrientes.",
+      bajada: "Conectamos tu negocio con la ciudad.",
       desc: <>Más que un envío, somos tu depósito. <span className="font-bold">Soluciones escalables</span> para PyMEs con facturación mensual centralizada.</>,
       icon: <Truck />,
       href: "/servicios/plan-emprendedores",
@@ -146,12 +146,12 @@ export const ServicesOverview = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-none glass-card border border-primary/20 text-blue-400 text-xxs font-black tracking-[0.2em] mb-8 uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" /> Nuestros Servicios
+            <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-none glass-card border border-primary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
+              <span className="w-1.5 h-1.5 rounded-none bg-secondary animate-pulse" /> Nuestros Servicios
             </div>
             <h2 className="text-headline-lg-mobile md:text-display-lg italic uppercase text-white">
               Soluciones <br />
-              <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logísticas</span>
+              <span className="text-primary drop-shadow-[0_0_20px_rgba(6,53,166,0.4)]">Logísticas</span>
             </h2>
           </motion.div>
 
@@ -205,7 +205,7 @@ export const ServicesOverview = () => {
                   <h3 className={cn("text-headline-md mb-1 uppercase", theme.text)}>
                     {service.title}
                   </h3>
-                  <p className={cn("text-label-sm uppercase mb-4", theme.accent)}>
+                  <p className={cn("text-label-sm uppercase mb-4 font-bebas tracking-wider text-[15px]", theme.accent)}>
                     {service.bajada}
                   </p>
                   <div className={cn("text-body-md mb-6 max-w-[320px]", theme.desc)}>
@@ -213,10 +213,10 @@ export const ServicesOverview = () => {
                   </div>
                 </div>
 
-                <div className="relative z-10 flex items-center justify-between">
+                <div className="relative z-10 flex items-center justify-between font-bebas text-[17px] tracking-wider">
                   <Link
                     href={service.href}
-                    className={cn("flex items-center gap-3 text-label-md transition-all", theme.button)}
+                    className={cn("flex items-center gap-3 transition-all", theme.button)}
                   >
                     {service.buttonText} <ChevronRight size={16} />
                   </Link>

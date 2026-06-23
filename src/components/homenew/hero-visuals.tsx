@@ -75,12 +75,12 @@ export function HeroVisuals() {
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
               className="absolute -top-8 -right-8 px-5 py-4 rounded-none bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
             >
-              <div className="w-12 h-12 rounded-none bg-blue-500/20 flex items-center justify-center text-blue-400 border border-blue-500/20">
+              <div className="w-12 h-12 rounded-none bg-primary/20 flex items-center justify-center text-primary border border-primary/20">
                 <MousePointer2 size={24} />
               </div>
               <div>
                 <div className="text-[9px] text-gray-400 uppercase font-black tracking-[0.2em] mb-0.5">ESTADO REAL</div>
-                <div className="text-sm font-black text-blue-400 uppercase italic font-display text-orbitron">EN TRÁNSITO</div>
+                <div className="text-sm font-black text-primary uppercase italic font-display">EN TRÁNSITO</div>
               </div>
             </motion.div>
 
@@ -94,12 +94,12 @@ export function HeroVisuals() {
               </div>
               <div>
                 <div className="text-[9px] text-gray-400 uppercase font-black tracking-[0.2em] mb-0.5">SEGURIDAD</div>
-                <div className="text-sm font-black text-secondary uppercase italic font-display text-orbitron">VERIFICADO</div>
+                <div className="text-sm font-black text-secondary uppercase italic font-display">VERIFICADO</div>
               </div>
             </motion.div>
           </motion.div>
 
-          <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[120%] h-32 bg-primary/10 blur-[100px] rounded-full opacity-60" />
+          <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[120%] h-32 bg-primary/10 blur-[100px] rounded-none opacity-60" />
         </div>
       </motion.div>
     </div>

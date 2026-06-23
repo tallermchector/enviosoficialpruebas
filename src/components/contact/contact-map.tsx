@@ -18,7 +18,7 @@ export function ContactMap() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-xl mb-4"
+            className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-none mb-4"
           >
             <MapPin className="w-5 h-5 text-primary mr-2" />
             <span className="text-xs font-bold text-primary uppercase tracking-wider font-sans">Ubicación</span>
@@ -34,7 +34,7 @@ export function ContactMap() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative h-[450px] md:h-[550px] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#0a0d16]/60 backdrop-blur-md"
+          className="relative h-[450px] md:h-[550px] w-full rounded-none overflow-hidden shadow-2xl border border-white/10 bg-[#0a0d16]/60 backdrop-blur-md"
         >
           <iframe 
             src="https://www.openstreetmap.org/export/embed.html?bbox=-57.8,-38.15,-57.4,-37.85&layer=mapnik"
@@ -49,7 +49,7 @@ export function ContactMap() {
           ></iframe>
         </motion.div>
         <div className="text-center mt-8">
-          <Button onClick={openInOSM} variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-black font-display font-black text-orbitron tracking-wider rounded-xl uppercase py-4 h-auto">
+          <Button onClick={openInOSM} variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-black font-bebas font-black tracking-wider rounded-none uppercase py-4 h-auto text-lg">
             <ExternalLink className="mr-2 h-4 w-4" />
             Ver en OpenStreetMap
           </Button>
