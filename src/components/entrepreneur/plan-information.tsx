@@ -43,7 +43,7 @@ export function PlanInformation() {
         >
           {/* Left Content */}
           <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-label-sm font-bold tracking-widest mb-6 uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-primary/10 border border-primary/20 text-primary text-label-sm font-bold tracking-widest mb-6 uppercase">
               SOLUCIONES CORPORATIVAS
             </div>
             <h2 className="font-display text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
@@ -51,7 +51,7 @@ export function PlanInformation() {
               <span className="text-primary italic">PARA EMPRENDEDORES</span>
             </h2>
             <p className="text-gray-400 text-body-lg mb-10 leading-relaxed font-sans max-w-xl">
-              Somos más que una empresa de envíos; nos convertimos en tu departamento de logística. Delegá el almacenamiento y la distribución en expertos y enfocate en hacer crecer tu negocio.
+              Somos más que una empresa de envíos; nos convertimos en tu departmento de logística. Delegá el almacenamiento y la distribución en expertos y enfocate en hacer crecer tu negocio.
             </p>
 
             {/* Features */}
@@ -63,7 +63,7 @@ export function PlanInformation() {
                   custom={index}
                   variants={itemVariants}
                 >
-                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-primary/30">
+                  <div className="w-6 h-6 bg-primary/20 rounded-none flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-primary/30">
                     <Check className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <div>

@@ -29,17 +29,17 @@ export function NewsletterSignup() {
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full -translate-x-1/2 translate-y-1/2 blur-3xl"></div>
 
       <div className="container mx-auto max-w-5xl relative z-10">
-        <Card className="bg-[#030710] backdrop-blur-md border-white/10 shadow-2xl rounded-[2.5rem] overflow-hidden">
+        <Card className="glassmorphism border-white/10 shadow-crate rounded-none overflow-hidden">
           <CardContent className="p-10 md:p-16 text-center">
             {isSubscribed ? (
               <div className="text-white animate-in zoom-in duration-500">
                 <CheckCircle className="w-20 h-20 mx-auto mb-6 text-secondary" />
-                <h3 className="text-display-md mb-4 font-display">¡Bienvenido a la Comunidad!</h3>
+                <h3 className="text-display-md mb-4 font-display uppercase">¡Bienvenido a la Comunidad!</h3>
                 <p className="text-body-lg font-sans text-gray-300">Te suscribiste correctamente. Pronto recibirás nuestras mejores novedades.</p>
               </div>
             ) : (
               <>
-                <div className="w-20 h-20 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg rotate-3">
+                <div className="w-20 h-20 bg-secondary rounded-none flex items-center justify-center mx-auto mb-8 shadow-industrial rotate-3">
                   <Mail className="w-10 h-10 text-primary-foreground" />
                 </div>
 
@@ -55,12 +55,12 @@ export function NewsletterSignup() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="flex-1 h-16 bg-[#0a0d16] border-white/30 text-white placeholder:text-gray-500 rounded-xl px-6 focus:bg-[#0a0d16]/80 focus-visible:border-secondary transition-all font-sans text-body-md"
+                    className="flex-1 h-16 bg-[#0a0d16]/50 border-white/30 text-white placeholder:text-gray-500 rounded-none px-6 focus:bg-[#0a0d16]/80 focus-visible:border-secondary focus-visible:ring-2 focus-visible:ring-secondary/20 transition-all font-sans text-body-md"
                   />
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="h-16 px-10 bg-secondary hover:bg-yellow-400 text-black uppercase font-display text-label-md rounded-xl shadow-xl transition-all"
+                    className="h-16 px-10 bg-secondary hover:bg-yellow-400 text-black uppercase font-bebas text-lg tracking-wider rounded-none shadow-industrial transition-all"
                   >
                     {isLoading ? (
                       <>

@@ -69,7 +69,7 @@ export const EmprendedoresHome = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-headline-lg-mobile md:text-display-lg italic text-white uppercase"
             >
-              Potencia tu <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logística</span> <br />
+              Potenciá tu <span className="text-primary drop-shadow-[0_0_20px_rgba(37,99,235,0.4)]">Logística</span> <br />
               con <span className="text-secondary drop-shadow-[0_0_15px_rgba(234,179,8,0.2)]">DosRuedas</span>
             </motion.h2>
           </div>
@@ -104,8 +104,8 @@ export const EmprendedoresHome = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -15, scale: 1.02 }}
-              className="group relative h-full rounded-none overflow-hidden border border-white/5 bg-[#0a0d16] hover:border-primary/40 transition-all duration-700 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)]"
+              whileHover={{ y: -15 }}
+              className="group relative h-full rounded-none overflow-hidden glassmorphism hover:border-glow-primary transition-stitch shadow-crate hover:shadow-industrial"
             >
               <Image
                 src={solution.image}
@@ -150,7 +150,7 @@ export const EmprendedoresHome = () => {
                   href={solution.link}
                   className="group/btn w-full py-6 rounded-none bg-white/5 border border-white/10 text-white text-button-text text-center flex items-center justify-center gap-4 hover:bg-white/10 hover:text-white transition-all duration-500 uppercase shadow-xl backdrop-blur-sm active:scale-95"
                 >
-                  CONFIGURAR PLAN <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
+                  CONFIGURÁ TU PLAN <ArrowRight size={18} className="group-hover/btn:translate-x-2 transition-transform" />
                 </Link>
               </div>
             </motion.div>

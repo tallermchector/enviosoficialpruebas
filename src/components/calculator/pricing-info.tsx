@@ -8,10 +8,10 @@ export default function PricingInfo() {
     <section className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-xl md:max-w-3xl mx-auto text-center">
-          <Badge variant="outline" className="mb-3 md:mb-4 text-xs sm:text-sm py-1 px-3 font-sans">
+          <Badge variant="outline" className="mb-3 md:mb-4 text-xs sm:text-sm py-1 px-3 font-sans rounded-none border-primary text-primary">
             Transparencia de Precios
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-6 font-display">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-6 font-display uppercase">
             ¿Cómo Calculamos el Precio?
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 md:mb-10 font-sans">
@@ -19,9 +19,9 @@ export default function PricingInfo() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
-          <Card className="shadow-md transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1">
+          <Card className="transition-all duration-300 ease-out border-white/10 glassmorphism shadow-crate rounded-none hover:border-primary/50 hover:-translate-y-1.5 transition-stitch">
             <CardHeader>
-              <CardTitle className="flex items-center text-xl md:text-2xl text-primary font-display">
+              <CardTitle className="flex items-center text-xl md:text-2xl text-primary font-display uppercase">
                 <Scale className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
                 Basado en la Distancia
               </CardTitle>
@@ -38,9 +38,9 @@ export default function PricingInfo() {
               </ul>
             </CardContent>
           </Card>
-          <Card className="shadow-md transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1">
+          <Card className="transition-all duration-300 ease-out border-white/10 glassmorphism shadow-crate rounded-none hover:border-primary/50 hover:-translate-y-1.5 transition-stitch">
             <CardHeader>
-              <CardTitle className="flex items-center text-xl md:text-2xl text-primary font-display">
+              <CardTitle className="flex items-center text-xl md:text-2xl text-primary font-display uppercase">
                 <Clock className="mr-2 md:mr-3 h-5 w-5 md:h-6 md:w-6" />
                 Tiempo Estimado (Informativo)
               </CardTitle>

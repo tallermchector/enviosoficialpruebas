@@ -39,12 +39,12 @@ export function SocialBenefits() {
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon
             return (
-              <Card key={index} className="text-center hover:shadow-xl transition-all duration-300 border-white/10 bg-[#0a0d16]/60 backdrop-blur-sm group">
+              <Card key={index} className="text-center transition-all duration-300 border-white/10 glassmorphism shadow-crate rounded-none hover:border-primary/50 hover:-translate-y-1.5 transition-stitch group">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-secondary/10 rounded-none flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                     <IconComponent className="w-8 h-8 text-secondary" />
                   </div>
-                  <h3 className="text-headline-lg text-foreground mb-4 font-display">{benefit.title}</h3>
+                  <h3 className="text-headline-lg text-foreground mb-4 font-display uppercase">{benefit.title}</h3>
                   <p className="text-body-md text-muted-foreground leading-relaxed font-sans">{benefit.description}</p>
                 </CardContent>
               </Card>

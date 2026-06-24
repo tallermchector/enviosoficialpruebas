@@ -51,7 +51,7 @@ export function SocialFeed({ posts }: SocialFeedProps) {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <Card key={post.id} className="overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col bg-[#0a0d16]/60 backdrop-blur-sm rounded-3xl border-white/10">
+            <Card key={post.id} className="overflow-hidden transition-all duration-500 flex flex-col border-white/10 glassmorphism shadow-crate rounded-none hover:border-primary/50 hover:-translate-y-1.5 transition-stitch">
               <CardHeader className="flex flex-row items-center space-x-4 p-6 border-b border-white/10">
                 {post.user.avatarUrl ? (
                   <div className="relative">
@@ -103,7 +103,7 @@ export function SocialFeed({ posts }: SocialFeedProps) {
 
                 {post.platform === 'whatsapp' && (
                    <div className="px-6 pb-6">
-                    <Button asChild className={cn("w-full h-12 text-slate-900 uppercase font-display text-label-md rounded-xl", platformColors[post.platform])}>
+                    <Button asChild className={cn("w-full h-12 text-black uppercase font-bebas text-lg tracking-wider rounded-none shadow-industrial", platformColors[post.platform])}>
                       <a href={post.postUrl} target="_blank" rel="noopener noreferrer">
                         <MessageSquare className="mr-2 h-5 w-5" /> Iniciar Chat Web
                       </a>
@@ -122,7 +122,7 @@ export function SocialFeed({ posts }: SocialFeedProps) {
                       <span className="flex items-center hover:text-primary transition-colors cursor-pointer"><MessageIcon className="w-4 h-4 mr-1.5" /> {post.comments}</span>
                     )}
                   </div>
-                  <Button variant="ghost" size="sm" asChild className="text-primary font-bold hover:bg-primary/10 rounded-xl">
+                  <Button variant="ghost" size="sm" asChild className="text-primary font-bold hover:bg-primary/10 rounded-none font-bebas text-base tracking-wider">
                     <a href={post.postUrl} target="_blank" rel="noopener noreferrer">
                       Ver Original <ExternalLink className="ml-1.5 w-4 h-4" />
                     </a>
@@ -134,7 +134,7 @@ export function SocialFeed({ posts }: SocialFeedProps) {
         </div>
 
         <div className="text-center mt-16">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground uppercase font-display text-label-md h-14 px-10 rounded-xl shadow-xl hover:shadow-primary/20 transition-all">
+          <Button size="lg" className="bg-secondary hover:bg-yellow-400 text-black uppercase font-bebas text-lg tracking-wider h-14 px-10 rounded-none shadow-industrial transition-all">
             Seguir todas nuestras cuentas <span className="ml-2 font-sans">→</span>
           </Button>
         </div>

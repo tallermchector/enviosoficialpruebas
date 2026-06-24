@@ -43,17 +43,17 @@ export function TeamSection() {
           {teamRoles.map((role, index) => {
             const IconComponent = role.icon
             return (
-              <Card key={index} className="text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 border-border/50 bg-card/50 backdrop-blur-sm">
+              <Card key={index} className="text-center transition-all duration-300 border-white/10 glassmorphism shadow-crate rounded-none hover:border-primary/50 hover:-translate-y-1.5 transition-stitch">
                 <CardContent className="p-8">
                   <div className="relative mb-6">
-                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                    <div className="w-20 h-20 bg-primary/10 rounded-none flex items-center justify-center mx-auto">
                       <IconComponent className="w-10 h-10 text-primary" />
                     </div>
-                    <div className="absolute top-0 right-1/4 translate-x-1/2 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-sm font-bold text-secondary-foreground border-2 border-background">
+                    <div className="absolute top-0 right-1/4 translate-x-1/2 w-8 h-8 bg-secondary rounded-none flex items-center justify-center text-sm font-bold text-secondary-foreground border-2 border-background shadow-industrial">
                       {role.count}
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-4 font-display">{role.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-4 font-display uppercase">{role.title}</h3>
                   <p className="text-muted-foreground leading-relaxed font-sans">{role.description}</p>
                 </CardContent>
               </Card>

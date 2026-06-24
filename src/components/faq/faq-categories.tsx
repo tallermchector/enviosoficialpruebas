@@ -139,17 +139,17 @@ export function FaqCategories() {
                 onClick={() => setActiveCategory(category.id)}
                 variant={isActive ? "default" : "outline"}
                 className={cn(
-                  "h-auto p-6 flex flex-col items-center space-y-4 transition-all duration-300 font-display rounded-xl",
+                  "h-auto p-6 flex flex-col items-center space-y-4 transition-all duration-300 font-bebas rounded-none text-lg tracking-wider",
                   isActive
-                    ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-xl scale-105 border-primary"
-                    : "bg-[#0a0d16]/60 backdrop-blur-sm border-white/10 hover:bg-white/5 hover:border-primary/50 text-muted-foreground"
+                    ? "bg-primary hover:bg-primary/90 text-white shadow-industrial scale-105 border-primary"
+                    : "glassmorphism border-white/10 hover:bg-white/5 hover:border-primary/50 text-white/70"
                 )}
               >
                 <div className={cn(
-                  "p-3 rounded-full",
-                  isActive ? "bg-primary-foreground/10" : "bg-primary/5"
+                  "p-3 rounded-none",
+                  isActive ? "bg-white/15" : "bg-primary/10"
                 )}>
-                  <IconComponent className={cn("w-6 h-6", isActive ? "text-primary-foreground" : "text-primary")} />
+                  <IconComponent className={cn("w-6 h-6", isActive ? "text-white" : "text-secondary")} />
                 </div>
                 <span className="text-base font-bold uppercase tracking-wider">{category.label}</span>
               </Button>
@@ -160,10 +160,10 @@ export function FaqCategories() {
         {/* FAQ Items */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-display-md text-foreground font-display">
+            <h2 className="text-display-md text-foreground font-anton uppercase tracking-wider">
               {categories.find((cat) => cat.id === activeCategory)?.label}
             </h2>
-            <div className="w-16 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+            <div className="w-16 h-1.5 bg-secondary mx-auto mt-4 rounded-none"></div>
           </div>
 
           <div className="space-y-4">

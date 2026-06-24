@@ -129,7 +129,7 @@ const config: Config = {
         sans: ["var(--font-inter)", "sans-serif"],
         display: ["var(--font-anton)", "sans-serif"],
         anton: ["var(--font-anton)", "sans-serif"],
-        bebas: ["var(--font-bebas)", "sans-serif"],
+        bebas: ["var(--font-bebas-neue)", "sans-serif"],
         inter: ["var(--font-inter)", "sans-serif"],
       },
       transitionTimingFunction: {

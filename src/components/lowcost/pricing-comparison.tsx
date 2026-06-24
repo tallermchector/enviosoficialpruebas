@@ -64,7 +64,7 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
             <h2 className="font-display text-display-md font-black italic mb-6 uppercase text-foreground tracking-tighter">
               TARIFAS 2026 <span className="text-primary">ENVÍOS LOWCOST</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-none" />
             <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
               Eficiencia en ruteo masivo. Garantizamos entregas antes de las 19:00 hs para pedidos antes de las 13:00 hs.
             </p>
@@ -80,13 +80,13 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="relative bg-[#0a0d16]/60 border-white/10 backdrop-blur-md hover:border-primary/50 transition-all duration-300 rounded-3xl overflow-hidden h-full flex flex-col group">
-                <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-full text-xxs font-bold uppercase tracking-widest">
+              <Card className="relative glassmorphism border border-white/10 hover:border-glow-secondary transition-stitch rounded-none overflow-hidden h-full flex flex-col group shadow-crate hover:shadow-industrial-secondary">
+                <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-none text-xxs font-bold uppercase tracking-widest font-bebas">
                   Tarifa 2026
                 </Badge>
 
                 <CardHeader className="text-center pt-12 pb-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 bg-primary/10 rounded-none flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all border border-primary/20">
                     <MapPin className="w-8 h-8 text-primary" />
                   </div>
                   <CardTitle className="font-display text-headline-lg font-bold text-foreground uppercase tracking-tight">
@@ -124,10 +124,10 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
            viewport={{ once: true }}
            className="mt-12"
         >
-          <Card className="bg-[#0a0d16]/60 border-white/10 backdrop-blur-md rounded-3xl overflow-hidden p-8 md:p-12">
+          <Card className="glassmorphism border border-white/10 rounded-none overflow-hidden p-8 md:p-12 shadow-crate hover:border-glow-secondary transition-stitch">
              <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-bold tracking-widest mb-6 uppercase">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-bold tracking-widest mb-6 uppercase font-bebas">
                     COTIZACIÓN ESPECIAL
                   </div>
                   <h3 className="font-display text-display-md font-black text-foreground uppercase tracking-tighter mb-4 italic">
@@ -140,7 +140,7 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
                 <div className="flex justify-center md:justify-end">
                    <Button
                     onClick={handleWhatsAppClick}
-                    className="bg-secondary hover:bg-yellow-400 text-black font-display font-black px-10 py-6 rounded-xl transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto text-label-md"
+                    className="bg-secondary hover:bg-yellow-400 text-black font-display font-black px-10 py-6 rounded-none transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto text-label-md hover:scale-105"
                   >
                     <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={24} height={24} className="w-6 h-6 mr-3" />
                     CONSULTAR POR WHATSAPP

@@ -22,11 +22,12 @@ export default function HeroAnimado() {
           </div>
 
           <h1 className="text-headline-lg-mobile md:text-display-lg italic mb-4 xl:mb-6 uppercase text-white animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
-            Mensajería y <span className="text-primary drop-shadow-[0_0_25px_rgba(6,53,166,0.4)]">Logística E-Commerce</span> en <span className="text-secondary italic drop-shadow-[0_0_20px_rgba(255,236,0,0.2)]">Mar del Plata</span>
+            Conectá tu negocio <br className="hidden sm:inline" />
+            <span className="text-primary drop-shadow-[0_0_25px_rgba(6,53,166,0.4)]">con toda la ciudad</span>
           </h1>
 
           <p className="text-gray-400 text-body-lg mb-8 xl:mb-10 max-w-2xl mx-auto lg:mx-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 fill-mode-both">
-            Logística humana y eficiente para Mar del Plata. Tus ventas en las mejores manos: conectamos tu negocio con toda la ciudad con entregas rápidas. Clientes felices.
+            Logística humana y eficiente para Mar del Plata. Poné tus ventas en las mejores manos: conectamos tu negocio con entregas rápidas y seguras. Clientes felices siempre.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-700 fill-mode-both">
@@ -36,7 +37,7 @@ export default function HeroAnimado() {
               className="group relative px-10 py-5 bg-secondary hover:bg-secondary/90 text-primary text-button-text rounded-none transition-all shadow-industrial-secondary hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none duration-100 uppercase overflow-hidden active:scale-95"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Solicitar Servicio <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Solicitá tu envío <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </Link>

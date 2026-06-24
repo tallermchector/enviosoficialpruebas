@@ -60,9 +60,9 @@ export const OptimizedHeader = () => {
           variant="gradient"
           className="px-6 rounded-none font-bebas text-lg uppercase tracking-wider hover:scale-105 transition-transform"
         >
-          <Link href="/cotizar/express" aria-label="Cotizar Envío desde la cabecera">
+          <Link href="/cotizar/express" aria-label="Cotizá tu Envío desde la cabecera">
             <CalculatorIcon className="mr-2 h-4 w-4" />
-            Cotizar Envío
+            Cotizá tu Envío
           </Link>
         </Button>
       </nav>

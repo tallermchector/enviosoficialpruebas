@@ -40,14 +40,14 @@ export const Footer = () => {
               </div>
               <div className="flex flex-col justify-center">
                 <span className="font-display font-black text-xl sm:text-2xl lg:text-3xl tracking-tighter text-white uppercase italic leading-none mb-1">
-                  Envios DosRuedas
+                  Envíos<span className="text-secondary drop-shadow-[0_0_10px_rgba(255,236,0,0.35)]">DosRuedas</span>
                 </span>
                 <span className="font-display font-black text-primary drop-shadow-[0_0_10px_rgba(6,53,166,0.3)] text-xxs sm:text-sm lg:text-base uppercase italic tracking-[0.15em] leading-none">
                   Tu solución confiable.
                 </span>
               </div>
             </Link>
-            <p className="text-gray-400 text-base mb-12 leading-relaxed font-[family-name:var(--font-roboto)] font-light max-w-sm">
+            <p className="text-gray-400 text-base mb-12 leading-relaxed font-sans font-light max-w-sm">
               Logística humana y eficiente para Mar del Plata. Tus ventas en las mejores manos: conectamos tu negocio con toda la ciudad.
             </p>
 
@@ -67,7 +67,7 @@ export const Footer = () => {
             <ul className="space-y-6">
               {footerLinks.empresa.slice(0, 3).map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-400 hover:text-primary transition-all flex items-center gap-3 group text-sm font-[family-name:var(--font-roboto)] font-light">
+                  <Link href={link.href} className="text-gray-400 hover:text-primary transition-all flex items-center gap-3 group text-sm font-sans font-light">
                     <div className="w-1 h-1 rounded-none bg-primary/20 group-hover:bg-primary group-hover:scale-150 transition-all" />
                     {link.label}
                   </Link>
@@ -81,7 +81,7 @@ export const Footer = () => {
             <ul className="space-y-6">
               {footerLinks.servicios.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-400 hover:text-primary transition-all flex items-center gap-3 group text-sm font-[family-name:var(--font-roboto)] font-light">
+                  <Link href={link.href} className="text-gray-400 hover:text-primary transition-all flex items-center gap-3 group text-sm font-sans font-light">
                     <div className="w-1 h-1 rounded-none bg-primary/20 group-hover:bg-primary group-hover:scale-150 transition-all" />
                     {link.label}
                   </Link>

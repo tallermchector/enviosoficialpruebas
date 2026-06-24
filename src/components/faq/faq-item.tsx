@@ -17,22 +17,22 @@ export function FaqItem({ question, answer, defaultOpen = false }: FaqItemProps)
 
   return (
     <Card className={cn(
-      "overflow-hidden transition-all duration-300 border-border/50",
-      isOpen ? "shadow-lg bg-background/80" : "shadow-sm bg-background/50 hover:bg-background/80"
+      "rounded-none overflow-hidden transition-all duration-300 border-white/10 glassmorphism shadow-crate",
+      isOpen ? "border-primary/50" : "hover:border-primary/30"
     )}>
       <CardContent className="p-0">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full text-left p-6 flex items-center justify-between transition-colors duration-200"
+          className="w-full text-left p-6 flex items-center justify-between transition-colors duration-200 group"
           aria-expanded={isOpen}
         >
           <h3 className={cn(
-            "text-lg font-bold font-display pr-4",
-            isOpen ? "text-primary" : "text-foreground"
+            "text-xl font-bold font-bebas uppercase tracking-wider pr-4 transition-colors duration-200",
+            isOpen ? "text-secondary" : "text-white group-hover:text-secondary"
           )}>{question}</h3>
           <div className={cn(
-            "w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300",
-            isOpen ? "bg-primary text-primary-foreground rotate-180" : "bg-accent text-muted-foreground"
+            "w-8 h-8 rounded-none flex items-center justify-center transition-all duration-300",
+            isOpen ? "bg-primary text-white rotate-180" : "bg-primary/10 text-secondary"
           )}>
             <ChevronDown className="w-5 h-5 flex-shrink-0" />
           </div>

@@ -15,7 +15,7 @@ export function WhoWeAre() {
           className="text-center mb-12"
         >
           <h2 className="text-display-md text-secondary mb-6 font-display">Quiénes Somos</h2>
-          <div className="w-24 h-1.5 bg-secondary mx-auto mb-8 rounded-full"></div>
+          <div className="w-24 h-1.5 bg-secondary mx-auto mb-8 rounded-none"></div>
         </motion.div>
 
         <div className="space-y-8">
@@ -35,7 +35,7 @@ export function WhoWeAre() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="flex flex-col items-center justify-center mb-8 p-6 bg-[#0a0d16]/60 backdrop-blur-sm rounded-xl border border-white/10 shadow-sm"
+              className="flex flex-col items-center justify-center mb-8 p-6 glassmorphism border border-white/10 shadow-crate rounded-none"
             >
               <div className="flex items-center space-x-1 mb-3">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -61,7 +61,7 @@ export function WhoWeAre() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="mt-12 p-8 bg-[#0a0d16]/60 backdrop-blur-md border border-white/10 rounded-xl text-left"
+              className="mt-12 p-8 glassmorphism border border-white/10 rounded-none text-left shadow-crate"
             >
               <h3 className="text-headline-lg text-primary mb-4 font-display uppercase tracking-tight">Nuestra Ventaja Injusta</h3>
               <p className="text-body-lg text-gray-300 leading-relaxed font-sans mb-4">

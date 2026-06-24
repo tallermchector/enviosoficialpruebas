@@ -39,11 +39,11 @@ export function Requirements() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-5xl font-black italic mb-6 uppercase text-slate-900 tracking-tighter">
+            <h2 className="font-anton text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
               ¿QUÉ <span className="text-primary">NECESITAS?</span>
             </h2>
-            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-full" />
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+            <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-none" />
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto font-sans">
               Requisitos mínimos para empezar a ofrecer envíos Same-Day hoy mismo.
             </p>
           </motion.div>
@@ -57,13 +57,13 @@ export function Requirements() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all group backdrop-blur-sm"
+              className="p-8 border border-white/10 hover:border-primary/50 transition-all duration-300 group glassmorphism shadow-crate rounded-none"
             >
-              <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-none flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                  <req.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-[family-name:var(--font-orbitron)] text-lg font-bold mb-3 uppercase text-slate-900 tracking-tight">{req.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed font-[family-name:var(--font-roboto)]">{req.desc}</p>
+              <h3 className="font-bebas text-xl font-bold mb-3 uppercase text-white tracking-wider">{req.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed font-sans">{req.desc}</p>
             </motion.div>
           ))}
         </div>

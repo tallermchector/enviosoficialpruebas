@@ -15,37 +15,37 @@ export function LowcostCta() {
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
-          className="p-12 md:p-16 rounded-[40px] bg-gradient-to-br from-primary/10 via-[#0a0d16]/80 to-secondary/5 border border-white/10 backdrop-blur-xl relative overflow-hidden text-center"
+          className="p-12 md:p-16 border border-white/10 relative overflow-hidden text-center glassmorphism shadow-crate rounded-none"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-32 translate-x-32" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-none blur-[80px] -translate-y-32 translate-x-32" />
 
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-xxs font-bold tracking-[0.3em] mb-10 uppercase">
-             ECONOMÍA Y ESCALA <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-none bg-white/5 border border-white/10 text-white/50 text-xxs font-bold tracking-[0.3em] mb-10 uppercase">
+             ECONOMÍA Y ESCALA <div className="w-1.5 h-1.5 rounded-none bg-secondary animate-pulse" />
           </div>
 
-          <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white">
+          <h2 className="font-anton text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white">
             ¿LISTO PARA BAJAR TUS <br />
             COSTOS <span className="text-secondary drop-shadow-[0_0_15px_rgba(255,230,0,0.2)]">LOGÍSTICOS?</span>
           </h2>
 
-          <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-[family-name:var(--font-roboto)]">
+          <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-sans">
             Empieza hoy mismo a enviar de forma inteligente. Súmate a la flota con mayor eficiencia de Mar del Plata.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
              <Link
               href="/cotizar/lowcost"
-              className="px-12 py-5 bg-secondary hover:bg-yellow-400 text-black font-[family-name:var(--font-orbitron)] font-black rounded-2xl transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(255,230,0,0.2)] flex items-center gap-3 uppercase tracking-tight h-auto"
+              className="px-12 py-5 bg-secondary hover:bg-yellow-400 text-black font-bebas text-lg tracking-wider rounded-none transition-all transform hover:scale-105 active:scale-95 shadow-industrial flex items-center gap-3 uppercase h-auto"
             >
               <Calculator size={20} /> COTIZAR ENVÍO
             </Link>
             <a
               href="tel:+5492236602699"
-              className="px-12 py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-[family-name:var(--font-orbitron)] font-bold rounded-2xl transition-all flex items-center gap-3 uppercase tracking-tight group h-auto"
+              className="px-12 py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bebas text-lg tracking-wider rounded-none transition-all flex items-center gap-3 uppercase group h-auto"
             >
               <Phone size={20} className="text-secondary" />
               CONTACTAR ASESOR

@@ -49,10 +49,10 @@ export function SocialConnect() {
           {socialNetworks.map((network) => {
             const IconComponent = network.icon
             return (
-              <Card key={network.name} className="group hover:shadow-2xl transition-all duration-500 border-white/10 bg-[#0a0d16]/60 backdrop-blur-md overflow-hidden rounded-3xl hover:-translate-y-2">
+              <Card key={network.name} className="group transition-all duration-500 border-white/10 glassmorphism shadow-crate overflow-hidden rounded-none hover:border-primary/50 hover:-translate-y-1.5 transition-stitch">
                 <CardContent className="p-10 flex flex-col h-full items-center text-center">
-                  <div className={cn("w-20 h-20 rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg relative", network.color)}>
-                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+                  <div className={cn("w-20 h-20 rounded-none flex items-center justify-center mb-8 transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-industrial relative", network.color)}>
+                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-none"></div>
                     {IconComponent ? (
                       <IconComponent className="w-10 h-10 text-slate-900 relative z-10" />
                     ) : (
@@ -60,14 +60,14 @@ export function SocialConnect() {
                     )}
                   </div>
 
-                  <h3 className="text-headline-lg text-foreground font-display mb-2">{network.name}</h3>
-                  <div className="px-3 py-1 bg-primary/10 text-primary text-label-sm rounded-full mb-6 font-sans">
+                  <h3 className="text-headline-lg text-foreground font-display mb-2 uppercase">{network.name}</h3>
+                  <div className="px-3 py-1 bg-primary/10 text-primary text-label-sm rounded-none mb-6 font-sans">
                     {network.followers}
                   </div>
 
                   <p className="text-muted-foreground mb-8 leading-relaxed font-sans text-body-lg flex-grow">{network.description}</p>
 
-                  <Button asChild size="lg" className={cn("w-full text-slate-900 font-bold h-14 rounded-xl shadow-md hover:shadow-xl transition-all relative overflow-hidden group/btn text-label-md uppercase font-display", network.color)}>
+                  <Button asChild size="lg" className={cn("w-full text-slate-900 font-bold h-14 rounded-none shadow-industrial transition-all relative overflow-hidden group/btn text-lg font-bebas uppercase tracking-wider", network.color)}>
                     <a href={network.url} target="_blank" rel="noopener noreferrer">
                       <span className="relative z-10">
                         {network.name === "WhatsApp" ? "Hablá con nosotros" : `Seguinos en ${network.name}`}

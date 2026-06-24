@@ -64,12 +64,12 @@ export function CompanyValues() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <Card className="text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/50 bg-card/40 backdrop-blur-sm group h-full">
+                <Card className="text-center transition-all duration-500 border-white/10 glassmorphism shadow-crate rounded-none hover:border-primary/50 hover:-translate-y-1.5 transition-stitch group h-full">
                   <CardContent className="p-8">
-                    <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:rotate-6 transition-transform duration-500", value.bg)}>
+                    <div className={cn("w-16 h-16 rounded-none flex items-center justify-center mx-auto mb-6 transform group-hover:rotate-6 transition-transform duration-500", value.bg)}>
                       <IconComponent className={cn("w-8 h-8", value.color)} />
                     </div>
-                    <h3 className="text-xl font-bold text-foreground mb-4 font-display">{value.title}</h3>
+                    <h3 className="text-xl font-bold text-foreground mb-4 font-display uppercase">{value.title}</h3>
                     <p className="text-muted-foreground leading-relaxed font-sans">{value.description}</p>
                   </CardContent>
                 </Card>

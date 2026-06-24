@@ -1,7 +1,7 @@
 # /.aiexclude - Gemini Code Assist Exclusion Rules
 # Optimización de ventana de contexto: Ignorar ruido técnico sin bloquear el core.
 
-# 1. Bloqueo de Artefactos de Compilación y Runtime
+# 1. Bloqueo de Artefactos de Compilación, Runtime y Tests
 node_modules/
 .next/
 dist/
@@ -12,6 +12,10 @@ out/
 *.log
 *.lockb
 pnpm-lock.yaml
+playwright-report/
+test-results/
+.pnpm-store/
+.pnpm-store-local/
 
 # 2. Archivos de Configuración de Herramientas (Meta-data redundante para lógica)
 .vscode/
@@ -21,13 +25,17 @@ pnpm-lock.yaml
 apphosting.yaml
 components.json
 postcss.config.mjs
-tailwind.config.ts
-tsconfig.json
 
 # 3. Datos Generados y Prisma (Evitar inundación de esquemas/datos pesados)
 prisma/migrations/
 prisma/datos/*.json
-generated/
+
+# Excluir bundles y ejecutables grandes del cliente de Prisma generado
+# pero permitir .d.ts y schema.prisma para autocompletado y contexto.
+generated/**/*.js
+generated/**/*.mjs
+generated/**/*.wasm
+generated/**/runtime/
 
 # 4. Binarios y Media
 public/fonts/
@@ -39,8 +47,11 @@ public/images/
 *.webp
 *.ico
 
-# 5. Documentación de Soporte (Mantener solo AGENTS.md y GEMINI.md)
-docs/
-README.md
+# 5. Archivos pesados de Reporte y Contexto de Repomix
+repomix-output.md
+repomix-output.xml
+repomix.config.json
+
+# 6. Documentación de Soporte (Mantener solo AGENTS.md, GEMINI.md y docs/)
 BUILD_ERRORS.md
 jules_agente.md

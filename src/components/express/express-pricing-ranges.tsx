@@ -75,8 +75,8 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="relative bg-[#0a0d16]/60 border-white/10 hover:border-primary/50 transition-all duration-300 rounded-3xl overflow-hidden h-full flex flex-col group shadow-xl">
-                <Badge className="absolute top-0 right-0 bg-primary text-slate-900 border-none py-1 px-4 rounded-none text-xxs font-bold uppercase tracking-widest">
+              <Card className="relative glassmorphism border border-white/10 hover:border-glow-primary transition-stitch rounded-none overflow-hidden h-full flex flex-col group shadow-crate hover:shadow-industrial">
+                <Badge className="absolute top-0 right-0 bg-primary text-slate-900 border-none py-1 px-4 rounded-none text-xxs font-bold uppercase tracking-widest font-bebas">
                   Tarifa 2026
                 </Badge>
 
@@ -120,7 +120,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <div className="bg-[#0a0d16]/60 border border-white/10 rounded-3xl overflow-hidden p-8 md:p-16 shadow-2xl relative">
+            <div className="glassmorphism border border-white/10 rounded-none overflow-hidden p-8 md:p-16 shadow-crate hover:border-glow-primary transition-stitch relative">
                <div className="grid lg:grid-cols-3 gap-12 items-center">
                   <div className="lg:col-span-2">
                     <div className="inline-flex items-center gap-2 px-4 py-1 bg-secondary text-black text-xxs font-bold tracking-widest mb-6 uppercase">
@@ -137,7 +137,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
                      <Button
                       asChild
                       size="lg"
-                      className="bg-secondary hover:bg-yellow-400 text-black font-display font-bold px-12 py-8 rounded-xl transition-all uppercase tracking-tight h-auto text-label-md shadow-lg"
+                      className="bg-secondary hover:bg-yellow-400 text-black font-display font-bold px-12 py-8 rounded-none transition-all uppercase tracking-tight h-auto text-label-md shadow-lg hover:scale-105"
                     >
                       <Link href="/cotizar/express">
                         <Calculator className="w-6 h-6 mr-3" />
@@ -157,13 +157,13 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
             className="max-w-3xl mx-auto"
           >
             <div className="text-center mb-8">
-               <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 mb-4">
+               <div className="inline-flex items-center justify-center w-12 h-12 rounded-none bg-primary/10 border border-primary/20 mb-4">
                   <AlertTriangle className="h-6 w-6 text-primary" />
                </div>
                <h4 className="font-display font-bold text-foreground text-headline-lg uppercase tracking-tight">Condiciones del Servicio Express</h4>
             </div>
 
-            <Accordion type="single" collapsible className="w-full bg-[#0a0d16]/60 border border-white/10 rounded-xl overflow-hidden">
+            <Accordion type="single" collapsible className="w-full glassmorphism border border-white/10 rounded-none overflow-hidden">
               <AccordionItem value="item-1" className="border-white/10 px-6">
                 <AccordionTrigger className="text-foreground hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
                   Tiempos y Tolerancia

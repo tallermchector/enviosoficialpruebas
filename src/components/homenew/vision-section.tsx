@@ -43,12 +43,12 @@ export const VisionSection = () => {
             </div>
 
             <h2 className="text-headline-lg-mobile md:text-display-lg mb-10 uppercase text-white">
-              Nuestra Visión <br />
-              <span className="text-primary italic drop-shadow-[0_0_20px_rgba(6,53,166,0.4)]">Logística</span>
+              Llegá más rápido <br />
+              <span className="text-primary italic drop-shadow-[0_0_20px_rgba(6,53,166,0.4)]">y sin límites</span>
             </h2>
 
             <p className="text-gray-400 text-body-lg mb-12 max-w-2xl">
-              Transformamos <span className="font-bold text-gray-300">tus costos fijos en soluciones flexibles</span> que acompañan el crecimiento de tu negocio.
+              Transformá <span className="font-bold text-gray-300">tus costos fijos en soluciones flexibles</span> que acompañan el crecimiento de tu negocio. Olvidate de las demoras y enfocate en vender.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-16">
@@ -114,7 +114,7 @@ export const VisionSection = () => {
                 <div>
                   <h3 className="font-display text-2xl font-black text-white uppercase tracking-tight mb-2">Conocé más sobre nosotros</h3>
                   <div className="flex items-center gap-3 text-xxs text-secondary font-black tracking-[0.2em] uppercase">
-                    <CheckCircle2 size={14} className="animate-pulse" aria-hidden="true" /> ¿Listo para formar parte de nuestra familia de clientes satisfechos?
+                    <CheckCircle2 size={14} className="animate-pulse" aria-hidden="true" /> ¿Querés potenciar tus entregas? Sumate a nuestra familia de clientes.
                   </div>
                 </div>
                 <motion.button

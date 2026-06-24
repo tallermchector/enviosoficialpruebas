@@ -79,9 +79,9 @@ export default function LowCostCalculator() {
   return (
     <section className="w-full py-12 md:py-16 bg-background font-sans">
       <div className="container mx-auto px-4 md:px-6 max-w-2xl lg:max-w-3xl">
-        <Card className="shadow-2xl bg-[#0a0d16]/60 border-white/10 backdrop-blur-md rounded-3xl overflow-hidden">
+        <Card className="glassmorphism border border-white/10 shadow-crate rounded-none overflow-hidden">
           <CardHeader className="pt-8">
-            <CardTitle className="text-headline-lg text-primary font-display">Calculá tu Envío Low Cost</CardTitle>
+            <CardTitle className="text-headline-lg text-primary font-display uppercase">Calculá tu Envío Low Cost</CardTitle>
             <CardDescription className="font-sans text-body-md mt-1 text-gray-400">
               Ingresá las direcciones de origen y destino para obtener una cotización para envíos programados.
             </CardDescription>
@@ -96,7 +96,7 @@ export default function LowCostCalculator() {
                   value={origin}
                   onChange={setOrigin}
                   required
-                  className="text-body-md font-sans bg-[#030710] border-white/20 text-white rounded-xl focus-visible:ring-secondary"
+                  className="text-body-md font-sans bg-[#030710]/50 border-white/10 text-white rounded-none focus-visible:ring-2 focus-visible:ring-secondary/20 hover:border-primary/50"
                 />
               </div>
               <div className="space-y-2">
@@ -107,10 +107,10 @@ export default function LowCostCalculator() {
                   value={destination}
                   onChange={setDestination}
                   required
-                  className="text-body-md font-sans bg-[#030710] border-white/20 text-white rounded-xl focus-visible:ring-secondary"
+                  className="text-body-md font-sans bg-[#030710]/50 border-white/10 text-white rounded-none focus-visible:ring-2 focus-visible:ring-secondary/20 hover:border-primary/50"
                 />
               </div>
-              <Button type="submit" className="w-full text-label-md py-6 font-display uppercase tracking-tight rounded-xl bg-secondary hover:bg-yellow-400 text-black shadow-lg" size="lg" disabled={isCalculating}>
+              <Button type="submit" className="w-full text-lg py-6 font-bebas uppercase tracking-wider rounded-none bg-secondary hover:bg-yellow-400 text-black shadow-industrial" size="lg" disabled={isCalculating}>
                 {isCalculating ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
@@ -133,7 +133,7 @@ export default function LowCostCalculator() {
             )}
             
             {quoteDetails && !isCalculating && (
-              <Card className="mt-8 bg-primary/10 border-primary/20 rounded-2xl overflow-hidden backdrop-blur-sm">
+              <Card className="mt-8 bg-primary/10 border border-primary/20 rounded-none overflow-hidden backdrop-blur-sm shadow-crate">
                 <CardHeader className="pb-4">
                   <CardTitle className="text-headline-lg-mobile text-primary flex items-center font-display uppercase tracking-tight">
                     <PackageCheck className="mr-3 h-7 w-7" />
@@ -170,14 +170,14 @@ export default function LowCostCalculator() {
                 <CardFooter className="flex flex-col sm:flex-row gap-3 pt-4 md:pt-6 font-sans">
                   <Button 
                     size="lg" 
-                    className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-slate-900 font-display font-bold uppercase tracking-tight text-label-md rounded-xl"
+                    className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-black font-bebas font-bold uppercase tracking-wider text-lg rounded-none shadow-industrial"
                     disabled={quoteDetails.price === null}
                     onClick={() => alert('Funcionalidad "Confirmar Envío Low Cost" pendiente de implementación.')}
                   >
                     <ThumbsUp className="mr-2 h-5 w-5" />
                     Confirmar Envío Low Cost
                   </Button>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto font-display font-bold uppercase tracking-tight text-label-md rounded-xl border-white/20 text-white hover:bg-white/10" onClick={handleNewQuote}>
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto font-bebas font-bold uppercase tracking-wider text-lg rounded-none border-white/20 text-white hover:bg-white/10" onClick={handleNewQuote}>
                     <RotateCcw className="mr-2 h-5 w-5" />
                     Nueva Cotización
                   </Button>

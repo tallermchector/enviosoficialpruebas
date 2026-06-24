@@ -14,7 +14,7 @@ const anton = Anton({
 const bebas = Bebas_Neue({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-bebas",
+  variable: "--font-bebas-neue",
   display: "swap",
 });
 

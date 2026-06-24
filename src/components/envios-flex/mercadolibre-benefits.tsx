@@ -12,7 +12,7 @@ function ReputationThermometer() {
         <span>Reputación</span>
         <span className="text-green-500">MercadoLíder Platinum</span>
       </div>
-      <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden border border-white/10 flex">
+      <div className="h-4 w-full bg-white/5 rounded-none overflow-hidden border border-white/10 flex">
         <div className="h-full w-1/5 bg-red-500/50" />
         <div className="h-full w-1/5 bg-orange-500/50" />
         <div className="h-full w-1/5 bg-yellow-500/50" />
@@ -77,7 +77,7 @@ export function MercadoLibreBenefits() {
             <h2 className="font-display text-display-md font-black italic mb-6 uppercase text-foreground tracking-tighter">
               BENEFICIOS <span className="text-[#FFF159]">PARA VENDEDORES</span>
             </h2>
-            <div className="w-24 h-2 bg-[#FFF159] mx-auto mb-8 rounded-full" />
+            <div className="w-24 h-2 bg-[#FFF159] mx-auto mb-8 rounded-none" />
             <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
               La solución definitiva para llevar tu tienda de MercadoLibre al siguiente nivel de competitividad.
             </p>
@@ -96,16 +96,16 @@ export function MercadoLibreBenefits() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
-                <Card className="h-full bg-[#0a0d16]/60 border-white/10 hover:border-[#FFF159]/50 transition-all group backdrop-blur-sm rounded-3xl overflow-hidden relative">
+                <Card className="h-full border-white/10 hover:border-[#FFF159]/50 transition-all group glassmorphism shadow-crate rounded-none overflow-hidden relative">
                    <div className="absolute top-0 left-0 w-full h-1 bg-[#FFF159] opacity-0 group-hover:opacity-100 transition-opacity" />
                   <CardContent className="p-10 relative">
                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-[#FFF159]/5 transition-colors" />
 
-                    <div className="w-16 h-16 rounded-2xl bg-[#FFF159]/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
+                    <div className="w-16 h-16 rounded-none bg-[#FFF159]/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform relative">
                       <IconComponent className="w-8 h-8 text-[#FFF159]" />
                     </div>
-                    <h3 className="font-display text-headline-lg font-bold mb-4 uppercase text-foreground tracking-tight">{benefit.title}</h3>
-                    <p className="text-gray-400 text-body-md leading-relaxed font-sans">{benefit.description}</p>
+                    <h3 className="font-bebas text-2xl font-bold mb-4 uppercase text-white tracking-wider">{benefit.title}</h3>
+                    <p className="text-gray-300 text-body-md leading-relaxed font-sans">{benefit.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>

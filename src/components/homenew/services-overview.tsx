@@ -21,48 +21,48 @@ type ServiceTheme = {
 
 const THEMES: Record<string, ServiceTheme> = {
   express: {
-    card: "bg-[#0a0d16]/80 border-primary/20 hover:border-primary/55 shadow-2xl backdrop-blur-md",
-    icon: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(6,53,166,0.4)]",
+    card: "glassmorphism-primary hover:border-glow-primary shadow-crate hover:shadow-industrial transition-stitch",
+    icon: "bg-primary/20 border border-primary/30 text-white drop-shadow-[0_0_15px_rgba(6,53,166,0.5)]",
     accent: "text-secondary",
     text: "text-white",
-    desc: "text-gray-400 [&>span]:text-white",
-    button: "text-gray-300 hover:text-white group-hover:text-secondary",
+    desc: "text-gray-300 [&>span]:text-secondary font-sans",
+    button: "text-gray-300 hover:text-secondary group-hover:text-secondary",
     badge: "bg-secondary/15 text-secondary border-secondary/20",
     accentColor: "secondary",
-    glowColor: "rgba(6,53,166,0.15)"
+    glowColor: "rgba(6,53,166,0.2)"
   },
   lowcost: {
-    card: "bg-[#0a0d16]/80 border-white/10 hover:border-primary/40 shadow-2xl backdrop-blur-md",
+    card: "glassmorphism hover:border-glow-secondary shadow-crate hover:shadow-industrial-secondary transition-stitch",
     icon: "bg-white/5 border border-white/10 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]",
-    accent: "text-gray-400",
+    accent: "text-secondary",
     text: "text-white",
-    desc: "text-gray-400 [&>span]:text-white",
+    desc: "text-gray-300 [&>span]:text-white font-sans",
     button: "text-gray-300 hover:text-white group-hover:text-white",
     badge: "bg-white/5 text-white border-white/10",
     accentColor: "white",
     glowColor: "rgba(255,255,255,0.05)"
   },
   meli: {
-    card: "bg-[#0a0d16]/80 border-secondary/20 hover:border-secondary/45 shadow-2xl backdrop-blur-md",
-    icon: "bg-secondary/10 border border-secondary/20 text-secondary drop-shadow-[0_0_15px_rgba(255,236,0,0.3)]",
+    card: "glassmorphism hover:border-glow-secondary shadow-crate hover:shadow-industrial-secondary transition-stitch",
+    icon: "bg-secondary/20 border border-secondary/30 text-secondary drop-shadow-[0_0_15px_rgba(255,236,0,0.4)]",
     accent: "text-secondary",
     text: "text-white",
-    desc: "text-gray-400 [&>span]:text-secondary",
-    button: "text-gray-300 hover:text-white group-hover:text-secondary",
+    desc: "text-gray-300 [&>span]:text-secondary font-sans",
+    button: "text-gray-300 hover:text-secondary group-hover:text-secondary",
     badge: "bg-secondary/10 text-secondary border-secondary/20",
     accentColor: "secondary",
-    glowColor: "rgba(255,236,0,0.1)"
+    glowColor: "rgba(255,236,0,0.15)"
   },
   ecommerce: {
-    card: "bg-[#0a0d16]/80 border-primary/20 hover:border-primary/45 shadow-2xl backdrop-blur-md",
-    icon: "bg-primary/10 border border-primary/20 text-primary drop-shadow-[0_0_15px_rgba(6,53,166,0.3)]",
-    accent: "text-primary",
+    card: "glassmorphism-primary hover:border-glow-primary shadow-crate hover:shadow-industrial transition-stitch",
+    icon: "bg-primary/20 border border-primary/30 text-white drop-shadow-[0_0_15px_rgba(6,53,166,0.4)]",
+    accent: "text-secondary",
     text: "text-white",
-    desc: "text-gray-400 [&>span]:text-primary",
-    button: "text-gray-300 hover:text-white group-hover:text-primary",
+    desc: "text-gray-300 [&>span]:text-primary font-sans",
+    button: "text-gray-300 hover:text-primary group-hover:text-primary",
     badge: "bg-primary/10 text-primary border-primary/20",
     accentColor: "primary",
-    glowColor: "rgba(6,53,166,0.1)"
+    glowColor: "rgba(6,53,166,0.15)"
   }
 };
 
@@ -150,8 +150,8 @@ export const ServicesOverview = () => {
               <span className="w-1.5 h-1.5 rounded-none bg-secondary animate-pulse" /> Nuestros Servicios
             </div>
             <h2 className="text-headline-lg-mobile md:text-display-lg italic uppercase text-white">
-              Soluciones <br />
-              <span className="text-primary drop-shadow-[0_0_20px_rgba(6,53,166,0.4)]">Logísticas</span>
+              Elegí tu plan <br />
+              <span className="text-primary drop-shadow-[0_0_20px_rgba(6,53,166,0.4)]">de entregas</span>
             </h2>
           </motion.div>
 

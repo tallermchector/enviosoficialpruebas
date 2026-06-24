@@ -45,8 +45,8 @@ export function DeliveryForm({
   setDeliveryTip,
 }: DeliveryFormProps) {
   return (
-    <div className="bg-white shadow-sm border border-gray-200 rounded-lg p-4 sm:p-6 mb-4">
-      <label className="pb-3 block text-sm font-semibold text-gray-900">
+    <div className="glassmorphism border border-white/10 shadow-crate rounded-none p-4 sm:p-6 mb-4">
+      <label className="pb-3 block text-base font-bebas font-black tracking-wider text-secondary uppercase">
         ENTREGAR A
       </label>
       <div className="space-y-4">
@@ -56,7 +56,7 @@ export function DeliveryForm({
           value={deliveryFullName}
           onChange={(e) => setDeliveryFullName(e.target.value)}
           placeholder="Nombre completo del destinatario"
-          className="w-full border-gray-300 focus:border-primary focus:ring-primary"
+          className="w-full bg-[#030710]/50 border border-white/10 hover:border-primary/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-white rounded-none transition-all duration-300 font-sans"
         />
         <Input
           type="tel"
@@ -64,14 +64,14 @@ export function DeliveryForm({
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           placeholder="Número de teléfono del destinatario"
-          className="w-full border-gray-300 focus:border-primary focus:ring-primary"
+          className="w-full bg-[#030710]/50 border border-white/10 hover:border-primary/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-white rounded-none transition-all duration-300 font-sans"
         />
         <Input
           type="email"
           value={deliveryEmail}
           onChange={(e) => setDeliveryEmail(e.target.value)}
           placeholder="Dirección de correo electrónico del destinatario (Opcional)"
-          className="w-full border-gray-300 focus:border-primary focus:ring-primary"
+          className="w-full bg-[#030710]/50 border border-white/10 hover:border-primary/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-white rounded-none transition-all duration-300 font-sans"
         />
         <div className="flex flex-col sm:flex-row gap-2">
           <Input
@@ -80,13 +80,13 @@ export function DeliveryForm({
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             placeholder="Dirección postal del destinatario"
-            className="flex-1 border-gray-300 focus:border-primary focus:ring-primary"
+            className="flex-1 bg-[#030710]/50 border border-white/10 hover:border-primary/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-white rounded-none transition-all duration-300 font-sans"
           />
           <Button
             type="button"
             variant="outline"
             size="sm"
-            className="border-gray-300 hover:border-gray-400 self-start w-full sm:w-auto"
+            className="border-white/10 hover:border-primary/50 bg-[#030710]/50 text-white rounded-none self-start w-full sm:w-auto transition-all"
             title="Ubicar en mapa"
           >
             <Image
@@ -104,21 +104,21 @@ export function DeliveryForm({
           required
           value={deliveryDate}
           onChange={(e) => setDeliveryDate(e.target.value)}
-          className="w-full border-gray-300 focus:border-primary focus:ring-primary"
+          className="w-full bg-[#030710]/50 border border-white/10 hover:border-primary/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-white rounded-none transition-all duration-300 font-sans"
         />
         <Input
           type="time"
           required
           value={deliveryTime}
           onChange={(e) => setDeliveryTime(e.target.value)}
-          className="w-full border-gray-300 focus:border-primary focus:ring-primary"
+          className="w-full bg-[#030710]/50 border border-white/10 hover:border-primary/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-white rounded-none transition-all duration-300 font-sans"
         />
         <Textarea
           required
           value={deliveryNote}
           onChange={(e) => setDeliveryNote(e.target.value)}
           placeholder="Nota de entrega"
-          className="w-full border-gray-300 focus:border-primary focus:ring-primary"
+          className="w-full bg-[#030710]/50 border border-white/10 hover:border-primary/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-white rounded-none transition-all duration-300 font-sans"
         />
         <Input
           type="number"
@@ -127,7 +127,7 @@ export function DeliveryForm({
           placeholder="Propina de entrega (Opcional)"
           min="0"
           step="0.01"
-          className="w-full border-gray-300 focus:border-primary focus:ring-primary"
+          className="w-full bg-[#030710]/50 border border-white/10 hover:border-primary/50 focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-white rounded-none transition-all duration-300 font-sans"
         />
       </div>
     </div>

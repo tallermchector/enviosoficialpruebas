@@ -63,10 +63,10 @@ export function CompanyStory() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15, duration: 0.5 }}
               >
-                <Card className="relative z-10 overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/10 bg-background/60 backdrop-blur-md group h-full">
+                <Card className="relative z-10 overflow-hidden transition-all duration-500 border-white/10 glassmorphism shadow-crate rounded-none hover:border-primary/50 hover:-translate-y-1.5 transition-stitch group h-full">
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-12 h-12 bg-secondary/10 rounded-none flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                         <IconComponent className="w-6 h-6 text-secondary" />
                       </div>
                       <span className="text-2xl font-bold text-secondary font-display">{milestone.year}</span>
