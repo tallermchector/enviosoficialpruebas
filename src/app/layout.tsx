@@ -11,10 +11,10 @@ const anton = Anton({
   display: "swap",
 });
 
-const bebasNeue = Bebas_Neue({
+const bebas = Bebas_Neue({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-bebas-neue",
+  variable: "--font-bebas",
   display: "swap",
 });
 
@@ -156,7 +156,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${anton.variable} ${bebasNeue.variable} font-sans antialiased`}
+        className={`${inter.variable} ${anton.variable} ${bebas.variable} font-sans antialiased dark`}
       >
         {children}
         <WhatsAppReviewButton />

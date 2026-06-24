@@ -24,6 +24,11 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        brand: {
+          blue: "#0635A6",
+          yellow: "#FFEC00",
+          white: "#FFFFFF",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -124,8 +129,11 @@ const config: Config = {
         sans: ["var(--font-inter)", "sans-serif"],
         display: ["var(--font-anton)", "sans-serif"],
         anton: ["var(--font-anton)", "sans-serif"],
-        bebas: ["var(--font-bebas-neue)", "sans-serif"],
+        bebas: ["var(--font-bebas)", "sans-serif"],
         inter: ["var(--font-inter)", "sans-serif"],
+      },
+      transitionTimingFunction: {
+        stitch: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },
