@@ -4,18 +4,18 @@
     "maxFileSize": 52428800
   },
   "output": {
-    "filePath": "repomix-output.json",
-    "style": "json",
-    "parsableStyle": false,
+    "filePath": "repomix-output.md",
+    "style": "markdown",
+    "parsableStyle": true,
     "fileSummary": true,
     "directoryStructure": true,
     "files": true,
-    "removeComments": false,
-    "removeEmptyLines": false,
+    "removeComments": true,
+    "removeEmptyLines": true,
     "compress": false,
     "topFilesLength": 5,
     "showLineNumbers": false,
-    "truncateBase64": false,
+    "truncateBase64": true,
     "copyToClipboard": false,
     "includeFullDirectoryStructure": false,
     "tokenCountTree": false,
@@ -27,12 +27,31 @@
       "includeLogsCount": 50
     }
   },
-  "include": [],
+  "include": [
+    "src/**",
+    "prisma/schema.prisma",
+    "prisma/seed.ts",
+    ".eslintrc.json",
+    "AGENTS.md",
+    "DESIGN.md",
+    "eslint.config.mjs",
+    "GEMINI.md",
+    "next.config.mjs",
+    "package.json",
+    "postcss.config.mjs",
+    "prisma.config.ts",
+    "README.md",
+    "tailwind.config.ts",
+    "tsconfig.json"
+  ],
   "ignore": {
     "useGitignore": true,
     "useDotIgnore": true,
     "useDefaultPatterns": true,
-    "customPatterns": []
+    "customPatterns": [
+      "src/context/**",
+      "src/components/ui/**"
+    ]
   },
   "security": {
     "enableSecurityCheck": true
