@@ -19,9 +19,33 @@ interface NavDropdownProps {
 
 export function NavDropdown({ group }: NavDropdownProps) {
   const pathname = usePathname();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const GroupIcon = group.icon;
   const groupIsActive = pathname?.startsWith(group.basePath);
   const isActive = (path: string) => pathname === path;
+
+  // Renderizado estático inicial para evitar diferencias en IDs de Radix durante hidratación
+  if (!mounted) {
+    return (
+      <div
+        className={cn(
+          "flex cursor-pointer items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
+          groupIsActive
+            ? "bg-primary/20 text-blue-400 border border-primary/30"
+            : "text-gray-300 hover:text-white hover:bg-white/10",
+        )}
+      >
+        <GroupIcon className="h-4 w-4" />
+        <span>{group.label}</span>
+        <ChevronDown className="h-4 w-4 opacity-50" />
+      </div>
+    );
+  }
 
   return (
     <DropdownMenu>
