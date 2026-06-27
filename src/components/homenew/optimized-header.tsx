@@ -20,8 +20,8 @@ export const OptimizedHeader = () => {
   return (
     <HeaderContainer>
       {/* Logo Section - RSC */}
-      <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group shrink-0 min-w-0" aria-label="Volver al inicio desde la cabecera">
-        <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-none flex items-center justify-center transition-all group-hover:rotate-6 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(6,53,166,0.4)]">
+      <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group shrink-0 min-w-0 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg" aria-label="Volver al inicio desde la cabecera">
+        <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-none flex items-center justify-center transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 drop-shadow-[0_0_10px_rgba(6,53,166,0.4)]">
           <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" priority sizes="(max-width: 768px) 32px, 40px" />
         </div>
         <span className="font-display font-black text-[clamp(0.75rem,3vw,1.5rem)] tracking-tighter text-white uppercase italic whitespace-nowrap">
@@ -36,7 +36,7 @@ export const OptimizedHeader = () => {
           className="text-gray-300 hover:text-white hover:bg-white/10 font-bebas text-lg"
           activeClassName="bg-primary/20 text-secondary border border-primary/30 shadow-lg"
         >
-          <Home className="h-4 w-4" />
+          <Home className="h-4 w-4" aria-hidden="true" />
           <span>Inicio</span>
         </ActiveLink>
 
@@ -49,7 +49,7 @@ export const OptimizedHeader = () => {
           className="text-gray-300 hover:text-white hover:bg-white/10 font-bebas text-lg"
           activeClassName="bg-primary/20 text-secondary border border-primary/30 shadow-lg"
         >
-          <Mail className="h-4 w-4" />
+          <Mail className="h-4 w-4" aria-hidden="true" />
           <span>Contacto</span>
         </ActiveLink>
 
@@ -60,8 +60,8 @@ export const OptimizedHeader = () => {
           variant="gradient"
           className="px-6 rounded-none font-bebas text-lg uppercase tracking-wider hover:scale-105 transition-transform"
         >
-          <Link href="/cotizar/express" aria-label="Cotizá tu Envío desde la cabecera">
-            <CalculatorIcon className="mr-2 h-4 w-4" />
+          <Link href="/cotizar/express" aria-label="Cotizá tu Envío desde la cabecera" className="outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm">
+            <CalculatorIcon className="mr-2 h-4 w-4" aria-hidden="true" />
             Cotizá tu Envío
           </Link>
         </Button>
@@ -69,7 +69,7 @@ export const OptimizedHeader = () => {
 
       {/* Right side Hub - RSC & Client Components */}
       <div className="flex items-center gap-4">
-        <a href="tel:+5492236602699" aria-label="Llamar al +54 223 660-2699" className="hidden xl:flex items-center gap-3 px-5 py-2.5 rounded-none glass-card text-white text-xxs font-black tracking-[0.2em] hover:text-secondary hover:bg-white/10 transition-all uppercase">
+        <a href="tel:+5492236602699" aria-label="Llamar al +54 223 660-2699" className="hidden xl:flex items-center gap-3 px-5 py-2.5 rounded-none glass-card text-white text-xxs font-black tracking-[0.2em] hover:text-secondary hover:bg-white/10 transition-[color,background-color] duration-200 uppercase outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2">
           <Phone size={14} className="text-secondary animate-pulse" aria-hidden="true" /> +54 223 660-2699
         </a>
 

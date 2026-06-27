@@ -65,9 +65,9 @@ export default function SliderServicios() {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-none bg-primary/5 border border-primary/10 text-primary text-xxs font-black tracking-[0.25em] mb-8 uppercase font-sans">
-              <LayoutGrid size={12} className="text-primary animate-pulse" /> CAPACIDADES DINÁMICAS
+              <LayoutGrid size={12} className="text-primary animate-pulse" aria-hidden="true" /> CAPACIDADES DINÁMICAS
             </div>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black italic text-primary uppercase tracking-tighter mb-4">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black italic text-primary uppercase tracking-tighter mb-4 text-balance">
               SOLUCIONES A <span className="text-secondary drop-shadow-[0_0_20px_rgba(6,54,165,0.15)] bg-primary px-3 py-1 text-white inline-block">MEDIDA</span>
             </h2>
           </motion.div>
@@ -94,16 +94,16 @@ export default function SliderServicios() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -6 }}
-              className="group p-6 md:p-10 rounded-none bg-white border-2 border-technical-black shadow-hard-primary hover:shadow-hard-secondary transition-all duration-300 relative overflow-hidden flex flex-col min-h-[440px] h-auto"
+              className="group p-6 md:p-10 rounded-none bg-white border-2 border-technical-black shadow-hard-primary hover:shadow-hard-secondary transition-[box-shadow,transform] duration-300 relative overflow-hidden flex flex-col min-h-[440px] h-auto"
             >
               {/* Internal Accent Light */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-[40px] rounded-full group-hover:bg-primary/10 transition-all duration-700 pointer-events-none" />
 
               <div
-                className="w-16 h-16 rounded-none flex items-center justify-center mb-10 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 border border-technical-black"
+                className="w-16 h-16 rounded-none flex items-center justify-center mb-10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 border border-technical-black"
                 style={{ backgroundColor: service.color, color: idx % 2 === 0 ? 'white' : 'black' }}
               >
-                {React.cloneElement(service.icon, { size: 32 })}
+                {React.cloneElement(service.icon, { size: 32, 'aria-hidden': 'true' })}
               </div>
 
               <div className="mb-auto">
@@ -124,13 +124,13 @@ export default function SliderServicios() {
 
               <Link
                 href={service.href}
-                className="flex items-center gap-4 text-primary font-display text-xxs font-black uppercase tracking-[0.3em] opacity-60 group-hover:opacity-100 group-hover:text-secondary-foreground transition-all group-hover:gap-6 pt-6 mt-auto border-t border-primary/10"
+                className="flex items-center gap-4 text-primary font-display text-xxs font-black uppercase tracking-[0.3em] opacity-60 group-hover:opacity-100 group-hover:text-secondary-foreground transition-[color,gap] duration-300 group-hover:gap-6 pt-6 mt-auto border-t border-primary/10 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-sm"
               >
-                {service.buttonText} <ChevronRight size={18} />
+                {service.buttonText} <ChevronRight size={18} aria-hidden="true" />
               </Link>
 
               {/* Decorative Side Accent */}
-              <div className="absolute bottom-10 -right-1 w-[2px] h-20 bg-gradient-to-b from-transparent via-primary/10 to-transparent group-hover:via-secondary/50 transition-all" />
+              <div className="absolute bottom-10 -right-1 w-[2px] h-20 bg-gradient-to-b from-transparent via-primary/10 to-transparent group-hover:via-secondary/50 transition-colors duration-300" />
             </motion.div>
           ))}
         </div>
@@ -144,12 +144,12 @@ export default function SliderServicios() {
         >
           <div className="flex items-center gap-10">
             <div className="flex items-center gap-3 text-primary/30">
-              <Zap size={14} />
+              <Zap size={14} aria-hidden="true" />
               <span className="text-[9px] font-black tracking-[0.5em] uppercase">MÁXIMO PODER</span>
             </div>
             <div className="w-1.5 h-1.5 bg-primary/20" />
             <div className="flex items-center gap-3 text-primary/30">
-              <Globe size={14} />
+              <Globe size={14} aria-hidden="true" />
               <span className="text-[9px] font-black tracking-[0.5em] uppercase">INFRAESTRUCTURA TOTAL</span>
             </div>
           </div>

@@ -4,6 +4,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Zap, ShieldCheck, CheckCircle2, Play, Globe, ArrowRight, MousePointer2 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const VisionSection = () => {
   const { scrollYProgress } = useScroll();
@@ -42,7 +43,7 @@ export const VisionSection = () => {
               <span className="w-1.5 h-1.5 rounded-none bg-primary animate-pulse" /> Partner Logístico Especializado
             </div>
 
-            <h2 className="text-headline-lg-mobile md:text-display-lg mb-10 uppercase text-primary">
+            <h2 className="text-headline-lg-mobile md:text-display-lg mb-10 uppercase text-primary text-balance">
               Llegá más rápido <br />
               <span className="text-white bg-primary px-3 py-1 inline-block mt-2 italic shadow-hard-secondary">y sin límites</span>
             </h2>
@@ -59,8 +60,8 @@ export const VisionSection = () => {
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <div className="w-14 h-14 rounded-none bg-primary/5 border border-primary/15 flex items-center justify-center shrink-0 group-hover:bg-primary/10 group-hover:border-primary/50 transition-all shadow-md">
-                    {React.cloneElement(item.icon, { size: 28 })}
+                  <div className="w-14 h-14 rounded-none bg-primary/5 border border-primary/15 flex items-center justify-center shrink-0 group-hover:bg-primary/10 group-hover:border-primary/50 transition-[background-color,border-color,transform] duration-300 shadow-md">
+                    {React.cloneElement(item.icon, { size: 28, 'aria-hidden': 'true' })}
                   </div>
                   <div>
                     <h3 className="text-headline-md text-sm text-primary uppercase mb-2 group-hover:text-primary-navy transition-colors">{item.title}</h3>
@@ -84,9 +85,9 @@ export const VisionSection = () => {
 
               <motion.div
                 whileHover={{ rotate: 90 }}
-                className="hidden md:flex ml-auto w-16 h-16 rounded-none border border-primary/10 items-center justify-center text-primary/10 opacity-40"
+                className="hidden md:flex ml-auto w-16 h-16 rounded-none border border-primary/10 items-center justify-center text-primary/10 opacity-40 transition-transform duration-300"
               >
-                <Globe size={24} />
+                <Globe size={24} aria-hidden="true" />
               </motion.div>
             </div>
           </motion.div>
@@ -117,15 +118,16 @@ export const VisionSection = () => {
                     <CheckCircle2 size={14} className="animate-pulse text-secondary" aria-hidden="true" /> ¿Querés potenciar tus entregas? Sumate.
                   </div>
                 </div>
-                <motion.button
-                  whileHover={{ scale: 1.1, rotate: 12 }}
-                  whileTap={{ scale: 0.9 }}
-                  aria-label="Ir a página sobre nosotros"
-                  className="w-16 h-16 rounded-none bg-secondary text-primary flex items-center justify-center shadow-hard-secondary hover:bg-secondary/90 transition-all border border-secondary"
-                  onClick={() => window.location.href = '/nosotros/sobre-nosotros'}
-                >
-                  <Play size={24} fill="currentColor" className="ml-1" aria-hidden="true" />
-                </motion.button>
+                <Link href="/nosotros/sobre-nosotros" passHref legacyBehavior>
+                  <motion.a
+                    whileHover={{ scale: 1.1, rotate: 12 }}
+                    whileTap={{ scale: 0.9 }}
+                    aria-label="Ir a página sobre nosotros"
+                    className="w-16 h-16 rounded-none bg-secondary text-primary flex items-center justify-center shadow-hard-secondary hover:bg-secondary/90 transition-[background-color,border-color,transform,box-shadow] duration-200 border border-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 cursor-pointer"
+                  >
+                    <Play size={24} fill="currentColor" className="ml-1" aria-hidden="true" />
+                  </motion.a>
+                </Link>
               </div>
 
               {/* Holographic Status */}

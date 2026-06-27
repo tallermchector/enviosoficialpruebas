@@ -16,7 +16,7 @@ export function HeroBackground() {
       >
         <Image
           src="/hero/hero_background.jpeg"
-          alt="Logística Urbana Mar del Plata"
+          alt=""
           fill
           sizes="100vw"
           className="object-cover opacity-[0.15]"

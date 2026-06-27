@@ -149,7 +149,7 @@ export const ServicesOverview = () => {
             <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-none glass-card border border-primary/20 text-secondary text-xxs font-black tracking-[0.2em] mb-8 uppercase">
               <span className="w-1.5 h-1.5 rounded-none bg-secondary animate-pulse" /> Nuestros Servicios
             </div>
-            <h2 className="text-headline-lg-mobile md:text-display-lg italic uppercase text-white">
+            <h2 className="text-headline-lg-mobile md:text-display-lg italic uppercase text-white text-balance">
               Elegí tu plan <br />
               <span className="text-primary drop-shadow-[0_0_20px_rgba(6,53,166,0.4)]">de entregas</span>
             </h2>
@@ -183,7 +183,7 @@ export const ServicesOverview = () => {
                 variants={itemVariants}
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
                 className={cn(
-                  "group p-6 lg:p-10 rounded-none glass-card transition-all duration-500 flex flex-col justify-between relative overflow-hidden",
+                  "group p-6 lg:p-10 rounded-none glass-card transition-[background-color,border-color,transform,box-shadow] duration-500 flex flex-col justify-between relative overflow-hidden",
                   theme.card,
                   service.className
                 )}
@@ -199,7 +199,7 @@ export const ServicesOverview = () => {
                     "w-12 h-12 lg:w-16 lg:h-16 rounded-none flex items-center justify-center mb-6 lg:mb-10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
                     theme.icon
                   )}>
-                    {React.cloneElement(service.icon as React.ReactElement<any>, { size: 28 })}
+                    {React.cloneElement(service.icon as React.ReactElement<any>, { size: 28, 'aria-hidden': 'true' })}
                   </div>
 
                   <h3 className={cn("text-headline-md mb-1 uppercase", theme.text)}>
@@ -216,9 +216,14 @@ export const ServicesOverview = () => {
                 <div className="relative z-10 flex items-center justify-between font-bebas text-[17px] tracking-wider">
                   <Link
                     href={service.href}
-                    className={cn("flex items-center gap-3 transition-all", theme.button)}
+                    className={cn(
+                      "flex items-center gap-3 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-sm",
+                      theme.accentColor === 'secondary' ? 'focus-visible:ring-secondary' : 
+                      theme.accentColor === 'primary' ? 'focus-visible:ring-primary' : 'focus-visible:ring-white',
+                      theme.button
+                    )}
                   >
-                    {service.buttonText} <ChevronRight size={16} />
+                    {service.buttonText} <ChevronRight size={16} aria-hidden="true" />
                   </Link>
 
                   {service.badge && (
@@ -229,7 +234,7 @@ export const ServicesOverview = () => {
                 </div>
 
                 {/* Decorative side border accent */}
-                <div className={cn("absolute top-1/2 -right-1 w-[2px] h-20 bg-gradient-to-b from-transparent via-white/10 to-transparent group-hover:via-current transition-all", theme.accent)} />
+                <div className={cn("absolute top-1/2 -right-1 w-[2px] h-20 bg-gradient-to-b from-transparent via-white/10 to-transparent group-hover:via-current transition-colors duration-300", theme.accent)} />
 
                 {/* Specific Visual for the first card */}
                 {idx === 0 && (

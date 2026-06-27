@@ -26,10 +26,10 @@ export const FooterSocialLinks = ({ links }: FooterSocialLinksProps) => {
           aria-label={`Visitar nuestro ${social.label}`}
           whileHover={{ y: -5, scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-all text-slate-900 group/social"
+          className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-[background-color,border-color] duration-200 text-slate-900 group/social outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
         >
           <div className="relative w-6 h-6 opacity-60 group-hover/social:opacity-100 transition-opacity">
-            <Image src={social.icon} alt={social.label} fill className="object-contain" />
+            <Image src={social.icon} alt="" fill className="object-contain" />
           </div>
         </motion.a>
       ))}

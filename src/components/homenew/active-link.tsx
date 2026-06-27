@@ -17,10 +17,10 @@ export function ActiveLink({ href, children, className, activeClassName }: Activ
   const isActive = pathname === href || (href !== '/' && pathname.startsWith(href));
 
   return (
-    <Link href={href}>
+    <Link href={href} className="outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg">
       <motion.div
         className={cn(
-          "flex items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300",
+          "flex items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-300",
           isActive ? activeClassName : className
         )}
         whileHover={{ scale: 1.05 }}

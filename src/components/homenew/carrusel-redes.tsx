@@ -77,9 +77,9 @@ export const CarruselRedes = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-bold tracking-widest mb-6 uppercase">
-              <Heart size={12} className="fill-secondary text-secondary" /> CONECTA CON NOSOTROS
+              <Heart size={12} className="fill-secondary text-secondary" aria-hidden="true" /> CONECTA CON NOSOTROS
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter">
+            <h2 className="font-display text-4xl md:text-5xl font-black text-white uppercase italic tracking-tighter text-balance">
               SIGUE NUESTRO <span className="text-secondary drop-shadow-[0_0_15px_rgba(255,236,0,0.3)]">MOVIMIENTO</span>
             </h2>
             <p className="text-white/80 text-lg mt-4 font-sans max-w-xl font-light">
@@ -88,26 +88,31 @@ export const CarruselRedes = () => {
           </div>
 
           <div className="flex gap-4">
-            {socialNetworks.map((net, idx) => (
-              <button
-                key={idx}
-                onClick={net.isWhatsApp ? handleWhatsAppClick : () => window.open(net.href, "_blank")}
-                className="group flex items-center gap-4 p-4 rounded-none bg-white/5 border border-white/10 hover:border-secondary hover:bg-white/10 transition-all text-white"
-                aria-label={`Seguinos en ${net.name}`}
-              >
-                <div
-                  className="w-12 h-12 rounded-none flex items-center justify-center transition-transform group-hover:scale-110 border border-white/10"
-                  style={{ backgroundColor: `${net.color}15`, color: net.color }}
-                  aria-hidden="true"
+            {socialNetworks.map((net, idx) => {
+              const whatsappUrl = `https://wa.me/5492236602699?text=${encodeURIComponent("Hola, me gustaría obtener información sobre sus servicios de envío.")}`;
+              return (
+                <a
+                  key={idx}
+                  href={net.isWhatsApp ? whatsappUrl : net.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 p-4 rounded-none bg-white/5 border border-white/10 hover:border-secondary hover:bg-white/10 transition-[background-color,border-color] duration-200 text-white outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
+                  aria-label={`Seguinos en ${net.name}`}
                 >
-                  <net.icon size={24} />
-                </div>
-                <div className="text-left hidden lg:block">
-                  <div className="text-sm font-bold font-subtitle tracking-tight uppercase">{net.name}</div>
-                  <div className="text-xxs text-white/60 uppercase tracking-widest">{net.description}</div>
-                </div>
-              </button>
-            ))}
+                  <div
+                    className="w-12 h-12 rounded-none flex items-center justify-center transition-transform duration-300 group-hover:scale-110 border border-white/10"
+                    style={{ backgroundColor: `${net.color}15`, color: net.color }}
+                    aria-hidden="true"
+                  >
+                    <net.icon size={24} />
+                  </div>
+                  <div className="text-left hidden lg:block">
+                    <div className="text-sm font-bold font-subtitle tracking-tight uppercase">{net.name}</div>
+                    <div className="text-xxs text-white/60 uppercase tracking-widest">{net.description}</div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -125,18 +130,18 @@ export const CarruselRedes = () => {
                   href={(item as any).postUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-72 h-72 shrink-0 rounded-none overflow-hidden relative group border border-white/10 shadow-2xl transition-all hover:border-secondary block"
+                  className="w-72 h-72 shrink-0 rounded-none overflow-hidden relative group border border-white/10 shadow-2xl transition-[border-color] duration-200 hover:border-secondary block outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
                   aria-label={`Ver publicación ${item.id} en ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`}
                 >
-                  <img src={item.image} alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
+                  <img src={item.image} alt={`Publicación de ${item.type === 'ig' ? 'Instagram' : 'Facebook'}`} width={288} height={288} loading="lazy" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter,transform] duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-[#0636A5]/90 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-6 p-8">
                     <div className="w-16 h-16 rounded-none bg-white/10 border border-white/20 flex items-center justify-center text-white">
-                      {item.type === 'ig' && <Instagram size={32} />}
-                      {item.type === 'fb' && <Facebook size={32} />}
+                      {item.type === 'ig' && <Instagram size={32} aria-hidden="true" />}
+                      {item.type === 'fb' && <Facebook size={32} aria-hidden="true" />}
                     </div>
                     <div className="text-center">
                       <div className="text-white font-subtitle text-lg uppercase tracking-wider mb-2">VER POST</div>
-                      <ExternalLink size={20} className="text-secondary mx-auto" />
+                      <ExternalLink size={20} className="text-secondary mx-auto" aria-hidden="true" />
                     </div>
                   </div>
                 </a>

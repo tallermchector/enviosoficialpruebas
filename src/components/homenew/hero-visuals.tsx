@@ -76,7 +76,7 @@ export function HeroVisuals() {
               className="absolute -top-8 -right-8 px-5 py-4 rounded-none bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
             >
               <div className="w-12 h-12 rounded-none bg-primary/20 flex items-center justify-center text-primary border border-primary/20">
-                <MousePointer2 size={24} />
+                <MousePointer2 size={24} aria-hidden="true" />
               </div>
               <div>
                 <div className="text-[9px] text-gray-400 uppercase font-black tracking-[0.2em] mb-0.5">ESTADO REAL</div>
@@ -90,7 +90,7 @@ export function HeroVisuals() {
               className="absolute -bottom-10 -left-6 px-5 py-4 rounded-none bg-white/5 backdrop-blur-2xl border border-white/10 flex items-center gap-4 shadow-2xl z-20"
             >
               <div className="w-12 h-12 rounded-none bg-secondary/20 flex items-center justify-center text-secondary border border-secondary/20">
-                <ShieldCheck size={24} />
+                <ShieldCheck size={24} aria-hidden="true" />
               </div>
               <div>
                 <div className="text-[9px] text-gray-400 uppercase font-black tracking-[0.2em] mb-0.5">SEGURIDAD</div>

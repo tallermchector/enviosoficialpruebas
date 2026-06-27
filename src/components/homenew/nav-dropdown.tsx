@@ -34,15 +34,15 @@ export function NavDropdown({ group }: NavDropdownProps) {
     return (
       <div
         className={cn(
-          "flex cursor-pointer items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
+          "flex cursor-pointer items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-[background-color,color,border-color] duration-200",
           groupIsActive
             ? "bg-primary/20 text-blue-400 border border-primary/30"
             : "text-gray-300 hover:text-white hover:bg-white/10",
         )}
       >
-        <GroupIcon className="h-4 w-4" />
+        <GroupIcon className="h-4 w-4" aria-hidden="true" />
         <span>{group.label}</span>
-        <ChevronDown className="h-4 w-4 opacity-50" />
+        <ChevronDown className="h-4 w-4 opacity-50" aria-hidden="true" />
       </div>
     );
   }
@@ -50,9 +50,10 @@ export function NavDropdown({ group }: NavDropdownProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <motion.div
+        <motion.button
+          type="button"
           className={cn(
-            "flex cursor-pointer items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200",
+            "flex cursor-pointer items-center space-x-2 rounded-lg px-4 py-2 text-sm font-medium transition-[background-color,color,border-color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             groupIsActive
               ? "bg-primary/20 text-blue-400 border border-primary/30"
               : "text-gray-300 hover:text-white hover:bg-white/10",
@@ -60,10 +61,10 @@ export function NavDropdown({ group }: NavDropdownProps) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <GroupIcon className="h-4 w-4" />
+          <GroupIcon className="h-4 w-4" aria-hidden="true" />
           <span>{group.label}</span>
-          <ChevronDown className="h-4 w-4 opacity-50" />
-        </motion.div>
+          <ChevronDown className="h-4 w-4 opacity-50" aria-hidden="true" />
+        </motion.button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-2 w-64 bg-[#0a0d16]/95 backdrop-blur-2xl border-white/10 text-white shadow-[0_20px_50px_-15px_rgba(0,0,0,0.8)] p-2">
         {group.items.map((item: any) => {
@@ -73,7 +74,7 @@ export function NavDropdown({ group }: NavDropdownProps) {
               <Link
                 href={item.href}
                 className={cn(
-                  "flex items-center space-x-4",
+                  "flex items-center space-x-4 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-lg",
                   isActive(item.href) ? "text-blue-400 font-bold" : "text-gray-300",
                 )}
               >
@@ -81,7 +82,7 @@ export function NavDropdown({ group }: NavDropdownProps) {
                   "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
                   isActive(item.href) ? "bg-primary/20 text-blue-400" : "bg-white/5 text-gray-400"
                 )}>
-                  {ItemIcon && <ItemIcon className="h-4 w-4" />}
+                  {ItemIcon && <ItemIcon className="h-4 w-4" aria-hidden="true" />}
                 </div>
                 <span className="text-sm">{item.label}</span>
               </Link>

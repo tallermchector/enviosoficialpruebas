@@ -21,7 +21,7 @@ export default function HeroAnimado() {
             Tu Solución Confiable
           </div>
 
-          <h1 className="text-headline-lg-mobile md:text-display-lg italic mb-4 xl:mb-6 uppercase text-white animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
+          <h1 className="text-headline-lg-mobile md:text-display-lg italic mb-4 xl:mb-6 uppercase text-white text-balance animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">
             Conectá tu negocio <br className="hidden sm:inline" />
             <span className="text-primary drop-shadow-[0_0_25px_rgba(6,53,166,0.4)]">con toda la ciudad</span>
           </h1>
@@ -34,10 +34,10 @@ export default function HeroAnimado() {
             <Link
               href="/cotizar/express"
               aria-label="Solicitar Servicio de mensajería desde el héroe"
-              className="group relative px-10 py-5 bg-secondary hover:bg-secondary/90 text-primary text-button-text rounded-none transition-all shadow-industrial-secondary hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none duration-100 uppercase overflow-hidden active:scale-95"
+              className="group relative px-10 py-5 bg-secondary hover:bg-secondary/90 text-primary text-button-text rounded-none transition-[background-color,transform,box-shadow] shadow-industrial-secondary hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none duration-100 uppercase overflow-hidden active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Solicitá tu envío <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                Solicitá tu envío <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
             </Link>
@@ -45,9 +45,9 @@ export default function HeroAnimado() {
             <Link
               href="/servicios/envios-express"
               aria-label="Ver todos los servicios de envíos"
-              className="flex items-center gap-4 group text-white text-label-md hover:text-secondary transition-colors py-2"
+              className="flex items-center gap-4 group text-white text-label-md hover:text-secondary transition-colors py-2 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-sm"
             >
-              <div className="w-14 h-14 rounded-none bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-all group-hover:scale-110 shadow-xl backdrop-blur-sm" aria-hidden="true">
+              <div className="w-14 h-14 rounded-none bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/40 transition-[background-color,border-color,transform] duration-300 group-hover:scale-110 shadow-xl backdrop-blur-sm" aria-hidden="true">
                 <Play className="fill-white text-white ml-1" size={18} />
               </div>
               <span className="text-xs uppercase">Ver Servicios</span>
@@ -56,13 +56,13 @@ export default function HeroAnimado() {
 
           <div className="mt-10 lg:mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-1000 fill-mode-both">
             <div className="flex items-center gap-2 text-label-sm uppercase text-white/40">
-              <ShieldCheck size={14} className="text-primary" /> 100% SEGURO
+              <ShieldCheck size={14} className="text-primary" aria-hidden="true" /> 100% SEGURO
             </div>
             <div className="flex items-center gap-2 text-label-sm uppercase text-white/40">
-              <Zap size={14} className="text-secondary" /> ULTRA RÁPIDO
+              <Zap size={14} className="text-secondary" aria-hidden="true" /> ULTRA RÁPIDO
             </div>
             <div className="flex items-center gap-2 text-label-sm uppercase text-white/40">
-              <Globe size={14} className="text-primary" /> COBERTURA TOTAL
+              <Globe size={14} className="text-primary" aria-hidden="true" /> COBERTURA TOTAL
             </div>
           </div>
         </div>
