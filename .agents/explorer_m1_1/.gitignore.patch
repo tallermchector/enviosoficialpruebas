@@ -1,0 +1,11 @@
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore
++++ b/.gitignore
+@@ -14,2 +14,6 @@
+ /coverage
++
++# playwright
++/test-results/
++/playwright-report/
++/blob-report/
++/.playwright/
