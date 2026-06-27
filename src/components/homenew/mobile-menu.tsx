@@ -191,7 +191,7 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
                     className="w-full h-16 bg-secondary hover:bg-secondary/90 text-black font-bebas font-black rounded-none shadow-none uppercase tracking-wider text-lg"
                   >
                     <CalculatorIcon className="w-5 h-5 mr-3" aria-hidden="true" />
-                    Cotizar Envío
+                    Cotizá tu Envío
                   </Button>
                 </Link>
               </SheetClose>

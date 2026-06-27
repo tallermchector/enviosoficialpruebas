@@ -484,7 +484,7 @@ export function EnhancedHero() {
             >
               <Link href="/cotizar/express" className="flex items-center gap-3">
                 <Calculator className="w-5 h-5" />
-                Cotizar Envío
+                Cotizá tu Envío
                 <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}>
                   →
                 </motion.div>

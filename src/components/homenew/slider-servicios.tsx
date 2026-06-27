@@ -44,13 +44,13 @@ const services = [
     color: "#FFEC01", // Sunbeam Yellow
     href: "/servicios/plan-emprendedores",
     badge: "INTEGRAL",
-    buttonText: "Hablar con un asesor"
+    buttonText: "Hablá con un asesor"
   }
 ];
 
 export default function SliderServicios() {
   return (
-    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 bg-white overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 bg-[#050810] overflow-hidden">
       {/* Tech lines background */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full tech-grid-overlay" />
@@ -94,7 +94,7 @@ export default function SliderServicios() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -6 }}
-              className="group p-6 md:p-10 rounded-none bg-white border-2 border-technical-black shadow-hard-primary hover:shadow-hard-secondary transition-[box-shadow,transform] duration-300 relative overflow-hidden flex flex-col min-h-[440px] h-auto"
+              className="group p-6 md:p-10 rounded-none bg-[#050810] border-2 border-technical-black shadow-hard-primary hover:shadow-hard-secondary transition-[box-shadow,transform] duration-300 relative overflow-hidden flex flex-col min-h-[440px] h-auto"
             >
               {/* Internal Accent Light */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-[40px] rounded-full group-hover:bg-primary/10 transition-all duration-700 pointer-events-none" />
