@@ -92,13 +92,12 @@ export async function registerClient(input: RegisterClientInput): Promise<Regist
     if (error instanceof z.ZodError) {
       return { success: false, error: 'Datos de entrada inválidos.', fieldErrors: error.issues };
     }
-    if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      if (error.code === 'P2002') {
-        const target = error.meta?.target as string[] | undefined;
-        if (target?.includes('phone')) return { success: false, error: 'El número de teléfono ya está registrado.' };
-        if (target?.includes('email')) return { success: false, error: 'La dirección de email ya está registrada.' };
-        return { success: false, error: 'Error de duplicado al guardar el cliente.' };
-      }
+    const prismaError = error as Prisma.PrismaClientKnownRequestError;
+    if (prismaError && typeof prismaError === 'object' && 'code' in prismaError && prismaError.code === 'P2002') {
+      const target = prismaError.meta?.target as string[] | undefined;
+      if (target?.includes('phone')) return { success: false, error: 'El número de teléfono ya está registrado.' };
+      if (target?.includes('email')) return { success: false, error: 'La dirección de email ya está registrada.' };
+      return { success: false, error: 'Error de duplicado al guardar el cliente.' };
     }
     console.error('Error registering client:', error);
     const errorMessage = error instanceof Error ? error.message : String(error);
@@ -190,9 +189,9 @@ export async function quoteShipment(input: QuoteShipmentInput): Promise<QuoteShi
       const extraPricePerKm = extraKmRecord ? extraKmRecord.precioRango.toNumber() : (validatedData.serviceType === PrismaServiceTypeEnum.EXPRESS ? 1000 : 700);
       const extraKm = Math.max(0, distanceKm - 10.00);
 
-      price = basePrice + extraKm * extraPricePerKm;
+      const calculatedPrice = basePrice + extraKm * extraPricePerKm;
       // Round to 2 decimals
-      price = Math.round(price * 100) / 100;
+      price = Math.round(calculatedPrice * 100) / 100;
     }
 
     return {
@@ -374,18 +373,19 @@ export async function saveShipment(input: SaveShipmentInput): Promise<SaveShipme
       console.error("Zod validation error during saveShipment:", error.flatten().fieldErrors);
       return { success: false, error: "Error de validación al guardar el envío.", fieldErrors: error.issues };
     }
-    if (error instanceof Prisma.PrismaClientKnownRequestError) {
-      console.error("Prisma Known Request Error on saveShipment:", error.code, error.meta);
-      if (error.code === 'P2002') return { success: false, error: 'Error de duplicado al guardar el envío (P2002).' };
-      if (error.code === 'P2003') {
-         const fieldNameMeta = error.meta as { field_name?: string };
+    const prismaError = error as Prisma.PrismaClientKnownRequestError;
+    if (prismaError && typeof prismaError === 'object' && 'code' in prismaError) {
+      console.error("Prisma Known Request Error on saveShipment:", prismaError.code, prismaError.meta);
+      if (prismaError.code === 'P2002') return { success: false, error: 'Error de duplicado al guardar el envío (P2002).' };
+      if (prismaError.code === 'P2003') {
+         const fieldNameMeta = prismaError.meta as { field_name?: string } | undefined;
          const fieldName = fieldNameMeta?.field_name;
          if (fieldName && typeof fieldName === 'string') {
             if (fieldName.includes('clientId_fkey')) return { success: false, error: 'El cliente especificado no existe (Error P2003 en clientId).' };
          }
         return { success: false, error: 'Error de referencia al guardar el envío (cliente no válido - P2003).' };
       }
-      return { success: false, error: `Error de base de datos (${error.code}) al guardar el envío.` };
+      return { success: false, error: `Error de base de datos (${prismaError.code}) al guardar el envío.` };
     }
     console.error('Error saving shipment (unknown):', error);
     const errorMessage = error instanceof Error ? error.message : String(error);

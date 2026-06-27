@@ -95,7 +95,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                         <Input
                             placeholder="Buscar cliente o dirección..."
-                            className="pl-10 bg-surface/50 border-white/10 rounded-md text-white placeholder:text-gray-300 focus:ring-[#2563EB]"
+                            className="pl-10 bg-surface/50 border-white/10 rounded-md text-white placeholder:text-gray-300 focus:ring-brand-blue"
                             value={searchTerm}
                             onChange={e => setSearchTerm(e.target.value)}
                         />
@@ -145,7 +145,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                         </div>
                                         <div className="text-right">
                                             <div className="text-xs text-gray-400 font-sans uppercase">A Cobrar</div>
-                                            <div className="text-xl font-display font-black text-[#E89A17]">
+                                            <div className="text-xl font-display font-black text-brand-yellow">
                                                 {e.montoACobrar ? `$${e.montoACobrar.toLocaleString('es-AR')}` : 'S/C'}
                                             </div>
                                         </div>
@@ -153,7 +153,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
 
                                     <div className="space-y-3 pt-2 border-t border-white/5">
                                         <div className="flex items-start gap-3">
-                                            <MapPin className="h-5 w-5 text-[#2563EB] shrink-0 mt-0.5" />
+                                            <MapPin className="h-5 w-5 text-brand-blue shrink-0 mt-0.5" />
                                             <div className="text-gray-300 text-sm font-sans">
                                                 {e.destinatarioDireccion}
                                                 <div className="text-xxs text-gray-400 uppercase mt-0.5">Mar del Plata, Argentina</div>
@@ -163,7 +163,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                         {e.destinatarioTelefono && (
                                              <div className="flex items-center gap-3">
                                                 <Phone className="h-4 w-4 text-gray-400 shrink-0" />
-                                                <a href={`tel:${e.destinatarioTelefono}`} className="text-gray-400 text-sm hover:text-[#2563EB] transition-colors">
+                                                <a href={`tel:${e.destinatarioTelefono}`} className="text-gray-400 text-sm hover:text-brand-blue transition-colors">
                                                     {e.destinatarioTelefono}
                                                 </a>
                                             </div>
@@ -173,7 +173,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                     <div className="flex gap-2 pt-2">
                                         {e.status === EtiquetaStatus.IMPRESA && (
                                             <Button
-                                                className="flex-1 rounded-md bg-[#2563EB] hover:bg-[#1e40af] text-white font-bold h-12"
+                                                <button className="flex-1 rounded-md bg-brand-blue hover:bg-brand-cobalt text-white font-bold h-12">
                                                 onClick={() => handleUpdateStatus(e.id, EtiquetaStatus.EN_CAMINO)}
                                                 disabled={isPending}
                                             >

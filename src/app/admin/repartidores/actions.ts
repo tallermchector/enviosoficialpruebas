@@ -67,13 +67,16 @@ async function upsertRepartidor(
 
   } catch (e: unknown) {
     console.error(e);
-    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
-       const target = e.meta?.target as string[];
-       if (target.includes('phone')) {
-         return { error: 'Error: El número de teléfono ya está en uso.' };
-       }
-       if (target.includes('licensePlate')) {
-         return { error: 'Error: La patente del vehículo ya está registrada.' };
+    const prismaError = e as Prisma.PrismaClientKnownRequestError;
+    if (prismaError && typeof prismaError === 'object' && 'code' in prismaError && prismaError.code === 'P2002') {
+       const target = prismaError.meta?.target as string[] | undefined;
+       if (target) {
+         if (target.includes('phone')) {
+           return { error: 'Error: El número de teléfono ya está en uso.' };
+         }
+         if (target.includes('licensePlate')) {
+           return { error: 'Error: La patente del vehículo ya está registrada.' };
+         }
        }
     }
     const errorMessage = e instanceof Error ? e.message : 'Error desconocido al guardar.';
@@ -107,7 +110,8 @@ export async function deleteRepartidor(id: number): Promise<{ success: boolean; 
     return { success: true };
   } catch (error) {
     console.error(`Error deleting repartidor #${id}:`, error);
-    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2025') {
+    const prismaError = error as Prisma.PrismaClientKnownRequestError;
+    if (prismaError && typeof prismaError === 'object' && 'code' in prismaError && prismaError.code === 'P2025') {
        return { success: false, error: 'No se encontró el repartidor para eliminar.' };
     }
     return { success: false, error: 'Ocurrió un error al eliminar el repartidor.' };

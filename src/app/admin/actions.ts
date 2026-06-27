@@ -92,14 +92,12 @@ export async function addSocialPost(
     };
   } catch (e) {
     console.error(e);
-     if (e instanceof Prisma.PrismaClientKnownRequestError) {
-      // P2002 is the unique constraint violation code
-      if (e.code === 'P2002') {
-        return {
-          error: 'Error: Ya existe una publicación con esta URL.',
-          fieldErrors: { postUrl: ['Esta URL ya ha sido registrada.'] },
-        };
-      }
+    const prismaError = e as Prisma.PrismaClientKnownRequestError;
+    if (prismaError && typeof prismaError === 'object' && 'code' in prismaError && prismaError.code === 'P2002') {
+      return {
+        error: 'Error: Ya existe una publicación con esta URL.',
+        fieldErrors: { postUrl: ['Esta URL ya ha sido registrada.'] },
+      };
     }
     const errorMessage = e instanceof Error ? e.message : 'Error desconocido al guardar.';
     return {

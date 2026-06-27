@@ -63,15 +63,15 @@ export function RepartidorSelection({ repartidores }: RepartidorSelectionProps) 
                                     asChild
                                     variant="outline"
                                     className="w-full justify-between h-16 text-lg rounded-none border-slate-800 bg-slate-800/40 hover:bg-[#2563EB] hover:text-slate-900 hover:border-[#2563EB] transition-all group font-sans"
+                                className="w-full justify-between h-16 text-lg rounded-none border-slate-800 bg-slate-800/40 hover:bg-brand-blue hover:text-slate-900 hover:border-brand-blue transition-all group font-sans"
                                 >
-                                    <Link href={`/repartidor/${r.id}`}>
-                                        <div className="flex items-center gap-4">
-                                            <div className="bg-slate-800 p-2 border border-slate-700 group-hover:bg-[#1e40af] transition-colors">
-                                                <User className="h-6 w-6 text-slate-600 group-hover:text-slate-900" />
-                                            </div>
-                                            <span className="font-bold">{r.name}</span>
-                                        </div>
-                                        <ArrowRight className="h-6 w-6 text-[#E89A17] group-hover:text-slate-900 group-hover:translate-x-1 transition-all" />
+                                <div className="flex items-center gap-4">
+                                  <div className="bg-slate-800 p-2 border border-slate-700 group-hover:bg-brand-blue transition-colors">
+                                    <Bike className="h-6 w-6 text-white" />
+                                  </div>
+                                  <span className="font-bold text-white">Moto</span>
+                                </div>
+                                <ArrowRight className="h-6 w-6 text-brand-yellow group-hover:text-slate-900 group-hover:translate-x-1 transition-all" />
                                     </Link>
                                 </Button>
                             </motion.div>

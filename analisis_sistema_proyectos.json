@@ -1,0 +1,899 @@
+{
+    "informacion_pc": {
+        "fecha_analisis": "2026-06-26 01:21:16",
+        "sistema_operativo": "Windows 11 (10.0.26200)",
+        "arquitectura": "AMD64",
+        "procesador": "Intel64 Family 6 Model 158 Stepping 9, GenuineIntel",
+        "discos": {
+            "C:": {
+                "total_gb": 222.56,
+                "usado_gb": 67.97,
+                "libre_gb": 154.59
+            },
+            "E:": {
+                "total_gb": 82.46,
+                "usado_gb": 45.36,
+                "libre_gb": 37.1
+            }
+        }
+    },
+    "analisis_desarrollo": {
+        "ruta_escaneada": "E:\\proyectos",
+        "total_proyectos_encontrados": 78,
+        "proyectos": [
+            {
+                "nombre": ".agents",
+                "ruta": "E:\\proyectos\\.agents",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "Markdown",
+                    "C#"
+                ],
+                "archivos_estimados": 28
+            },
+            {
+                "nombre": "000cumplepruebas",
+                "ruta": "E:\\proyectos\\000cumplepruebas",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown",
+                    "CSS"
+                ],
+                "archivos_estimados": 58
+            },
+            {
+                "nombre": "000eco-dimpura",
+                "ruta": "E:\\proyectos\\000eco-dimpura",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 13
+            },
+            {
+                "nombre": "000eco-dimpura-1",
+                "ruta": "E:\\proyectos\\000eco-dimpura-1",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown"
+                ],
+                "archivos_estimados": 24
+            },
+            {
+                "nombre": "000enviosdesde0",
+                "ruta": "E:\\proyectos\\000enviosdesde0",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown",
+                    "HTML"
+                ],
+                "archivos_estimados": 70
+            },
+            {
+                "nombre": "000enviosdosruedasultimo",
+                "ruta": "E:\\proyectos\\000enviosdosruedasultimo",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 15
+            },
+            {
+                "nombre": "000enviosprismabase",
+                "ruta": "E:\\proyectos\\000enviosprismabase",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown",
+                    "CSS"
+                ],
+                "archivos_estimados": 96
+            },
+            {
+                "nombre": "000pruebasenviosjunio",
+                "ruta": "E:\\proyectos\\000pruebasenviosjunio",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown",
+                    "HTML"
+                ],
+                "archivos_estimados": 90
+            },
+            {
+                "nombre": "00dim_base",
+                "ruta": "E:\\proyectos\\00dim_base",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 30
+            },
+            {
+                "nombre": "00pruebasuperbear",
+                "ruta": "E:\\proyectos\\00pruebasuperbear",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown"
+                ],
+                "archivos_estimados": 83
+            },
+            {
+                "nombre": "01EnviosDosRueda",
+                "ruta": "E:\\proyectos\\01EnviosDosRueda",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown"
+                ],
+                "archivos_estimados": 85
+            },
+            {
+                "nombre": "2invitapruebas",
+                "ruta": "E:\\proyectos\\2invitapruebas",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 30
+            },
+            {
+                "nombre": "agency-agents",
+                "ruta": "E:\\proyectos\\agency-agents",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "Markdown"
+                ],
+                "archivos_estimados": 192
+            },
+            {
+                "nombre": "agente_global",
+                "ruta": "E:\\proyectos\\agente_global",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python"
+                ],
+                "archivos_estimados": 36
+            },
+            {
+                "nombre": "album_mundial",
+                "ruta": "E:\\proyectos\\album_mundial",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "Python",
+                    "JSON",
+                    "Markdown",
+                    "HTML",
+                    "CSS"
+                ],
+                "archivos_estimados": 48
+            },
+            {
+                "nombre": "antigravity_global_skills",
+                "ruta": "E:\\proyectos\\antigravity_global_skills",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "Markdown"
+                ],
+                "archivos_estimados": 27
+            },
+            {
+                "nombre": "arbitrouy",
+                "ruta": "E:\\proyectos\\arbitrouy",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 21
+            },
+            {
+                "nombre": "arquitectura_ai",
+                "ruta": "E:\\proyectos\\arquitectura_ai",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 20
+            },
+            {
+                "nombre": "awesome-claude-code-subagents",
+                "ruta": "E:\\proyectos\\awesome-claude-code-subagents",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown"
+                ],
+                "archivos_estimados": 8
+            },
+            {
+                "nombre": "camisetas",
+                "ruta": "E:\\proyectos\\camisetas",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "HTML"
+                ],
+                "archivos_estimados": 13
+            },
+            {
+                "nombre": "claude-banana",
+                "ruta": "E:\\proyectos\\claude-banana",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python"
+                ],
+                "archivos_estimados": 24
+            },
+            {
+                "nombre": "clone-website",
+                "ruta": "E:\\proyectos\\clone-website",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 52
+            },
+            {
+                "nombre": "cloud_code",
+                "ruta": "E:\\proyectos\\cloud_code",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [],
+                "archivos_estimados": 1
+            },
+            {
+                "nombre": "colaborador_camila",
+                "ruta": "E:\\proyectos\\colaborador_camila",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 26
+            },
+            {
+                "nombre": "colabpruebas",
+                "ruta": "E:\\proyectos\\colabpruebas",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "Markdown"
+                ],
+                "archivos_estimados": 4
+            },
+            {
+                "nombre": "ContextLLM",
+                "ruta": "E:\\proyectos\\ContextLLM",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python"
+                ],
+                "archivos_estimados": 28
+            },
+            {
+                "nombre": "curriculum",
+                "ruta": "E:\\proyectos\\curriculum",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [],
+                "archivos_estimados": 5
+            },
+            {
+                "nombre": "dimpura",
+                "ruta": "E:\\proyectos\\dimpura",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "Markdown"
+                ],
+                "archivos_estimados": 8
+            },
+            {
+                "nombre": "dimpura3d",
+                "ruta": "E:\\proyectos\\dimpura3d",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 29
+            },
+            {
+                "nombre": "dimpurafinal",
+                "ruta": "E:\\proyectos\\dimpurafinal",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "React TS",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown",
+                    "CSS"
+                ],
+                "archivos_estimados": 21
+            },
+            {
+                "nombre": "dimpuravercelprueba",
+                "ruta": "E:\\proyectos\\dimpuravercelprueba",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 44
+            },
+            {
+                "nombre": "disenadorai",
+                "ruta": "E:\\proyectos\\disenadorai",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown"
+                ],
+                "archivos_estimados": 46
+            },
+            {
+                "nombre": "disena_profemprestes",
+                "ruta": "E:\\proyectos\\disena_profemprestes",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "React TS",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 8
+            },
+            {
+                "nombre": "EnviosDosRuedasfinal",
+                "ruta": "E:\\proyectos\\EnviosDosRuedasfinal",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown"
+                ],
+                "archivos_estimados": 97
+            },
+            {
+                "nombre": "enviosoficialpruebas",
+                "ruta": "E:\\proyectos\\enviosoficialpruebas",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown",
+                    "HTML"
+                ],
+                "archivos_estimados": 98
+            },
+            {
+                "nombre": "envios_datos",
+                "ruta": "E:\\proyectos\\envios_datos",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "HTML"
+                ],
+                "archivos_estimados": 17
+            },
+            {
+                "nombre": "envios_propuesta",
+                "ruta": "E:\\proyectos\\envios_propuesta",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "HTML"
+                ],
+                "archivos_estimados": 60
+            },
+            {
+                "nombre": "FutsalProRumbo2026",
+                "ruta": "E:\\proyectos\\FutsalProRumbo2026",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown"
+                ],
+                "archivos_estimados": 90
+            },
+            {
+                "nombre": "generador_rumbos",
+                "ruta": "E:\\proyectos\\generador_rumbos",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 26
+            },
+            {
+                "nombre": "google-flow-browser-mcp",
+                "ruta": "E:\\proyectos\\google-flow-browser-mcp",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "JavaScript"
+                ],
+                "archivos_estimados": 29
+            },
+            {
+                "nombre": "inicial",
+                "ruta": "E:\\proyectos\\inicial",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "Markdown",
+                    "Python"
+                ],
+                "archivos_estimados": 6
+            },
+            {
+                "nombre": "inicialenviosdosruedas",
+                "ruta": "E:\\proyectos\\inicialenviosdosruedas",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "JavaScript",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 64
+            },
+            {
+                "nombre": "localesenviosdosruedasjunio",
+                "ruta": "E:\\proyectos\\localesenviosdosruedasjunio",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "TypeScript",
+                    "JSON",
+                    "Markdown",
+                    "HTML",
+                    "CSS"
+                ],
+                "archivos_estimados": 54
+            },
+            {
+                "nombre": "Lumina",
+                "ruta": "E:\\proyectos\\Lumina",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "React TS"
+                ],
+                "archivos_estimados": 1
+            },
+            {
+                "nombre": "luminia_studio",
+                "ruta": "E:\\proyectos\\luminia_studio",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "React TS",
+                    "JSON",
+                    "TypeScript",
+                    "JavaScript",
+                    "Markdown",
+                    "HTML",
+                    "CSS"
+                ],
+                "archivos_estimados": 25
+            },
+            {
+                "nombre": "magnolia",
+                "ruta": "E:\\proyectos\\magnolia",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "React TS",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 1484
+            },
+            {
+                "nombre": "magnolia_uy",
+                "ruta": "E:\\proyectos\\magnolia_uy",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "JavaScript",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 57
+            },
+            {
+                "nombre": "marketingenvios",
+                "ruta": "E:\\proyectos\\marketingenvios",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Markdown",
+                    "Python",
+                    "HTML"
+                ],
+                "archivos_estimados": 50
+            },
+            {
+                "nombre": "markitdown",
+                "ruta": "E:\\proyectos\\markitdown",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "JSON",
+                    "Markdown",
+                    "HTML",
+                    "CSS"
+                ],
+                "archivos_estimados": 18
+            },
+            {
+                "nombre": "merge-tactics-vue",
+                "ruta": "E:\\proyectos\\merge-tactics-vue",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "JSON",
+                    "Markdown",
+                    "HTML",
+                    "CSS"
+                ],
+                "archivos_estimados": 17
+            },
+            {
+                "nombre": "mi-clon",
+                "ruta": "E:\\proyectos\\mi-clon",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "JavaScript",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 52
+            },
+            {
+                "nombre": "mispruebas",
+                "ruta": "E:\\proyectos\\mispruebas",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON"
+                ],
+                "archivos_estimados": 1
+            },
+            {
+                "nombre": "next-shadcn-base",
+                "ruta": "E:\\proyectos\\next-shadcn-base",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 16
+            },
+            {
+                "nombre": "nextjs16-agent-skills",
+                "ruta": "E:\\proyectos\\nextjs16-agent-skills",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "Markdown"
+                ],
+                "archivos_estimados": 6
+            },
+            {
+                "nombre": "nuevaprueba",
+                "ruta": "E:\\proyectos\\nuevaprueba",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "HTML"
+                ],
+                "archivos_estimados": 11
+            },
+            {
+                "nombre": "nuevo_mundial",
+                "ruta": "E:\\proyectos\\nuevo_mundial",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "HTML",
+                    "CSS"
+                ],
+                "archivos_estimados": 35
+            },
+            {
+                "nombre": "open-design",
+                "ruta": "E:\\proyectos\\open-design",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "HTML",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 153
+            },
+            {
+                "nombre": "open-design2",
+                "ruta": "E:\\proyectos\\open-design2",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "HTML",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 170
+            },
+            {
+                "nombre": "pnpm_test_drives",
+                "ruta": "E:\\proyectos\\pnpm_test_drives",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON"
+                ],
+                "archivos_estimados": 2
+            },
+            {
+                "nombre": "preciohogar",
+                "ruta": "E:\\proyectos\\preciohogar",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "React TS",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown",
+                    "CSS"
+                ],
+                "archivos_estimados": 22
+            },
+            {
+                "nombre": "PrecioHogar1909",
+                "ruta": "E:\\proyectos\\PrecioHogar1909",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JavaScript",
+                    "Python",
+                    "TypeScript",
+                    "JSON",
+                    "Markdown",
+                    "HTML"
+                ],
+                "archivos_estimados": 75
+            },
+            {
+                "nombre": "precio_hogar_uy",
+                "ruta": "E:\\proyectos\\precio_hogar_uy",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "JavaScript",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 47
+            },
+            {
+                "nombre": "predicciones_mundial",
+                "ruta": "E:\\proyectos\\predicciones_mundial",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python",
+                    "HTML"
+                ],
+                "archivos_estimados": 28
+            },
+            {
+                "nombre": "profemapre",
+                "ruta": "E:\\proyectos\\profemapre",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 59
+            },
+            {
+                "nombre": "propuesta_comercial",
+                "ruta": "E:\\proyectos\\propuesta_comercial",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "HTML"
+                ],
+                "archivos_estimados": 10
+            },
+            {
+                "nombre": "pruebasnuevas",
+                "ruta": "E:\\proyectos\\pruebasnuevas",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown"
+                ],
+                "archivos_estimados": 6
+            },
+            {
+                "nombre": "pruebas_dimpura",
+                "ruta": "E:\\proyectos\\pruebas_dimpura",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 59
+            },
+            {
+                "nombre": "repomix",
+                "ruta": "E:\\proyectos\\repomix",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [],
+                "archivos_estimados": 1
+            },
+            {
+                "nombre": "royale-proxy-api",
+                "ruta": "E:\\proyectos\\royale-proxy-api",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "HTML",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 44
+            },
+            {
+                "nombre": "rumbos_studio",
+                "ruta": "E:\\proyectos\\rumbos_studio",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "JavaScript",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 44
+            },
+            {
+                "nombre": "skill_propias",
+                "ruta": "E:\\proyectos\\skill_propias",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "Markdown"
+                ],
+                "archivos_estimados": 2
+            },
+            {
+                "nombre": "Soccer-Analytics",
+                "ruta": "E:\\proyectos\\Soccer-Analytics",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python"
+                ],
+                "archivos_estimados": 38
+            },
+            {
+                "nombre": "stitch-skills",
+                "ruta": "E:\\proyectos\\stitch-skills",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "Markdown"
+                ],
+                "archivos_estimados": 5
+            },
+            {
+                "nombre": "studioPrecioHogar",
+                "ruta": "E:\\proyectos\\studioPrecioHogar",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 56
+            },
+            {
+                "nombre": "thor_redes",
+                "ruta": "E:\\proyectos\\thor_redes",
+                "es_repositorio_git": false,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "Python"
+                ],
+                "archivos_estimados": 14
+            },
+            {
+                "nombre": "ui-ux-pro-max-skill",
+                "ruta": "E:\\proyectos\\ui-ux-pro-max-skill",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "HTML"
+                ],
+                "archivos_estimados": 17
+            },
+            {
+                "nombre": "ultiampruebadiapo",
+                "ruta": "E:\\proyectos\\ultiampruebadiapo",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown",
+                    "TypeScript"
+                ],
+                "archivos_estimados": 19
+            },
+            {
+                "nombre": "world-cup-2026-prediction-model",
+                "ruta": "E:\\proyectos\\world-cup-2026-prediction-model",
+                "es_repositorio_git": true,
+                "tecnologias_detectadas": [
+                    "JSON",
+                    "Markdown"
+                ],
+                "archivos_estimados": 22
+            }
+        ]
+    }
+}

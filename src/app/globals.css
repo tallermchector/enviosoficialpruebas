@@ -5,8 +5,8 @@
 @layer base {
   :root {
     /* Brand Book Colors & Fonts */
-    --color-primary: #0635A6;
-    --color-secondary: #FFEC00;
+    --color-primary: #0636A5;
+    --color-secondary: #FFEC01;
     --color-white: #FFFFFF;
     --font-title: var(--font-anton), sans-serif;
     --font-subtitle: var(--font-bebas-neue), sans-serif;
@@ -22,9 +22,9 @@
     --card-foreground: 195 7% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 195 7% 11%;
-    --primary: 222 93% 34%; /* Egyptian Blue #0635A6 */
+    --primary: 222 93% 34%; /* Egyptian Blue #0636A5 */
     --primary-foreground: 0 0% 100%;
-    --secondary: 56 100% 50%; /* #FFEC00 - Sunbeam Yellow */
+    --secondary: 56 100% 50%; /* #FFEC01 - Sunbeam Yellow */
     --secondary-foreground: 195 7% 11%;
     --muted: 210 12% 92%;
     --muted-foreground: 232 6% 49%;
@@ -45,9 +45,9 @@
     --card-foreground: 210 40% 98%;
     --popover: 225 57% 6%;
     --popover-foreground: 210 40% 98%;
-    --primary: 222 93% 34%; /* Egyptian Blue #0635A6 for dark mode contrast */
+    --primary: 222 93% 34%; /* Egyptian Blue #0636A5 for dark mode contrast */
     --primary-foreground: 0 0% 100%;
-    --secondary: 56 100% 50%; /* Sunbeam Yellow #FFEC00 */
+    --secondary: 56 100% 50%; /* Sunbeam Yellow #FFEC01 */
     --secondary-foreground: 225 57% 4%;
     --muted: 225 25% 15%;
     --muted-foreground: 210 20% 70%;

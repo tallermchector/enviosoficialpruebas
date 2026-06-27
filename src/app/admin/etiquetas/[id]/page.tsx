@@ -52,8 +52,9 @@ async function getEtiqueta(id: string): Promise<FormattedEtiqueta | null> {
 }
 
 
-export default async function GenerarEtiquetaPage({ params }: { params: { id: string } }) {
-    const etiqueta = await getEtiqueta(params.id);
+export default async function GenerarEtiquetaPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
+    const etiqueta = await getEtiqueta(id);
 
     return (
         <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">

@@ -98,7 +98,7 @@ export function AssignEtiqueta({ repartidorId, onEtiquetaAssigned }: AssignEtiqu
               />
               <Button
                 type="submit"
-                className="w-full h-14 rounded-md bg-[#2563EB] hover:bg-[#1e40af] text-white font-bold text-lg"
+                className="w-full h-14 rounded-md bg-brand-blue hover:bg-brand-cobalt text-white font-bold text-lg"
                 disabled={isPending}
               >
                 {isPending ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : <Search className="mr-2 h-5 w-5" />}

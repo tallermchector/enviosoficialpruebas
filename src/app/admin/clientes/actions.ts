@@ -109,9 +109,10 @@ async function upsertClient(formData: FormData): Promise<ClientFormState> {
       return { message: `Cliente "${newClient.name}" creado exitosamente.` };
     }
   } catch (e) {
-    if (e instanceof Prisma.PrismaClientKnownRequestError) {
-      if (e.code === 'P2002') {
-        const target = e.meta?.target as string[];
+    const prismaError = e as Prisma.PrismaClientKnownRequestError;
+    if (prismaError && typeof prismaError === 'object' && 'code' in prismaError && prismaError.code === 'P2002') {
+      const target = prismaError.meta?.target as string[] | undefined;
+      if (target) {
         if (target.includes('phone')) {
           return { error: `El número de teléfono "${data.phone}" ya está registrado.` };
         }
@@ -143,7 +144,8 @@ export async function toggleClientStatus(id: number, currentStatus: boolean): Pr
     return { success: true };
   } catch (error) {
     console.error(`Error toggling status for client #${id}:`, error);
-    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2025') {
+    const prismaError = error as Prisma.PrismaClientKnownRequestError;
+    if (prismaError && typeof prismaError === 'object' && 'code' in prismaError && prismaError.code === 'P2025') {
        return { success: false, error: 'No se encontró el cliente para actualizar.' };
     }
     return { success: false, error: 'Ocurrió un error al cambiar el estado del cliente.' };

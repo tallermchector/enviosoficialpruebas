@@ -16,7 +16,7 @@ La paleta de colores se define mediante variables CSS en `src/app/globals.css`. 
 
 -   **Primary**: `hsl(221.2 83.2% 53.3%)` - El azul principal de la marca.
     -   Foreground: `hsl(210 40% 98%)` (Texto sobre primario)
--   **Secondary**: `hsl(45 93% 47%)` - El amarillo/naranja de acento.
+-   **Secondary**: `hsla(61, 93%, 58%, 1.00)` - El amarillo/naranja de acento.
     -   Foreground: `hsl(26 83% 14%)` (Texto sobre secundario)
 -   **Background**: `hsl(0 0% 100%)` - Fondo principal de la aplicación.
 -   **Foreground**: `hsl(222.2 84% 4.9%)` - Texto principal sobre el fondo.

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Envios Dos Ruedas - Logistics Excellence</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;600&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer utilities {
+            .skew-minus-10 {
+                transform: skew(-10deg);
+            }
+
+            .unskew-10 {
+                transform: skew(10deg);
+            }
+        }
+
+        .tracking-input-glow:focus-within {
+            box-shadow: 0 0 15px rgba(255, 236, 1, 0.3);
+        }
+
+        .shake-animation {
+            animation: shake 200ms ease-in-out;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .progress-bar-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background-color: #FFEC01;
+            animation: progress 2s linear infinite;
+        }
+
+        @keyframes progress {
+            0% {
+                width: 0;
+                left: 0;
+            }
+
+            50% {
+                width: 100%;
+                left: 0;
+            }
+
+            100% {
+                width: 100%;
+                left: 100%;
+            }
+        }
+
+        .hover-unskew:hover {
+            transform: skew(0deg);
+            background-color: #04297e;
+            color: #FFFFFF;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FFEC01",
+                        "brand-blue": "#0636A5",
+                        "background-dark": "#0636A5",
+                        "background-light": "#FFFFFF",
+                        "surface": "#F3F4F6",
+                        "text-main": "#0636A5",
+                        "muted": "#4B5563",
+                        "accent": "#E85D04",
+                    },
+                    fontFamily: {
+                        "heading": ["Anton", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    letterSpacing: {
+                        'tighter': '-0.02em',
+                        'widest': '0.05em',
+                    },
+                    borderRadius: {
+                        "none": "0px",
+                    },
+                    borderWidth: {
+                        'standard': '2px',
+                        'thick': '4px',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light font-body text-text-main min-h-screen flex flex-col overflow-x-hidden">
+    <!-- Shared TopNavBar -->
+    <div class="relative flex h-auto w-full flex-col bg-background-light group/design-root overflow-x-hidden">
+        <header
+            class="flex items-center justify-between whitespace-nowrap border-b-standard border-solid border-gray-100 px-10 py-4 max-w-[1440px] mx-auto w-full">
+            <div class="flex items-center gap-4 text-brand-blue">
+                <div class="size-12 rounded-full overflow-hidden border-2 border-brand-blue">
+                    <img alt="Envios DosRuedas Logo" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida/AP1WRLtfvMeemJhHo24YgZAa8tPlk9gmNh0muzHnugcnEoF_CKIBnXUifT7kCs8Y9_Xd25Nl5ERiQRRC40QYtiiKnR1lc2nmcObXX4TV1hvRDfVLGR5RFCWy2-UjfiOeEL2uc06-H3UO9Yy9HwcMR_EGhlo6468nCt9k0PtXslp9GLXpC6KWFHj1xv5VVmwZzsTiNmSW7tLVql9W-GtjJtU2PpteIlpVJWLHIaVbm2GuQ4ERWRm3hNP8oKFwm2Cg" />
+                </div>
+                <h2 class="text-brand-blue text-2xl font-heading uppercase tracking-tighter leading-tight">Envíos
+                    DosRuedas</h2>
+            </div>
+            <div class="flex flex-1 justify-end gap-12 items-center">
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a class="text-brand-blue hover:text-primary transition-colors text-base font-semibold leading-normal uppercase"
+                        href="/">Inicio</a>
+                    <a class="text-brand-blue hover:text-primary transition-colors text-base font-semibold leading-normal uppercase"
+                        href="#">Servicios</a>
+                    <a class="text-brand-blue hover:text-primary transition-colors text-base font-semibold leading-normal uppercase"
+                        href="#">Nosotros</a>
+                    <a class="text-brand-blue hover:text-primary transition-colors text-base font-semibold leading-normal uppercase"
+                        href="/contacto">Contacto</a>
+                    <a class="text-brand-blue hover:text-primary transition-colors text-base font-semibold leading-normal uppercase flex items-center gap-2"
+                        href="tel:+5492236602699"><span class="material-symbols-outlined text-xl">call</span> +54 223
+                        660-2699</a>
+                </nav>
+                <button
+                    class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden h-12 px-6 bg-primary text-brand-blue text-lg font-heading uppercase leading-normal tracking-widest skew-minus-10 hover-unskew transition-all duration-300 ease-out border-none rounded-none shadow-md">
+                    <span class="truncate unskew-10 group-hover:skew-0">Cotizá tu Envío</span>
+                </button>
+            </div>
+        </header>
+    </div>
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col w-full">
+        <div class="flex flex-col lg:flex-row w-full max-w-[1440px] mx-auto">
+            <!-- Left Side: Content & Tracking Input (60%) -->
+            <div class="w-full lg:w-[60%] px-10 py-20 flex flex-col justify-center gap-12 relative z-10">
+                <div class="flex flex-col gap-4">
+                    <h1
+                        class="font-heading text-brand-blue text-5xl md:text-[70px] lg:text-[100px] uppercase leading-[1.1] tracking-tighter max-w-[800px]">
+                        CONECTÁ TU NEGOCIO <br />
+                        <span class="text-primary">CON TODA LA CIUDAD</span>
+                    </h1>
+                    <p class="font-body text-muted text-lg md:text-xl font-normal leading-[1.5] max-w-[600px] mt-4">
+                        Logística humana y eficiente para Mar del Plata. Poné tus ventas en las mejores manos:
+                        conectamos tu negocio con entregas rápidas y seguras. Clientes felices siempre.
+                    </p>
+                </div>
+                <!-- Tracking Input Section -->
+                <div class="flex flex-col w-full max-w-[720px] gap-2">
+                    <div class="relative flex w-full h-[64px] bg-white border-standard border-brand-blue rounded-none overflow-hidden tracking-input-glow transition-all duration-300"
+                        id="tracking-container">
+                        <div class="flex items-center justify-center pl-6 text-muted border-none bg-white">
+                            <span class="material-symbols-outlined text-[24px]">search</span>
+                        </div>
+                        <input
+                            class="flex-1 w-full h-full bg-transparent border-none text-brand-blue font-body text-lg font-semibold placeholder:text-gray-400 placeholder:font-normal focus:ring-0 px-4 uppercase"
+                            id="tracking-input"
+                            onblur="document.getElementById('tracking-container').classList.remove('border-primary')"
+                            onfocus="document.getElementById('tracking-container').classList.add('border-primary')"
+                            placeholder="INGRESA TU GUÍA (EJ. EDR-123)" type="text" />
+                        <button
+                            class="h-full px-8 bg-primary text-brand-blue font-heading text-xl uppercase tracking-widest skew-minus-10 -mr-4 pr-12 hover-unskew transition-all duration-300 ease-out border-none rounded-none flex items-center justify-center relative group"
+                            id="track-btn" onclick="simulateTracking()">
+                            <span
+                                class="unskew-10 group-hover:skew-0 transition-transform duration-300 inline-block">SEGUIR
+                                ENVÍO</span>
+                        </button>
+                    </div>
+                    <p class="text-accent font-body text-sm font-semibold hidden mt-2" id="error-message">GUÍA NO
+                        ENCONTRADA. VERIFIQUE E INTENTE DE NUEVO.</p>
+                </div>
+                <!-- Metric Badges -->
+                <div class="flex flex-wrap gap-6 mt-8">
+                    <div
+                        class="flex flex-col justify-center h-[80px] min-w-[160px] bg-surface border-l-thick border-primary px-6 rounded-none">
+                        <span class="font-heading text-3xl tracking-widest text-brand-blue leading-none">100%</span>
+                        <span class="font-body text-xs font-semibold text-muted uppercase mt-1">SEGURO</span>
+                    </div>
+                    <div
+                        class="flex flex-col justify-center h-[80px] min-w-[160px] bg-surface border-l-thick border-primary px-6 rounded-none">
+                        <span class="font-heading text-3xl tracking-widest text-brand-blue leading-none">ULTRA</span>
+                        <span class="font-body text-xs font-semibold text-muted uppercase mt-1">RÁPIDO</span>
+                    </div>
+                    <div
+                        class="flex flex-col justify-center h-[80px] min-w-[160px] bg-surface border-l-thick border-primary px-6 rounded-none">
+                        <span class="font-heading text-3xl tracking-widest text-brand-blue leading-none">TOTAL</span>
+                        <span class="font-body text-xs font-semibold text-muted uppercase mt-1">COBERTURA</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Side: Graphic (40%) -->
+            <div
+                class="hidden lg:flex w-[40%] relative overflow-hidden bg-background-light items-center justify-center">
+                <!-- Decorative Speed Lines Background -->
+                <div class="absolute inset-0 z-0 opacity-10"
+                    style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #0636A5 10px, #0636A5 20px);">
+                </div>
+                <div
+                    class="absolute inset-0 z-0 bg-gradient-to-l from-transparent via-background-light/40 to-background-light">
+                </div>
+                <!-- Graphic Image -->
+                <div
+                    class="relative z-10 w-full h-[80%] max-h-[800px] skew-minus-10 overflow-hidden border-l-thick border-primary ml-10 shadow-2xl">
+                    <div class="bg-cover bg-center w-full h-full" data-alt="Delivery driver on motorcycle at night"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida/AP1WRLsg8y7oCzX-fLhJZIpYGMdGvE_f-i9OP1gwshPhegBO4ilGBjPvUftVa_-4LdJdAspZlxQ7shZ8-tOLLsxglQwew-6gKvFi-jv-lVvv0hi0DKRC6Fmq-U7CEbF6qe5uwArPO0TL9VnPA62ZGv2_xp79CE2SugnVYfox7e9MbjuXdVxjt1IOBfMx0Zl-taUZdoNElF686lbDXi5enDTdlRh6P0-PzzO0l2a6h1okaGbXDZFgSZa13iAlw-jB')">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services Section -->
+        <div class="w-full bg-surface py-24 relative overflow-hidden border-t-thick border-brand-blue">
+            <div class="max-w-[1440px] mx-auto px-10 relative z-10">
+                <div class="text-center mb-16">
+                    <h2 class="font-heading text-brand-blue text-5xl md:text-6xl uppercase tracking-tighter">ELEGÍ TU
+                        PLAN <br /><span class="text-primary">DE ENTREGAS</span></h2>
+                    <p class="font-body text-muted text-lg mt-4 max-w-2xl mx-auto">Infraestructura moderna para negocios
+                        que no se detienen. Inteligencia aplicada a cada kilómetro.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Express -->
+                    <div
+                        class="bg-white border-standard border-brand-blue p-8 skew-minus-10 hover-unskew transition-all duration-300 group flex flex-col">
+                        <div class="unskew-10 group-hover:skew-0 flex flex-col h-full">
+                            <span class="text-primary font-heading tracking-widest uppercase mb-2 block">ALTA
+                                PRIORIDAD</span>
+                            <h3 class="text-brand-blue text-2xl font-heading uppercase mb-4 group-hover:text-white">
+                                Envíos Express</h3>
+                            <p class="text-muted font-body text-sm mb-6 flex-grow group-hover:text-gray-200">Prioridad
+                                absoluta y certeza total. Diseñado para operaciones de alta criticidad horaria. Vos
+                                elegís el rango exacto de entrega con solo 2 horas de anticipación.</p>
+                            <a class="inline-block bg-primary text-brand-blue font-heading px-6 py-3 uppercase tracking-widest text-center mt-auto"
+                                href="/servicios/envios-express">Solicitar Express</a>
+                        </div>
+                    </div>
+                    <!-- LowCost -->
+                    <div
+                        class="bg-white border-standard border-brand-blue p-8 skew-minus-10 hover-unskew transition-all duration-300 group flex flex-col">
+                        <div class="unskew-10 group-hover:skew-0 flex flex-col h-full">
+                            <span
+                                class="text-primary font-heading tracking-widest uppercase mb-2 block">RENTABILIDAD</span>
+                            <h3 class="text-brand-blue text-2xl font-heading uppercase mb-4 group-hover:text-white">
+                                Envíos LowCost</h3>
+                            <p class="text-muted font-body text-sm mb-6 flex-grow group-hover:text-gray-200">Máxima
+                                rentabilidad y eficiencia en ruteo masivo. Variabilizá tus costos logísticos. Ingresá
+                                tus pedidos antes de las 13:00 hs y te garantizamos la entrega en el día.</p>
+                            <a class="inline-block bg-primary text-brand-blue font-heading px-6 py-3 uppercase tracking-widest text-center mt-auto"
+                                href="/servicios/envios-lowcost">Ahorrá con LowCost</a>
+                        </div>
+                    </div>
+                    <!-- Flex -->
+                    <div
+                        class="bg-white border-standard border-brand-blue p-8 skew-minus-10 hover-unskew transition-all duration-300 group flex flex-col">
+                        <div class="unskew-10 group-hover:skew-0 flex flex-col h-full">
+                            <span
+                                class="text-primary font-heading tracking-widest uppercase mb-2 block">MERCADOLIBRE</span>
+                            <h3 class="text-brand-blue text-2xl font-heading uppercase mb-4 group-hover:text-white">
+                                Envíos Flex</h3>
+                            <p class="text-muted font-body text-sm mb-6 flex-grow group-hover:text-gray-200">Potenciá tu
+                                reputación al máximo. Cumplimos tus acuerdos de nivel de servicio (SLAs) Same-Day para
+                                que tu termómetro siempre esté en verde.</p>
+                            <a class="inline-block bg-primary text-brand-blue font-heading px-6 py-3 uppercase tracking-widest text-center mt-auto"
+                                href="/servicios/enviosflex">Activar Envíos Flex</a>
+                        </div>
+                    </div>
+                    <!-- 3PL -->
+                    <div
+                        class="bg-white border-standard border-brand-blue p-8 skew-minus-10 hover-unskew transition-all duration-300 group flex flex-col">
+                        <div class="unskew-10 group-hover:skew-0 flex flex-col h-full">
+                            <span class="text-primary font-heading tracking-widest uppercase mb-2 block">INTEGRAL</span>
+                            <h3 class="text-brand-blue text-2xl font-heading uppercase mb-4 group-hover:text-white">
+                                E-Commerce &amp; 3PL</h3>
+                            <p class="text-muted font-body text-sm mb-6 flex-grow group-hover:text-gray-200">
+                                Tercerización integral y cuentas corrientes. Más que un envío, somos tu depósito y tu
+                                equipo. Soluciones escalables para PyMEs y plataformas digitales.</p>
+                            <a class="inline-block bg-primary text-brand-blue font-heading px-6 py-3 uppercase tracking-widest text-center mt-auto"
+                                href="/servicios/plan-emprendedores">Hablar con un asesor</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Corporate Solutions Section -->
+        <div class="w-full bg-brand-blue py-24 border-t-thick border-primary text-white">
+            <div class="max-w-[1440px] mx-auto px-10 flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="font-heading text-5xl md:text-6xl uppercase tracking-tighter mb-6">POTENCIÁ TU LOGÍSTICA
+                        <br /><span class="text-primary">CON DOSRUEDAS</span></h2>
+                    <p class="font-body text-gray-200 text-lg mb-8">Transformamos la última milla de tu empresa con una
+                        flota ágil y especializada de alta precisión. Beneficios exclusivos para clientes corporativos.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-primary">check_circle</span> Cuenta Corriente
+                            Flexible</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-primary">check_circle</span> Facturación
+                            simplificada</li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-primary">check_circle</span> Gestión multi-usuario
+                        </li>
+                        <li class="flex items-center gap-3"><span
+                                class="material-symbols-outlined text-primary">check_circle</span> Reportes de impacto
+                        </li>
+                    </ul>
+                    <a class="inline-block bg-primary text-brand-blue font-heading text-xl px-8 py-4 uppercase tracking-widest skew-minus-10 hover:bg-white transition-colors duration-300"
+                        href="/servicios/plan-emprendedores">
+                        <span class="inline-block unskew-10">CONFIGURÁ TU PLAN</span>
+                    </a>
+                </div>
+                <div class="lg:w-1/2 relative">
+                    <img alt="3D Motorcycle Render"
+                        class="w-full max-w-[500px] mx-auto drop-shadow-2xl animate-[float_6s_ease-in-out_infinite]"
+                        src="https://lh3.googleusercontent.com/aida/AP1WRLtBvoaLA50DFqwWaDqL28ExKifQK1WL95JTdpwuKQvq8qK41QxC__qHkRpaLY_PecU01zy8Ko_HYk1Eot4S-Bc99he5ap6XvTcMYPOF_-nzXpzzEo4DHVgeWoUSFVJ_6j8EAKprf_I56ZQ4PB7R0pF2uVgfMenuY6_mzpPAAL85vQLMmC2PhA1d4zfx5Qn2_g554CLksNU-XucTr-FJJFFD_CXfr-IhS1u2w77DUbpiDmeEBOT5Zie2n6oA"
+                        style="animation: float 6s ease-in-out infinite;" />
+                </div>
+            </div>
+        </div>
+        <style>
+            @keyframes float {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+
+                100% {
+                    transform: translateY(0px);
+                }
+            }
+        </style>
+        <!-- Social Media Section -->
+        <div class="w-full bg-white py-24 border-t-thick border-brand-blue">
+            <div class="max-w-[1440px] mx-auto px-10 text-center">
+                <h2 class="font-heading text-brand-blue text-5xl md:text-6xl uppercase tracking-tighter mb-4">SIGUE
+                    NUESTRO MOVIMIENTO</h2>
+                <p class="font-body text-muted text-lg mb-12">Únete a nuestra comunidad digital y mantente al día con
+                    las últimas noticias de logística en Mar del Plata.</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div
+                        class="aspect-square overflow-hidden border-standard border-brand-blue skew-minus-10 hover-unskew transition-all duration-300">
+                        <img alt="Instagram Post"
+                            class="w-full h-full object-cover unskew-10 scale-125 hover:scale-100 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida/AP1WRLtvUCoW7cLB0ZZ5p2zwDfMQUF6-Y17F2cNrRNhYkkcCSIESWaPKHd6ym9J9gkBJNRcb-wmCSCMTaIvE7MeGjcWoQkjL3he-ervlLfnJmHO-KZr6GpMauon5Ji2KGDhUrk6UbtTErFkkVxLns05gc9E_bvfGrXi4TGWBoieeayg94JyhmEGlrkuzmUnZ3-DvMa2pkwJaba3X4QW7t2FCPMAyNIfCb6rF0bQSGuQvbI7gKuND3QGoxnPohak" />
+                    </div>
+                    <div
+                        class="aspect-square overflow-hidden border-standard border-brand-blue skew-minus-10 hover-unskew transition-all duration-300">
+                        <img alt="Instagram Post"
+                            class="w-full h-full object-cover unskew-10 scale-125 hover:scale-100 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida/AP1WRLsv_zkwdPF9mIsvF3rw4GMh2IgI-JflhSkzvmduobC-kISBN3vfjeykUF4FOcDs4AiMgIXdhQrbKp_uSHfElRYL1syzjf1pPANiHmeuY1XlIjBnY__hO48n9XUklNp6wOeeQ4ocYBkzqS2cDiITiZSOcfWELIMBjWYMtCb-9eti6kQc1s6mGxx03qp0JRMHF2UdsSWZiZ-_jCSjDj3xi0RuYFryZYFOc9WbUIdS4SwgN5dblbi285QsFTQ1" />
+                    </div>
+                    <div
+                        class="aspect-square overflow-hidden border-standard border-brand-blue skew-minus-10 hover-unskew transition-all duration-300">
+                        <img alt="Facebook Post"
+                            class="w-full h-full object-cover unskew-10 scale-125 hover:scale-100 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida/AP1WRLtS05GiEaZ3jv7TJlU8HSrA0vknxpLSBOBGdEGFcv43IAG_gqW9iyVJVrXA4HPwKqoBjTalw57L2pl5Ek0qdRc3oD41s6gQGu2t84dxYcnXNa5sAO5UfRj16_Alp314neZsoo6gHqB1xhSh84qwTc9Ro-ee5vqRyjJv3hbbfpa0ckRVelBscGfDg04aVnEJG53vHUXAvxbCnZiXd2CHfZVfbpV3cf0hwzHjX0atCgFF-9vUHTe2ny82SQSj" />
+                    </div>
+                    <div
+                        class="aspect-square overflow-hidden border-standard border-brand-blue skew-minus-10 hover-unskew transition-all duration-300">
+                        <img alt="Instagram Post"
+                            class="w-full h-full object-cover unskew-10 scale-125 hover:scale-100 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida/AP1WRLvt-sRVB1pWDLdQir1_5hyfBCZt9pjhrk6TjtlXKLoLy2-ukcKdr9sCjf3Dws2rZ4CcsG74RLwzBtvunasQo-yDXW_Rb-BKkuPFgq9-ZCO_eCOhu5O7_hBN2KgXdsRllVSMkCRz2MGb_9q9HcUO2czlPmYUn91eMG99s9msjPUJtOFvTGSC6o5wImZUE24DBctJ0ttVnT8J8qCfuvqpKvbIq2wqg1RkWFLUbXTAVP5vToaUKFkeUzpDFGn0" />
+                    </div>
+                    <div
+                        class="aspect-square overflow-hidden border-standard border-brand-blue skew-minus-10 hover-unskew transition-all duration-300 hidden lg:block">
+                        <img alt="Facebook Post"
+                            class="w-full h-full object-cover unskew-10 scale-125 hover:scale-100 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida/AP1WRLug3OcCki-iPl-KGHduJxN3yzYocZ7d1CwDrfwRhsflaDHVKB7Q14aFLsj8VFY4eWkEi2GdIXQlpyIWVhij-RuO1WlMzLxlqNobty2BYaDLIeaZ7Y1e2yZqvOchKgwJWOreZZJNxnPmWNHH1DRy-X7hNJr7BSAmXKEWKeZ1eXTBnsdc3ic9JZ_5_57v405fOLIgn65fEeP048n4IMOgIUqJ8kycau5b0EO3-4NF_Ig0gpWdCCpvn_zayEl-" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="w-full bg-brand-blue py-12 text-white border-t-4 border-primary">
+            <div class="max-w-[1440px] mx-auto px-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-heading text-2xl uppercase text-primary mb-4">Envíos DosRuedas</h3>
+                    <p class="font-body text-sm text-gray-300 mb-4">Logística humana y eficiente para Mar del Plata. Tus
+                        ventas en las mejores manos: conectamos tu negocio con toda la ciudad.</p>
+                </div>
+                <div>
+                    <h4 class="font-heading text-xl uppercase mb-4">Servicios</h4>
+                    <ul class="space-y-2 font-body text-sm text-gray-300">
+                        <li><a class="hover:text-primary transition-colors" href="/servicios/envios-express">Envíos
+                                Express</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="/servicios/envios-lowcost">Envíos
+                                LowCost</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="/servicios/enviosflex">Envíos Flex
+                                (MeLi)</a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="/servicios/plan-emprendedores">E-Commerce &amp; 3PL</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading text-xl uppercase mb-4">Nosotros</h4>
+                    <ul class="space-y-2 font-body text-sm text-gray-300">
+                        <li><a class="hover:text-primary transition-colors" href="/nosotros/sobre-nosotros">Sobre
+                                Nosotros</a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="/nosotros/preguntas-frecuentes">Preguntas Frecuentes</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="/nosotros/nuestras-redes">Nuestras
+                                Redes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-heading text-xl uppercase mb-4">Contacto</h4>
+                    <ul class="space-y-2 font-body text-sm text-gray-300">
+                        <li class="flex items-start gap-2"><span
+                                class="material-symbols-outlined text-primary text-base">location_on</span> Ubicación:
+                            Friuli 1972, Mar del Plata</li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-primary text-base">call</span> Teléfono: <a
+                                class="hover:text-primary transition-colors" href="tel:+542236602699">+54 223
+                                660-2699</a></li>
+                        <li class="flex items-center gap-2"><span
+                                class="material-symbols-outlined text-primary text-base">mail</span> Email:
+                            matiascejas@enviosdosruedas.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="max-w-[1440px] mx-auto px-10 mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between font-body text-sm text-gray-400">
+                <p>© 2026 Envios DosRuedas. Todos los derechos reservados.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a class="hover:text-white transition-colors" href="/politica-de-privacidad">Privacidad</a>
+                    <a class="hover:text-white transition-colors" href="/terminos-y-condiciones">Términos</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script>
+        function simulateTracking() {
+            const input = document.getElementById('tracking-input').value;
+            const container = document.getElementById('tracking-container');
+            const errorMsg = document.getElementById('error-message');
+
+            container.classList.remove('shake-animation', 'border-accent', 'progress-bar-animation', 'border-primary');
+            errorMsg.classList.add('hidden');
+
+            if (input.trim() === '') {
+                return;
+            }
+
+            container.classList.add('progress-bar-animation', 'relative');
+
+            setTimeout(() => {
+                container.classList.remove('progress-bar-animation');
+
+                if (input.toUpperCase() === 'ERROR') {
+                    container.classList.add('border-accent', 'shake-animation');
+                    errorMsg.classList.remove('hidden');
+                    setTimeout(() => container.classList.remove('shake-animation'), 200);
+                } else {
+                    container.classList.add('border-primary');
+                    console.log('Routing to active tracking for:', input);
+                }
+            }, 1500);
+        }
+    </script>
+</body>
+
+</html>

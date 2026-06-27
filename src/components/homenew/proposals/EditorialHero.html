@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Editorial Hero - DosRuedas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#002276',
+                        secondary: '#f5e300',
+                        onSurface: '#1c1b1b',
+                    },
+                    fontFamily: {
+                        anton: ['Anton', 'sans-serif'],
+                        bebas: ['Bebas Neue', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #fcf9f8; color: #1c1b1b; }
+    </style>
+</head>
+<body class="font-bebas">
+    <header class="p-4 border-b-2 border-primary flex justify-between items-center">
+        <div class="font-anton text-2xl text-primary">DOSRUEDAS</div>
+        <nav class="flex gap-4">
+            <a href="#" class="text-label-caps">Servicios</a>
+            <a href="#" class="text-label-caps">Seguimiento</a>
+        </nav>
+    </header>
+
+    <main class="mt-16 mx-auto max-w-7xl px-4 md:px-16">
+        <section class="flex flex-col gap-6">
+            <h1 class="font-anton text-[80px] leading-[80px] uppercase text-primary">Logística<br>que se mueve.</h1>
+            <p class="text-[20px] max-w-lg">Soluciones de última milla diseñadas para la velocidad de Mar del Plata.</p>
+            <button class="bg-primary text-white px-8 py-4 w-fit font-bebas text-[20px]">COTIZAR ENVÍO</button>
+        </section>
+    </main>
+</body>
+</html>

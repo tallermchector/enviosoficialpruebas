@@ -36,8 +36,9 @@ async function getClient(id: string): Promise<FormattedClient | null> {
   };
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const client = await getClient(params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const client = await getClient(id);
   return {
     title: `Editar Cliente: ${client?.name || 'Cliente'}`,
     description: `Página para editar los detalles del cliente.`,
@@ -48,8 +49,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default async function EditClientPage({ params }: { params: { id: string } }) {
-  const client = await getClient(params.id);
+export default async function EditClientPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const client = await getClient(id);
 
   if (!client) {
       notFound();

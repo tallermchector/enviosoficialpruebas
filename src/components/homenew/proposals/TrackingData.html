@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Tracking - DosRuedas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#002276', secondary: '#f5e300' }
+                }
+            }
+        }
+    </script>
+    <style> body { background-color: #fcf9f8; } </style>
+</head>
+<body class="font-sans p-8">
+    <div class="max-w-2xl border-2 border-primary p-8">
+        <h2 class="font-bebas text-[32px] mb-6">SEGUIMIENTO DE ENVÍO</h2>
+        <input type="text" placeholder="INGRESA TU NÚMERO DE TRACKING" 
+               class="w-full border-b-2 border-primary bg-transparent text-[32px] font-bebas py-2 focus:outline-none placeholder-gray-400">
+        <div class="mt-8 flex gap-4">
+            <div class="bg-secondary px-4 py-2 font-bebas">EN TRÁNSITO</div>
+            <div class="bg-primary text-white px-4 py-2 font-bebas">COMPLETADO</div>
+        </div>
+    </div>
+</body>
+</html>

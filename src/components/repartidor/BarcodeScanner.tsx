@@ -20,7 +20,7 @@ export function BarcodeScanner({ onScan }: BarcodeScannerProps) {
   const { ref } = useZxing({
     onDecodeResult(result) {
       if (!isProcessing) {
-        const barcodeText = result.getText();
+        const barcodeText = result.rawValue;
         if (barcodeText) {
           setIsProcessing(true);
           onScan(barcodeText);

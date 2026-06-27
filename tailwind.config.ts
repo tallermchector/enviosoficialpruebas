@@ -25,9 +25,11 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         brand: {
-          blue: "#0635A6",
-          yellow: "#FFEC00",
+          blue: "#0636A5",
+          yellow: "#FFEC01",
           white: "#FFFFFF",
+          cobalt: "#0047AB",
+          dark: "#030710",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",

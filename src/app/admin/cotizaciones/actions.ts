@@ -131,7 +131,8 @@ async function upsertPriceRange(
 
   } catch (e: unknown) {
     console.error(e);
-    if (e instanceof Prisma.PrismaClientKnownRequestError && e.code === 'P2002') {
+    const prismaError = e as Prisma.PrismaClientKnownRequestError;
+    if (prismaError && typeof prismaError === 'object' && 'code' in prismaError && prismaError.code === 'P2002') {
         return { error: 'Error: Ya existe un rango con la misma configuración de distancia y tipo de servicio.' };
     }
     const errorMessage = e instanceof Error ? e.message : 'Error desconocido al guardar.';
@@ -156,7 +157,8 @@ export async function deletePriceRange(id: number): Promise<{ success: boolean; 
     return { success: true };
   } catch (error) {
     console.error(`Error deleting price range #${id}:`, error);
-    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2025') {
+    const prismaError = error as Prisma.PrismaClientKnownRequestError;
+    if (prismaError && typeof prismaError === 'object' && 'code' in prismaError && prismaError.code === 'P2025') {
        return { success: false, error: 'No se encontró el rango de precios para eliminar.' };
     }
     return { success: false, error: 'Ocurrió un error al eliminar el rango de precios.' };
