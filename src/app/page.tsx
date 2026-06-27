@@ -50,27 +50,35 @@ const Footer = dynamic(() => import("@/components/homenew/footer").then(mod => m
 
 export default function HomePage() {
   return (
-    <div className="dark min-h-screen bg-background text-foreground selection:bg-primary/30 flex flex-col">
+    <div className="min-h-screen bg-white text-foreground selection:bg-primary/30 flex flex-col">
       <OptimizedHeader />
       <main className="flex-grow">
-        <div className="bg-gradient-to-b from-background via-slate-950/20 to-slate-950">
-          {/* Above the fold (LCP Critical) - Renderizado estático inicial para performance extrema */}
+        {/* Sección 1: Hero (Azul) */}
+        <div className="bg-[#0636A5] text-white relative">
           <HeroAnimado />
-
-          {/* Below the fold (Lazy loaded to reduce TBT and Script Evaluation) */}
-          <VisionSection />
         </div>
 
-        <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-background">
+        {/* Sección 2: Vision (Blanco) */}
+        <VisionSection />
+
+        {/* Sección 3: Servicios (Azul) */}
+        <div className="bg-[#0636A5] text-white">
           <ServicesOverview />
-          <CtaSection />
         </div>
 
-        <div className="bg-gradient-to-b from-background via-slate-950 to-background">
+        {/* Sección 4: CTA (Blanco) */}
+        <CtaSection />
+
+        {/* Sección 5: Emprendedores/Corporativo (Azul) */}
+        <div className="bg-[#0636A5] text-white">
           <EmprendedoresHome />
-          <SliderServicios />
-          <CarruselRedes />
         </div>
+
+        {/* Sección 6: Slider Servicios (Blanco) */}
+        <SliderServicios />
+
+        {/* Sección 7: Redes Sociales (Azul) */}
+        <CarruselRedes />
       </main>
       <Footer />
     </div>

@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { OptimizedHeader } from "@/components/homenew/optimized-header"
@@ -29,11 +31,13 @@ export default function NotFound() {
                   </Link>
                 </Button>
 
-                <Button asChild variant="outline" size="lg">
-                  <Link href="javascript:history.back()">
-                    <ArrowLeft className="w-5 h-5 mr-2" />
-                    Volver Atrás
-                  </Link>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  onClick={() => typeof window !== "undefined" && window.history.back()}
+                >
+                  <ArrowLeft className="w-5 h-5 mr-2" />
+                  Volver Atrás
                 </Button>
               </div>
             </div>

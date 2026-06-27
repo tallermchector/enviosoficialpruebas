@@ -12,17 +12,17 @@ export const VisionSection = () => {
 
   const features = [
     { icon: <Zap className="text-secondary" />, title: "Entregas a Tiempo", text: "Puntualidad garantizada en cada envío" },
-    { icon: <ShieldCheck className="text-primary" />, title: "Envíos Seguros", text: "Protección total de tus paquetes" }
+    { icon: <ShieldCheck className="text-primary-navy" />, title: "Envíos Seguros", text: "Protección total de tus paquetes" }
   ];
 
   const stats = [
-    { label: "Confianza local comprobada", value: "+5.000", color: "text-secondary" },
+    { label: "Confianza local comprobada", value: "+5.000", color: "text-primary" },
     { label: "Innovación constante en última milla", value: "7 Años", color: "text-primary" },
-    { label: "Motocicletas dedicadas para máxima agilidad urbana", value: "Flota Exclusiva", color: "text-secondary" }
+    { label: "Motocicletas dedicadas para máxima agilidad", value: "Flota Exclusiva", color: "text-primary" }
   ];
 
   return (
-    <section className="relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-transparent overflow-hidden">
+    <section className="relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-white overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]">
         <div className="absolute inset-0 tech-grid-overlay" />
@@ -38,17 +38,17 @@ export const VisionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-none glass-card border border-primary/20 text-secondary text-xxs font-black tracking-[0.3em] mb-10 uppercase">
-              <span className="w-1.5 h-1.5 rounded-none bg-secondary animate-pulse" /> Partner Logístico Especializado
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-none bg-primary/5 border border-primary/10 text-primary text-xxs font-black tracking-[0.3em] mb-10 uppercase">
+              <span className="w-1.5 h-1.5 rounded-none bg-primary animate-pulse" /> Partner Logístico Especializado
             </div>
 
-            <h2 className="text-headline-lg-mobile md:text-display-lg mb-10 uppercase text-white">
+            <h2 className="text-headline-lg-mobile md:text-display-lg mb-10 uppercase text-primary">
               Llegá más rápido <br />
-              <span className="text-primary italic drop-shadow-[0_0_20px_rgba(6,53,166,0.4)]">y sin límites</span>
+              <span className="text-white bg-primary px-3 py-1 inline-block mt-2 italic shadow-hard-secondary">y sin límites</span>
             </h2>
 
-            <p className="text-gray-400 text-body-lg mb-12 max-w-2xl">
-              Transformá <span className="font-bold text-gray-300">tus costos fijos en soluciones flexibles</span> que acompañan el crecimiento de tu negocio. Olvidate de las demoras y enfocate en vender.
+            <p className="text-primary/70 text-body-lg mb-12 max-w-2xl">
+              Transformá <span className="font-bold text-primary">tus costos fijos en soluciones flexibles</span> que acompañan el crecimiento de tu negocio. Olvidate de las demoras y enfocate en vender.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-16">
@@ -59,24 +59,24 @@ export const VisionSection = () => {
                   whileHover={{ x: 10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <div className="w-14 h-14 rounded-none bg-white/[0.03] border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-white/[0.08] group-hover:border-primary/50 transition-all shadow-xl backdrop-blur-sm">
+                  <div className="w-14 h-14 rounded-none bg-primary/5 border border-primary/15 flex items-center justify-center shrink-0 group-hover:bg-primary/10 group-hover:border-primary/50 transition-all shadow-md">
                     {React.cloneElement(item.icon, { size: 28 })}
                   </div>
                   <div>
-                    <h3 className="text-headline-md text-sm text-white uppercase mb-2 group-hover:text-primary transition-colors">{item.title}</h3>
-                    <p className="text-gray-400 text-body-md text-xs">{item.text}</p>
+                    <h3 className="text-headline-md text-sm text-primary uppercase mb-2 group-hover:text-primary-navy transition-colors">{item.title}</h3>
+                    <p className="text-primary/75 text-body-md text-xs">{item.text}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            <div className="flex flex-wrap items-center gap-x-16 gap-y-10 pt-10 border-t border-white/10">
+            <div className="flex flex-wrap items-center gap-x-16 gap-y-10 pt-10 border-t border-primary/10">
               {stats.map((stat, i) => (
                 <div key={i} className="flex flex-col max-w-[200px]">
-                  <span className={`text-headline-lg-mobile md:text-headline-lg ${stat.color} tracking-tighter italic drop-shadow-lg leading-tight`}>
+                  <span className={`text-headline-lg-mobile md:text-headline-lg ${stat.color} tracking-tighter italic drop-shadow-md leading-tight`}>
                     {stat.value}
                   </span>
-                  <span className="text-label-sm text-gray-400 uppercase mt-2">
+                  <span className="text-label-sm text-primary/60 uppercase mt-2">
                     {stat.label}
                   </span>
                 </div>
@@ -84,7 +84,7 @@ export const VisionSection = () => {
 
               <motion.div
                 whileHover={{ rotate: 90 }}
-                className="hidden md:flex ml-auto w-16 h-16 rounded-none border border-white/10 items-center justify-center text-white/10 opacity-40"
+                className="hidden md:flex ml-auto w-16 h-16 rounded-none border border-primary/10 items-center justify-center text-primary/10 opacity-40"
               >
                 <Globe size={24} />
               </motion.div>
@@ -96,32 +96,32 @@ export const VisionSection = () => {
             style={{ scale, y }}
           >
             {/* Visual Glass Frame */}
-            <div className="relative aspect-[4/5] rounded-none overflow-hidden group border border-white/10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)]">
+            <div className="relative aspect-[4/5] rounded-none overflow-hidden group border border-primary/15 shadow-[0_40px_100px_-20px_rgba(6,54,165,0.15)]">
               <Image
                 src="/hero/mapa_background.jpeg"
                 alt="Vanguardia Logística"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-[3000ms] group-hover:scale-110 filter brightness-90 contrast-110"
+                className="object-cover transition-transform duration-[3000ms] group-hover:scale-110 filter brightness-95 contrast-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0d16] via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0636A5]/50 via-transparent to-transparent opacity-90" />
 
               {/* Animated Inner Glow */}
               <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
               {/* Floating Interactive Hub */}
-              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-none bg-[#0a0d16]/40 backdrop-blur-3xl border border-white/10 flex items-center justify-between group-hover:bg-[#0a0d16]/60 transition-all duration-700 shadow-2xl">
+              <div className="absolute bottom-10 left-8 right-8 p-10 rounded-none bg-[#0636A5] text-white border-2 border-primary flex items-center justify-between group-hover:bg-[#0636A5]/95 transition-all duration-700 shadow-2xl">
                 <div>
                   <h3 className="font-display text-2xl font-black text-white uppercase tracking-tight mb-2">Conocé más sobre nosotros</h3>
                   <div className="flex items-center gap-3 text-xxs text-secondary font-black tracking-[0.2em] uppercase">
-                    <CheckCircle2 size={14} className="animate-pulse" aria-hidden="true" /> ¿Querés potenciar tus entregas? Sumate a nuestra familia de clientes.
+                    <CheckCircle2 size={14} className="animate-pulse text-secondary" aria-hidden="true" /> ¿Querés potenciar tus entregas? Sumate.
                   </div>
                 </div>
                 <motion.button
                   whileHover={{ scale: 1.1, rotate: 12 }}
                   whileTap={{ scale: 0.9 }}
                   aria-label="Ir a página sobre nosotros"
-                  className="w-16 h-16 rounded-none bg-primary flex items-center justify-center text-white shadow-[0_10px_30px_-5px_rgba(6,53,166,0.6)] hover:bg-primary/90 transition-all border border-primary/30"
+                  className="w-16 h-16 rounded-none bg-secondary text-primary flex items-center justify-center shadow-hard-secondary hover:bg-secondary/90 transition-all border border-secondary"
                   onClick={() => window.location.href = '/nosotros/sobre-nosotros'}
                 >
                   <Play size={24} fill="currentColor" className="ml-1" aria-hidden="true" />
@@ -130,7 +130,7 @@ export const VisionSection = () => {
 
               {/* Holographic Status */}
               <div className="absolute top-10 right-10 flex flex-col items-end gap-3">
-                <div className="px-3 py-1.5 rounded-none bg-secondary/10 backdrop-blur-md border border-secondary/30 text-[9px] font-black text-secondary uppercase tracking-widest flex items-center gap-2">
+                <div className="px-3 py-1.5 rounded-none bg-secondary/20 backdrop-blur-md border border-secondary/30 text-[9px] font-black text-secondary uppercase tracking-widest flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-none bg-secondary animate-ping" />
                   EN LÍNEA
                 </div>
@@ -139,8 +139,8 @@ export const VisionSection = () => {
             </div>
 
             {/* Background Light Leaks */}
-            <div className="absolute -z-10 -bottom-20 -right-20 w-[400px] h-[400px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen opacity-50" />
-            <div className="absolute -z-10 -top-20 -left-20 w-[300px] h-[300px] bg-secondary/10 rounded-full blur-[100px] mix-blend-screen opacity-30" />
+            <div className="absolute -z-10 -bottom-20 -right-20 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen opacity-50" />
+            <div className="absolute -z-10 -top-20 -left-20 w-[300px] h-[300px] bg-secondary/5 rounded-full blur-[100px] mix-blend-screen opacity-30" />
           </motion.div>
         </div>
       </div>

@@ -1,145 +1,126 @@
-import type { Config } from "tailwindcss"
+import type { Config } from 'tailwindcss';
 
-const config: Config = {
-  darkMode: ["class"],
+export default {
+  darkMode: ['class'],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
+      // Espaciado del Brand Book
+      spacing: {
+        'unit': '4px',
+        'stack-sm': '8px',
+        'stack-md': '24px',
+        'stack-lg': '48px',
+        'gutter': '16px',
+        'margin-mobile': '20px',
+        'margin-desktop': '64px',
+      },
+      // Tipografías del Brand Book
+      fontFamily: {
+        'title': ['Anton', 'sans-serif'],
+        'subtitle': ['Bebas Neue', 'sans-serif'],
+        'body': ['Inter', 'sans-serif'],
+        // Aliases para compatibilidad con componentes existentes
+        'display': ['Anton', 'sans-serif'],
+        'subhead': ['Bebas Neue', 'sans-serif'],
+        'anton': ['Anton', 'sans-serif'],
+        'bebas': ['Bebas Neue', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+      },
+      // Colores del Brand Book
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        brand: {
-          blue: "#0636A5",
-          yellow: "#FFEC01",
-          white: "#FFFFFF",
-          cobalt: "#0047AB",
-          dark: "#030710",
-        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
         },
+        'white': '#FFFFFF',
+        'light': '#FFFFFF',
+        'dark': '#0636A5',
+        'primary-navy': '#0636A5',
+        'on-background': '#1c1b1b',
+        'on-surface-variant': '#0636A5',
       },
-      borderRadius: {
-        none: "0px",
-        xs: "0px",
-        sm: "0px",
-        DEFAULT: "0px",
-        md: "0px",
-        lg: "0px",
-        xl: "0px",
-        "2xl": "0px",
-        "3xl": "0px",
-        full: "9999px",
-      },
-      spacing: {
-        unit: "8px",
-        gutter: "24px",
-        "margin-mobile": "16px",
-        "margin-desktop": "48px",
-        "container-max": "1280px",
-        // backwards compatibility
-        base: "4px",
-        xs: "4px",
-        sm: "8px",
-        md: "16px",
-        lg: "32px",
-        xl: "64px",
-      },
+      // Sombras duras del Brand Book (sin blur — neo-brutalista)
       boxShadow: {
-        industrial: "4px 4px 0px 0px hsl(var(--primary))",
-        "industrial-secondary": "4px 4px 0px 0px hsl(var(--secondary))",
-        crate: "4px 4px 0px 0px rgba(0,0,0,0.15)",
-        // Keep standard shadow definitions just in case some Shadcn component uses shadow-sm or shadow-md or similar:
-        sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        DEFAULT: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-        md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
-        lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
-        xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-        "2xl": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+        'hard-primary': '4px 4px 0px 0px #0636A5',
+        'hard-secondary': '4px 4px 0px 0px #FFEC01',
+        'hard-white': '4px 4px 0px 0px #FFFFFF',
+        'none': '0px 0px 0px 0px',
+        // Aliases para compatibilidad
+        'brutal': '4px 4px 0px 0px #0636A5',
+        'brutal-sm': '2px 2px 0px 0px #0636A5',
+      },
+      // Radio de borde: 0px (flat — neo-brutalista)
+      borderRadius: {
+        'none': '0',
+        'sm': '0',
+        'DEFAULT': '0',
+        'md': '0',
+        'lg': '0',
+        'xl': '0',
+        '2xl': '0',
+        '3xl': '0',
+        'full': '0',
       },
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
         },
-        "h-scroll": {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
+        'pulse-dot': {
+          '0%': { transform: 'scale(0.95)', boxShadow: '0 0 0 0 rgba(255, 236, 1, 0.7)' },
+          '70%': { transform: 'scale(1)', boxShadow: '0 0 0 10px rgba(255, 236, 1, 0)' },
+          '100%': { transform: 'scale(0.95)', boxShadow: '0 0 0 0 rgba(255, 236, 1, 0)' },
         },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        "spin-slow": {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
+        'scroll-track': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        "h-scroll": "h-scroll 45s linear infinite",
-        float: "float 6s ease-in-out infinite",
-        "spin-slow": "spin-slow 8s linear infinite",
-      },
-      fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        display: ["var(--font-anton)", "sans-serif"],
-        anton: ["var(--font-anton)", "sans-serif"],
-        bebas: ["var(--font-bebas-neue)", "sans-serif"],
-        inter: ["var(--font-inter)", "sans-serif"],
-      },
-      transitionTimingFunction: {
-        stitch: "cubic-bezier(0.16, 1, 0.3, 1)",
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'pulse-dot': 'pulse-dot 2s infinite',
+        'scroll-track': 'scroll-track 25s linear infinite',
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
-
-export default config
+  plugins: [],
+} satisfies Config;
