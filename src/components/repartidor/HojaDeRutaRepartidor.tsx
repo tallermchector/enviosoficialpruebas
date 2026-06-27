@@ -173,7 +173,7 @@ export function HojaDeRutaRepartidor({ etiquetas, onStatusChange }: HojaDeRutaRe
                                     <div className="flex gap-2 pt-2">
                                         {e.status === EtiquetaStatus.IMPRESA && (
                                             <Button
-                                                <button className="flex-1 rounded-md bg-brand-blue hover:bg-brand-cobalt text-white font-bold h-12">
+                                                className="flex-1 rounded-md bg-brand-blue hover:bg-brand-cobalt text-white font-bold h-12"
                                                 onClick={() => handleUpdateStatus(e.id, EtiquetaStatus.EN_CAMINO)}
                                                 disabled={isPending}
                                             >
