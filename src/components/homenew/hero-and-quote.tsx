@@ -67,7 +67,7 @@ export default function HeroAndQuote() {
   ];
 
   return (
-    <section className="relative min-h-[100dvh] flex flex-col items-center justify-center pt-24 pb-12 lg:pt-32 lg:pb-16 bg-white overflow-hidden">
+    <section className="relative min-h-[100dvh] flex flex-col items-center justify-center pt-24 pb-12 lg:pt-32 lg:pb-16 bg-[#050810] overflow-hidden">
       {/* Hero Section */}
       <div className="w-full bg-[#0636A5] text-white py-16 px-4 relative">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
@@ -88,7 +88,7 @@ export default function HeroAndQuote() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center">
               <Link href="#cotizador">
                 <Button className="px-10 py-8 bg-[#FFEC01] hover:bg-[#FFEC01]/90 text-[#0636A5] font-bebas text-2xl uppercase rounded-none border-[3px] border-[#0636A5] shadow-[6px_6px_0px_0px_#0636A5] transition-transform hover:translate-x-1 hover:translate-y-1 hover:shadow-none">
-                  Cotizar Envío <ArrowRight className="ml-2" size={24} />
+                  Cotizá tu Envío <ArrowRight className="ml-2" size={24} />
                 </Button>
               </Link>
             </div>
@@ -139,7 +139,7 @@ export default function HeroAndQuote() {
       </div>
 
       {/* Quote Section */}
-      <div id="cotizador" className="w-full bg-[#FFFFFF] py-20 px-4">
+      <div id="cotizador" className="w-full bg-[#050810] py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-display font-black uppercase text-[#0636A5] tracking-tight">
@@ -150,7 +150,7 @@ export default function HeroAndQuote() {
             </p>
           </div>
 
-          <Card className="bg-white border-4 border-[#0636A5] shadow-[12px_12px_0px_0px_#0636A5] rounded-none">
+          <Card className="bg-[#050810] border-4 border-[#0636A5] shadow-[12px_12px_0px_0px_#0636A5] rounded-none">
             <CardContent className="p-8">
               <form onSubmit={handleQuote} className="space-y-6">
                 <div className="space-y-2">

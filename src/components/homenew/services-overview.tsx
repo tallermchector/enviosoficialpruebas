@@ -106,7 +106,7 @@ export const ServicesOverview = () => {
       desc: <>Más que un envío, somos tu depósito. <span className="font-bold">Soluciones escalables</span> para PyMEs con facturación mensual centralizada.</>,
       icon: <Truck />,
       href: "/servicios/plan-emprendedores",
-      buttonText: "Hablar con un asesor",
+      buttonText: "Hablá con un asesor",
       className: "md:col-span-2 md:row-span-1"
     }
   ];
