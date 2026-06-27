@@ -77,8 +77,8 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
     <div className="lg:hidden">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 w-12 h-12 rounded-none" aria-label="Abrir menú de navegación">
-            <Menu className="h-7 w-7" />
+          <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 w-12 h-12 rounded-none outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2" aria-label="Abrir menú de navegación">
+            <Menu className="h-7 w-7" aria-hidden="true" />
             <span className="sr-only">Abrir menú</span>
           </Button>
         </SheetTrigger>
@@ -87,7 +87,7 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
             <div className="relative w-10 h-10 rounded-none flex items-center justify-center drop-shadow-[0_0_10px_rgba(6,53,166,0.4)]">
               <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" sizes="40px" />
             </div>
-            <SheetTitle className="text-white font-display font-black italic text-xl tracking-tighter uppercase whitespace-nowrap">
+            <SheetTitle className="text-white font-display font-black italic text-xl tracking-tighter uppercase whitespace-nowrap text-balance">
               Envíos <span className="text-secondary">DosRuedas</span>
             </SheetTitle>
           </SheetHeader>
@@ -103,13 +103,13 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
                 <Link
                   href="/"
                   className={cn(
-                    "flex items-center space-x-5 py-4 px-5 rounded-none transition-all duration-300 w-full mb-2",
+                    "flex items-center space-x-5 py-4 px-5 rounded-none transition-[background-color,color,border-color,box-shadow] duration-300 w-full mb-2 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
                     isActive("/")
                       ? "bg-primary/20 text-secondary border border-primary/30 shadow-xl"
                       : "text-gray-300 hover:text-white hover:bg-white/5",
                   )}
                 >
-                  <Home className="w-5 h-5" />
+                  <Home className="w-5 h-5" aria-hidden="true" />
                   <span className="font-black font-bebas text-sm tracking-[0.1em] uppercase">Inicio</span>
                 </Link>
               </SheetClose>
@@ -125,7 +125,7 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
                     <AccordionItem value={group.label} className="border-b-0">
                       <AccordionTrigger
                         className={cn(
-                          "py-4 px-5 rounded-none transition-all duration-300 w-full justify-between group",
+                          "py-4 px-5 rounded-none transition-[background-color,color,border-color] duration-300 w-full justify-between group outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
                           groupIsActive
                             ? "text-secondary font-bold [&[data-state=open]]:bg-primary/20 border border-primary/30"
                             : "text-gray-300 hover:text-white hover:bg-white/5",
@@ -133,7 +133,7 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
                         )}
                       >
                         <div className="flex items-center space-x-5">
-                          <GroupIcon className="w-5 h-5" />
+                          <GroupIcon className="w-5 h-5" aria-hidden="true" />
                           <span className="font-black font-bebas text-sm tracking-[0.1em] uppercase">{group.label}</span>
                         </div>
                       </AccordionTrigger>
@@ -146,13 +146,13 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
                                 <Link
                                   href={item.href}
                                   className={cn(
-                                    "flex items-center space-x-4 py-3.5 px-5 rounded-none transition-all duration-300 w-full text-left",
+                                    "flex items-center space-x-4 py-3.5 px-5 rounded-none transition-[background-color,color] duration-300 w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
                                     isActive(item.href)
                                       ? "bg-primary/20 text-secondary font-bold"
                                       : "text-gray-400 hover:text-white hover:bg-white/5",
                                   )}
                                 >
-                                  {ItemIcon && <ItemIcon className="w-4 h-4" />}
+                                  {ItemIcon && <ItemIcon className="w-4 h-4" aria-hidden="true" />}
                                   <span className="text-sm font-medium">{item.label}</span>
                                 </Link>
                               </SheetClose>
@@ -171,13 +171,13 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
                 <Link
                   href="/contacto"
                   className={cn(
-                    "flex items-center space-x-5 py-4 px-5 rounded-none transition-all duration-300 w-full group",
+                    "flex items-center space-x-5 py-4 px-5 rounded-none transition-[background-color,color,border-color,box-shadow] duration-300 w-full group outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
                     isActive("/contacto")
                       ? "bg-primary/20 text-secondary border border-primary/30 shadow-xl"
                       : "text-gray-300 hover:text-white hover:bg-white/5",
                   )}
                 >
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-5 h-5" aria-hidden="true" />
                   <span className="font-black font-bebas text-sm tracking-[0.1em] uppercase">Contacto</span>
                 </Link>
               </SheetClose>
@@ -185,22 +185,22 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
 
             <motion.div variants={mobileNavItemVariants} className="mt-auto pt-8">
               <SheetClose asChild>
-                <Link href="/cotizar/express" className="block w-full">
+                <Link href="/cotizar/express" className="block w-full outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-sm">
                   <Button
                     size="lg"
                     className="w-full h-16 bg-secondary hover:bg-secondary/90 text-black font-bebas font-black rounded-none shadow-none uppercase tracking-wider text-lg"
                   >
-                    <CalculatorIcon className="w-5 h-5 mr-3" />
+                    <CalculatorIcon className="w-5 h-5 mr-3" aria-hidden="true" />
                     Cotizar Envío
                   </Button>
                 </Link>
               </SheetClose>
               <div className="mt-6 flex items-center justify-center gap-6">
-                <Link href="https://instagram.com/enviosdosruedas" aria-label="Visitar nuestro Instagram" className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-all">
-                  <InstagramIcon className="w-5 h-5" />
+                <Link href="https://instagram.com/enviosdosruedas" aria-label="Visitar nuestro Instagram" className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-[background-color,color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2">
+                  <InstagramIcon className="w-5 h-5" aria-hidden="true" />
                 </Link>
-                <a href="tel:+5492236602699" aria-label="Llamar a Envios DosRuedas" className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-secondary hover:bg-white/10 transition-all">
-                  <Phone className="w-5 h-5" />
+                <a href="tel:+5492236602699" aria-label="Llamar a Envios DosRuedas" className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-secondary hover:bg-white/10 transition-[background-color,color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2">
+                  <Phone className="w-5 h-5" aria-hidden="true" />
                 </a>
               </div>
             </motion.div>
