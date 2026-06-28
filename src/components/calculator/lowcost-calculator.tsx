@@ -10,7 +10,7 @@ import React, { useState, FormEvent, useMemo } from 'react';
 import RouteMap from './route-map';
 import { AddressAutocomplete } from './address-autocomplete';
 import { useToast } from '@/hooks/use-toast';
-import { quoteShipment } from '@/app/ordenes/actions';
+import { quoteShipment } from '@/app/cotizar/actions';
 import { ServiceTypeEnum } from '../../../generated/prisma/client/client';
 import type { QuoteDetails } from '@/types/order-actions';
 
