@@ -86,6 +86,13 @@ const Footer = dynamic(
   },
 );
 
+const PricingSection = dynamic(
+  () => import("@/components/homenew/pricing-section").then((mod) => mod.PricingSection),
+  {
+    ssr: true,
+  },
+);
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#050810] text-foreground selection:bg-primary/30 flex flex-col">
@@ -108,6 +115,9 @@ export default function HomePage() {
 
         {/* Sección 6: Slider Servicios (Blanco) */}
         <SliderServicios />
+
+        {/* Sección de Precios (Azul - Cubi inspired) */}
+        <PricingSection />
 
         {/* Sección 7: Redes Sociales (Azul) */}
         <CarruselRedes />

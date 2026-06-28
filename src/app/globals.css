@@ -238,6 +238,52 @@
     border-color: rgba(255, 236, 1, 0.5) !important;
     box-shadow: 0 0 25px rgba(255, 236, 1, 0.2) !important;
   }
+
+  /* Cubi Visual Component Helpers */
+  .floating {
+    animation: floating 4s ease-in-out infinite;
+  }
+
+  .hvr-grow-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: transform, box-shadow;
+  }
+
+  .hvr-grow-shadow:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+  }
+
+  .borline {
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-egyptian-blue);
+    margin: 0 auto 20px;
+  }
+
+  .borline-left {
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-egyptian-blue);
+    margin: 0 0 20px;
+  }
+
+  .borline_w {
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-sunbeam-yellow);
+    margin: 0 auto 20px;
+  }
+
+  .borline_w-left {
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-sunbeam-yellow);
+    margin: 0 0 20px;
+  }
 }
 
 /* Modern thin scrollbar */
