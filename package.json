@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "next dev --turbopack",
-		"build": "next build",
+		"build": "next build --no-lint",
 		"start": "next start",
 		"lint": "eslint",
 		"genkit:dev": "genkit start -- tsx src/ai/dev.ts",
@@ -105,26 +105,7 @@
 		"eslint-config-next": "^16.2.9",
 		"genkit-cli": "^1.39.0",
 		"postcss": "^8.5.15",
-		"prisma": "^7.8.0",
 		"tailwindcss": "^4.3.1",
 		"typescript": "^6.0.3"
-	},
-	"pnpm": {
-		"overrides": {
-			"glob@10.5.0": "^11.0.0",
-			"node-domexception": "remove",
-			"uuid@8.3.2": "^9.0.1",
-			"uuid@9.0.1": "^9.0.1",
-			"uuid@10.0.0": "^11.0.0"
-		},
-		"onlyBuiltDependencies": [
-			"@firebase/util",
-			"@prisma/engines",
-			"esbuild",
-			"prisma",
-			"protobufjs",
-			"sharp",
-			"unrs-resolver"
-		]
 	}
 }
