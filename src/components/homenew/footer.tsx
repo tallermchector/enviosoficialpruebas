@@ -24,7 +24,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="pt-32 pb-16 px-4 border-t-2 border-secondary bg-[#0636A5] relative overflow-hidden">
+    <footer className="pt-32 pb-16 px-4 border-t border-white/10 bg-[#050810] relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] pointer-events-none opacity-50" aria-hidden="true" />
       <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none opacity-30" aria-hidden="true" />
@@ -145,14 +145,14 @@ export const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
           <div className="flex flex-col gap-2">
-            <p className="text-[9px] text-white/60 uppercase tracking-[0.4em] font-black text-center md:text-left">
+            <p className="text-[9px] text-gray-400 uppercase tracking-[0.4em] font-black text-center md:text-left">
               © {currentYear} Envíos DosRuedas. Todos los derechos reservados.
             </p>
           </div>
 
           <div className="flex items-center gap-10">
-            <Link href="/politica-de-privacidad" className="text-[9px] text-white/60 hover:text-white uppercase tracking-widest font-black transition-colors outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-sm">Privacidad</Link>
-            <Link href="/terminos-y-condiciones" className="text-[9px] text-white/60 hover:text-white uppercase tracking-widest font-black transition-colors outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-sm">Términos</Link>
+            <Link href="/politica-de-privacidad" className="text-[9px] text-gray-400 hover:text-white uppercase tracking-widest font-black transition-colors outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-sm">Privacidad</Link>
+            <Link href="/terminos-y-condiciones" className="text-[9px] text-gray-400 hover:text-white uppercase tracking-widest font-black transition-colors outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-sm">Términos</Link>
             <div className="w-10 h-10 rounded-none border border-white/10 flex items-center justify-center text-white" aria-hidden="true">
               <Globe size={14} aria-hidden="true" />
             </div>

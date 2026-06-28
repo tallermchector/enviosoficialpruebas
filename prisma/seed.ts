@@ -12,7 +12,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 const connectionString = process.env.DIRECT_URL || process.env.DATABASE_URL;
 
-import { PrismaClient } from "../generated/prisma/client/index.js";
+import { PrismaClient } from "../generated/prisma/client/client.js";
 
 const pool = new pg.Pool({ connectionString });
 const adapter = new PrismaPg(pool);

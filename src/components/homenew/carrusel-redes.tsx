@@ -70,7 +70,7 @@ export const CarruselRedes = () => {
   }
 
   return (
-    <section className="py-32 px-6 bg-[#0636A5] overflow-hidden relative">
+    <section className="py-32 px-6 bg-[#050810] overflow-hidden relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-white/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -150,8 +150,8 @@ export const CarruselRedes = () => {
           </div>
 
           {/* Side Gradients using dominant blue color */}
-          <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-[#0636A5] to-transparent z-10 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-[#0636A5] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-[#050810] to-transparent z-10 pointer-events-none" />
+          <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-[#050810] to-transparent z-10 pointer-events-none" />
         </div>
       </div>
     </section>

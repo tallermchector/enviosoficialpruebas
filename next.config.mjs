@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
   serverExternalPackages: ["genkit", "@genkit-ai/core", "@genkit-ai/google-genai", "express"],
+
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+
+  // ❌ Se eliminó el bloque 'eslint' porque ya no es compatible en Next.js 16
+
   images: {
     remotePatterns: [
       {
@@ -30,6 +30,7 @@ const nextConfig = {
       },
     ],
   },
+
   async headers() {
     return [
       {
@@ -45,6 +46,7 @@ const nextConfig = {
       },
     ];
   },
+
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },

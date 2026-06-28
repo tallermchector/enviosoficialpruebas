@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 import dynamic from "next/dynamic";
 import { OptimizedHeader } from "@/components/homenew/optimized-header";
-import HeroAndQuote from "@/components/homenew/hero-and-quote";
+import HeroAnimado from "@/components/homenew/hero-animado";
 
 // Paso 2: Lazy Loading de Componentes (Code Splitting)
 // Implementamos next/dynamic para componentes Below the Fold para reducir el Script Evaluation inicial.
@@ -91,24 +91,20 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#050810] text-foreground selection:bg-primary/30 flex flex-col">
       <OptimizedHeader />
       <main className="flex-grow">
-        {/* Sección 1: Hero & Cotización */}
-        <HeroAndQuote />
+        {/* Sección 1: Hero Animado */}
+        <HeroAnimado />
 
         {/* Sección 2: Vision (Blanco) */}
         <VisionSection />
 
         {/* Sección 3: Servicios (Azul) */}
-        <div className="bg-[#0636A5] text-white">
-          <ServicesOverview />
-        </div>
+        <ServicesOverview />
 
         {/* Sección 4: CTA (Blanco) */}
         <CtaSection />
 
         {/* Sección 5: Emprendedores/Corporativo (Azul) */}
-        <div className="bg-[#0636A5] text-white">
-          <EmprendedoresHome />
-        </div>
+        <EmprendedoresHome />
 
         {/* Sección 6: Slider Servicios (Blanco) */}
         <SliderServicios />
