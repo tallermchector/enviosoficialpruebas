@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? 'github' : [['html', { open: 'never' }]],
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:3009',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
@@ -27,8 +27,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: process.env.CI ? 'npx next build && npx next start' : 'npx next dev --turbopack',
-    url: 'http://localhost:3000',
+    command: process.env.CI ? 'npx next build && npx next start -p 3009' : 'npx next dev --turbopack -p 3009',
+    url: 'http://localhost:3009',
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
   },

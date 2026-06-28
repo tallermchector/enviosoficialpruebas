@@ -76,3 +76,4 @@ prisma/generated/*
 .agents\worker_m1
 e2e/*
 .hermes/*
+generated/*
