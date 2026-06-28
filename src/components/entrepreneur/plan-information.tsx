@@ -46,12 +46,12 @@ export function PlanInformation() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-primary/10 border border-primary/20 text-primary text-label-sm font-bold tracking-widest mb-6 uppercase">
               SOLUCIONES CORPORATIVAS
             </div>
-            <h2 className="font-display text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
+            <h2 className="font-title text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
               LOGÍSTICA 3PL <br />
               <span className="text-primary italic">PARA EMPRENDEDORES</span>
             </h2>
-            <p className="text-gray-400 text-body-lg mb-10 leading-relaxed font-sans max-w-xl">
-              Somos más que una empresa de envíos; nos convertimos en tu departmento de logística. Delegá el almacenamiento y la distribución en expertos y enfocate en hacer crecer tu negocio.
+            <p className="text-primary/70 text-body-lg mb-10 leading-relaxed font-body max-w-xl">
+              Somos más que una empresa de envíos; nos convertimos en tu departamento de logística. Delegá el almacenamiento y la distribución en expertos y enfocate en hacer crecer tu negocio.
             </p>
 
             {/* Features */}
@@ -67,8 +67,8 @@ export function PlanInformation() {
                     <Check className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-headline-lg-mobile font-bold text-foreground mb-2 font-display uppercase tracking-tight">{feature.title}</h3>
-                    <p className="text-gray-400 text-body-md leading-relaxed font-sans">{feature.description}</p>
+                    <h3 className="text-headline-lg-mobile font-bold text-foreground mb-2 font-title uppercase tracking-tight">{feature.title.toUpperCase()}</h3>
+                    <p className="text-primary/70 text-body-md leading-relaxed font-body">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -82,10 +82,10 @@ export function PlanInformation() {
           >
             <div className="text-center lg:text-right select-none opacity-20">
               <div className="space-y-2">
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-display tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-title tracking-tighter leading-none uppercase">
                   CORE
                 </div>
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-display tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-title tracking-tighter leading-none uppercase">
                   BUSINESS
                 </div>
               </div>

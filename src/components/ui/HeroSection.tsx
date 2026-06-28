@@ -80,8 +80,8 @@ export function HeroSection({
   backgroundImageAlt = 'Hero background image',
   backgroundOverlayOpacity = 0.2,
   textColorClassName = 'text-white',
-  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-display',
-  descriptionClassName = 'text-gray-300 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-sans',
+  titleClassName = 'text-3xl sm:text-4xl md:text-7xl font-black italic tracking-tighter leading-[0.9] mb-8 uppercase text-white font-title',
+  descriptionClassName = 'text-white/80 text-lg md:text-xl mb-12 max-w-xl mx-auto leading-relaxed font-body',
   visualElement,
   layout = 'center-stacked',
   minHeight = 'min-h-screen',
@@ -116,7 +116,7 @@ export function HeroSection({
       {preTitle && (
         <div className="mb-8">
           {typeof preTitle === 'string' ? (
-             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-slate-900 text-xs font-bold tracking-widest uppercase">
+             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white border border-white/10 text-xs font-bold tracking-widest uppercase">
                 <div className="w-2 h-2 bg-white animate-pulse" />
                 {preTitle}
              </div>
@@ -164,10 +164,10 @@ export function HeroSection({
                   variant={button.variant || 'default'}
                   asChild
                   className={cn(
-                    'px-10 py-5 font-sans font-bold rounded-none transition-all uppercase tracking-tight h-auto',
+                    'px-10 py-5 font-subtitle font-bold rounded-none transition-all uppercase tracking-tight h-auto',
                     isYellowButton
-                      ? "bg-secondary hover:bg-[#d97706] text-black shadow-lg"
-                      : "bg-slate-900 border border-slate-800 text-white hover:bg-slate-800",
+                      ? "bg-secondary hover:bg-secondary/90 text-primary shadow-lg"
+                      : "bg-primary/20 border border-white/15 text-white hover:bg-primary/40",
                     button.className
                   )}
                 >

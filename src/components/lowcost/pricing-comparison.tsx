@@ -61,11 +61,11 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-display text-display-md font-black italic mb-6 uppercase text-foreground tracking-tighter">
+            <h2 className="font-title text-display-md font-black italic mb-6 uppercase text-foreground tracking-tighter">
               TARIFAS 2026 <span className="text-primary">ENVÍOS LOWCOST</span>
             </h2>
             <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-none" />
-            <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
+            <p className="text-primary/70 text-body-lg max-w-2xl mx-auto font-body">
               Eficiencia en ruteo masivo. Garantizamos entregas antes de las 19:00 hs para pedidos antes de las 13:00 hs.
             </p>
           </motion.div>
@@ -81,7 +81,7 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
               transition={{ delay: index * 0.1 }}
             >
               <Card className="relative glassmorphism border border-white/10 hover:border-glow-secondary transition-stitch rounded-none overflow-hidden h-full flex flex-col group shadow-crate hover:shadow-industrial-secondary">
-                <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-none text-xxs font-bold uppercase tracking-widest font-bebas">
+                <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-none text-xxs font-bold uppercase tracking-widest font-subtitle">
                   Tarifa 2026
                 </Badge>
 
@@ -89,24 +89,24 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
                   <div className="w-16 h-16 bg-primary/10 rounded-none flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all border border-primary/20">
                     <MapPin className="w-8 h-8 text-primary" />
                   </div>
-                  <CardTitle className="font-display text-headline-lg font-bold text-foreground uppercase tracking-tight">
+                  <CardTitle className="font-title text-headline-lg font-bold text-foreground uppercase tracking-tight">
                     {range.nombreZona || `Zona ${index + 1}`}
                   </CardTitle>
-                  <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1">
+                  <p className="text-xs text-primary/80 font-bold uppercase tracking-widest mt-1">
                     {index === 0 ? "Radio céntrico" : index === 1 ? "Periferia cercana" : index === 2 ? "Zonas alejadas" : "Límites de ciudad"}
                   </p>
-                  <div className="text-4xl font-black text-foreground mt-6 font-display italic tracking-tighter">
+                  <div className="text-4xl font-black text-foreground mt-6 font-title italic tracking-tighter">
                     ${range.precioRango.toLocaleString('es-AR')}
                   </div>
                 </CardHeader>
 
                 <CardContent className="flex-grow pb-12">
-                  <p className="text-gray-400 mb-8 text-center text-body-md font-sans leading-relaxed">
+                  <p className="text-primary/70 mb-8 text-center text-body-md font-body leading-relaxed">
                     {staticData[index]?.description || "Eficiencia en ruteo masivo"}
                   </p>
-                  <ul className="space-y-4 font-sans">
+                  <ul className="space-y-4 font-body">
                     {(staticData[index]?.features || ["Eficiencia en ruteo", "Corte 13:00 hs", "Entrega antes 19:00 hs"]).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-gray-300 text-body-md">
+                      <li key={featureIndex} className="flex items-center text-primary/80 text-body-md">
                         <ArrowRightCircle className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
                         {feature}
                       </li>
@@ -127,20 +127,20 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
           <Card className="glassmorphism border border-white/10 rounded-none overflow-hidden p-8 md:p-12 shadow-crate hover:border-glow-secondary transition-stitch">
              <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-bold tracking-widest mb-6 uppercase font-bebas">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-bold tracking-widest mb-6 uppercase font-subtitle">
                     COTIZACIÓN ESPECIAL
                   </div>
-                  <h3 className="font-display text-display-md font-black text-foreground uppercase tracking-tighter mb-4 italic">
+                  <h3 className="font-title text-display-md font-black text-foreground uppercase tracking-tighter mb-4 italic">
                     ZONA 5: <span className="text-secondary">$700 / KM</span>
                   </h3>
-                  <p className="text-gray-400 font-sans leading-relaxed text-body-lg">
+                  <p className="text-primary/70 font-body leading-relaxed text-body-lg">
                     Para envíos de larga distancia fuera del ejido urbano masivo, ofrecemos la tarifa más competitiva por kilómetro.
                   </p>
                 </div>
                 <div className="flex justify-center md:justify-end">
                    <Button
                     onClick={handleWhatsAppClick}
-                    className="bg-secondary hover:bg-yellow-400 text-black font-display font-black px-10 py-6 rounded-none transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto text-label-md hover:scale-105"
+                    className="bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-bold px-10 py-6 rounded-none transition-all uppercase tracking-tight shadow-lg h-auto text-label-md hover:scale-105"
                   >
                     <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={24} height={24} className="w-6 h-6 mr-3" />
                     CONSULTAR POR WHATSAPP

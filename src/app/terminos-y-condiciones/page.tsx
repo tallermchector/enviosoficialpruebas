@@ -58,43 +58,43 @@ export default function TerminosYCondicionesPage() {
     },
   ];
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex flex-col min-h-screen bg-white">
       <OptimizedHeader />
       <main className="flex-grow">
         <HeroSection
           preTitle={
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-primary/10 rounded-none flex items-center justify-center mx-auto mb-4 border border-primary/20">
               <Handshake className="w-8 h-8 text-primary" />
             </div>
           }
-          title={<span className="text-primary">Términos y Condiciones</span>}
+          title={<span className="text-primary font-title uppercase">Términos y Condiciones</span>}
           description="Las reglas del juego. Al usar nuestros servicios, aceptas estos términos. Te recomendamos leerlos detenidamente."
           backgroundType="color"
-          backgroundColor="bg-gray-50 dark:bg-gray-900"
-          textColorClassName="text-foreground"
+          backgroundColor="bg-white"
+          textColorClassName="text-primary"
           minHeight="min-h-fit"
-          className="py-12 md:py-16 font-sans"
-          titleClassName="text-3xl md:text-4xl font-bold font-display"
+          className="py-12 md:py-16 font-body"
+          titleClassName="text-3xl md:text-4xl font-black font-title uppercase"
         />
 
         <div className="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
-          <Card className="shadow-lg">
+          <Card className="rounded-none border-primary shadow-hard-primary bg-white">
             <CardHeader>
-               <CardTitle className="flex items-center gap-3 text-2xl font-display">
+               <CardTitle className="flex items-center gap-3 text-2xl font-title uppercase text-primary">
                  <FileText className="h-6 w-6 text-primary" />
                  Acuerdo de Servicio
                </CardTitle>
-                <div className="text-sm text-muted-foreground pt-2 font-sans">
+                <div className="text-sm text-primary/70 pt-2 font-body">
                     <p>Última actualización: 1 de Agosto de 2024</p>
                 </div>
             </CardHeader>
-            <CardContent className="space-y-6 prose prose-lg dark:prose-invert max-w-none">
+            <CardContent className="space-y-6 prose prose-lg max-w-none">
               {sections.map((section) => (
                 <div key={section.title}>
-                  <h3 className="font-semibold text-xl mb-2 text-primary font-display">{section.title}</h3>
-                  <div className="space-y-2 text-base text-muted-foreground font-sans">
+                  <h3 className="font-bold text-xl mb-2 text-primary font-title uppercase">{section.title.toUpperCase()}</h3>
+                  <div className="space-y-2 text-base text-primary/80 font-body">
                     {section.content.map((paragraph, index) => (
-                      <p key={index}>{paragraph}</p>
+                      <p key={index} className="text-primary/70">{paragraph}</p>
                     ))}
                   </div>
                 </div>

@@ -125,7 +125,7 @@ export function FaqCategories() {
   const activeFaq = faqData.find((faq) => faq.category === activeCategory)
 
   return (
-    <section className="py-16 px-4 bg-[#030710]">
+    <section className="py-16 px-4 bg-primary text-white">
       <div className="container mx-auto max-w-6xl">
         {/* Category Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">
@@ -139,17 +139,17 @@ export function FaqCategories() {
                 onClick={() => setActiveCategory(category.id)}
                 variant={isActive ? "default" : "outline"}
                 className={cn(
-                  "h-auto p-6 flex flex-col items-center space-y-4 transition-all duration-300 font-bebas rounded-none text-lg tracking-wider",
+                  "h-auto p-6 flex flex-col items-center space-y-4 transition-all duration-300 font-subtitle rounded-none text-lg tracking-wider border-none",
                   isActive
-                    ? "bg-primary hover:bg-primary/90 text-white shadow-industrial scale-105 border-primary"
-                    : "glassmorphism border-white/10 hover:bg-white/5 hover:border-primary/50 text-white/70"
+                    ? "bg-secondary text-primary hover:bg-secondary/90 shadow-industrial scale-105"
+                    : "bg-white/5 border border-white/15 hover:bg-white/10 hover:border-secondary text-white/80"
                 )}
               >
                 <div className={cn(
                   "p-3 rounded-none",
-                  isActive ? "bg-white/15" : "bg-primary/10"
+                  isActive ? "bg-primary/10" : "bg-primary/20"
                 )}>
-                  <IconComponent className={cn("w-6 h-6", isActive ? "text-white" : "text-secondary")} />
+                  <IconComponent className={cn("w-6 h-6", isActive ? "text-primary" : "text-secondary")} />
                 </div>
                 <span className="text-base font-bold uppercase tracking-wider">{category.label}</span>
               </Button>
@@ -160,7 +160,7 @@ export function FaqCategories() {
         {/* FAQ Items */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <h2 className="text-display-md text-foreground font-anton uppercase tracking-wider">
+            <h2 className="text-display-md text-white font-title uppercase tracking-wider">
               {categories.find((cat) => cat.id === activeCategory)?.label}
             </h2>
             <div className="w-16 h-1.5 bg-secondary mx-auto mt-4 rounded-none"></div>

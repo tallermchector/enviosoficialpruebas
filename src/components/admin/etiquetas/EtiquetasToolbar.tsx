@@ -91,13 +91,15 @@ export function EtiquetasToolbar({
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="end">
               <Calendar
-                initialFocus
-                mode="range"
-                defaultMonth={dateRange?.from}
-                selected={dateRange}
-                onSelect={onDateRangeChange}
-                numberOfMonths={2}
-                locale={es}
+                {...({
+                  initialFocus: true,
+                  mode: "range",
+                  defaultMonth: dateRange?.from,
+                  selected: dateRange,
+                  onSelect: onDateRangeChange,
+                  numberOfMonths: 2,
+                  locale: es,
+                } as any)}
               />
             </PopoverContent>
           </Popover>

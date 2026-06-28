@@ -43,14 +43,14 @@ export function EnviosFlexContent() {
         >
           {/* Left Content */}
           <motion.div variants={itemVariants}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFF159]/10 border border-[#FFF159]/20 text-[#FFF159] text-label-sm font-bold tracking-widest mb-6 uppercase">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-bold tracking-widest mb-6 uppercase">
               MERCADOLIBRE EXPERTS
             </div>
-            <h2 className="font-display text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
+            <h2 className="font-title text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
               DOMINÁ TUS VENTAS <br />
-              <span className="text-[#FFF159] italic">CON ENVÍOS FLEX</span>
+              <span className="text-secondary italic">CON ENVÍOS FLEX</span>
             </h2>
-            <p className="text-gray-400 text-body-lg mb-10 leading-relaxed font-sans max-w-xl">
+            <p className="text-primary/70 text-body-lg mb-10 leading-relaxed font-body max-w-xl">
               Somos el aliado estratégico para vendedores de MercadoLibre con Cobertura MDP total. Optimizamos tus Envíos Same-Day Mar del Plata para que vos solo te preocupes por vender más.
             </p>
 
@@ -63,12 +63,12 @@ export function EnviosFlexContent() {
                   custom={index}
                   variants={itemVariants}
                 >
-                  <div className="w-6 h-6 bg-[#FFF159]/20 rounded-full flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-[#FFF159]/30">
-                    <Check className="w-3.5 h-3.5 text-[#FFF159]" />
+                  <div className="w-6 h-6 bg-secondary/20 rounded-none flex items-center justify-center mr-4 flex-shrink-0 mt-1 border border-secondary/30">
+                    <Check className="w-3.5 h-3.5 text-secondary" />
                   </div>
                   <div>
-                    <h3 className="text-headline-lg-mobile font-bold text-foreground mb-2 font-display uppercase tracking-tight">{feature.title}</h3>
-                    <p className="text-gray-400 text-body-md leading-relaxed font-sans">{feature.description}</p>
+                    <h3 className="text-headline-lg-mobile font-bold text-foreground mb-2 font-title uppercase tracking-tight">{feature.title.toUpperCase()}</h3>
+                    <p className="text-primary/70 text-body-md leading-relaxed font-body">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -82,10 +82,10 @@ export function EnviosFlexContent() {
           >
             <div className="text-center lg:text-right select-none opacity-20">
               <div className="space-y-2">
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-display tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-title tracking-tighter leading-none uppercase">
                   FLEX
                 </div>
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-[#FFF159] font-display tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-secondary font-title tracking-tighter leading-none uppercase">
                   SAME-DAY
                 </div>
               </div>

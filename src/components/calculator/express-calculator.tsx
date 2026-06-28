@@ -77,40 +77,40 @@ export default function ExpressCalculator() {
   };
 
   return (
-    <section className="w-full py-12 md:py-16 bg-background font-sans">
+    <section className="w-full py-12 md:py-16 bg-background font-body">
       <div className="container mx-auto px-4 md:px-6 max-w-2xl lg:max-w-3xl">
-        <Card className="glassmorphism border border-white/10 shadow-crate rounded-none overflow-hidden">
+        <Card className="glassmorphism border border-primary/20 shadow-crate rounded-none overflow-hidden bg-white">
           <CardHeader className="pt-8">
-            <CardTitle className="text-headline-lg text-primary font-display uppercase">Calculá tu Envío Express</CardTitle>
-            <CardDescription className="text-body-md mt-1 font-sans text-gray-400">
+            <CardTitle className="text-headline-lg text-primary font-title uppercase">Calculá tu Envío Express</CardTitle>
+            <CardDescription className="text-body-md mt-1 font-body text-primary/70">
               Ingresá las direcciones de origen y destino para obtener una cotización instantánea.
             </CardDescription>
           </CardHeader>
           <CardContent className="pb-8">
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div className="space-y-1.5">
-                <Label htmlFor="origin" className="text-label-md font-sans text-gray-300">Dirección de Origen</Label>
+                <Label htmlFor="origin" className="text-label-md font-body text-primary/80">Dirección de Origen</Label>
                 <AddressAutocomplete
                   id="origin"
                   placeholder="Ej: Av. Colón 1234, Mar del Plata"
                   value={origin}
                   onChange={setOrigin}
                   required
-                  className="text-body-md font-sans bg-[#030710]/50 border-white/10 text-white rounded-none focus-visible:ring-2 focus-visible:ring-secondary/20 hover:border-primary/50"
+                  className="text-body-md font-body bg-white border-primary/20 text-primary rounded-none focus-visible:ring-2 focus-visible:ring-secondary/20 hover:border-primary/50"
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="destination" className="text-label-md font-sans text-gray-300">Dirección de Destino</Label>
+                <Label htmlFor="destination" className="text-label-md font-body text-primary/80">Dirección de Destino</Label>
                 <AddressAutocomplete
                   id="destination"
                   placeholder="Ej: Juan B. Justo 5678, Mar del Plata"
                   value={destination}
                   onChange={setDestination}
                   required
-                  className="text-body-md font-sans bg-[#030710]/50 border-white/10 text-white rounded-none focus-visible:ring-2 focus-visible:ring-secondary/20 hover:border-primary/50"
+                  className="text-body-md font-body bg-white border-primary/20 text-primary rounded-none focus-visible:ring-2 focus-visible:ring-secondary/20 hover:border-primary/50"
                 />
               </div>
-              <Button type="submit" className="w-full text-lg py-6 font-bebas uppercase tracking-wider rounded-none bg-secondary hover:bg-yellow-400 text-black shadow-industrial" size="lg" disabled={isCalculating}>
+              <Button type="submit" className="w-full text-lg py-6 font-subtitle uppercase tracking-wider rounded-none bg-secondary hover:bg-secondary/90 text-primary shadow-industrial border-none" size="lg" disabled={isCalculating}>
                 {isCalculating ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
@@ -135,34 +135,34 @@ export default function ExpressCalculator() {
             {quoteDetails && !isCalculating && (
               <Card className="mt-6 md:mt-8 bg-primary/10 border border-primary/20 rounded-none overflow-hidden backdrop-blur-sm shadow-crate">
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-headline-lg-mobile text-primary flex items-center font-display uppercase tracking-tight">
+                  <CardTitle className="text-headline-lg-mobile text-primary flex items-center font-title uppercase tracking-tight">
                     <PackageCheck className="mr-2 md:mr-3 h-6 w-6 md:h-7 md:w-7" />
                     Tu Cotización Express
                   </CardTitle>
-                  <CardDescription className="text-body-sm mt-1 font-sans text-gray-400">
+                  <CardDescription className="text-body-sm mt-1 font-body text-primary/70">
                     Basado en la distancia y tiempo estimados para tu envío.
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-2 text-body-md font-sans text-gray-300">
+                <CardContent className="space-y-2 text-body-md font-body text-primary/80">
                   <div className="flex justify-between items-center">
-                    <span className="font-bold text-white">Distancia:</span>
-                    <span className="text-white">{quoteDetails.distanceText || 'N/A'}</span>
+                    <span className="font-bold text-primary">Distancia:</span>
+                    <span className="text-primary">{quoteDetails.distanceText || 'N/A'}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-bold text-white">Tiempo Estimado:</span>
-                    <span className="text-white">{quoteDetails.durationText || 'N/A'}</span>
+                    <span className="font-bold text-primary">Tiempo Estimado:</span>
+                    <span className="text-primary">{quoteDetails.durationText || 'N/A'}</span>
                   </div>
-                  <hr className="my-2 border-white/10" />
+                  <hr className="my-2 border-primary/10" />
                   <div className="flex justify-between items-center mt-4">
-                    <span className="font-bold text-headline-lg text-primary font-display uppercase tracking-tight">Precio Estimado:</span>
+                    <span className="font-bold text-headline-lg text-primary font-title uppercase tracking-tight">Precio Estimado:</span>
                     {quoteDetails.price !== null ? (
-                      <span className="text-headline-lg font-black text-primary font-display italic">${quoteDetails.price.toLocaleString('es-AR')}</span>
+                      <span className="text-headline-lg font-black text-primary font-title italic">${quoteDetails.price.toLocaleString('es-AR')}</span>
                     ) : (
-                      <span className="text-headline-lg font-black text-amber-500 font-display italic">Consultar</span>
+                      <span className="text-headline-lg font-black text-primary font-title italic">Consultar</span>
                     )}
                   </div>
                   {quoteDetails.price === null && (
-                    <p className="text-label-sm text-amber-500 text-center pt-2 font-sans">
+                    <p className="text-label-sm text-primary text-center pt-2 font-body">
                       La distancia excede los rangos estándar o no pudo ser calculada. Contactanos para cotización.
                     </p>
                   )}
@@ -170,14 +170,14 @@ export default function ExpressCalculator() {
                 <CardFooter className="flex flex-col sm:flex-row gap-3 pt-4 md:pt-6">
                   <Button 
                     size="lg" 
-                    className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-black font-bebas font-bold uppercase tracking-wider text-lg rounded-none shadow-industrial"
+                    className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-bold uppercase tracking-wider text-lg rounded-none shadow-industrial border-none"
                     disabled={quoteDetails.price === null}
                     onClick={() => alert('Funcionalidad "Confirmar Envío" pendiente de implementación.')}
                   >
                     <ThumbsUp className="mr-2 h-4 w-4 md:h-5 md:w-5" />
                     Confirmar Envío Express
                   </Button>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto font-bebas font-bold uppercase tracking-wider text-lg rounded-none border-white/20 text-white hover:bg-white/10" onClick={handleNewQuote}>
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto font-subtitle font-bold uppercase tracking-wider text-lg rounded-none border-primary/20 text-primary hover:bg-primary/5" onClick={handleNewQuote}>
                     <RotateCcw className="mr-2 h-4 w-4 md:h-5 md:w-5" />
                     Nueva Cotización
                   </Button>

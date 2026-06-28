@@ -56,10 +56,10 @@ export function LowcostContent() {
           >
             <div className="text-center lg:text-left select-none opacity-20">
               <div className="space-y-2">
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-display tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-foreground font-title tracking-tighter leading-none uppercase">
                   ENVIOS
                 </div>
-                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-display tracking-tighter leading-none">
+                <div className="text-7xl md:text-8xl lg:text-9xl font-black italic text-primary font-title tracking-tighter leading-none uppercase">
                   LOWCOST
                 </div>
               </div>
@@ -68,14 +68,14 @@ export function LowcostContent() {
 
           {/* Right Content */}
           <motion.div className="order-1 lg:order-2" variants={itemVariants}>
-             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-blue-400 text-label-sm font-bold tracking-widest mb-6 uppercase">
+             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-primary/10 border border-primary/20 text-primary text-label-sm font-bold tracking-widest mb-6 uppercase">
               MÁXIMA RENTABILIDAD
             </div>
-            <h2 className="font-display text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
+            <h2 className="font-title text-display-lg md:text-[60px] font-black leading-[1] mb-8 uppercase text-foreground tracking-tighter">
               ENVÍOS LOWCOST: <br />
               <span className="text-primary italic">MÁXIMA EFICIENCIA</span>
             </h2>
-            <p className="text-gray-400 text-body-lg mb-10 leading-relaxed font-sans max-w-xl">
+            <p className="text-primary/70 text-body-lg mb-10 leading-relaxed font-body max-w-xl">
               Nuestro servicio LowCost está diseñado para el ruteo diario masivo. Optimizamos nuestras rutas para ofrecer la tarifa más competitiva, garantizando la entrega en el día para pedidos ingresados antes del horario de corte.
             </p>
 
@@ -89,12 +89,12 @@ export function LowcostContent() {
                     className="flex items-start"
                     variants={itemVariants}
                   >
-                    <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center mr-6 flex-shrink-0 mt-1">
+                    <div className="w-14 h-14 bg-primary/10 border border-primary/20 rounded-none flex items-center justify-center mr-6 flex-shrink-0 mt-1">
                       <IconComponent className="w-7 h-7 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-headline-lg-mobile font-bold text-foreground mb-2 font-display uppercase tracking-tight">{feature.title}</h3>
-                      <p className="text-gray-400 text-body-md leading-relaxed font-sans">{feature.description}</p>
+                      <h3 className="text-headline-lg-mobile font-bold text-foreground mb-2 font-title uppercase tracking-tight">{feature.title.toUpperCase()}</h3>
+                      <p className="text-primary/70 text-body-md leading-relaxed font-body">{feature.description}</p>
                     </div>
                   </motion.div>
                 )
@@ -105,7 +105,7 @@ export function LowcostContent() {
             <Button
               asChild
               size="lg"
-              className="bg-secondary hover:bg-yellow-400 text-black font-display font-black px-10 py-5 rounded-xl transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto text-label-md"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-bold px-10 py-5 rounded-none transition-all uppercase tracking-tight shadow-lg h-auto text-label-md"
             >
               <Link href="/cotizar/lowcost">Cotizá tu Envío Low Cost</Link>
             </Button>
