@@ -30,20 +30,9 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 
-function InstagramIcon(props: any) {
+function InstagramIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
@@ -52,7 +41,16 @@ function InstagramIcon(props: any) {
 }
 
 interface MobileMenuProps {
-  navGroups: any[];
+  navGroups: {
+    label: string;
+    basePath: string;
+    icon: React.ElementType;
+    items: {
+      label: string;
+      href: string;
+      icon?: React.ElementType;
+    }[];
+  }[];
 }
 
 export function MobileMenu({ navGroups }: MobileMenuProps) {
@@ -60,16 +58,16 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
   const isActive = (path: string) => pathname === path;
   const isGroupActive = (basePath: string) => pathname?.startsWith(basePath);
 
-  const mobileNavVariants: import("framer-motion").Variants = {
+  const navVariants: import("framer-motion").Variants = {
     hidden: { opacity: 0, x: 20 },
     visible: {
       opacity: 1,
       x: 0,
-      transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+      transition: { staggerChildren: 0.04, delayChildren: 0.08 }
     }
   };
 
-  const mobileNavItemVariants: import("framer-motion").Variants = {
+  const itemVariants: import("framer-motion").Variants = {
     hidden: { opacity: 0, x: 20 },
     visible: { opacity: 1, x: 0 }
   };
@@ -78,83 +76,97 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
     <div className="lg:hidden">
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 w-12 h-12 rounded-none outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2" aria-label="Abrir menú de navegación">
-            <Menu className="h-7 w-7" aria-hidden="true" />
-            <span className="sr-only">Abrir menú</span>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-white hover:bg-white/10 w-11 h-11 outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+            aria-label="Abrir menú de navegación"
+          >
+            <Menu className="h-6 w-6" aria-hidden="true" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[320px] bg-[#0a0d16]/95 border-white/10 text-white backdrop-blur-2xl pt-12 p-6 shadow-2xl">
-          <SheetHeader className="mb-12 flex flex-row items-center space-x-4">
-            <div className="relative w-10 h-10 rounded-none flex items-center justify-center drop-shadow-[0_0_10px_rgba(6,53,166,0.4)]">
-              <Image src="/LogoEnviosDosRuedas.webp" alt="Logo Dos Ruedas" fill className="object-contain" sizes="40px" />
-            </div>
-            <SheetTitle className="text-white font-display font-black italic text-xl tracking-tighter uppercase whitespace-nowrap text-balance">
-              Envíos <span className="text-secondary">DosRuedas</span>
+        <SheetContent
+          side="right"
+          className="w-[300px] bg-primary border-l-2 border-secondary text-white p-0 flex flex-col"
+        >
+          <SheetHeader className="p-4 border-b border-white/10">
+            <SheetTitle className="flex items-center gap-3">
+              <div className="relative w-8 h-8 flex items-center justify-center">
+                <Image
+                  src="/LogoEnviosDosRuedas.webp"
+                  alt="Logo Dos Ruedas"
+                  fill
+                  className="object-contain"
+                  sizes="32px"
+                />
+              </div>
+              <span className="font-display text-lg tracking-tight text-white uppercase">
+                Envíos<span className="text-secondary">DosRuedas</span>
+              </span>
             </SheetTitle>
           </SheetHeader>
 
           <motion.div
-            className="flex h-[calc(100vh-200px)] flex-col"
-            variants={mobileNavVariants}
+            className="flex-1 overflow-y-auto p-4 flex flex-col"
+            variants={navVariants}
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={mobileNavItemVariants}>
+            <motion.div variants={itemVariants}>
               <SheetClose asChild>
                 <Link
                   href="/"
                   className={cn(
-                    "flex items-center space-x-5 py-4 px-5 rounded-none transition-[background-color,color,border-color,box-shadow] duration-300 w-full mb-2 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
+                    "flex items-center gap-4 py-3 px-4 transition-colors duration-200 w-full outline-none focus-visible:ring-2 focus-visible:ring-secondary",
                     isActive("/")
-                      ? "bg-primary/20 text-secondary border border-primary/30 shadow-xl"
-                      : "text-gray-300 hover:text-white hover:bg-white/5",
+                      ? "bg-secondary text-primary font-bold"
+                      : "text-white/80 hover:text-white hover:bg-white/5",
                   )}
                 >
                   <Home className="w-5 h-5" aria-hidden="true" />
-                  <span className="font-black font-bebas text-sm tracking-[0.1em] uppercase">Inicio</span>
+                  <span className="font-bebas text-base tracking-wider uppercase">Inicio</span>
                 </Link>
               </SheetClose>
             </motion.div>
 
-            <Accordion type="multiple" className="w-full space-y-2">
+            <Accordion type="multiple" className="w-full mt-1">
               {navGroups.map((group) => {
                 const GroupIcon = group.icon;
                 const groupIsActive = isGroupActive(group.basePath);
 
                 return (
-                  <motion.div variants={mobileNavItemVariants} key={group.label}>
+                  <motion.div variants={itemVariants} key={group.label}>
                     <AccordionItem value={group.label} className="border-b-0">
                       <AccordionTrigger
                         className={cn(
-                          "py-4 px-5 rounded-none transition-[background-color,color,border-color] duration-300 w-full justify-between group outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
+                          "py-3 px-4 transition-colors duration-200 w-full justify-between hover:no-underline outline-none focus-visible:ring-2 focus-visible:ring-secondary",
                           groupIsActive
-                            ? "text-secondary font-bold [&[data-state=open]]:bg-primary/20 border border-primary/30"
-                            : "text-gray-300 hover:text-white hover:bg-white/5",
-                          "hover:no-underline",
+                            ? "text-secondary font-bold"
+                            : "text-white/80 hover:text-white hover:bg-white/5",
                         )}
                       >
-                        <div className="flex items-center space-x-5">
+                        <div className="flex items-center gap-4">
                           <GroupIcon className="w-5 h-5" aria-hidden="true" />
-                          <span className="font-black font-bebas text-sm tracking-[0.1em] uppercase">{group.label}</span>
+                          <span className="font-bebas text-base tracking-wider uppercase">{group.label}</span>
                         </div>
                       </AccordionTrigger>
-                      <AccordionContent className="pt-2 pb-0">
-                        <div className="flex flex-col space-y-1 pl-10 border-l border-white/5 ml-7 my-2">
-                          {group.items.map((item: any) => {
+                      <AccordionContent className="pt-1 pb-0">
+                        <div className="flex flex-col border-l-2 border-white/10 ml-8 my-1">
+                          {group.items.map((item) => {
                             const ItemIcon = item.icon;
                             return (
                               <SheetClose asChild key={item.href}>
                                 <Link
                                   href={item.href}
                                   className={cn(
-                                    "flex items-center space-x-4 py-3.5 px-5 rounded-none transition-[background-color,color] duration-300 w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
+                                    "flex items-center gap-3 py-2.5 px-4 transition-colors duration-200 w-full text-left outline-none focus-visible:ring-2 focus-visible:ring-secondary",
                                     isActive(item.href)
-                                      ? "bg-primary/20 text-secondary font-bold"
-                                      : "text-gray-400 hover:text-white hover:bg-white/5",
+                                      ? "text-secondary font-bold bg-secondary/10"
+                                      : "text-white/60 hover:text-white hover:bg-white/5",
                                   )}
                                 >
                                   {ItemIcon && <ItemIcon className="w-4 h-4" aria-hidden="true" />}
-                                  <span className="text-sm font-medium">{item.label}</span>
+                                  <span className="text-sm">{item.label}</span>
                                 </Link>
                               </SheetClose>
                             );
@@ -167,61 +179,72 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
               })}
             </Accordion>
 
-            <motion.div variants={mobileNavItemVariants} className="mt-2">
+            <motion.div variants={itemVariants} className="mt-1">
               <SheetClose asChild>
                 <Link
                   href="/propiedades"
                   className={cn(
-                    "flex items-center space-x-5 py-4 px-5 rounded-none transition-[background-color,color,border-color,box-shadow] duration-300 w-full group outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
+                    "flex items-center gap-4 py-3 px-4 transition-colors duration-200 w-full outline-none focus-visible:ring-2 focus-visible:ring-secondary",
                     isActive("/propiedades")
-                      ? "bg-primary/20 text-secondary border border-primary/30 shadow-xl"
-                      : "text-gray-300 hover:text-white hover:bg-white/5",
+                      ? "bg-secondary text-primary font-bold"
+                      : "text-white/80 hover:text-white hover:bg-white/5",
                   )}
                 >
                   <Building2 className="w-5 h-5" aria-hidden="true" />
-                  <span className="font-black font-bebas text-sm tracking-[0.1em] uppercase">Propiedades</span>
+                  <span className="font-bebas text-base tracking-wider uppercase">Propiedades</span>
                 </Link>
               </SheetClose>
             </motion.div>
 
-            <motion.div variants={mobileNavItemVariants} className="mt-2">
+            <motion.div variants={itemVariants} className="mt-1">
               <SheetClose asChild>
                 <Link
                   href="/contacto"
                   className={cn(
-                    "flex items-center space-x-5 py-4 px-5 rounded-none transition-[background-color,color,border-color,box-shadow] duration-300 w-full group outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
+                    "flex items-center gap-4 py-3 px-4 transition-colors duration-200 w-full outline-none focus-visible:ring-2 focus-visible:ring-secondary",
                     isActive("/contacto")
-                      ? "bg-primary/20 text-secondary border border-primary/30 shadow-xl"
-                      : "text-gray-300 hover:text-white hover:bg-white/5",
+                      ? "bg-secondary text-primary font-bold"
+                      : "text-white/80 hover:text-white hover:bg-white/5",
                   )}
                 >
                   <Mail className="w-5 h-5" aria-hidden="true" />
-                  <span className="font-black font-bebas text-sm tracking-[0.1em] uppercase">Contacto</span>
+                  <span className="font-bebas text-base tracking-wider uppercase">Contacto</span>
                 </Link>
               </SheetClose>
             </motion.div>
 
-            <motion.div variants={mobileNavItemVariants} className="mt-auto pt-8">
+            <div className="mt-auto pt-6 flex flex-col gap-4">
               <SheetClose asChild>
-                <Link href="/cotizar/express" className="block w-full outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 rounded-sm">
+                <Link href="/cotizar/express" className="block w-full outline-none focus-visible:ring-2 focus-visible:ring-secondary">
                   <Button
                     size="lg"
-                    className="w-full h-16 bg-secondary hover:bg-secondary/90 text-black font-bebas font-black rounded-none shadow-none uppercase tracking-wider text-lg"
+                    className="w-full h-14 bg-secondary hover:bg-secondary/90 text-primary font-bebas font-bold uppercase tracking-wider text-lg shadow-hard-secondary hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
                   >
-                    <CalculatorIcon className="w-5 h-5 mr-3" aria-hidden="true" />
+                    <CalculatorIcon className="w-5 h-5 mr-2" aria-hidden="true" />
                     Cotizá tu Envío
                   </Button>
                 </Link>
               </SheetClose>
-              <div className="mt-6 flex items-center justify-center gap-6">
-                <Link href="https://instagram.com/enviosdosruedas" aria-label="Visitar nuestro Instagram" className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-[background-color,color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2">
+
+              <div className="flex items-center justify-center gap-4">
+                <a
+                  href="https://instagram.com/enviosdosruedas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visitar nuestro Instagram"
+                  className="w-11 h-11 border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/30 transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+                >
                   <InstagramIcon className="w-5 h-5" aria-hidden="true" />
-                </Link>
-                <a href="tel:+5492236602699" aria-label="Llamar a Envios DosRuedas" className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-secondary hover:bg-white/10 transition-[background-color,color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2">
+                </a>
+                <a
+                  href="tel:+5492236602699"
+                  aria-label="Llamar a Envios DosRuedas"
+                  className="w-11 h-11 border border-secondary/30 flex items-center justify-center text-secondary hover:bg-secondary/10 transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+                >
                   <Phone className="w-5 h-5" aria-hidden="true" />
                 </a>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         </SheetContent>
       </Sheet>

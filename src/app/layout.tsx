@@ -157,6 +157,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${inter.variable} ${anton.variable} ${bebas.variable} font-sans antialiased dark`}
+        suppressHydrationWarning
       >
         {children}
         <WhatsAppReviewButton />

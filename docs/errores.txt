@@ -1,0 +1,107 @@
+ Compiling / ...
+ GET / 200 in 10.7s (next.js: 8.0s, application-code: 2.7s)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>       
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="es" suppressHydrationWarning={true}>
+                          <head>
+                          <body
+                            className="inter_c15e96cb-module__0bjUvq__variable anton_a08a2ad2-module__P_P2MG__variable..."
+-                           __processed_e63465a1-bbbf-4d02-b5ad-98c7dba97ca0__="true"
+                          >
+                  ...
+
+[browser] In HTML, <a> cannot be a descendant of <a>.
+This will cause a hydration error.
+
+  ...
+    <HomePage>
+      <div className="min-h-scre...">
+        <OptimizedHeader>
+        ...
+          <PreloadChunks>
+          <VisionSection>
+            <section className="relative m...">
+              <div>
+              <div className="max-w-7xl ...">
+                <div className="grid grid-...">
+                  <motion.div>
+                  <motion.div className="lg:col-spa..." style={{scale:{...}, ...}}>
+                    <div className="lg:col-spa..." style={{...}} ref={function useMotionRef.useCallback}>
+                      <div className="relative a...">
+                        <img>
+                        <div>
+                        <div>
+                        <div className="absolute b...">
+                          <div>
+                          <LinkComponent href="/nosotros/...">
+>                           <a
+>                             ref={function}
+>                             onClick={function onClick}
+>                             onMouseEnter={function onMouseEnter}
+>                             onTouchStart={function onTouchStart}
+>                             href="/nosotros/sobre-nosotros"
+>                           >
+                              <motion.a whileHover={{scale:1.1, ...}} whileTap={{scale:0.9}} aria-label="Ir a págin..." ...>
+>                               <a
+>                                 aria-label="Ir a página sobre nosotros"
+>                                 className="w-16 h-16 rounded-none bg-secondary text-primary flex items-center justif..."
+>                                 tabIndex={0}
+>                                 style={{}}
+>                                 ref={function useMotionRef.useCallback}
+>                               >
+                        ...
+                      ...
+        ...
+
+[browser] Uncaught Error: Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+    at <unknown> (https://react.dev/link/hydration-mismatch)
+    at a (<anonymous>)
+    at VisionSection (src/components/homenew/vision-section.tsx:123:19)
+    at HomePage (src\app\page.tsx:105:9)
+  121 |                   {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` pr...
+  122 |                   }
+> 123 |                   <motion.a
+      |                   ^
+  124 |                     whileHover={{ scale: 1.1, rotate: 12 }}
+  125 |                     whileTap={{ scale: 0.9 }}
+  126 |                     aria-label="Ir a página sobre nosotros"
+[browser] <a> cannot contain a nested <a>.
+See this log for the ancestor stack trace.

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variantes Profesionales - DosRuedas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/styles/design-variants.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      background: #F8FAFC;
+    }
+    
+    .preview-header {
+      background: var(--gradient-blue);
+      color: white;
+      padding: 48px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .preview-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,236,1,0.15) 0%, transparent 70%);
+    }
+    
+    .preview-header h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 48px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      position: relative;
+      color: white;
+    }
+    
+    .preview-header p {
+      font-size: 18px;
+      color: var(--blue-200);
+      margin-top: 12px;
+      position: relative;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 48px 0 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #E2E8F0;
+      color: #0636A5;
+    }
+    
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+    
+    code {
+      background: rgba(6, 54, 165, 0.08);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #0636A5;
+    }
+    
+    .gradient-preview {
+      height: 80px;
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+    
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .contrast-rule {
+      background: #EFF6FF;
+      border: 2px solid #0636A5;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+    
+    .contrast-rule h3 {
+      font-family: 'Anton', sans-serif;
+      color: #0636A5;
+      margin-bottom: 12px;
+    }
+    
+    .contrast-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    
+    .contrast-swatch {
+      width: 60px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="preview-header">
+    <h1>Variantes Profesionales</h1>
+    <p>Paleta: #0636A5 · #FFEC01 · #FFFFFF | Lógica de contraste aplicada</p>
+  </div>
+  
+  <div class="container">
+    
+    <!-- REGLA DE CONTRASTE -->
+    <div class="contrast-rule">
+      <h3>Regla de Contraste</h3>
+      <div class="contrast-item">
+        <div class="contrast-swatch" style="background: white; color: #0636A5; border-color: #0636A5;">Aa</div>
+        <span><strong>Fondo Blanco</strong> → Texto Azul (#0636A5)</span>
+      </div>
+      <div class="contrast-item">
+        <div class="contrast-swatch" style="background: #0636A5; color: white;">Aa</div>
+        <span><strong>Fondo Azul</strong> → Texto Blanco (#FFFFFF)</span>
+      </div>
+      <div class="contrast-item">
+        <div class="contrast-swatch" style="background: #FFEC01; color: #0636A5;">Aa</div>
+        <span><strong>Fondo Amarillo</strong> → Texto Azul (#0636A5)</span>
+      </div>
+    </div>
+    
+    <!-- BOTONES -->
+    <h2 class="section-title">Botones</h2>
+    
+    <div class="demo-grid">
+      <!-- Fondo Blanco → Texto Azul -->
+      <div style="background: #F8FAFC; padding: 24px; border-radius: 16px; border: 1px solid #E2E8F0;">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase; color: #0636A5; margin-bottom: 16px;">Fondo Blanco → Texto Azul</h3>
+        <div class="btn-group">
+          <button class="btn-white">Primario</button>
+          <button class="btn-white">Cotizar</button>
+        </div>
+        <code style="display: block; margin-top: 12px;">.btn-white</code>
+      </div>
+      
+      <!-- Fondo Azul → Texto Blanco -->
+      <div style="background: #F8FAFC; padding: 24px; border-radius: 16px; border: 1px solid #E2E8F0;">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase; color: #0636A5; margin-bottom: 16px;">Fondo Azul → Texto Blanco</h3>
+        <div class="btn-group">
+          <button class="btn-blue">Primario</button>
+          <button class="btn-blue">Cotizar</button>
+        </div>
+        <code style="display: block; margin-top: 12px;">.btn-blue</code>
+      </div>
+      
+      <!-- Fondo Amarillo → Texto Azul -->
+      <div style="background: #F8FAFC; padding: 24px; border-radius: 16px; border: 1px solid #E2E8F0;">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase; color: #0636A5; margin-bottom: 16px;">Fondo Amarillo → Texto Azul</h3>
+        <div class="btn-group">
+          <button class="btn-yellow">Cotizar</button>
+          <button class="btn-yellow">WhatsApp</button>
+        </div>
+        <code style="display: block; margin-top: 12px;">.btn-yellow</code>
+      </div>
+    </div>
+    
+    <!-- Botones sobre fondo oscuro -->
+    <div style="background: linear-gradient(135deg, #0636A5 0%, #1E3A8A 50%, #172554 100%); padding: 32px; border-radius: 16px; margin-top: 24px;">
+      <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase; color: #FFEC01; margin-bottom: 16px;">Sobre Fondo Azul (Nocturno)</h3>
+      <div class="btn-group">
+        <button class="btn-yellow">Cotizar Ahora</button>
+        <button class="btn-outline-white">WhatsApp</button>
+        <button class="btn-glass">Info</button>
+      </div>
+      <div style="margin-top: 12px; display: flex; gap: 12px; flex-wrap: wrap;">
+        <code style="background: rgba(255,255,255,0.15); color: white;">.btn-yellow</code>
+        <code style="background: rgba(255,255,255,0.15); color: white;">.btn-outline-white</code>
+        <code style="background: rgba(255,255,255,0.15); color: white;">.btn-glass</code>
+      </div>
+    </div>
+    
+    <!-- CARDS -->
+    <h2 class="section-title">Cards</h2>
+    
+    <div class="demo-grid">
+      <!-- Card Blanca → Texto Azul -->
+      <div class="card-white">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase;">Card Blanca</h3>
+        <p>Fondo blanco, texto azul, borde azul claro</p>
+        <div class="btn-group" style="margin-top: 16px;">
+          <button class="btn-blue">Acción</button>
+          <button class="btn-white">Secundario</button>
+        </div>
+        <code style="display: block; margin-top: 12px;">.card-white</code>
+      </div>
+      
+      <!-- Card Azul → Texto Blanco -->
+      <div class="card-blue">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase;">Card Azul</h3>
+        <p>Fondo azul, texto blanco, brillo superior</p>
+        <div class="btn-group" style="margin-top: 16px;">
+          <button class="btn-white">Acción</button>
+          <button class="btn-yellow">Accent</button>
+        </div>
+        <code style="display: block; margin-top: 12px; background: rgba(255,255,255,0.15); color: white;">.card-blue</code>
+      </div>
+      
+      <!-- Card Amarilla → Texto Azul -->
+      <div class="card-yellow">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase;">Card Amarilla</h3>
+        <p>Fondo amarillo, texto azul</p>
+        <div class="btn-group" style="margin-top: 16px;">
+          <button class="btn-blue">Acción</button>
+        </div>
+        <code style="display: block; margin-top: 12px;">.card-yellow</code>
+      </div>
+      
+      <!-- Card Gradiente Azul → Texto Blanco -->
+      <div class="card-gradient-blue">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase;">Card Gradiente</h3>
+        <p>Gradiente azul, texto blanco, efecto radial</p>
+        <div class="btn-group" style="margin-top: 16px;">
+          <button class="btn-yellow">Cotizar</button>
+          <button class="btn-outline-white">Info</button>
+        </div>
+        <code style="display: block; margin-top: 12px; background: rgba(255,255,255,0.15); color: white;">.card-gradient-blue</code>
+      </div>
+      
+      <!-- Card con borde accent -->
+      <div class="card-accent-left">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase;">Card Accent Left</h3>
+        <p>Borde izquierdo azul, fondo blanco</p>
+        <div class="btn-group" style="margin-top: 16px;">
+          <button class="btn-blue">Acción</button>
+        </div>
+        <code style="display: block; margin-top: 12px;">.card-accent-left</code>
+      </div>
+      
+      <!-- Card Glass Nocturna -->
+      <div style="background: linear-gradient(135deg, #0636A5, #172554); padding: 24px; border-radius: 16px;">
+        <div class="card-glass card-glass--accent-bottom">
+          <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase;">Card Glass</h3>
+          <p>Fondo azul translúcido, texto blanco</p>
+          <div class="btn-group" style="margin-top: 16px;">
+            <button class="btn-yellow">Cotizar</button>
+            <button class="btn-glass">Info</button>
+          </div>
+          <code style="display: block; margin-top: 12px; background: rgba(255,255,255,0.15); color: white;">.card-glass</code>
+        </div>
+      </div>
+    </div>
+    
+    <!-- SECCIONES -->
+    <h2 class="section-title">Secciones con Gradiente</h2>
+    
+    <!-- Sección Gradiente Azul → Texto Blanco -->
+    <div class="section-gradient-blue" style="padding: 40px; border-radius: 16px; margin-bottom: 24px;">
+      <h3 style="font-family: 'Anton'; font-size: 32px; text-transform: uppercase;">Sección Gradiente Azul</h3>
+      <p style="max-width: 500px; margin-top: 12px;">Fondo gradiente azul, texto blanco, efecto radial amarillo decorativo.</p>
+      <div class="btn-group" style="margin-top: 24px;">
+        <button class="btn-yellow">Cotizar Ahora</button>
+        <button class="btn-outline-white">WhatsApp</button>
+      </div>
+      <code style="display: block; margin-top: 16px; background: rgba(255,255,255,0.15); color: white;">.section-gradient-blue</code>
+    </div>
+    
+    <!-- Sección Gradiente Claro → Texto Azul -->
+    <div class="section-gradient-light" style="padding: 40px; border-radius: 16px; margin-bottom: 24px;">
+      <h3 style="font-family: 'Anton'; font-size: 32px; text-transform: uppercase;">Sección Gradiente Claro</h3>
+      <p style="max-width: 500px; margin-top: 12px;">Fondo gradiente azul claro, texto azul.</p>
+      <div class="btn-group" style="margin-top: 24px;">
+        <button class="btn-blue">Cotizar</button>
+        <button class="btn-white">Info</button>
+      </div>
+      <code style="display: block; margin-top: 16px;">.section-gradient-light</code>
+    </div>
+    
+    <!-- Sección Amarilla → Texto Azul -->
+    <div class="section-yellow" style="padding: 40px; border-radius: 16px; margin-bottom: 24px;">
+      <h3 style="font-family: 'Anton'; font-size: 32px; text-transform: uppercase;">Sección Amarilla</h3>
+      <p style="max-width: 500px; margin-top: 12px;">Fondo amarillo sólido, texto azul.</p>
+      <div class="btn-group" style="margin-top: 24px;">
+        <button class="btn-blue">Cotizar</button>
+      </div>
+      <code style="display: block; margin-top: 16px;">.section-yellow</code>
+    </div>
+    
+    <!-- Sección Mixta -->
+    <div class="section-gradient-mixed" style="padding: 40px; border-radius: 16px; margin-bottom: 24px;">
+      <h3 style="font-family: 'Anton'; font-size: 32px; text-transform: uppercase;">Sección Gradiente Mixto</h3>
+      <p style="max-width: 500px; margin-top: 12px;">Gradiente de azul a amarillo, texto blanco.</p>
+      <div class="btn-group" style="margin-top: 24px;">
+        <button class="btn-white">Cotizar</button>
+        <button class="btn-outline-white">Info</button>
+      </div>
+      <code style="display: block; margin-top: 16px; background: rgba(255,255,255,0.15); color: white;">.section-gradient-mixed</code>
+    </div>
+    
+    <!-- INPUTS -->
+    <h2 class="section-title">Inputs</h2>
+    
+    <div class="demo-grid">
+      <!-- Input Normal -->
+      <div style="background: white; padding: 24px; border-radius: 16px; border: 1px solid #E2E8F0;">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase; color: #0636A5; margin-bottom: 16px;">Input Normal</h3>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 14px; font-weight: 500; color: #0636A5; margin-bottom: 8px;">Dirección</label>
+          <input class="input-pro" type="text" placeholder="Av. Colón 1234">
+        </div>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 14px; font-weight: 500; color: #0636A5; margin-bottom: 8px;">Email (error)</label>
+          <input class="input-pro input-pro--error" type="email" value="invalido">
+        </div>
+        <div>
+          <label style="display: block; font-size: 14px; font-weight: 500; color: #0636A5; margin-bottom: 8px;">Teléfono (éxito)</label>
+          <input class="input-pro input-pro--success" type="tel" value="+54 223 123-4567">
+        </div>
+        <code style="display: block; margin-top: 12px;">.input-pro</code>
+      </div>
+      
+      <!-- Input Glass -->
+      <div style="background: linear-gradient(135deg, #0636A5, #172554); padding: 24px; border-radius: 16px;">
+        <h3 style="font-family: 'Bebas Neue'; text-transform: uppercase; color: #FFEC01; margin-bottom: 16px;">Input Glass (Nocturno)</h3>
+        <div style="margin-bottom: 12px;">
+          <label style="display: block; font-size: 14px; font-weight: 500; color: var(--blue-200); margin-bottom: 8px;">Buscar</label>
+          <input class="input-glass" type="text" placeholder="Dirección o zona...">
+        </div>
+        <div>
+          <label style="display: block; font-size: 14px; font-weight: 500; color: var(--blue-200); margin-bottom: 8px;">Notas</label>
+          <input class="input-glass" type="text" placeholder="Información adicional...">
+        </div>
+        <code style="display: block; margin-top: 12px; background: rgba(255,255,255,0.15); color: white;">.input-glass</code>
+      </div>
+    </div>
+    
+    <!-- BADGES -->
+    <h2 class="section-title">Badges</h2>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+      <span class="badge-white">Blanco</span>
+      <span class="badge-blue">Azul</span>
+      <span class="badge-yellow">Amarillo</span>
+      <span class="badge-success">Éxito</span>
+      <span class="badge-warning">Advertencia</span>
+      <span class="badge-error">Error</span>
+    </div>
+    
+    <!-- Badges sobre fondo oscuro -->
+    <div style="background: #0636A5; padding: 20px; border-radius: 12px; margin-top: 16px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+      <span class="badge-white">Blanco</span>
+      <span class="badge-yellow">Amarillo</span>
+      <span class="badge-success">Éxito</span>
+    </div>
+    
+    <!-- ALERTAS -->
+    <h2 class="section-title">Alertas</h2>
+    
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="alert-info">
+        <span>ℹ️</span>
+        <span>Información importante sobre tu envío</span>
+      </div>
+      <div class="alert-success">
+        <span>✓</span>
+        <span>¡Envío completado con éxito!</span>
+      </div>
+      <div class="alert-warning">
+        <span>⚠️</span>
+        <span>Zona con posible demora</span>
+      </div>
+      <div class="alert-error">
+        <span>✕</span>
+        <span>Error: Dirección no encontrada</span>
+      </div>
+    </div>
+    
+    <!-- GRADIENTES -->
+    <h2 class="section-title">Gradientes Disponibles</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px;">
+      <div>
+        <div class="gradient-preview" style="background: linear-gradient(135deg, #0636A5 0%, #1E3A8A 50%, #172554 100%);"></div>
+        <code style="display: block; margin-top: 8px;">gradient-blue</code>
+      </div>
+      <div>
+        <div class="gradient-preview" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%);"></div>
+        <code style="display: block; margin-top: 8px;">gradient-blue-light</code>
+      </div>
+      <div>
+        <div class="gradient-preview" style="background: linear-gradient(135deg, #FFEC01 0%, #F59E0B 100%);"></div>
+        <code style="display: block; margin-top: 8px;">gradient-yellow</code>
+      </div>
+      <div>
+        <div class="gradient-preview" style="background: linear-gradient(135deg, #0636A5 0%, #1E40AF 40%, #FFEC01 100%);"></div>
+        <code style="display: block; margin-top: 8px;">gradient-mixed</code>
+      </div>
+      <div>
+        <div class="gradient-preview" style="background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%); border: 1px solid #E2E8F0;"></div>
+        <code style="display: block; margin-top: 8px;">gradient-surface</code>
+      </div>
+      <div>
+        <div class="gradient-preview" style="background: linear-gradient(180deg, #0F172A 0%, #1E293B 50%, #334155 100%);"></div>
+        <code style="display: block; margin-top: 8px;">gradient-dark</code>
+      </div>
+    </div>
+    
+    <!-- SOMBRAS -->
+    <h2 class="section-title">Sombras Mejoradas</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px;">
+      <div style="text-align: center;">
+        <div style="width: 100%; height: 80px; background: white; border-radius: 12px; box-shadow: 0 1px 2px rgba(6,54,165,0.06);"></div>
+        <code style="display: block; margin-top: 8px;">shadow-xs</code>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 100%; height: 80px; background: white; border-radius: 12px; box-shadow: 0 2px 4px rgba(6,54,165,0.08), 0 1px 2px rgba(6,54,165,0.04);"></div>
+        <code style="display: block; margin-top: 8px;">shadow-sm</code>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 100%; height: 80px; background: white; border-radius: 12px; box-shadow: 0 4px 8px rgba(6,54,165,0.1), 0 2px 4px rgba(6,54,165,0.06);"></div>
+        <code style="display: block; margin-top: 8px;">shadow-md</code>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 100%; height: 80px; background: white; border-radius: 12px; box-shadow: 0 8px 16px rgba(6,54,165,0.12), 0 4px 8px rgba(6,54,165,0.08);"></div>
+        <code style="display: block; margin-top: 8px;">shadow-lg</code>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 100%; height: 80px; background: white; border-radius: 12px; box-shadow: 0 16px 32px rgba(6,54,165,0.15), 0 8px 16px rgba(6,54,165,0.1);"></div>
+        <code style="display: block; margin-top: 8px;">shadow-xl</code>
+      </div>
+    </div>
+    
+    <!-- EJEMPLO COMPLETO -->
+    <h2 class="section-title">Ejemplo: Hero Completo</h2>
+    
+    <div class="section-gradient-blue" style="padding: 60px 40px; border-radius: 16px; margin-bottom: 48px;">
+      <div style="max-width: 600px;">
+        <p style="font-family: 'Inter'; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: #FFEC01; margin-bottom: 12px;">Envíos en Mar del Plata</p>
+        <h1 style="font-family: 'Anton'; font-size: 56px; text-transform: uppercase; color: white; line-height: 1.1;">Entregas Express</h1>
+        <p style="font-size: 18px; color: var(--blue-200); margin: 20px 0;">Cotizá al instante y recibí en menos de 2 horas en toda la ciudad.</p>
+        <div class="btn-group">
+          <button class="btn-yellow">Cotizar Ahora</button>
+          <button class="btn-outline-white">WhatsApp</button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+</body>
+</html>

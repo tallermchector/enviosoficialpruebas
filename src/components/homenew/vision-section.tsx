@@ -117,17 +117,14 @@ export const VisionSection = () => {
                     <CheckCircle2 size={14} className="animate-pulse text-secondary" aria-hidden="true" /> ¿Querés potenciar tus entregas? Sumate.
                   </div>
                 </div>
-                <Link href="/nosotros/sobre-nosotros">
-                  {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
-                  }
-                  <motion.a
+                <Link href="/nosotros/sobre-nosotros" aria-label="Ir a página sobre nosotros" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                  <motion.div
                     whileHover={{ scale: 1.1, rotate: 12 }}
                     whileTap={{ scale: 0.9 }}
-                    aria-label="Ir a página sobre nosotros"
-                    className="w-16 h-16 rounded-none bg-secondary text-primary flex items-center justify-center shadow-hard-secondary hover:bg-secondary/90 transition-[background-color,border-color,transform,box-shadow] duration-200 border border-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 cursor-pointer"
+                    className="w-16 h-16 rounded-none bg-secondary text-primary flex items-center justify-center shadow-hard-secondary hover:bg-secondary/90 transition-[background-color,border-color,transform,box-shadow] duration-200 border border-secondary cursor-pointer"
                   >
                     <Play size={24} fill="currentColor" className="ml-1" aria-hidden="true" />
-                  </motion.a>
+                  </motion.div>
                 </Link>
               </div>
 

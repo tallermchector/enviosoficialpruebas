@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estilos Alternativos - DosRuedas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../src/styles/soft-ui.css">
+  <link rel="stylesheet" href="../src/styles/glassmorphism.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+    
+    .preview-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      padding: 16px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    
+    .preview-nav a {
+      padding: 8px 16px;
+      background: #0636A5;
+      color: white;
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+    
+    .preview-nav a:hover {
+      background: #1E3A8A;
+    }
+    
+    .section-divider {
+      background: #0636A5;
+      color: #FFEC01;
+      padding: 24px;
+      text-align: center;
+      font-family: 'Anton', sans-serif;
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    /* Soft UI Section */
+    .soft-ui-demo {
+      padding: 48px 24px;
+      background: #F8FAFE;
+    }
+    
+    .soft-ui-demo .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .soft-ui-demo .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    /* Glassmorphism Section */
+    .glass-demo {
+      padding: 48px 24px;
+      background: linear-gradient(135deg, #0636A5 0%, #1E3A8A 50%, #172554 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 600px;
+    }
+    
+    .glass-demo::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 236, 1, 0.12);
+      border-radius: 50%;
+      top: -100px;
+      right: -50px;
+      filter: blur(80px);
+    }
+    
+    .glass-demo::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(6, 54, 165, 0.3);
+      border-radius: 50%;
+      bottom: -50px;
+      left: -50px;
+      filter: blur(60px);
+    }
+    
+    .glass-demo .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .glass-demo .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    
+    .code-block {
+      background: #1E293B;
+      color: #E2E8F0;
+      padding: 16px;
+      margin-top: 16px;
+      font-family: monospace;
+      font-size: 13px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="preview-nav">
+    <a href="#soft-ui">Soft UI Evolution</a>
+    <a href="#glassmorphism">Glassmorphism Premium</a>
+    <a href="preview.html">Neo-Brutalismo (Original)</a>
+  </nav>
+  
+  <!-- ============================================ -->
+  <!-- SOFT UI EVOLUTION -->
+  <!-- ============================================ -->
+  <div id="soft-ui" class="section-divider">
+    Opción A: Soft UI Evolution
+  </div>
+  
+  <section class="soft-ui-demo" data-style="soft-ui">
+    <div class="container">
+      
+      <p class="text-label">Estilo Profesional</p>
+      <h1 class="heading-display" style="margin-top: 8px;">
+        Soft UI Evolution
+      </h1>
+      <p class="text-body" style="max-width: 600px; margin-top: 16px;">
+        Sombras suaves multicapa, bordes redondeados moderados, aspecto moderno y profesional. 
+        Ideal para dashboards, SaaS y aplicaciones corporativas.
+      </p>
+      
+      <div class="demo-grid">
+        
+        <!-- Buttons Demo -->
+        <div class="card">
+          <h3 class="heading-card">Botones</h3>
+          <p class="text-body" style="margin-bottom: 16px;">
+            Sombras sutiles con efecto hover suave
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <button class="btn btn--primary">Primario</button>
+            <button class="btn btn--accent">Accent</button>
+            <button class="btn btn--outline">Outline</button>
+            <button class="btn btn--ghost">Ghost</button>
+          </div>
+        </div>
+        
+        <!-- Cards Demo -->
+        <div class="card card--accent">
+          <h3 class="heading-card">Cards con Accent</h3>
+          <p class="text-body">
+            Borde izquierdo azul para destacar información importante.
+          </p>
+          <div style="margin-top: 16px;">
+            <span class="badge badge--primary">Servicio</span>
+            <span class="badge badge--success">Activo</span>
+          </div>
+        </div>
+        
+        <!-- Inputs Demo -->
+        <div class="card">
+          <h3 class="heading-card">Inputs</h3>
+          <div class="input-group">
+            <label class="input-label">Dirección</label>
+            <input class="input" type="text" placeholder="Av. Colón 1234">
+          </div>
+          <div class="input-group">
+            <label class="input-label">Email</label>
+            <input class="input input--error" type="email" value="invalido">
+            <p class="input-error">Email inválido</p>
+          </div>
+        </div>
+        
+        <!-- Typography Demo -->
+        <div class="card">
+          <h3 class="heading-card">Tipografía</h3>
+          <p class="text-label" style="margin-bottom: 8px;">Display</p>
+          <p style="font-family: 'Anton'; font-size: 24px; text-transform: uppercase;">
+            Anton Display
+          </p>
+          <p class="text-label" style="margin: 12px 0 8px;">Subtitle</p>
+          <p style="font-family: 'Bebas Neue'; font-size: 20px; text-transform: uppercase; letter-spacing: 2px;">
+            Bebas Neue Subtitle
+          </p>
+          <p class="text-label" style="margin: 12px 0 8px;">Body</p>
+          <p class="text-body">Inter para cuerpo de texto</p>
+        </div>
+        
+        <!-- Alert Demo -->
+        <div class="card">
+          <h3 class="heading-card">Alertas</h3>
+          <div class="alert alert--info" style="margin-bottom: 12px;">
+            <span>ℹ️</span>
+            <span>Información importante</span>
+          </div>
+          <div class="alert alert--success" style="margin-bottom: 12px;">
+            <span>✓</span>
+            <span>Envío completado</span>
+          </div>
+          <div class="alert alert--warning">
+            <span>⚠️</span>
+            <span>Zona con demora</span>
+          </div>
+        </div>
+        
+        <!-- Stats Demo -->
+        <div class="card" style="text-align: center;">
+          <h3 class="heading-card">Estadísticas</h3>
+          <p style="font-family: 'Anton'; font-size: 48px; color: #0636A5; line-height: 1;">
+            47
+          </p>
+          <p class="text-label" style="margin-top: 8px;">Envíos Hoy</p>
+          <div style="margin-top: 16px; display: flex; justify-content: center; gap: 8px;">
+            <span class="badge badge--success">+12%</span>
+            <span class="text-body" style="font-size: 14px;">vs. ayer</span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Code Example -->
+      <div class="code-block" style="margin-top: 32px; background: #1E293B; color: #E2E8F0; padding: 16px; font-family: monospace; font-size: 13px;">
+        &lt;div data-style="soft-ui"&gt;<br>
+        &nbsp;&nbsp;&lt;div class="card"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 class="heading-card"&gt;Título&lt;/h3&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="text-body"&gt;Contenido&lt;/p&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn btn--primary"&gt;Acción&lt;/button&gt;<br>
+        &nbsp;&nbsp;&lt;/div&gt;<br>
+        &lt;/div&gt;
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- ============================================ -->
+  <!-- GLASSMORPHISM PREMIUM -->
+  <!-- ============================================ -->
+  <div id="glassmorphism" class="section-divider">
+    Opción B: Glassmorphism Premium
+  </div>
+  
+  <section class="glass-demo" data-style="glassmorphism">
+    <div class="container">
+      
+      <p class="text-label">Estilo Premium</p>
+      <h1 class="heading-display" style="margin-top: 8px;">
+        Glassmorphism
+      </h1>
+      <p class="text-body" style="max-width: 600px; margin-top: 16px;">
+        Efecto cristal esmerilado, capas translúcidas con blur, gradientes sutiles. 
+        Aspecto sofisticado y high-end para secciones destacadas.
+      </p>
+      
+      <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+        <button class="btn btn--primary">Cotizar Ahora</button>
+        <button class="btn btn--glass">WhatsApp</button>
+        <button class="btn btn--outline">Ver Servicios</button>
+      </div>
+      
+      <div class="demo-grid">
+        
+        <!-- Glass Card -->
+        <div class="glass-card">
+          <h3 class="heading-card">Glass Card</h3>
+          <p class="text-body">
+            Fondo translúcida con blur y borde sutil. Perfecta para overlays y secciones destacadas.
+          </p>
+          <p style="font-family: monospace; font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 12px;">
+            backdrop-filter: blur(12px)
+          </p>
+        </div>
+        
+        <!-- Glow Card -->
+        <div class="glass-card glass-card--glow">
+          <h3 class="heading-card" style="color: #FFEC01;">Glow Effect</h3>
+          <p class="text-body">
+            Resplandor amarillo para CTAs y elementos destacados.
+          </p>
+          <p style="font-family: monospace; font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 12px;">
+            box-shadow: 0 0 20px rgba(255,236,1,0.3)
+          </p>
+        </div>
+        
+        <!-- Accent Card -->
+        <div class="glass-card glass-card--accent">
+          <h3 class="heading-card">Accent Card</h3>
+          <p class="text-body">
+            Borde inferior amarillo para jerarquía visual.
+          </p>
+          <div style="margin-top: 16px;">
+            <span class="badge badge--accent">Express</span>
+          </div>
+        </div>
+        
+        <!-- Stats -->
+        <div class="glass-card stat-card">
+          <p class="stat-number">156</p>
+          <p class="stat-label">Envíos del Mes</p>
+        </div>
+        
+        <!-- Input -->
+        <div class="glass-card">
+          <h3 class="heading-card">Inputs Glass</h3>
+          <div class="input-group">
+            <label class="input-label">Buscar</label>
+            <input class="input" type="text" placeholder="Dirección o zona...">
+          </div>
+        </div>
+        
+        <!-- Solid Card -->
+        <div class="glass-card glass-card--solid">
+          <h3 class="heading-card">Solid Glass</h3>
+          <p class="text-body">
+            Mayor opacidad para mejor legibilidad en contenido denso.
+          </p>
+        </div>
+        
+      </div>
+      
+      <!-- Code Example -->
+      <div style="margin-top: 32px; background: rgba(0,0,0,0.3); padding: 16px; font-family: monospace; font-size: 13px; color: rgba(255,255,255,0.7);">
+        &lt;section data-style="glassmorphism" class="glass-section"&gt;<br>
+        &nbsp;&nbsp;&lt;div class="glass-card"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3 class="heading-card"&gt;Título&lt;/h3&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="text-body"&gt;Contenido&lt;/p&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn btn--primary"&gt;CTA&lt;/button&gt;<br>
+        &nbsp;&nbsp;&lt;/div&gt;<br>
+        &lt;/section&gt;
+      </div>
+      
+    </div>
+  </section>
+  
+  <!-- ============================================ -->
+  <!-- COMPARISON -->
+  <!-- ============================================ -->
+  <div class="section-divider" style="background: #1E293B;">
+    Comparativa
+  </div>
+  
+  <section style="padding: 48px 24px; background: white;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background: #0636A5; color: white;">
+            <th style="padding: 16px; text-align: left; font-family: 'Bebas Neue'; text-transform: uppercase;">Característica</th>
+            <th style="padding: 16px; text-align: left; font-family: 'Bebas Neue'; text-transform: uppercase;">Soft UI</th>
+            <th style="padding: 16px; text-align: left; font-family: 'Bebas Neue'; text-transform: uppercase;">Glassmorphism</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #E2E8F0;">
+            <td style="padding: 12px;"><strong>Estilo</strong></td>
+            <td style="padding: 12px;">Moderno, profesional</td>
+            <td style="padding: 12px;">Sofisticado, high-end</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E2E8F0; background: #F8FAFE;">
+            <td style="padding: 12px;"><strong>Sombras</strong></td>
+            <td style="padding: 12px;">Suaves, multicapa</td>
+            <td style="padding: 12px;">Glow effects</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E2E8F0;">
+            <td style="padding: 12px;"><strong>Bordes</strong></td>
+            <td style="padding: 12px;">1px finos o ausentes</td>
+            <td style="padding: 12px;">1px translúcidos</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E2E8F0; background: #F8FAFE;">
+            <td style="padding: 12px;"><strong>Radius</strong></td>
+            <td style="padding: 12px;">12-16px</td>
+            <td style="padding: 12px;">16-24px</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E2E8F0;">
+            <td style="padding: 12px;"><strong>Fondos</strong></td>
+            <td style="padding: 12px;">Sólidos claros</td>
+            <td style="padding: 12px;">Gradientes + blur</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E2E8F0; background: #F8FAFE;">
+            <td style="padding: 12px;"><strong>Mejor para</strong></td>
+            <td style="padding: 12px;">Dashboards, SaaS</td>
+            <td style="padding: 12px;">Héroes, CTAs premium</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #E2E8F0;">
+            <td style="padding: 12px;"><strong>Performance</strong></td>
+            <td style="padding: 12px;">⚡ Excelente</td>
+            <td style="padding: 12px;">⚠ Buena (blur cost)</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px;"><strong>WCAG</strong></td>
+            <td style="padding: 12px;">✅ AAA</td>
+            <td style="padding: 12px;">⚠️ AA (verificar)</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div style="margin-top: 48px; padding: 32px; background: #EFF6FF; border: 2px solid #0636A5;">
+        <h3 style="font-family: 'Anton'; font-size: 24px; color: #0636A5; margin-bottom: 16px;">
+          Uso Mixto Recomendado
+        </h3>
+        <p style="color: #334155; margin-bottom: 16px;">
+          Puedes combinar ambos estilos en diferentes secciones de tu sitio:
+        </p>
+        <ul style="color: #334155; padding-left: 24px;">
+          <li style="margin-bottom: 8px;"><strong>Glassmorphism</strong> → Hero, secciones destacadas, modales</li>
+          <li><strong>Soft UI</strong> → Contenido, forms, dashboards, listados</li>
+        </ul>
+      </div>
+      
+    </div>
+  </section>
+  
+</body>
+</html>

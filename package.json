@@ -92,6 +92,7 @@
 		"zod": "^4.4.3"
 	},
 	"devDependencies": {
+		"@next/eslint-plugin-next": "^16.2.9",
 		"@playwright/test": "^1.61.1",
 		"@prisma/client": "^7.8.0",
 		"@prisma/extension-accelerate": "^3.0.1",

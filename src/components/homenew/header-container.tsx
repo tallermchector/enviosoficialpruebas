@@ -13,21 +13,23 @@ export function HeaderContainer({ children }: HeaderContainerProps) {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <motion.header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 px-4 md:px-8",
-        scrolled ? "bg-[#0636A5] border-b-2 border-secondary shadow-lg py-3" : "bg-transparent py-6"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled
+          ? "bg-primary border-b-2 border-secondary shadow-hard-secondary py-2"
+          : "bg-primary/95 backdrop-blur-sm py-3"
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-6">
         {children}
       </div>
     </motion.header>
