@@ -30,8 +30,6 @@
 		"@hookform/resolvers": "^5.4.0",
 		"@paper-design/shaders-react": "^0.0.76",
 		"@prisma/adapter-pg": "^7.8.0",
-		"@prisma/client": "^7.8.0",
-		"@prisma/extension-accelerate": "^3.0.1",
 		"@radix-ui/react-accordion": "^1.2.14",
 		"@radix-ui/react-alert-dialog": "^1.1.17",
 		"@radix-ui/react-aspect-ratio": "^1.1.10",
@@ -94,6 +92,8 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.61.1",
+		"@prisma/client": "^7.8.0",
+		"@prisma/extension-accelerate": "^3.0.1",
 		"@tailwindcss/postcss": "^4.3.1",
 		"@types/leaflet": "^1.9.21",
 		"@types/node": "^26.0.1",
@@ -101,10 +101,13 @@
 		"@types/react": "^19.2.17",
 		"@types/react-dom": "^19.2.3",
 		"@types/three": "^0.185.0",
+		"add": "^2.0.6",
 		"eslint": "^10.6.0",
 		"eslint-config-next": "^16.2.9",
 		"genkit-cli": "^1.39.0",
+		"pnpm": "^11.9.0",
 		"postcss": "^8.5.15",
+		"prisma": "^7.8.0",
 		"tailwindcss": "^4.3.1",
 		"typescript": "^6.0.3"
 	}

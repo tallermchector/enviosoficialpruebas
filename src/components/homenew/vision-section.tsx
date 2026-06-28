@@ -28,7 +28,6 @@ export const VisionSection = () => {
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]">
         <div className="absolute inset-0 tech-grid-overlay" />
       </div>
-
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
 
@@ -118,7 +117,9 @@ export const VisionSection = () => {
                     <CheckCircle2 size={14} className="animate-pulse text-secondary" aria-hidden="true" /> ¿Querés potenciar tus entregas? Sumate.
                   </div>
                 </div>
-                <Link href="/nosotros/sobre-nosotros" passHref legacyBehavior>
+                <Link href="/nosotros/sobre-nosotros">
+                  {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
+                  }
                   <motion.a
                     whileHover={{ scale: 1.1, rotate: 12 }}
                     whileTap={{ scale: 0.9 }}
