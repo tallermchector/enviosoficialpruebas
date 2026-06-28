@@ -177,6 +177,81 @@ class DesignSystemGenerator:
         if product_results:
             category = product_results[0].get("Product Type", "General")
 
+        # Check for Dos Ruedas overrides
+        is_dosruedas = False
+        target_project = project_name or ""
+        if "dosruedas" in target_project.lower() or "dos ruedas" in target_project.lower() or "dosruedas" in query.lower() or "dos ruedas" in query.lower():
+            is_dosruedas = True
+
+        if is_dosruedas:
+            return {
+                "project_name": project_name or "Envios DosRuedas",
+                "category": "Logistics & Delivery (MDP)",
+                "pattern": {
+                    "name": "Feature-Rich Showcase + Real-Time Tracking",
+                    "sections": "Hero > Calculator > Service Features > About Us > FAQs",
+                    "cta_placement": "Hero & Floating Sticky Button",
+                    "color_strategy": "Egyptian Blue Dominant (60-70%), Sunbeam Yellow Accent (CTAs), White Support",
+                    "conversion": "Immediate dynamic shipping calculator to WhatsApp CTA"
+                },
+                "style": {
+                    "name": "Neo-Brutalismo / Exaggerated Minimalism",
+                    "type": "General / Brutalist",
+                    "effects": "Flat shadows, solid borders, zero-radius borders (rounded-none), smooth transitions (150ms)",
+                    "keywords": "Bold typography, solid shadows, sharp corners, high contrast, high density",
+                    "best_for": "Logística urbana de alta visibilidad, mensajería, e-commerce",
+                    "performance": "⚡ Excellent",
+                    "accessibility": "✓ WCAG AAA Compliant (Egyptian Blue #0636A5 on White #FFFFFF is > 7:1)",
+                    "light_mode": "✓ Full Support (Dominant Light)",
+                    "dark_mode": "✓ Full Support (Dominant Dark)",
+                },
+                "colors": {
+                    "primary": "#0636A5",
+                    "on_primary": "#FFFFFF",
+                    "secondary": "#FFEC01",
+                    "accent": "#FFEC01",
+                    "background": "#FFFFFF",
+                    "foreground": "#0636A5",
+                    "muted": "#EFF6FF",
+                    "border": "#0636A5",
+                    "destructive": "#DC2626",
+                    "ring": "#FFEC01",
+                    "notes": "Paleta Oficial de Contraste Urbano MDP (Egyptian Blue #0636A5, Sunbeam Yellow #FFEC01, White #FFFFFF)",
+                    "cta": "#FFEC01",
+                    "text": "#0636A5",
+                },
+                "typography": {
+                    "heading": "Anton (Títulos) / Bebas Neue (Subtítulos/Botones)",
+                    "body": "Inter (Cuerpo)",
+                    "mood": "Jerarquía tipográfica estricta, legible de forma instantánea a alta velocidad",
+                    "best_for": "Banners digitales y vehículos en movimiento",
+                    "google_fonts_url": "https://fonts.google.com/specimen/Anton?query=Anton",
+                    "css_import": "@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;700&display=swap');"
+                },
+                "key_effects": "Strict rounded-none, shadow-industrial, high contrast, smooth transitions",
+                "anti_patterns": "Emojis as icons + Rounded corners on brutalist cards + Low contrast text + Standard grays",
+                "decision_rules": {},
+                "severity": "CRITICAL",
+                "options": [
+                    {
+                        "name": "Opción 1: Neo-Brutalista Urbano (Light Mode Dominante)",
+                        "description": "Fondo blanco puro, bordes planos y gruesos de color Egyptian Blue (#0636A5), sin bordes redondeados (rounded-none) y sombras duras de estilo industrial. Máxima legibilidad diurna.",
+                        "primary_bg": "#FFFFFF",
+                        "card_bg": "#FFFFFF",
+                        "text_color": "#0636A5",
+                        "cta_bg": "#FFEC01"
+                    },
+                    {
+                        "name": "Opción 2: Immersive Night (Dark Mode / Glassmorphism)",
+                        "description": "Fondo Egyptian Blue (#0636A5) envolvente con tarjetas translúcidas de cristal (glassmorphism bg-white/10 border-white/20 backdrop-blur-md). Ideal para secciones destacadas y modo nocturno.",
+                        "primary_bg": "#0636A5",
+                        "card_bg": "rgba(255,255,255,0.1)",
+                        "text_color": "#FFFFFF",
+                        "cta_bg": "#FFEC01"
+                    }
+                ]
+            }
+
         # Step 2: Get reasoning rules for this category
         reasoning = self._apply_reasoning(category, {})
         style_priority = reasoning.get("style_priority", [])
@@ -422,6 +497,17 @@ def format_ascii_box(design_system: dict) -> str:
     for item in checklist_items:
         lines.append(f"│     {item}".ljust(BOX_WIDTH) + "│")
 
+    if design_system.get("options"):
+        lines.append(section_header("DESIGN OPTIONS", BOX_WIDTH + 1))
+        for opt in design_system["options"]:
+            lines.append(f"│  • {opt['name']}".ljust(BOX_WIDTH) + "│")
+            for line in wrap_text(opt['description'], "│     ", BOX_WIDTH):
+                lines.append(line.ljust(BOX_WIDTH) + "│")
+            lines.append(f"│     - Fondo: {opt['primary_bg']}  Tarjeta: {opt['card_bg']}  Texto: {opt['text_color']}".ljust(BOX_WIDTH) + "│")
+            lines.append("│".ljust(BOX_WIDTH) + "│")
+        if lines[-1] == "│".ljust(BOX_WIDTH) + "│":
+            lines.pop()
+
     lines.append("└" + "─" * w + "┘")
 
     return "\n".join(lines)
@@ -532,6 +618,19 @@ def format_markdown(design_system: dict) -> str:
     lines.append("- [ ] prefers-reduced-motion respected")
     lines.append("- [ ] Responsive: 375px, 768px, 1024px, 1440px")
     lines.append("")
+
+    if design_system.get("options"):
+        lines.append("### Design Options")
+        lines.append("")
+        for opt in design_system["options"]:
+            lines.append(f"#### {opt['name']}")
+            lines.append(f"{opt['description']}")
+            lines.append("")
+            lines.append(f"- **Fondo:** `{opt['primary_bg']}`")
+            lines.append(f"- **Tarjetas:** `{opt['card_bg']}`")
+            lines.append(f"- **Texto:** `{opt['text_color']}`")
+            lines.append(f"- **CTA:** `{opt['cta_bg']}`")
+            lines.append("")
 
     return "\n".join(lines)
 
@@ -888,7 +987,22 @@ def format_master_md(design_system: dict) -> str:
     lines.append("- [ ] No content hidden behind fixed navbars")
     lines.append("- [ ] No horizontal scroll on mobile")
     lines.append("")
-    
+
+    if design_system.get("options"):
+        lines.append("---")
+        lines.append("")
+        lines.append("## Design Options")
+        lines.append("")
+        for opt in design_system["options"]:
+            lines.append(f"### {opt['name']}")
+            lines.append(f"{opt['description']}")
+            lines.append("")
+            lines.append(f"- **Fondo:** `{opt['primary_bg']}`")
+            lines.append(f"- **Tarjetas:** `{opt['card_bg']}`")
+            lines.append(f"- **Texto:** `{opt['text_color']}`")
+            lines.append(f"- **CTA:** `{opt['cta_bg']}`")
+            lines.append("")
+
     return "\n".join(lines)
 
 

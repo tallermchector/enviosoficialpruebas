@@ -8,6 +8,7 @@ import {
   Mail,
   Calculator as CalculatorIcon,
   Phone,
+  Building2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HeaderContainer } from './header-container';
@@ -43,6 +44,15 @@ export const OptimizedHeader = () => {
         {navGroups.map((group) => (
           <NavDropdown key={group.label} group={group} />
         ))}
+
+        <ActiveLink 
+          href="/propiedades" 
+          className="text-gray-300 hover:text-white hover:bg-white/10 font-bebas text-lg"
+          activeClassName="bg-primary/20 text-secondary border border-primary/30 shadow-lg"
+        >
+          <Building2 className="h-4 w-4" aria-hidden="true" />
+          <span>Propiedades</span>
+        </ActiveLink>
 
         <ActiveLink 
           href="/contacto" 

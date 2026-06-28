@@ -77,3 +77,4 @@ prisma/generated/*
 e2e/*
 .hermes/*
 generated/*
+.agents/skills/ui-ux-pro-max/scripts/__pycache__/*

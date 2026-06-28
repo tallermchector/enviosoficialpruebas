@@ -11,6 +11,7 @@ import {
   Mail,
   Calculator as CalculatorIcon,
   Phone,
+  Building2,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -165,6 +166,23 @@ export function MobileMenu({ navGroups }: MobileMenuProps) {
                 );
               })}
             </Accordion>
+
+            <motion.div variants={mobileNavItemVariants} className="mt-2">
+              <SheetClose asChild>
+                <Link
+                  href="/propiedades"
+                  className={cn(
+                    "flex items-center space-x-5 py-4 px-5 rounded-none transition-[background-color,color,border-color,box-shadow] duration-300 w-full group outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2",
+                    isActive("/propiedades")
+                      ? "bg-primary/20 text-secondary border border-primary/30 shadow-xl"
+                      : "text-gray-300 hover:text-white hover:bg-white/5",
+                  )}
+                >
+                  <Building2 className="w-5 h-5" aria-hidden="true" />
+                  <span className="font-black font-bebas text-sm tracking-[0.1em] uppercase">Propiedades</span>
+                </Link>
+              </SheetClose>
+            </motion.div>
 
             <motion.div variants={mobileNavItemVariants} className="mt-2">
               <SheetClose asChild>
