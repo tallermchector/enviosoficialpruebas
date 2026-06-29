@@ -11,7 +11,7 @@ import RouteMap from './route-map';
 import { AddressAutocomplete } from './address-autocomplete';
 import { useToast } from '@/hooks/use-toast';
 import { quoteShipment } from '@/app/cotizar/actions';
-import { ServiceTypeEnum } from '../../../generated/prisma/client/client';
+import { ServiceTypeEnum } from '@prisma/client';
 import type { QuoteDetails } from '@/types/order-actions';
 
 

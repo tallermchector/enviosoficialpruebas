@@ -66,7 +66,3 @@
     - Teléfono: +54 223 660-2699
     - Email: matiascejas@enviosdosruedas.com
 - **Links:** Sobre Nosotros, Preguntas Frecuentes, Nuestras Redes, Términos y Condiciones, Política de Privacidad, Envíos Express, Envíos LowCost, Envíos Flex (MeLi), E-Commerce & 3PL.
-
-## Business & Calculation Logic
-- **Source:** `src/app/ordenes/actions.ts`
-- **Note:** This page primarily serves as a landing page and does not contain direct calculation logic. It links to the quotation pages where the logic is implemented.
