@@ -15,7 +15,7 @@ export function ExpressCta() {
   }
 
   return (
-    <section className="py-24 px-4 bg-surface-light relative overflow-hidden">
+    <section data-style="glassmorphism" className="glass-section py-24 px-4 bg-surface-light relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
         <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />
@@ -32,7 +32,7 @@ export function ExpressCta() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-32 translate-x-32" />
 
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-slate-900/50 text-xxs font-bold tracking-[0.3em] mb-10 uppercase">
-             PRIORIDAD MÁXIMA <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            PRIORIDAD MÁXIMA <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
           </div>
 
           <h2 className="font-[family-name:var(--font-orbitron)] text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-slate-900">
@@ -45,7 +45,7 @@ export function ExpressCta() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-             <Link
+            <Link
               href="/cotizar/express"
               className="px-12 py-5 bg-primary hover:bg-primary/90 text-slate-900 font-[family-name:var(--font-orbitron)] font-black rounded-2xl transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(37,99,235,0.3)] flex items-center gap-3 uppercase tracking-tight h-auto"
             >

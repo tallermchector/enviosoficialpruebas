@@ -60,7 +60,7 @@ export function EntrepreneurPricingRanges({ priceRanges }: EntrepreneurPricingRa
   ];
 
   return (
-    <section className="py-24 px-4 bg-background relative overflow-hidden">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-24 px-4 bg-background relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -83,47 +83,47 @@ export function EntrepreneurPricingRanges({ priceRanges }: EntrepreneurPricingRa
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {entrepreneurTiers.map((tier, index) => {
             return (
-               <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
               >
-                  <Card className="relative glassmorphism border border-white/10 hover:border-glow-primary transition-stitch rounded-none overflow-hidden h-full flex flex-col group shadow-crate hover:shadow-industrial">
-                      <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-none text-xxs font-bold uppercase tracking-widest font-bebas">
-                          {tier.badgeText}
-                      </Badge>
+                <Card className="relative glassmorphism border border-white/10 hover:border-glow-primary transition-stitch rounded-none overflow-hidden h-full flex flex-col group shadow-crate hover:shadow-industrial">
+                  <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-none text-xxs font-bold uppercase tracking-widest font-bebas">
+                    {tier.badgeText}
+                  </Badge>
 
-                      <CardHeader className="text-center pt-12 pb-6">
-                          <div className="w-16 h-16 bg-primary/10 rounded-none flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all border border-primary/20">
-                              <Coins className="w-8 h-8 text-primary" />
-                          </div>
-                          <CardTitle className="font-anton text-2xl font-bold text-white uppercase tracking-tight">
-                              {tier.name}
-                          </CardTitle>
-                          <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1 font-bebas">
-                              {tier.distanceRange}
-                          </p>
-                          <div className="text-4xl font-black text-secondary mt-6 font-anton italic tracking-tighter">
-                              {tier.price}
-                          </div>
-                      </CardHeader>
+                  <CardHeader className="text-center pt-12 pb-6">
+                    <div className="w-16 h-16 bg-primary/10 rounded-none flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all border border-primary/20">
+                      <Coins className="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle className="font-anton text-2xl font-bold text-white uppercase tracking-tight">
+                      {tier.name}
+                    </CardTitle>
+                    <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1 font-bebas">
+                      {tier.distanceRange}
+                    </p>
+                    <div className="text-4xl font-black text-secondary mt-6 font-anton italic tracking-tighter">
+                      {tier.price}
+                    </div>
+                  </CardHeader>
 
-                      <CardContent className="flex-grow pb-12">
-                          <p className="text-gray-400 mb-8 text-center text-sm font-sans leading-relaxed">
-                              {tier.description}
-                          </p>
-                          <ul className="space-y-4 font-sans">
-                              {tier.features.map((feature, featureIndex) => (
-                                  <li key={featureIndex} className="flex items-center text-gray-300 text-sm">
-                                      <ArrowRightCircle className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
-                                      {feature}
-                                  </li>
-                              ))}
-                          </ul>
-                      </CardContent>
-                  </Card>
+                  <CardContent className="flex-grow pb-12">
+                    <p className="text-gray-400 mb-8 text-center text-sm font-sans leading-relaxed">
+                      {tier.description}
+                    </p>
+                    <ul className="space-y-4 font-sans">
+                      {tier.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-gray-300 text-sm">
+                          <ArrowRightCircle className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
               </motion.div>
             );
           })}

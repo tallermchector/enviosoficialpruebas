@@ -20,7 +20,7 @@ export function ExpressContent() {
   ]
 
   return (
-    <section className="py-32 px-4 bg-background relative overflow-hidden border-t border-primary/20">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-32 px-4 bg-background relative overflow-hidden border-t border-primary/20">
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left Content */}
@@ -40,7 +40,7 @@ export function ExpressContent() {
             <div className="space-y-8 mb-16">
               {features.map((feature, index) => (
                 <div
-                  key={index} 
+                  key={index}
                   className="flex items-start"
                 >
                   <div className="w-8 h-8 bg-primary/10 border border-primary/20 flex items-center justify-center mr-6 flex-shrink-0 mt-1 rounded-none">

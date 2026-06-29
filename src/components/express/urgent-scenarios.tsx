@@ -34,7 +34,7 @@ export function UrgentScenarios() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-slate-900 relative overflow-hidden">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-24 px-4 bg-slate-900 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">

@@ -3,169 +3,202 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Coins, ArrowRightCircle, HelpCircle } from "lucide-react";
-import Image from "next/image";
+import { MapPin, ArrowRightCircle, Calculator, AlertTriangle, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import type { PriceRange } from '../../../generated/prisma/client/client';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export type PriceRangeClient = Omit<PriceRange, 'distanciaMinKm' | 'distanciaMaxKm' | 'precioRango'> & {
-  distanciaMinKm: number;
-  distanciaMaxKm: number;
-  precioRango: number;
+    distanciaMinKm: number;
+    distanciaMaxKm: number;
+    precioRango: number;
+    nombreZona?: string;
 };
 
-interface FlexPricingRangesProps {
-  priceRanges: PriceRangeClient[];
+interface ExpressPricingRangesProps {
+    priceRanges: PriceRangeClient[];
 }
 
-export function FlexPricingRanges({ priceRanges }: FlexPricingRangesProps) {
-    const flexTiers = [
+export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps) {
+    const displayedPriceRanges = priceRanges.slice(0, 4);
+
+    const staticData = [
         {
-            name: "Nivel 1",
-            price: "Tarifa Clásica",
-            distanceRange: "1 a 4 envíos diarios",
-            description: "Ideal para vendedores que recién comienzan con Flex.",
-            features: [
-                "Tarifa zonificada estándar",
-                "Segunda visita al 50%",
-                "Retiro sin cargo",
-            ],
-            badgeText: "Crecimiento",
+            description: "Ideal para entregas inmediatas en el centro",
+            features: ["Elegís rango horario", "Mínimo 2hs anticipación", "Seguimiento real"],
         },
         {
-            name: "Nivel 2",
-            price: "Tarifa Híbrida",
-            distanceRange: "+5 envíos diarios",
-            description: "Beneficios exclusivos para vendedores constantes.",
-            features: [
-                "Zona 4 y 5 tope fijo $6.500",
-                "2da visita GRATIS (Zona 1)",
-                "Prioridad en ruteo",
-            ],
-            badgeText: "Pro",
+            description: "Cobertura extendida con rapidez",
+            features: ["Elegís rango horario", "Mínimo 2hs anticipación", "Seguimiento real"],
         },
         {
-            name: "Nivel 3",
-            price: "$4.500",
-            distanceRange: "Grandes Cuentas (+10)",
-            description: "Máxima eficiencia y previsibilidad de costos.",
-            features: [
-                "Tarifa PLANA toda la ciudad",
-                "Reprogramaciones 100% GRATIS",
-                "Soporte dedicado",
-            ],
-            badgeText: "Elite",
+            description: "Llegamos a donde otros no",
+            features: ["Elegís rango horario", "Mínimo 2hs anticipación", "Seguimiento real"],
+        },
+        {
+            description: "Máxima cobertura urbana",
+            features: ["Elegís rango horario", "Mínimo 2hs anticipación", "Seguimiento real"],
         },
     ];
 
-    const handleWhatsAppClick = () => {
-        const phoneNumber = "5492236602699";
-        const message = "Hola, necesito cotizar un Envío Flex de más de 13 km.";
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, "_blank");
-    };
-
     return (
-        <section className="py-24 px-4 bg-background relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-
+        <section data-style="soft-ui" className="bg-[var(--bg-base)] py-32 px-4 bg-background relative">
             <div className="container mx-auto max-w-7xl relative z-10">
-                <div className="text-center mb-20">
+                <div className="text-center mb-24">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="font-anton text-4xl md:text-5xl font-black italic mb-6 uppercase text-white tracking-tighter">
-                            NIVELES Y <span className="text-primary">TARIFAS FLEX</span>
+                        <h2 className="font-display text-display-lg md:text-[60px] font-black italic mb-6 uppercase text-foreground tracking-tighter">
+                            TARIFAS 2026 <span className="text-primary">ENVÍOS EXPRESS</span>
                         </h2>
-                        <div className="w-24 h-2 bg-primary mx-auto mb-8 rounded-none" />
-                        <p className="text-gray-400 text-lg max-w-2xl mx-auto font-sans">
-                            Escalá tu negocio con MercadoLibre Flex. A mayor volumen, mejores beneficios y tarifas para tus envíos.
+                        <div className="w-32 h-1.5 bg-primary mx-auto mb-8" />
+                        <p className="text-gray-400 text-body-lg max-w-2xl mx-auto font-sans">
+                            Consultá los precios actualizados para nuestro servicio premium con rango horario a elección.
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {flexTiers.map((tier, index) => {
-                        return (
-                             <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                            >
-                                <Card className="relative glassmorphism border border-white/10 hover:border-glow-secondary transition-stitch rounded-none overflow-hidden h-full flex flex-col group shadow-crate hover:shadow-industrial-secondary">
-                                    <Badge className="absolute top-4 right-4 bg-primary/20 text-primary border-primary/30 py-1 px-3 rounded-none text-xxs font-bold uppercase tracking-widest font-bebas">
-                                        {tier.badgeText}
-                                    </Badge>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                    {displayedPriceRanges.map((range, index) => (
+                        <motion.div
+                            key={range.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                        >
+                            <Card className="relative glassmorphism border border-white/10 hover:border-glow-primary transition-stitch rounded-none overflow-hidden h-full flex flex-col group shadow-crate hover:shadow-industrial">
+                                <Badge className="absolute top-0 right-0 bg-primary text-slate-900 border-none py-1 px-4 rounded-none text-xxs font-bold uppercase tracking-widest font-bebas">
+                                    Tarifa 2026
+                                </Badge>
 
-                                    <CardHeader className="text-center pt-12 pb-6">
-                                        <div className="w-16 h-16 bg-primary/10 rounded-none flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all border border-primary/20">
-                                            <Coins className="w-8 h-8 text-primary" />
-                                        </div>
-                                        <CardTitle className="font-anton text-2xl font-bold text-white uppercase tracking-tight">
-                                            {tier.name}
-                                        </CardTitle>
-                                        <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1 font-bebas">
-                                            {tier.distanceRange}
-                                        </p>
-                                        <div className="text-4xl font-black text-secondary mt-6 font-anton italic tracking-tighter">
-                                            {tier.price}
-                                        </div>
-                                    </CardHeader>
+                                <CardHeader className="text-center pt-16 pb-8">
+                                    <div className="w-16 h-16 bg-slate-800 rounded-none flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors border border-slate-700">
+                                        <MapPin className="w-8 h-8 text-primary" />
+                                    </div>
+                                    <h3 className="font-display text-headline-lg font-bold text-foreground uppercase tracking-tight">
+                                        {range.nombreZona || `Zona ${index + 1}`}
+                                    </h3>
+                                    <p className="text-xs text-primary font-bold uppercase tracking-widest mt-2">
+                                        {index === 0 ? "Radio céntrico" : index === 1 ? "Periferia cercana" : index === 2 ? "Zonas alejadas" : "Límites de ciudad"}
+                                    </p>
+                                    <div className="text-5xl font-black text-foreground mt-8 font-display italic tracking-tighter">
+                                        ${range.precioRango.toLocaleString('es-AR')}
+                                    </div>
+                                </CardHeader>
 
-                                    <CardContent className="flex-grow pb-12">
-                                        <p className="text-gray-400 mb-8 text-center text-sm font-sans leading-relaxed">
-                                            {tier.description}
-                                        </p>
-                                        <ul className="space-y-4 font-sans">
-                                            {tier.features.map((feature, featureIndex) => (
-                                                <li key={featureIndex} className="flex items-center text-gray-300 text-sm">
-                                                    <ArrowRightCircle className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
-                                                    {feature}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </CardContent>
-                                </Card>
-                             </motion.div>
-                        );
-                    })}
+                                <CardContent className="flex-grow pb-12 px-8">
+                                    <p className="text-gray-400 mb-10 text-center text-body-md font-sans leading-relaxed">
+                                        {staticData[index]?.description || "Servicio premium garantizado"}
+                                    </p>
+                                    <ul className="space-y-5 font-sans">
+                                        {(staticData[index]?.features || ["Elegís rango horario", "Seguimiento real"]).map((feature, featureIndex) => (
+                                            <li key={featureIndex} className="flex items-center text-gray-300 text-sm">
+                                                <CheckCircle2 className="w-4 h-4 text-primary mr-3 flex-shrink-0" />
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+                    ))}
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mt-12"
-                >
-                    <Card className="glassmorphism border border-white/10 rounded-none overflow-hidden p-8 md:p-12 shadow-crate hover:border-glow-secondary transition-stitch">
-                         <div className="grid md:grid-cols-2 gap-12 items-center">
-                            <div>
-                              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-secondary/10 border border-secondary/20 text-secondary text-xxs font-bold tracking-widest mb-6 uppercase font-bebas">
-                                BENEFICIO CLIMA
-                              </div>
-                              <h3 className="font-anton text-3xl font-black text-white uppercase tracking-tighter mb-4 italic">
-                                RECARGO POR LLUVIA: <span className="text-secondary">SOLO 30%</span>
-                              </h3>
-                              <p className="text-gray-400 font-sans leading-relaxed">
-                                Para nuestros clientes Flex, el recargo por días de lluvia es reducido. Minimizamos el impacto en tus costos operativos.
-                              </p>
+                <div className="mt-24 space-y-12">
+                    {/* Cotizador CTA Block */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <div className="glassmorphism border border-white/10 rounded-none overflow-hidden p-8 md:p-16 shadow-crate hover:border-glow-primary transition-stitch relative">
+                            <div className="grid lg:grid-cols-3 gap-12 items-center">
+                                <div className="lg:col-span-2">
+                                    <div className="inline-flex items-center gap-2 px-4 py-1 bg-secondary text-black text-xxs font-bold tracking-widest mb-6 uppercase">
+                                        COTIZACIÓN DINÁMICA
+                                    </div>
+                                    <h3 className="font-display text-display-md font-black text-foreground uppercase tracking-tighter mb-6 italic">
+                                        ZONA 5: <span className="text-secondary">$1.000 / KM</span>
+                                    </h3>
+                                    <p className="text-gray-400 font-sans text-body-lg leading-relaxed max-w-3xl">
+                                        Para envíos de larga distancia fuera del ejido urbano o una cotización precisa con mapa, utilizá nuestro cotizador inteligente de alta precisión.
+                                    </p>
+                                </div>
+                                <div className="flex justify-center lg:justify-end">
+                                    <Button
+                                        asChild
+                                        size="lg"
+                                        className="bg-secondary hover:bg-yellow-400 text-black font-display font-bold px-12 py-8 rounded-none transition-all uppercase tracking-tight h-auto text-label-md shadow-lg hover:scale-105"
+                                    >
+                                        <Link href="/cotizar/express">
+                                            <Calculator className="w-6 h-6 mr-3" />
+                                            IR AL COTIZADOR
+                                        </Link>
+                                    </Button>
+                                </div>
                             </div>
-                            <div className="flex justify-center md:justify-end">
-                               <Button
-                                onClick={handleWhatsAppClick}
-                                className="bg-secondary hover:bg-yellow-400 text-black font-display font-black px-10 py-6 rounded-none transition-all uppercase tracking-tight shadow-[0_0_20px_rgba(251,191,36,0.3)] h-auto text-label-md hover:scale-105"
-                              >
-                                <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={24} height={24} className="w-6 h-6 mr-3" />
-                                MÁS INFORMACIÓN FLEX
-                              </Button>
+                        </div>
+                    </motion.div>
+
+                    {/* Conditions Accordion */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="max-w-3xl mx-auto"
+                    >
+                        <div className="text-center mb-8">
+                            <div className="inline-flex items-center justify-center w-12 h-12 rounded-none bg-primary/10 border border-primary/20 mb-4">
+                                <AlertTriangle className="h-6 w-6 text-primary" />
                             </div>
-                         </div>
-                    </Card>
-                </motion.div>
+                            <h4 className="font-display font-bold text-foreground text-headline-lg uppercase tracking-tight">Condiciones del Servicio Express</h4>
+                        </div>
+
+                        <Accordion type="single" collapsible className="w-full glassmorphism border border-white/10 rounded-none overflow-hidden">
+                            <AccordionItem value="item-1" className="border-white/10 px-6">
+                                <AccordionTrigger className="text-foreground hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
+                                    Tiempos y Tolerancia
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-400 font-sans leading-relaxed pb-6 text-body-md">
+                                    Contamos con una tolerancia de 10 minutos en puerta. Es fundamental que el receptor esté disponible para asegurar la eficiencia del servicio.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-2" className="border-white/10 px-6">
+                                <AccordionTrigger className="text-foreground hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
+                                    Recargos por Clima
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-400 font-sans leading-relaxed pb-6 text-body-md">
+                                    En días de lluvia, se aplica un recargo del 50% sobre el valor del envío para garantizar la seguridad de nuestros repartidores y la protección de tu carga.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-3" className="border-white/10 px-6">
+                                <AccordionTrigger className="text-foreground hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
+                                    Bultos y Pesos
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-400 font-sans leading-relaxed pb-6 text-body-md">
+                                    El servicio estándar incluye un bulto de hasta 5kg/40cm. Cada bulto excedente tiene un costo adicional de $1.800.
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="item-4" className="border-white/10 px-6 last:border-0">
+                                <AccordionTrigger className="text-foreground hover:no-underline font-sans uppercase text-sm font-bold tracking-wider">
+                                    Anticipación Requerida
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-400 font-sans leading-relaxed pb-6 text-body-md">
+                                    Para coordinar un envío express con éxito, solicitamos una anticipación mínima de 2 horas.
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+                    </motion.div>
+                </div>
             </div>
         </section>
     );

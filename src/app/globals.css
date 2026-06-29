@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
+@import "../styles/soft-ui.css";
+@import "../styles/glassmorphism.css";
 
 /* ── Brand Book: ENVÍOS DOSRUEDAS ── */
 /* Colores: Egyptian Blue #0636A5 · Sunbeam Yellow #FFEC01 · White #FFFFFF */

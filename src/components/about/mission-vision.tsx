@@ -3,7 +3,7 @@ import { Target, Eye, Lightbulb } from "lucide-react"
 
 export function MissionVision() {
   return (
-    <section className="py-16 px-4 bg-accent/30">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-16 px-4 bg-accent/30">
       <div className="container mx-auto max-w-6xl">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Mission */}

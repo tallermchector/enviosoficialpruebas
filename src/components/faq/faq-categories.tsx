@@ -125,7 +125,7 @@ export function FaqCategories() {
   const activeFaq = faqData.find((faq) => faq.category === activeCategory)
 
   return (
-    <section className="py-16 px-4 bg-primary text-white">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-16 px-4 bg-primary text-white">
       <div className="container mx-auto max-w-6xl">
         {/* Category Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-16">

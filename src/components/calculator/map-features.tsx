@@ -22,7 +22,7 @@ const features = [
 
 export default function MapFeatures() {
   return (
-    <section className="py-12 md:py-16 bg-muted/30 font-sans">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-12 md:py-16 bg-muted/30 font-sans">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-3 md:mb-4 font-display">
           Beneficios de Nuestro Cotizador
@@ -32,8 +32,8 @@ export default function MapFeatures() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-1"
             >
               <CardHeader className="items-center text-center pb-3">

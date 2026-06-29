@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 export function EntrepreneurCta() {
   return (
-    <section className="py-24 px-4 bg-surface-light relative overflow-hidden">
+    <section data-style="glassmorphism" className="glass-section py-24 px-4 bg-surface-light relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
         <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[120px]" />
@@ -24,7 +24,7 @@ export function EntrepreneurCta() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-none blur-[80px] -translate-y-32 translate-x-32" />
 
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-none bg-white/5 border border-white/10 text-white/70 text-xxs font-bold tracking-[0.3em] mb-10 uppercase">
-             SOCIO LOGÍSTICO <div className="w-1.5 h-1.5 rounded-none bg-primary animate-pulse" />
+            SOCIO LOGÍSTICO <div className="w-1.5 h-1.5 rounded-none bg-primary animate-pulse" />
           </div>
 
           <h2 className="font-anton text-4xl md:text-6xl font-black italic tracking-tighter leading-tight mb-8 uppercase text-white">
@@ -37,7 +37,7 @@ export function EntrepreneurCta() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-             <Link
+            <Link
               href="/contacto"
               className="px-12 py-5 bg-secondary hover:bg-yellow-400 text-black font-bebas text-lg tracking-wider rounded-none transition-all transform hover:scale-105 active:scale-95 shadow-industrial flex items-center gap-3 uppercase h-auto"
             >

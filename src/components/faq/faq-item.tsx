@@ -46,7 +46,7 @@ export function FaqItem({ question, answer, defaultOpen = false }: FaqItemProps)
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <div className="px-6 pb-6">
+              <div data-style="soft-ui" className="bg-[var(--bg-base)] px-6 pb-6">
                 <div className="pt-4 border-t border-white/10">
                   <p className="text-white/80 leading-relaxed font-body text-lg">{answer}</p>
                 </div>

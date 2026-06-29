@@ -25,7 +25,7 @@ export function BusinessHours() {
   ]
 
   return (
-    <section className="py-12 md:py-16 px-4 bg-transparent border-t border-white/5">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-12 md:py-16 px-4 bg-transparent border-t border-white/5">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 md:mb-12">

@@ -130,10 +130,10 @@ export const ServicesOverview = () => {
   };
 
   return (
-    <section className="relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-[#050810] overflow-hidden">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-[#050810] overflow-hidden">
       {/* Ambient background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[160px] pointer-events-none opacity-50" />
-      
+
       {/* Section Transition Lines */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -189,8 +189,8 @@ export const ServicesOverview = () => {
                 )}
               >
                 {/* Background Highlight on Hover */}
-                <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" 
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{ background: `radial-gradient(circle at top right, ${theme.glowColor}, transparent)` }}
                 />
 
@@ -218,8 +218,8 @@ export const ServicesOverview = () => {
                     href={service.href}
                     className={cn(
                       "flex items-center gap-3 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-sm",
-                      theme.accentColor === 'secondary' ? 'focus-visible:ring-secondary' : 
-                      theme.accentColor === 'primary' ? 'focus-visible:ring-primary' : 'focus-visible:ring-white',
+                      theme.accentColor === 'secondary' ? 'focus-visible:ring-secondary' :
+                        theme.accentColor === 'primary' ? 'focus-visible:ring-primary' : 'focus-visible:ring-white',
                       theme.button
                     )}
                   >

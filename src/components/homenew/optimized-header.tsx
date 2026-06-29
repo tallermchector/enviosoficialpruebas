@@ -40,7 +40,7 @@ export const OptimizedHeader = () => {
         </span>
       </Link>
 
-      <nav className="hidden lg:flex items-center gap-1 bg-white/[0.06] border border-white/10 px-2 py-1">
+      <nav data-style="glassmorphism" className="hidden lg:flex items-center gap-1 glass-section px-2 py-1">
         <ActiveLink
           href="/"
           className="text-white/80 hover:text-white hover:bg-white/10 font-bebas text-lg tracking-wider"

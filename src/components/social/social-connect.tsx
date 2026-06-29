@@ -36,7 +36,7 @@ export function SocialConnect() {
   ]
 
   return (
-    <section className="py-16 px-4 bg-background font-sans">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-16 px-4 bg-background font-sans">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-display-md text-foreground mb-6 font-display uppercase tracking-tight">¡Seguí el Movimiento!</h2>

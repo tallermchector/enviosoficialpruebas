@@ -23,7 +23,7 @@ export function NewsletterSignup() {
   }
 
   return (
-    <section className="py-24 px-4 bg-[#0a0d16]/60 border-t border-white/10 overflow-hidden relative">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-24 px-4 bg-[#0a0d16]/60 border-t border-white/10 overflow-hidden relative">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full -translate-x-1/2 translate-y-1/2 blur-3xl"></div>
@@ -73,8 +73,8 @@ export function NewsletterSignup() {
                   </Button>
                 </form>
 
-                  <p className="text-label-sm text-gray-500 mt-8 font-sans">
-                    Garantizamos la privacidad de tus datos. Podés darte de baja con un solo clic en cualquier momento.
+                <p className="text-label-sm text-gray-500 mt-8 font-sans">
+                  Garantizamos la privacidad de tus datos. Podés darte de baja con un solo clic en cualquier momento.
                 </p>
               </>
             )}

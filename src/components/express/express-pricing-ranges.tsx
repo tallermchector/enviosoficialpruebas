@@ -48,7 +48,7 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
   ];
 
   return (
-    <section className="py-32 px-4 bg-background relative">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-32 px-4 bg-background relative">
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-24">
           <motion.div
@@ -121,31 +121,31 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
             viewport={{ once: true }}
           >
             <div className="glassmorphism border border-white/10 rounded-none overflow-hidden p-8 md:p-16 shadow-crate hover:border-glow-primary transition-stitch relative">
-               <div className="grid lg:grid-cols-3 gap-12 items-center">
-                  <div className="lg:col-span-2">
-                    <div className="inline-flex items-center gap-2 px-4 py-1 bg-secondary text-black text-xxs font-bold tracking-widest mb-6 uppercase">
-                      COTIZACIÓN DINÁMICA
-                    </div>
-                    <h3 className="font-display text-display-md font-black text-foreground uppercase tracking-tighter mb-6 italic">
-                      ZONA 5: <span className="text-secondary">$1.000 / KM</span>
-                    </h3>
-                    <p className="text-gray-400 font-sans text-body-lg leading-relaxed max-w-3xl">
-                      Para envíos de larga distancia fuera del ejido urbano o una cotización precisa con mapa, utilizá nuestro cotizador inteligente de alta precisión.
-                    </p>
+              <div className="grid lg:grid-cols-3 gap-12 items-center">
+                <div className="lg:col-span-2">
+                  <div className="inline-flex items-center gap-2 px-4 py-1 bg-secondary text-black text-xxs font-bold tracking-widest mb-6 uppercase">
+                    COTIZACIÓN DINÁMICA
                   </div>
-                  <div className="flex justify-center lg:justify-end">
-                     <Button
-                      asChild
-                      size="lg"
-                      className="bg-secondary hover:bg-yellow-400 text-black font-display font-bold px-12 py-8 rounded-none transition-all uppercase tracking-tight h-auto text-label-md shadow-lg hover:scale-105"
-                    >
-                      <Link href="/cotizar/express">
-                        <Calculator className="w-6 h-6 mr-3" />
-                        IR AL COTIZADOR
-                      </Link>
-                    </Button>
-                  </div>
-               </div>
+                  <h3 className="font-display text-display-md font-black text-foreground uppercase tracking-tighter mb-6 italic">
+                    ZONA 5: <span className="text-secondary">$1.000 / KM</span>
+                  </h3>
+                  <p className="text-gray-400 font-sans text-body-lg leading-relaxed max-w-3xl">
+                    Para envíos de larga distancia fuera del ejido urbano o una cotización precisa con mapa, utilizá nuestro cotizador inteligente de alta precisión.
+                  </p>
+                </div>
+                <div className="flex justify-center lg:justify-end">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-secondary hover:bg-yellow-400 text-black font-display font-bold px-12 py-8 rounded-none transition-all uppercase tracking-tight h-auto text-label-md shadow-lg hover:scale-105"
+                  >
+                    <Link href="/cotizar/express">
+                      <Calculator className="w-6 h-6 mr-3" />
+                      IR AL COTIZADOR
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </motion.div>
 
@@ -157,10 +157,10 @@ export function ExpressPricingRanges({ priceRanges }: ExpressPricingRangesProps)
             className="max-w-3xl mx-auto"
           >
             <div className="text-center mb-8">
-               <div className="inline-flex items-center justify-center w-12 h-12 rounded-none bg-primary/10 border border-primary/20 mb-4">
-                  <AlertTriangle className="h-6 w-6 text-primary" />
-               </div>
-               <h4 className="font-display font-bold text-foreground text-headline-lg uppercase tracking-tight">Condiciones del Servicio Express</h4>
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-none bg-primary/10 border border-primary/20 mb-4">
+                <AlertTriangle className="h-6 w-6 text-primary" />
+              </div>
+              <h4 className="font-display font-bold text-foreground text-headline-lg uppercase tracking-tight">Condiciones del Servicio Express</h4>
             </div>
 
             <Accordion type="single" collapsible className="w-full glassmorphism border border-white/10 rounded-none overflow-hidden">

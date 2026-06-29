@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 export function WhoWeAre() {
   return (
-    <section className="py-16 px-4 bg-primary text-white">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-16 px-4 bg-primary text-white">
       <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

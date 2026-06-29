@@ -22,7 +22,7 @@ const tips = [
 
 export default function CalculatorTips() {
   return (
-    <section className="py-12 md:py-16 bg-muted/30 font-sans">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-12 md:py-16 bg-muted/30 font-sans">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-3 md:mb-4 font-display uppercase">
           Consejos para una Cotización Exitosa
@@ -32,13 +32,13 @@ export default function CalculatorTips() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {tips.map((tip, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="border-white/10 glassmorphism shadow-crate text-center h-full flex flex-col transition-all duration-300 ease-out hover:border-primary/50 hover:-translate-y-1.5 transition-stitch rounded-none"
             >
               <CardHeader className="items-center pb-3">
                 <div className="p-3 bg-secondary/10 rounded-none mb-2">
-                    {tip.icon}
+                  {tip.icon}
                 </div>
                 <CardTitle className="text-xl md:text-2xl font-display uppercase text-white">{tip.title}</CardTitle>
               </CardHeader>

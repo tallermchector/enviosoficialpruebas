@@ -5,7 +5,7 @@ import { MessageCircle, Phone, Mail } from "lucide-react"
 
 export function FaqContactCta() {
   return (
-    <section className="py-16 px-4 bg-[#030710]">
+    <section data-style="glassmorphism" className="glass-section py-16 px-4 bg-[#030710]">
       <div className="container mx-auto max-w-4xl">
         <Card className="glassmorphism text-white border-white/10 shadow-crate overflow-hidden relative rounded-none">
           <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-none -translate-y-1/2 translate-x-1/2 blur-3xl"></div>

@@ -38,7 +38,7 @@ export const EmprendedoresHome = () => {
   ];
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 overflow-hidden bg-[#050810]">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] relative min-h-[100dvh] flex items-center py-20 lg:py-32 px-4 overflow-hidden bg-[#050810]">
       {/* Background Decorative Tech Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.05]">
         <Image

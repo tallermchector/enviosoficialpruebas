@@ -1,0 +1,38 @@
+# Envíos DosRuedas
+
+> Plataforma digital y servicio de mensajería especializada en logística urbana de última milla, delivery y soluciones e-commerce en la ciudad de Mar del Plata, Argentina.
+
+## Información Principal
+Envíos DosRuedas ofrece soluciones de distribución urbana con una flota ágil de motocicletas, operando de manera continua (24/7) para el sector corporativo. Transforma los costos fijos de logística en soluciones flexibles y escalables mediante sistemas de cuenta corriente y herramientas avanzadas de cotización dinámica.
+
+## Servicios Logísticos
+- **Envíos Express**: Entrega prioritaria de alta criticidad horaria con coordinación de franja horaria de entrega con solo 2 horas de anticipación.
+- **Envíos LowCost**: Servicio de ruteo masivo optimizado para máxima rentabilidad; los pedidos ingresados antes de las 13:00 hs se entregan el mismo día antes de las 19:00 hs.
+- **Envíos Flex (MercadoLibre)**: Socio estratégico experto en cumplimiento de SLAs de entregas en el mismo día (Same-Day) para vendedores de MercadoLibre.
+- **Plan Emprendedores (3PL)**: Tercerización integral de logística, cuentas corrientes logísticas y depósito para tiendas digitales con consolidación de facturación mensual flexible.
+
+## Enlaces del Sitio Web
+- [Inicio](https://enviosdosruedas.com) - Landing page con la presentación de la marca y capacidades dinámicas.
+- [Sobre Nosotros](https://enviosdosruedas.com/nosotros/sobre-nosotros) - Trayectoria corporativa, historia y opiniones locales.
+- [Contacto](https://enviosdosruedas.com/contacto) - Canales oficiales de comunicación y números de atención al cliente.
+- [Preguntas Frecuentes](https://enviosdosruedas.com/nosotros/preguntas-frecuentes) - Respuestas a las consultas comunes sobre operaciones de logística.
+
+## Herramientas de Cotización
+- [Cotizador Express](https://enviosdosruedas.com/cotizar/express) - Calculador en tiempo real para servicios de envío prioritarios bajo rango horario de 2 horas.
+- [Cotizador LowCost](https://enviosdosruedas.com/cotizar/lowcost) - Calculador de tarifas para servicios de distribución urbana por volumen.
+
+## Secciones Secundarias
+- [Nuestras Redes](https://enviosdosruedas.com/nosotros/nuestras-redes) - Portal de conexión para emprendedores locales.
+
+## Canales Digitales y Redes Sociales
+- [Instagram Oficial](https://www.instagram.com/enviosdosruedas/) - Novedades diarias, publicaciones sobre el servicio y comunidad en Mar del Plata.
+- [Facebook Oficial](https://www.facebook.com/enviosdosruedas/) - Comunidad activa y actualizaciones comerciales sobre logística urbana.
+
+## Información de Contacto Oficial
+- **Ubicación**: Friuli 1972, Mar del Plata, Argentina.
+- **Teléfono**: +54 223 660-2699
+- **Correo Electrónico**: matiascejas@enviosdosruedas.com
+
+## Políticas Legales
+- [Términos y Condiciones](https://enviosdosruedas.com/terminos-y-condiciones) - Condiciones legales de uso de los servicios de mensajería.
+- [Política de Privacidad](https://enviosdosruedas.com/politica-de-privacidad) - Detalle sobre el manejo y la protección segura de datos corporativos.

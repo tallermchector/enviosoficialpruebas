@@ -11,7 +11,7 @@ export function ContactMap() {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-transparent border-t border-white/5">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-12 md:py-16 bg-transparent border-t border-white/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 md:mb-12">
           <motion.div
@@ -36,13 +36,13 @@ export function ContactMap() {
           viewport={{ once: true }}
           className="relative h-[450px] md:h-[550px] w-full rounded-none overflow-hidden shadow-2xl border border-white/10 bg-[#0a0d16]/60 backdrop-blur-md"
         >
-          <iframe 
+          <iframe
             src="https://www.openstreetmap.org/export/embed.html?bbox=-57.8,-38.15,-57.4,-37.85&layer=mapnik"
-            width="100%" 
-            height="100%" 
-            style={{ border:0 }} 
-            allowFullScreen={false} 
-            loading="lazy" 
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={false}
+            loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Mapa de cobertura de Envios DosRuedas en Mar del Plata"
             className="grayscale contrast-[1.1] invert dark:invert-0 dark:grayscale-0"

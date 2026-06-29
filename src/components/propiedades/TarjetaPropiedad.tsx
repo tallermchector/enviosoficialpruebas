@@ -23,13 +23,13 @@ interface TarjetaPropiedadProps {
 
 export function TarjetaPropiedad({ propiedad }: TarjetaPropiedadProps) {
   return (
-    <div className="group relative flex flex-col bg-white/10 backdrop-blur-md border border-white/20 rounded-none overflow-hidden shadow-crate hover:border-secondary transition-all duration-300 transform hover:-translate-y-1">
+    <div data-style="soft-ui" className="bg-[var(--bg-base)] group relative flex flex-col bg-white/10 backdrop-blur-md border border-white/20 rounded-none overflow-hidden shadow-crate hover:border-secondary transition-all duration-300 transform hover:-translate-y-1">
       {/* Aspect Ratio container for Image */}
       <div className="relative w-full h-56 bg-primary/20 shrink-0">
-        <Image 
-          src={propiedad.imagen} 
-          alt={propiedad.titulo} 
-          fill 
+        <Image
+          src={propiedad.imagen}
+          alt={propiedad.titulo}
+          fill
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -74,7 +74,7 @@ export function TarjetaPropiedad({ propiedad }: TarjetaPropiedadProps) {
           <span className="text-2xl font-bold text-secondary font-subtitle tracking-wider">
             {propiedad.precio}
           </span>
-          <Button 
+          <Button
             className="bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-black tracking-wider uppercase rounded-none border border-secondary transition-all duration-300 px-5 text-base h-10 shrink-0"
           >
             Ver Detalles

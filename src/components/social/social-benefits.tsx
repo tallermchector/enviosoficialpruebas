@@ -26,7 +26,7 @@ export function SocialBenefits() {
   ]
 
   return (
-    <section className="py-20 px-4 bg-[#030710]">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-20 px-4 bg-[#030710]">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-display-md text-foreground mb-4 font-display uppercase">Beneficios de Formar Parte</h2>

@@ -31,7 +31,7 @@ const PlatformIcon = ({ platform }: { platform: SocialPost['platform'] }) => {
 export function SocialFeed({ posts }: SocialFeedProps) {
   if (!posts || posts.length === 0) {
     return (
-      <section className="py-20 px-4 bg-[#030710]">
+      <section data-style="soft-ui" className="bg-[var(--bg-base)] py-20 px-4 bg-[#030710]">
         <div className="container mx-auto text-center">
           <p className="text-body-lg text-muted-foreground font-sans">Mantenete atento a nuestras próximas publicaciones.</p>
         </div>
@@ -94,7 +94,7 @@ export function SocialFeed({ posts }: SocialFeedProps) {
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300"></div>
                   </a>
                 )}
-                
+
                 <div className="p-6">
                   <p className="text-muted-foreground leading-relaxed text-body-md font-sans line-clamp-4">
                     {post.content}
@@ -102,13 +102,13 @@ export function SocialFeed({ posts }: SocialFeedProps) {
                 </div>
 
                 {post.platform === 'whatsapp' && (
-                   <div className="px-6 pb-6">
+                  <div className="px-6 pb-6">
                     <Button asChild className={cn("w-full h-12 text-black uppercase font-bebas text-lg tracking-wider rounded-none shadow-industrial", platformColors[post.platform])}>
                       <a href={post.postUrl} target="_blank" rel="noopener noreferrer">
                         <MessageSquare className="mr-2 h-5 w-5" /> Iniciar Chat Web
                       </a>
                     </Button>
-                   </div>
+                  </div>
                 )}
               </CardContent>
 

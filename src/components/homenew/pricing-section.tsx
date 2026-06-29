@@ -6,7 +6,7 @@ import { Check } from 'lucide-react';
 
 export function PricingSection() {
   return (
-    <section className="py-20 px-4 bg-primary text-white border-t border-white/10" id="pricing">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-20 px-4 bg-primary text-white border-t border-white/10" id="pricing">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <div className="borline_w"></div>
@@ -30,7 +30,7 @@ export function PricingSection() {
                 <span className="text-white/60 text-sm font-body">/ mes</span>
               </div>
               <p className="text-xs text-white/50 font-body mb-6">Facturado de forma anual</p>
-              
+
               <ul className="space-y-3 mb-8 text-white/80 font-body text-sm">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-secondary shrink-0" />
@@ -46,8 +46,8 @@ export function PricingSection() {
                 </li>
               </ul>
             </div>
-            
-            <Button 
+
+            <Button
               className="w-full bg-white/10 hover:bg-white/20 text-white font-subtitle font-bold tracking-wider uppercase rounded-none border border-white/20 transition-all duration-300 h-11 text-base"
             >
               Registrarme Gratis
@@ -68,7 +68,7 @@ export function PricingSection() {
                 <span className="text-white/60 text-sm font-body">/ mes</span>
               </div>
               <p className="text-xs text-white/50 font-body mb-6">Facturado de forma anual</p>
-              
+
               <ul className="space-y-3 mb-8 text-white/85 font-body text-sm">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-secondary shrink-0" />
@@ -88,8 +88,8 @@ export function PricingSection() {
                 </li>
               </ul>
             </div>
-            
-            <Button 
+
+            <Button
               className="w-full bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-black tracking-wider uppercase rounded-none border border-secondary transition-all duration-300 h-11 text-base"
             >
               Probar Plan Premium
@@ -107,7 +107,7 @@ export function PricingSection() {
                 <span className="text-white/60 text-sm font-body">/ mes</span>
               </div>
               <p className="text-xs text-white/50 font-body mb-6">Facturado de forma anual</p>
-              
+
               <ul className="space-y-3 mb-8 text-white/80 font-body text-sm">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-secondary shrink-0" />
@@ -127,8 +127,8 @@ export function PricingSection() {
                 </li>
               </ul>
             </div>
-            
-            <Button 
+
+            <Button
               className="w-full bg-white/10 hover:bg-white/20 text-white font-subtitle font-bold tracking-wider uppercase rounded-none border border-white/20 transition-all duration-300 h-11 text-base"
             >
               Registrarme Gratis

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Calculator, Loader2, PackageCheck, RotateCcw, ThumbsUp } from 'lucide-react';
+import { Calculator, Loader2, Package, ThumbsUp } from 'lucide-react';
 import React, { useState, FormEvent, useMemo } from 'react';
 import RouteMap from './route-map';
 import { AddressAutocomplete } from './address-autocomplete';
@@ -45,27 +45,27 @@ export default function LowCostCalculator() {
     setQuoteDetails(null);
 
     const result = await quoteShipment({
-        originAddress: origin,
-        destinationAddress: destination,
-        serviceType: ServiceTypeEnum.LOW_COST,
+      originAddress: origin,
+      destinationAddress: destination,
+      serviceType: ServiceTypeEnum.LOW_COST,
     });
 
     setIsCalculating(false);
 
     if (result.success && result.data) {
-        setQuoteDetails(result.data);
-        const priceText = result.data.price !== null ? `$${result.data.price.toLocaleString('es-AR')}` : "Consultar";
-        toast({
-            title: "Cotización Exitosa",
-            description: `Distancia: ${result.data.distanceText}. Precio: ${priceText}`,
-            variant: "default",
-        });
+      setQuoteDetails(result.data);
+      const priceText = result.data.price !== null ? `$${result.data.price.toLocaleString('es-AR')}` : "Consultar";
+      toast({
+        title: "Cotización Exitosa",
+        description: `Distancia: ${result.data.distanceText}. Precio: ${priceText}`,
+        variant: "default",
+      });
     } else {
-        toast({
-            variant: "destructive",
-            title: "Error de Cálculo",
-            description: result.error || "No se pudo calcular la ruta o el precio. Verifica las direcciones o inténtalo más tarde.",
-        });
+      toast({
+        variant: "destructive",
+        title: "Error de Cálculo",
+        description: result.error || "No se pudo calcular la ruta o el precio. Verifica las direcciones o inténtalo más tarde.",
+      });
     }
   };
 
@@ -77,7 +77,7 @@ export default function LowCostCalculator() {
   };
 
   return (
-    <section className="w-full py-12 md:py-16 bg-background font-body">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] w-full py-12 md:py-16 bg-background font-body">
       <div className="container mx-auto px-4 md:px-6 max-w-2xl lg:max-w-3xl">
         <Card className="glassmorphism border border-primary/20 shadow-crate rounded-none overflow-hidden bg-white">
           <CardHeader className="pt-8">
@@ -131,12 +131,12 @@ export default function LowCostCalculator() {
                 destination={mapCoordinates.destination}
               />
             )}
-            
+
             {quoteDetails && !isCalculating && (
               <Card className="mt-8 bg-primary/10 border border-primary/20 rounded-none overflow-hidden backdrop-blur-sm shadow-crate">
                 <CardHeader className="pb-4">
                   <CardTitle className="text-headline-lg-mobile text-primary flex items-center font-title uppercase tracking-tight">
-                    <PackageCheck className="mr-3 h-7 w-7" />
+                    <Package className="mr-3 h-7 w-7" />
                     Tu Cotización Low Cost
                   </CardTitle>
                   <CardDescription className="text-body-sm font-body text-primary/70 mt-1">
@@ -168,8 +168,8 @@ export default function LowCostCalculator() {
                   )}
                 </CardContent>
                 <CardFooter className="flex flex-col sm:flex-row gap-3 pt-4 md:pt-6 font-body">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-bold uppercase tracking-wider text-lg rounded-none shadow-industrial border-none"
                     disabled={quoteDetails.price === null}
                     onClick={() => alert('Funcionalidad "Confirmar Envío Low Cost" pendiente de implementación.')}
@@ -178,7 +178,7 @@ export default function LowCostCalculator() {
                     Confirmar Envío Low Cost
                   </Button>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto font-subtitle font-bold uppercase tracking-wider text-lg rounded-none border-primary/20 text-primary hover:bg-primary/5" onClick={handleNewQuote}>
-                    <RotateCcw className="mr-2 h-5 w-5" />
+                    <Loader2 className="mr-2 h-5 w-5" />
                     Nueva Cotización
                   </Button>
                 </CardFooter>

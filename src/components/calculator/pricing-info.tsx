@@ -5,7 +5,7 @@ import { Scale, Clock } from "lucide-react";
 
 export default function PricingInfo() {
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-xl md:max-w-3xl mx-auto text-center">
           <Badge variant="outline" className="mb-3 md:mb-4 text-xs sm:text-sm py-1 px-3 font-sans rounded-none border-primary text-primary">
@@ -57,11 +57,11 @@ export default function PricingInfo() {
             </CardContent>
           </Card>
         </div>
-         <div className="mt-8 md:mt-10 text-center">
-            <p className="text-sm md:text-base text-muted-foreground font-sans">
-                Para distancias muy largas o fuera de cobertura habitual, el cotizador podría indicar &quot;Consultar&quot;.
-                En estos casos, te invitamos a <a href="/contacto" className="text-primary hover:underline font-semibold">contactarnos</a> para una cotización personalizada.
-            </p>
+        <div className="mt-8 md:mt-10 text-center">
+          <p className="text-sm md:text-base text-muted-foreground font-sans">
+            Para distancias muy largas o fuera de cobertura habitual, el cotizador podría indicar &quot;Consultar&quot;.
+            En estos casos, te invitamos a <a href="/contacto" className="text-primary hover:underline font-semibold">contactarnos</a> para una cotización personalizada.
+          </p>
         </div>
       </div>
     </section>

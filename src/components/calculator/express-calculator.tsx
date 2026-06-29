@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Calculator, Loader2, PackageCheck, RotateCcw, ThumbsUp } from 'lucide-react';
+import { Calculator, Loader2, Package, ThumbsUp } from 'lucide-react';
 import React, { useState, FormEvent, useMemo } from 'react';
 import RouteMap from './route-map';
 import { AddressAutocomplete } from './address-autocomplete';
@@ -20,7 +20,7 @@ export default function ExpressCalculator() {
   const [destination, setDestination] = useState('');
   const [isCalculating, setIsCalculating] = useState(false);
   const [quoteDetails, setQuoteDetails] = useState<QuoteDetails | null>(null);
-  
+
   const { toast } = useToast();
 
   const mapCoordinates = useMemo(() => {
@@ -43,29 +43,29 @@ export default function ExpressCalculator() {
     }
     setIsCalculating(true);
     setQuoteDetails(null);
-    
+
     const result = await quoteShipment({
-        originAddress: origin,
-        destinationAddress: destination,
-        serviceType: ServiceTypeEnum.EXPRESS,
+      originAddress: origin,
+      destinationAddress: destination,
+      serviceType: ServiceTypeEnum.EXPRESS,
     });
 
     setIsCalculating(false);
 
     if (result.success && result.data) {
-        setQuoteDetails(result.data);
-        const priceText = result.data.price !== null ? `$${result.data.price.toLocaleString('es-AR')}` : "Consultar";
-        toast({
-            title: "Cotización Exitosa",
-            description: `Distancia: ${result.data.distanceText}. Precio: ${priceText}`,
-            variant: "default",
-        });
+      setQuoteDetails(result.data);
+      const priceText = result.data.price !== null ? `$${result.data.price.toLocaleString('es-AR')}` : "Consultar";
+      toast({
+        title: "Cotización Exitosa",
+        description: `Distancia: ${result.data.distanceText}. Precio: ${priceText}`,
+        variant: "default",
+      });
     } else {
-        toast({
-            variant: "destructive",
-            title: "Error de Cálculo",
-            description: result.error || "No se pudo calcular la ruta o el precio. Verifica las direcciones o inténtalo más tarde.",
-        });
+      toast({
+        variant: "destructive",
+        title: "Error de Cálculo",
+        description: result.error || "No se pudo calcular la ruta o el precio. Verifica las direcciones o inténtalo más tarde.",
+      });
     }
   };
 
@@ -77,7 +77,7 @@ export default function ExpressCalculator() {
   };
 
   return (
-    <section className="w-full py-12 md:py-16 bg-background font-body">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] w-full py-12 md:py-16 bg-background font-body">
       <div className="container mx-auto px-4 md:px-6 max-w-2xl lg:max-w-3xl">
         <Card className="glassmorphism border border-primary/20 shadow-crate rounded-none overflow-hidden bg-white">
           <CardHeader className="pt-8">
@@ -131,12 +131,12 @@ export default function ExpressCalculator() {
                 destination={mapCoordinates.destination}
               />
             )}
-            
+
             {quoteDetails && !isCalculating && (
               <Card className="mt-6 md:mt-8 bg-primary/10 border border-primary/20 rounded-none overflow-hidden backdrop-blur-sm shadow-crate">
                 <CardHeader className="pb-4">
                   <CardTitle className="text-headline-lg-mobile text-primary flex items-center font-title uppercase tracking-tight">
-                    <PackageCheck className="mr-2 md:mr-3 h-6 w-6 md:h-7 md:w-7" />
+                    <Package className="mr-2 md:mr-3 h-6 w-6 md:h-7 md:w-7" />
                     Tu Cotización Express
                   </CardTitle>
                   <CardDescription className="text-body-sm mt-1 font-body text-primary/70">
@@ -168,8 +168,8 @@ export default function ExpressCalculator() {
                   )}
                 </CardContent>
                 <CardFooter className="flex flex-col sm:flex-row gap-3 pt-4 md:pt-6">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-bold uppercase tracking-wider text-lg rounded-none shadow-industrial border-none"
                     disabled={quoteDetails.price === null}
                     onClick={() => alert('Funcionalidad "Confirmar Envío" pendiente de implementación.')}
@@ -178,7 +178,7 @@ export default function ExpressCalculator() {
                     Confirmar Envío Express
                   </Button>
                   <Button size="lg" variant="outline" className="w-full sm:w-auto font-subtitle font-bold uppercase tracking-wider text-lg rounded-none border-primary/20 text-primary hover:bg-primary/5" onClick={handleNewQuote}>
-                    <RotateCcw className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+                    <Loader2 className="mr-2 h-4 w-4 md:h-5 md:w-5" />
                     Nueva Cotización
                   </Button>
                 </CardFooter>

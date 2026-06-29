@@ -30,13 +30,13 @@ export function FormularioContacto() {
 
   if (enviado) {
     return (
-      <div className="bg-green-50 border border-green-300 p-8 text-center rounded-none shadow-crate">
+      <div data-style="soft-ui" className="bg-[var(--bg-base)] bg-green-50 border border-green-300 p-8 text-center rounded-none shadow-crate">
         <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
         <h4 className="text-2xl font-bold text-green-700 font-title uppercase mb-2">¡Consulta Recibida!</h4>
         <p className="text-green-600 font-body text-base mb-4">
           Muchas gracias, <strong>{formData.nombre}</strong>. En breve uno de nuestros asesores de Envíos DosRuedas se pondrá en contacto con vos.
         </p>
-        <Button 
+        <Button
           onClick={() => { setEnviado(false); setFormData({ nombre: '', email: '', telefono: '', mensaje: '' }); }}
           className="bg-primary hover:bg-primary/95 text-white font-subtitle font-bold tracking-wider uppercase rounded-none border border-primary text-base px-6 h-10"
         >
@@ -125,8 +125,8 @@ export function FormularioContacto() {
 
       {/* Submit Button */}
       <div className="pt-2">
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           className="w-full bg-secondary hover:bg-secondary/90 text-primary py-4 uppercase font-subtitle font-black tracking-wider rounded-none transition-all duration-300 transform active:scale-95 text-lg h-auto border-none"
         >
           <Send className="mr-2 h-5 w-5" />

@@ -29,33 +29,33 @@ const socialNetworks = [
 ];
 
 const feedItems = [
-  { 
-    id: 17, 
-    type: 'fb', 
+  {
+    id: 17,
+    type: 'fb',
     image: '/redes/fac1.webp',
     postUrl: "https://www.facebook.com/enviosdosruedas/posts/pfbid0a1i4tygsZQjwp9bsvS9xSHApJqMe5JkeoJbqx12Qvas18nSojtGhj6U9cFn3m5hDl"
   },
-  { 
-    id: 15, 
-    type: 'ig', 
+  {
+    id: 15,
+    type: 'ig',
     image: '/redes/ig1.webp',
     postUrl: "https://www.instagram.com/enviosdosruedas/p/DJhlS5xOrTb/"
   },
-  { 
-    id: 7, 
-    type: 'ig', 
+  {
+    id: 7,
+    type: 'ig',
     image: '/redes/ig3.webp',
     postUrl: "https://www.instagram.com/enviosdosruedas/p/DK12WIDslKW/"
   },
-  { 
-    id: 19, 
-    type: 'ig', 
+  {
+    id: 19,
+    type: 'ig',
     image: '/redes/ig4.webp',
     postUrl: "https://www.instagram.com/enviosdosruedas/p/DEaAGAmRMKj/"
   },
-  { 
-    id: 21, 
-    type: 'fb', 
+  {
+    id: 21,
+    type: 'fb',
     image: '/redes/fac2.webp',
     postUrl: "https://www.facebook.com/enviosdosruedas/posts/pfbid03WPv5ZE93ZNwL5PMRwuTpJxGaGSBzLigJqDSyzATNcSkRT3xBMZz7GKbhPv1mC53l"
   },
@@ -70,7 +70,7 @@ export const CarruselRedes = () => {
   }
 
   return (
-    <section className="py-32 px-6 bg-[#050810] overflow-hidden relative">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-32 px-6 bg-[#050810] overflow-hidden relative">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-1/2 bg-white/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">

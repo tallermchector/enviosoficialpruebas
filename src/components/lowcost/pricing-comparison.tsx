@@ -52,7 +52,7 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
 
   return (
     <section id="pricing-comparison" className="py-24 px-4 bg-background relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div data-style="soft-ui" className="bg-[var(--bg-base)] absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-20">
@@ -119,34 +119,34 @@ export function PricingComparison({ priceRanges }: PricingComparisonProps) {
         </div>
 
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           className="mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12"
         >
           <Card className="glassmorphism border border-white/10 rounded-none overflow-hidden p-8 md:p-12 shadow-crate hover:border-glow-secondary transition-stitch">
-             <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-bold tracking-widest mb-6 uppercase font-subtitle">
-                    COTIZACIÓN ESPECIAL
-                  </div>
-                  <h3 className="font-title text-display-md font-black text-foreground uppercase tracking-tighter mb-4 italic">
-                    ZONA 5: <span className="text-secondary">$700 / KM</span>
-                  </h3>
-                  <p className="text-primary/70 font-body leading-relaxed text-body-lg">
-                    Para envíos de larga distancia fuera del ejido urbano masivo, ofrecemos la tarifa más competitiva por kilómetro.
-                  </p>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-bold tracking-widest mb-6 uppercase font-subtitle">
+                  COTIZACIÓN ESPECIAL
                 </div>
-                <div className="flex justify-center md:justify-end">
-                   <Button
-                    onClick={handleWhatsAppClick}
-                    className="bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-bold px-10 py-6 rounded-none transition-all uppercase tracking-tight shadow-lg h-auto text-label-md hover:scale-105"
-                  >
-                    <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={24} height={24} className="w-6 h-6 mr-3" />
-                    CONSULTAR POR WHATSAPP
-                  </Button>
-                </div>
-             </div>
+                <h3 className="font-title text-display-md font-black text-foreground uppercase tracking-tighter mb-4 italic">
+                  ZONA 5: <span className="text-secondary">$700 / KM</span>
+                </h3>
+                <p className="text-primary/70 font-body leading-relaxed text-body-lg">
+                  Para envíos de larga distancia fuera del ejido urbano masivo, ofrecemos la tarifa más competitiva por kilómetro.
+                </p>
+              </div>
+              <div className="flex justify-center md:justify-end">
+                <Button
+                  onClick={handleWhatsAppClick}
+                  className="bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-bold px-10 py-6 rounded-none transition-all uppercase tracking-tight shadow-lg h-auto text-label-md hover:scale-105"
+                >
+                  <Image src="/icon/icon-whatsapp.svg" alt="WhatsApp Icon" width={24} height={24} className="w-6 h-6 mr-3" />
+                  CONSULTAR POR WHATSAPP
+                </Button>
+              </div>
+            </div>
           </Card>
         </motion.div>
       </div>

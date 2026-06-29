@@ -40,7 +40,7 @@ export function LowcostBenefits() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-slate-950 relative overflow-hidden">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-24 px-4 bg-slate-950 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -76,7 +76,7 @@ export function LowcostBenefits() {
                 <Card className="h-full border-white/10 hover:border-primary/50 transition-all duration-300 group glassmorphism shadow-crate rounded-none overflow-hidden relative">
                   <div className="absolute top-0 left-0 w-full h-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <CardContent className="p-10 relative">
-                     <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors duration-300" />
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rotate-45 translate-x-12 -translate-y-12 group-hover:bg-primary/5 transition-colors duration-300" />
 
                     <div className="flex justify-between items-start mb-8">
                       <div className="w-16 h-16 rounded-none bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 group-hover:border-primary/50 transition-transform relative">

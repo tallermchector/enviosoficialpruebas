@@ -34,7 +34,7 @@ export function CompanyStory() {
   ]
 
   return (
-    <section className="py-16 px-4 bg-accent/30 overflow-hidden">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-16 px-4 bg-accent/30 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -23,7 +23,7 @@ export const VisionSection = () => {
   ];
 
   return (
-    <section className="relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-[#050810] overflow-hidden">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] relative min-h-[100dvh] pt-28 pb-16 lg:pt-32 lg:pb-20 px-4 bg-[#050810] overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]">
         <div className="absolute inset-0 tech-grid-overlay" />

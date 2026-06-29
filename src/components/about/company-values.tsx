@@ -38,7 +38,7 @@ export function CompanyValues() {
   ]
 
   return (
-    <section className="py-16 px-4 bg-background">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-16 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -25,8 +25,8 @@ export function HowLowcostWorks() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-slate-900 relative overflow-hidden">
-       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-24 px-4 bg-slate-900 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-20">
@@ -57,7 +57,7 @@ export function HowLowcostWorks() {
             >
               <div className="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-none" />
               <div className="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 border border-primary/40 rounded-none flex items-center justify-center group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-300">
-                 <CheckCircle2 className="w-6 h-6 text-primary group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.8)] transition-all" />
+                <CheckCircle2 className="w-6 h-6 text-primary group-hover:drop-shadow-[0_0_8px_rgba(37,99,235,0.8)] transition-all" />
               </div>
               <h3 className="font-bebas text-xl font-bold mb-4 uppercase text-white tracking-wider">{step.title}</h3>
               <p className="text-gray-300 text-sm leading-relaxed font-sans">{step.description}</p>

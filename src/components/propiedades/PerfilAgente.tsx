@@ -21,13 +21,13 @@ interface PerfilAgenteProps {
 
 export function PerfilAgente({ agente }: PerfilAgenteProps) {
   return (
-    <div className="group relative flex flex-col sm:flex-row bg-white/10 backdrop-blur-md border border-white/20 rounded-none overflow-hidden shadow-crate hover:border-secondary transition-all duration-300 p-6 gap-6 items-center sm:items-stretch">
+    <div data-style="soft-ui" className="bg-[var(--bg-base)] group relative flex flex-col sm:flex-row bg-white/10 backdrop-blur-md border border-white/20 rounded-none overflow-hidden shadow-crate hover:border-secondary transition-all duration-300 p-6 gap-6 items-center sm:items-stretch">
       {/* Agent Photo Container */}
       <div className="relative w-32 h-32 sm:w-40 sm:h-auto min-h-[160px] bg-primary/20 shrink-0 border border-white/10 rounded-none overflow-hidden">
-        <Image 
-          src={agente.imagen} 
-          alt={agente.nombre} 
-          fill 
+        <Image
+          src={agente.imagen}
+          alt={agente.nombre}
+          fill
           sizes="(max-width: 768px) 128px, 160px"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -74,7 +74,7 @@ export function PerfilAgente({ agente }: PerfilAgenteProps) {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 mt-6">
-          <Button 
+          <Button
             asChild
             className="bg-secondary hover:bg-secondary/90 text-primary font-subtitle font-black tracking-wider uppercase rounded-none border border-secondary transition-all duration-300 px-6 text-base h-10 w-full sm:w-auto"
           >
@@ -82,7 +82,7 @@ export function PerfilAgente({ agente }: PerfilAgenteProps) {
               Chateá con {agente.nombre.split(' ')[0]}
             </a>
           </Button>
-          <Button 
+          <Button
             variant="outline"
             className="border-white/20 hover:border-white/50 text-white font-subtitle font-bold tracking-wider uppercase rounded-none transition-all duration-300 px-6 text-base h-10 w-full sm:w-auto hover:bg-white/5"
           >

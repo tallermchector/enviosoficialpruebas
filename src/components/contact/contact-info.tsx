@@ -75,7 +75,7 @@ export function ContactInfo() {
   ];
 
   return (
-    <section className="py-12 md:py-16 px-4 bg-transparent">
+    <section data-style="soft-ui" className="bg-[var(--bg-base)] py-12 md:py-16 px-4 bg-transparent">
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto">
           {/* Main Contact Card */}
@@ -89,8 +89,8 @@ export function ContactInfo() {
             <Card className="mb-8 sm:mb-10 shadow-crate border border-white/10 glassmorphism hover:border-glow-primary transition-stitch rounded-none">
               <CardContent className="p-6 sm:p-8 text-center">
                 <div className="flex items-center justify-center mb-2 sm:mb-3">
-                    <Home className="w-7 h-7 sm:w-8 sm:h-8 text-primary mr-2 sm:mr-3" />
-                    <h2 className="text-headline-lg-mobile sm:text-headline-lg md:text-display-md font-bold text-primary font-display uppercase tracking-wider mb-2">Envios DosRuedas</h2>
+                  <Home className="w-7 h-7 sm:w-8 sm:h-8 text-primary mr-2 sm:mr-3" />
+                  <h2 className="text-headline-lg-mobile sm:text-headline-lg md:text-display-md font-bold text-primary font-display uppercase tracking-wider mb-2">Envios DosRuedas</h2>
                 </div>
                 <p className="text-label-md text-gray-400 mb-4 sm:mb-6 uppercase">Mensajería y Delivery</p>
 
