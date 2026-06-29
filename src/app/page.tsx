@@ -95,7 +95,7 @@ const PricingSection = dynamic(
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#050810] text-foreground selection:bg-primary/30 flex flex-col">
+    <div className="min-h-screen bg-white text-primary selection:bg-primary/30 flex flex-col">
       <OptimizedHeader />
       <main className="flex-grow">
         {/* Sección 1: Hero Animado */}

@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@config "../../../tailwind.config.ts";
+@import "../../styles/design-variants.css";
+
+/* Custom Neo-Brutalist enhancements specific to the /nueva showcase */
+@layer utilities {
+  .border-brutal {
+    border: 3px solid #0636A5;
+  }
+  
+  .border-brutal-yellow {
+    border: 3px solid #FFEC01;
+  }
+
+  .shadow-brutal-blue {
+    box-shadow: 6px 6px 0px 0px #0636A5;
+  }
+
+  .shadow-brutal-yellow {
+    box-shadow: 6px 6px 0px 0px #FFEC01;
+  }
+
+  .shadow-brutal-white {
+    box-shadow: 6px 6px 0px 0px #FFFFFF;
+  }
+
+  .hover-brutal:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px 0px #FFEC01;
+  }
+
+  .hover-brutal-blue:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px 0px #0636A5;
+  }
+}
