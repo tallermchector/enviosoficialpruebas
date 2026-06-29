@@ -2,7 +2,7 @@ import { OptimizedHeader } from "@/components/homenew/optimized-header"
 import { EnviosFlexHero } from "@/components/envios-flex/envios-flex-hero"
 import { EnviosFlexContent } from "@/components/envios-flex/envios-flex-content"
 import { MercadoLibreBenefits } from "@/components/envios-flex/mercadolibre-benefits"
-import { FlexPricingRanges } from "@/components/envios-flex/flex-pricing-ranges"
+import { ExpressPricingRanges as FlexPricingRanges, PriceRangeClient } from "@/components/envios-flex/flex-pricing-ranges"
 import { HowItWorks } from "@/components/envios-flex/how-it-works"
 import { Requirements } from "@/components/envios-flex/requirements"
 import { EnviosFlexCta } from "@/components/envios-flex/envios-flex-cta"
@@ -11,7 +11,6 @@ import { Footer } from "@/components/homenew/footer"
 import type { Metadata } from "next"
 import prisma from "@/lib/prisma";
 import { ServiceTypeEnum } from '@prisma/client';
-import type { PriceRangeClient } from "@/components/envios-flex/flex-pricing-ranges";
 
 export const metadata: Metadata = {
   title: "Mercado Libre Flex Mar del Plata | Envíos en el Mismo Día",
